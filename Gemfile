@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record and postgress in productiong
@@ -52,4 +54,5 @@ group :test do
 end
 
 gem "rails_12factor", group: :production
+gem "puma", group: :production
 
