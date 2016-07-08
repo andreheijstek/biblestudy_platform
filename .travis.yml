@@ -1,0 +1,13 @@
+language: ruby
+rvm: 2.2.1
+script: bundle exec rspec
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: anT7JBBqXUnJnWS+6eU9JEga4Per1aIh04oD9QXt8nXF5MNM0lVIlMnVoR0NrwRgd74TvNUSD2DNGLPoNvXI07ZU3vY7b1fXwxoTB5zQz7Oa6qbDyMjwBATHXLW3Y1udmha1Fy56OQfSn096yvJUxLW1GHWmWZwku6mTCtIlwkgzBOslbfoY5aZtzaEFbnA1BlOxwOJkJa1WDUDDteJWFXLLJMKEg5sAkCsmxVQFBJum/oX/lI2YboRZsOajAIy4lgv2T/nm/6SkblYevKMWyL8sBFSx0HmierH5WsUY9Sl7BWs/mhRW5KVl6xFFSRp60BSAoX0B+GaCOCz4zKFai/stfiTsTXe2kN7vWDCgs4s7x6dwDThGE4Rnsv562atXbb+Dkqc8jkpe6/JFjgEGCWALjE5If8IimziikIFW1A066zsfiZsSviFaV9dI92Ir2JtZCpBvmuyudvnys8pntSuYriJuUtT/rXVriH4OmJgJsCAr6cAK2ncv1WVKtk/ZSXiKuuX4FtiMIYN1ev8r9abfFftOBR4wEo/nO1GFcyEtBwA9NiuMsMYYSDQWWGUJMprs0bASjYbM6fb5f9joEDUNNs2m6DiHTGURdxPMEBvwvKk+TEL5ZOpgWag9VOeKOP2lOudvjeWygd0/TrBYkEAx39hkrkN1Zu3yAzl7FBU=
+  app: guarded-waters-89456
+  on:
+    repo: andreheijstek/biblestudy_platform
