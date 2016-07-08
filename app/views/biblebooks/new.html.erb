@@ -1,5 +1,16 @@
 <h1>New Biblebook<h1>
 <%= form_for(@biblebook) do |f| %>
+    <% if @biblebook.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@biblebook.errors.count, "error") %>
+          prohibited this biblebook from being saved:</h2>
+        <ul>
+          <% @biblebook.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>

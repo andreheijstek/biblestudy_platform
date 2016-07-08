@@ -12,7 +12,8 @@ class BiblebooksController < ApplicationController
       flash[:notice] = "Biblebook has been created."
       redirect_to @biblebook
     else
-      # nothing, yet
+      flash.now[:alert] = "Biblebook has not been created."
+      render "new"
     end
   end
 
