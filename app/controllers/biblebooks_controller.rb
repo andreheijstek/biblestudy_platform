@@ -22,6 +22,21 @@ class BiblebooksController < ApplicationController
     @biblebook = Biblebook.find(params[:id])
   end
 
+  def edit
+    @biblebook = Biblebook.find(params[:id])
+  end
+
+  def update
+    @biblebook = Biblebook.find(params[:id])
+    if @biblebook.update(biblebook_params)
+      flash[:notice] = "Biblebook has been updated."
+      redirect_to @biblebook
+    else
+      flash.now[:alert] = "Biblebook has not been updated."
+      render "edit"
+    end
+  end
+
   private
 
   def biblebook_params
