@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record and postgress in production
+# Use sqlite3 as the database for Active Record and postgress in productiong
 gem "sqlite3", group: [:development, :test]
 gem "pg",      group:  :production
 # Use SCSS for stylesheets
@@ -50,4 +50,6 @@ end
 group :test do
   gem "capybara", "~> 2.4"
 end
+
+gem "rails_12factor", group: :production
 
