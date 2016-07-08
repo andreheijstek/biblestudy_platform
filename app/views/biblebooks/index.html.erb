@@ -1,1 +1,8 @@
+<h1>Biblebooks</h1>
 <%= link_to "New biblebook", new_biblebook_path %>
+<div id="biblebooks">
+  <% @biblebook.each do |biblebook| %>
+      <h2><%= link_to biblebook.name, biblebook %></h2>
+      <p><%= biblebook.description %></p>
+  <% end %>
+</div>

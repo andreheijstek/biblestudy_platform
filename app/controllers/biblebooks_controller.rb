@@ -1,5 +1,6 @@
 class BiblebooksController < ApplicationController
   def index
+    @biblebook = Biblebook.all
   end
 
   def new

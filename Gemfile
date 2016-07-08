@@ -4,9 +4,7 @@ ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record and postgress in productiong
-gem "sqlite3", group: [:development, :test]
-gem "pg",      group:  :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,6 +37,8 @@ group :development, :test do
   gem 'byebug'
   gem "rspec-rails", "~> 3.4.1"
   gem 'launchy'
+  # Use sqlite3 as the database for Active Record and postgress in productiong
+  gem "sqlite3"
 end
 
 group :development do
@@ -51,8 +51,13 @@ end
 
 group :test do
   gem "capybara", "~> 2.4"
+  gem "factory_girl_rails", "~> 4.5"
 end
 
-gem "rails_12factor", group: :production
-gem "puma", group: :production
+group :production do
+  gem "rails_12factor"
+  gem "puma"
+  gem "pg"
+end
+
 
