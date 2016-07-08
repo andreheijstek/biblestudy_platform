@@ -1,4 +1,3 @@
-=begin
 require "rails_helper"
 
 feature "Admins can create new bible sections" do
@@ -28,4 +27,3 @@ feature "Admins can create new bible sections" do
     expect(page).to have_content "Name can't be blank"
   end
 end
-=end
