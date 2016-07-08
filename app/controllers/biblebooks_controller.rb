@@ -1,4 +1,7 @@
 class BiblebooksController < ApplicationController
+
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+
   def index
     @biblebook = Biblebook.all
   end
@@ -19,15 +22,12 @@ class BiblebooksController < ApplicationController
   end
 
   def show
-    @biblebook = Biblebook.find(params[:id])
   end
 
   def edit
-    @biblebook = Biblebook.find(params[:id])
   end
 
   def update
-    @biblebook = Biblebook.find(params[:id])
     if @biblebook.update(biblebook_params)
       flash[:notice] = "Biblebook has been updated."
       redirect_to @biblebook
@@ -38,7 +38,6 @@ class BiblebooksController < ApplicationController
   end
 
   def destroy
-    @biblebook = Biblebook.find(params[:id])
     @biblebook.destroy
     flash[:notice] = "Biblebook has been deleted."
     redirect_to biblebooks_path
@@ -48,5 +47,12 @@ class BiblebooksController < ApplicationController
 
   def biblebook_params
     params.require(:biblebook).permit(:name, :description)
+  end
+
+  def set_project
+    @biblebook = Biblebook.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The biblebook you were looking for could not be found."
+    redirect_to biblebooks_path
   end
 end
