@@ -24,6 +24,6 @@ feature "Admins can create new bible sections" do
   scenario "when providing invalid attributes" do
     click_button "Create Biblebook"
     expect(page).to have_content "Biblebook has not been created."
-    expect(page).to have_content "Name can't be blank"
+    expect(page).to have_content "can't be blank"
   end
 end

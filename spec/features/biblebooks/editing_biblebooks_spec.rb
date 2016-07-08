@@ -6,7 +6,7 @@ feature "Users can edit existing biblebooks" do
     visit "/"
 
     click_link "Voorbeeld bijbelboek"
-    click_link "Edit Biblebook"
+    click_link "Edit Bible book"
   end
 
   scenario "with valid attributes" do

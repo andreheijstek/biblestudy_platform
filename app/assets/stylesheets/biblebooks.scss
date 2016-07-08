@@ -1,3 +1,8 @@
 // Place all the styles related to the biblebooks controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#biblebooks h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0px 0px;
+}

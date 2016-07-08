@@ -1,5 +1,10 @@
-<h1>Biblebooks</h1>
-<%= link_to "New biblebook", new_biblebook_path %>
+<header>
+<h1>Bible books</h1>
+  <ul class="actions">
+    <li><%= link_to "New biblebook", new_biblebook_path, class: "new" %></li>
+  </ul>
+</header>
+
 <div id="biblebooks">
   <% @biblebook.each do |biblebook| %>
       <h2><%= link_to biblebook.name, biblebook %></h2>

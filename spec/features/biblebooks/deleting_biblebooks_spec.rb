@@ -6,7 +6,7 @@ feature "Users can delete biblebooks" do
     visit "/"
     click_link "Handelingen"
 
-    click_link "Delete Biblebook"
+    click_link "Delete Bible book"
 
     expect(page).to have_content "Biblebook has been deleted."
     expect(page.current_url).to eq biblebooks_url
