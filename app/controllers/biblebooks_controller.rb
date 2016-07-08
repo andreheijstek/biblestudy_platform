@@ -37,6 +37,13 @@ class BiblebooksController < ApplicationController
     end
   end
 
+  def destroy
+    @biblebook = Biblebook.find(params[:id])
+    @biblebook.destroy
+    flash[:notice] = "Biblebook has been deleted."
+    redirect_to biblebooks_path
+  end
+
   private
 
   def biblebook_params
