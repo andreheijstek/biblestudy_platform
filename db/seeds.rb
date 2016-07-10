@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+["Mattheüs", "Marcus", "Lucas", "Johannes"].each do |name|
+  unless Biblebook.exists?(name: name)
+    Biblebook.create!(name: name, description: "Het evangelie naar de beschrijving van #{name}."
+    )
+  end
+end

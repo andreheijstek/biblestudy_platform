@@ -13,10 +13,10 @@ class BiblebooksController < ApplicationController
   def create
     @biblebook = Biblebook.new(biblebook_params)
     if @biblebook.save
-      flash[:notice] = "Biblebook has been created."
+      flash[:notice] = t(:biblebook_created)
       redirect_to @biblebook
     else
-      flash.now[:alert] = "Biblebook has not been created."
+      flash.now[:alert] = t(:biblebook_not_created)
       render "new"
     end
   end
@@ -29,17 +29,17 @@ class BiblebooksController < ApplicationController
 
   def update
     if @biblebook.update(biblebook_params)
-      flash[:notice] = "Biblebook has been updated."
+      flash[:notice] = t(:biblebook_updated)
       redirect_to @biblebook
     else
-      flash.now[:alert] = "Biblebook has not been updated."
+      flash.now[:alert] = t(:biblebook_not_updated)
       render "edit"
     end
   end
 
   def destroy
     @biblebook.destroy
-    flash[:notice] = "Biblebook has been deleted."
+    flash[:notice] = t(:biblebook_deleted)
     redirect_to biblebooks_path
   end
 
@@ -52,7 +52,7 @@ class BiblebooksController < ApplicationController
   def set_project
     @biblebook = Biblebook.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The biblebook you were looking for could not be found."
+    flash[:alert] = t(:biblebook_not_found)
     redirect_to biblebooks_path
   end
 end

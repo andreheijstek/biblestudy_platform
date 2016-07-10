@@ -1,12 +1,12 @@
-<% title(@biblebook.name, "Biblebooks") %>
+<% title(@biblebook.name, t(:biblebooks)) %>
 
 <header>
   <h1><%= @biblebook.name %></h1>
   <ul class="actions">
-    <li><%= link_to "Edit Bible book", edit_biblebook_path(@biblebook), class: "edit" %></li>
-    <li><%= link_to "Delete Bible book", biblebook_path(@biblebook),
+    <li><%= link_to t(:edit_bibilebook), edit_biblebook_path(@biblebook), class: "edit" %></li>
+    <li><%= link_to t(:delete_biblebook), biblebook_path(@biblebook),
                     method: :delete,
-                    data: { confirm: "Are you sure you want to delete this bible book?" },
+                    data: { confirm: t(:sure_to_delete) },
                     class: "delete" %></li>
   </ul>
 </header>
