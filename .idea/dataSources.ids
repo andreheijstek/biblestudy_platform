@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails biblestudy_platform: production" uuid="f178903c-a2ac-4af0-ac4e-bdec0e69eff2">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails biblestudy_platform: test" uuid="78e5ac23-2edc-4c9a-bf82-3dd94ac061c6">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails biblestudy_platform: development" uuid="f21c3b31-1509-4ca0-88af-a901cb84b845">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

@@ -1,0 +1,8 @@
+nl:
+  activerecord:
+    models:
+      biblebook:         Bijbelboek
+    attributes:
+      biblebook:
+        name:             "Naam"
+        description:      "Beschrijving"

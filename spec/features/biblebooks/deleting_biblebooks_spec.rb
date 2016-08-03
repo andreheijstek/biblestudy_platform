@@ -6,9 +6,9 @@ feature "Users can delete biblebooks" do
     visit "/"
     click_link "Handelingen"
 
-    click_link "Delete Bible book"
+    click_link t(:delete_biblebook)
 
-    expect(page).to have_content "Biblebook has been deleted."
+    expect(page).to have_content t(:biblebook_deleted)
     expect(page.current_url).to eq biblebooks_url
     expect(page).to have_no_content "Handelingen"
   end
