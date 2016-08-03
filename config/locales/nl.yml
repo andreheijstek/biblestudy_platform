@@ -230,7 +230,6 @@ nl:
       biblebook:
         description: Beschrijving
         name: Naam
-        new: Voeg bijbelboek toe
   support:
     array:
       last_word_connector: " en "
