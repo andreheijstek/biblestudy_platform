@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Page title is set according to the page content" do
+RSpec.feature "Page title is set according to the page content" do
   scenario "when adding a new biblebook" do
     ensure_on ("/")
     click_link t(:new_biblebook)

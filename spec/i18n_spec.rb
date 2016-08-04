@@ -1,3 +1,4 @@
+=begin
 # frozen_string_literal: true
 require 'i18n/tasks'
 
@@ -16,3 +17,4 @@ RSpec.describe 'I18n' do
       "#{unused_keys.leaves.count} unused i18n keys, run `i18n-tasks unused' to show them"
   end
 end
+=end

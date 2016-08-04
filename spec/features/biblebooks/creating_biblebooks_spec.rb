@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Admins can create new bible sections" do
+RSpec.feature "Admins can create new bible sections" do
 
   before do
     ensure_on ("/")

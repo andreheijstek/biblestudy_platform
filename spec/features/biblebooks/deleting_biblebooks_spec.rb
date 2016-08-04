@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Users can delete biblebooks" do
+RSpec.feature "Users can delete biblebooks" do
   scenario "successfully" do
     FactoryGirl.create(:biblebook, name: "Handelingen")
     visit "/"

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Users can view biblebooks" do
+RSpec.feature "Users can view biblebooks" do
   scenario "with the biblebook details" do
     biblebook = FactoryGirl.create(:biblebook, name: "Bijbelboek")
     visit "/"

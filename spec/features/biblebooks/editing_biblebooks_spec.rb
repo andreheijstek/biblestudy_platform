@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Users can edit existing biblebooks" do
+RSpec.feature "Users can edit existing biblebooks" do
   before do
     FactoryGirl.create(:biblebook, name: "Voorbeeld bijbelboek")
     ensure_on ("/")
