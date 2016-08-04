@@ -10,6 +10,6 @@ def ensure_on(path)
   visit(path) unless current_path == path
 end
 
-def submit
+def submit_form
   find(:name, 'commit').click
 end

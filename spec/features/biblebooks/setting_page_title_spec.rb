@@ -9,7 +9,7 @@ feature "Page title is set according to the page content" do
     fill_in t(:name, scope: [:simple_form, :labels, :biblebook]), with: bookname
     fill_in t(:description, scope: [:simple_form, :labels, :biblebook]), with: "De handelingen der apostelen"
 
-    submit
+    submit_form
 
     title = "#{bookname} - #{t(:biblebooks)} - #{t(:biblestudy_platform)}"
     expect(page).to have_title title

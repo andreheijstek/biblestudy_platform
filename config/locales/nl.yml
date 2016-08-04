@@ -247,3 +247,4 @@ nl:
       short: "%d %b %H:%M"
       time: "%H:%M"
     pm: "'s middags"
+  update_biblebook: "Bijbelboek wijzigen"
