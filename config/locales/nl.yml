@@ -173,6 +173,8 @@ nl:
       submit: "%{model} opslaan"
       update: "%{model} bewaren"
   home: Home
+  name: Naam
+  description: Beschrijving
   new_biblebook: Nieuw bijbelboek
   number:
     currency:

@@ -9,9 +9,14 @@ feature "Admins can create new bible sections" do
 
   scenario "for single bible books" do
     bookname = "Handelingen"
-    fill_in "Name", with: bookname
-    fill_in "Description", with: "De handelingen der apostelen"
-    click_button "Create Biblebook"
+    fill_in t(:name), with: bookname
+    fill_in t(:description), with: "De handelingen der apostelen"
+
+    # TODO: This is not DRY. I have a name and description as attributes of biblebook, but don't know how
+    #       to access them here, therefore I have also created a separate name and description
+
+    # click_button "Create Biblebook"
+    submit
     expect(page).to have_content t(:biblebook_created)
 
     book = Biblebook.find_by(name: "Handelingen")
@@ -21,8 +26,13 @@ feature "Admins can create new bible sections" do
   end
 
   scenario "when providing invalid attributes" do
-    click_button "Create Biblebook"
+    submit
     expect(page).to have_content t(:biblebook_not_created)
-    expect(page).to have_content "can't be blank"
+    expect(page).to have_content t(:blank, scope: [:activerecord, :models, :messages])
   end
+end
+
+def submit
+  find(:name, 'commit').click
+
 end
