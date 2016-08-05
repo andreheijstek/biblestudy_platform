@@ -16,7 +16,11 @@
  "Filemon", "Hebreeën", "Jakobus", "1 Petrus", "2 Petrus", "1 Johannes", "2 Johannes", "3 Johannes",
  "Judas", "Openbaring"].each_with_index do |name, index|
   unless Biblebook.exists?(name: name)
-    Biblebook.create!(name: name, booksequence: index)
+    if index < 39
+      Biblebook.create!(name: name, booksequence: index, testament: 'oud')
+    else
+      Biblebook.create!(name: name, booksequence: index, testament: 'nieuw')
+    end
   end
 end
 

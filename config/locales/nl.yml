@@ -230,6 +230,7 @@ nl:
       biblebook:
         name: Naam
         booksequence: "volgorde"
+        testament: "testament"
   support:
     array:
       last_word_connector: " en "

@@ -46,7 +46,7 @@ class BiblebooksController < ApplicationController
   private
 
   def biblebook_params
-    params.require(:biblebook).permit(:name, :booksequence)
+    params.require(:biblebook).permit(:name, :booksequence, :testament)
   end
 
   def set_project
