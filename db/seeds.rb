@@ -14,9 +14,9 @@
  "Handelingen", "Romeinen", "1 Korintiërs", "2 Korintiërs", "Galaten", "Efeziërs", "Filippenzen",
  "Kolossenzen", "1 Tessalonicenzen", "2 Tessalonicenzen", "1 Timotheüs", "2 Timotheüs", "Titus",
  "Filemon", "Hebreeën", "Jakobus", "1 Petrus", "2 Petrus", "1 Johannes", "2 Johannes", "3 Johannes",
- "Judas", "Openbaring"].each do |name|
+ "Judas", "Openbaring"].each_with_index do |name, index|
   unless Biblebook.exists?(name: name)
-    Biblebook.create!(name: name)
+    Biblebook.create!(name: name, booksequence: index)
   end
 end
 

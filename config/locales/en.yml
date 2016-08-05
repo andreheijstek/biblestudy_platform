@@ -183,7 +183,6 @@ en:
         update: Bewaar wijzigingen
     labels:
       biblebook:
-        description: Beschrijving
         name: Naam
         new: Voeg bijbelboek toe
   support:

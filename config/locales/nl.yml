@@ -229,6 +229,7 @@ nl:
     labels:
       biblebook:
         name: Naam
+        booksequence: "volgorde"
   support:
     array:
       last_word_connector: " en "
