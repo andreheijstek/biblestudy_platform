@@ -7,7 +7,6 @@ RSpec.feature "Page title is set according to the page content" do
 
     bookname = "Handelingen"
     fill_in t(:name, scope: [:simple_form, :labels, :biblebook]), with: bookname
-    fill_in t(:description, scope: [:simple_form, :labels, :biblebook]), with: "De handelingen der apostelen"
 
     submit_form
 

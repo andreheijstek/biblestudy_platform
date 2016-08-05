@@ -228,7 +228,6 @@ nl:
         update: Bewaar wijzigingen
     labels:
       biblebook:
-        description: Beschrijving
         name: Naam
   support:
     array:

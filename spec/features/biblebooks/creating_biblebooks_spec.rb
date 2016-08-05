@@ -10,7 +10,6 @@ RSpec.feature "Admins can create new bible sections" do
   scenario "for single bible books" do
     bookname = "Handelingen"
     fill_in t('simple_form.labels.biblebook.name'),        with: bookname
-    fill_in t('simple_form.labels.biblebook.description'), with: "De handelingen der apostelen"
 
     submit_form
 
