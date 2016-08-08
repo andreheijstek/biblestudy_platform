@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805204355) do
+ActiveRecord::Schema.define(version: 20160807195509) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -20,5 +20,15 @@ ActiveRecord::Schema.define(version: 20160805204355) do
     t.integer  "booksequence"
     t.string   "testament"
   end
+
+  create_table "chapters", force: :cascade do |t|
+    t.integer  "chapter_number"
+    t.string   "description"
+    t.integer  "biblebook_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "chapters", ["biblebook_id"], name: "index_chapters_on_biblebook_id"
 
 end

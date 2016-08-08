@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Admins can create new bible sections" do
+RSpec.feature "Admins can create new bible books" do
 
   before do
     ensure_on ("/")
@@ -26,6 +26,7 @@ RSpec.feature "Admins can create new bible sections" do
     expect(page).to have_content t(:biblebook_not_created)
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
+
 end
 
 

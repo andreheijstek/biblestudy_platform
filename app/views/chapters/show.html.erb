@@ -1,0 +1,9 @@
+<div id="chapter">
+  <header>
+    <h1><%= @biblebook.name %></h1>
+  </header>
+  <header>
+    <h2><%= @chapter.chapter_number %></h2>
+  </header>
+  <%= simple_format(@chapter.description) %>
+</div>

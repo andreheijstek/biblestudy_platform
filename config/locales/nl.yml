@@ -231,6 +231,9 @@ nl:
         name: Naam
         booksequence: "volgorde"
         testament: "testament"
+      chapter:
+        chapter_number: "hoofdstuk"
+        description: "beschrijving"
   support:
     array:
       last_word_connector: " en "
@@ -249,3 +252,8 @@ nl:
       time: "%H:%M"
     pm: "'s middags"
   update_biblebook: "Bijbelboek wijzigen"
+  add_chapter: "Voeg hoofdstuk toe"
+  new_chapter: "Nieuw hoofdstuk"
+  chapter_created: "Hoofdstuk is gemaakt"
+  chapter_not_created: "Hoofdstuk niet aangemaakt"
+  chapter_number_blank: "Hoofdstuknummer mag niet leeg zijn"
