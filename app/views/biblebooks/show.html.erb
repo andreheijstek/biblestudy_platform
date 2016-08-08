@@ -18,3 +18,12 @@
                     class: "new" %></li>
   </ul>
 </header>
+
+<ul id="chapters">
+  <% @biblebook.chapters.each do |chapter| %>
+      <li>
+        <%= chapter.chapter_number %> -
+        <%= link_to chapter.description, [@biblebook, chapter] %>
+      </li>
+  <% end %>
+</ul>
