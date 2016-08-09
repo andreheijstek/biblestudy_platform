@@ -24,3 +24,22 @@
   end
 end
 
+books = [
+  {name: "Genesis",         chapters: 50},
+  {name: "Exodus",          chapters: 40},
+  {name: "Leviticus",       chapters: 27},
+  {name: "Numeri",          chapters: 36},
+  {name: "Deuteronomium",   chapters: 34},
+  {name: "Jozua",           chapters: 24},
+  {name: "Richteren",       chapters: 21},
+  {name: "Ruth",            chapters: 4}
+]
+
+books.each do |book|
+  id = Biblebook.find_by(name: book[:name]).id
+  (1..book[:chapters]).each do |chapter|
+    unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
+      Chapter.create(chapter_number: chapter, description: "", biblebook_id: id)
+    end
+  end
+end

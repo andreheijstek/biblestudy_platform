@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/biblebook.rb" afterPath="$PROJECT_DIR$/app/models/biblebook.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/chapter.rb" afterPath="$PROJECT_DIR$/app/models/chapter.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="biblestudy_platform.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +44,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nl.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/locales/nl.yml">
+      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="398">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -57,8 +67,8 @@
       <file leaf-file-name="creating_biblebook_chapters_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebook_chapters_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
               <folding>
                 <element signature="e#305#320#1" expanded="true" />
                 <element signature="e#333#379#0" expanded="true" />
@@ -72,55 +82,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewing_biblebook_chapters_spec.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/viewing_biblebook_chapters_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="biblebooks_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/biblebooks_controller.rb">
+      <file leaf-file-name="creating_biblebooks_spec.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebooks_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="biblebook.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/biblebook.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chapters_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/chapters_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#324#343#0" expanded="true" />
-                <element signature="e#420#443#0" expanded="true" />
+                <element signature="e#298#344#0" expanded="true" />
+                <element signature="e#366#409#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -182,7 +152,6 @@
         <option value="$PROJECT_DIR$/spec/features/biblebooks/viewing_biblebooks_overview_spec.rb" />
         <option value="$PROJECT_DIR$/app/views/biblebooks/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/biblebooks_controller.rb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/views/biblebooks/index.html.erb" />
         <option value="$PROJECT_DIR$/spec/features/biblebooks/creating_biblebooks_spec.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -197,6 +166,7 @@
         <option value="$PROJECT_DIR$/spec/features/biblebooks/viewing_biblebook_chapters_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/chapter.rb" />
         <option value="$PROJECT_DIR$/app/models/biblebook.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
   </component>
@@ -289,24 +259,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="features" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -325,29 +277,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,24 +292,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -811,7 +723,7 @@
       <option name="presentableId" value="Default" />
       <updated>1467891002263</updated>
       <workItem from="1470169589608" duration="22211000" />
-      <workItem from="1470322964754" duration="19316000" />
+      <workItem from="1470322964754" duration="23497000" />
     </task>
     <servers />
   </component>
@@ -848,19 +760,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41527000" />
+    <option name="totallyTimeSpent" value="45708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26979" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26979" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51835537" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51835537" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1094,14 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/biblebooks/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1150,17 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebooks_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="54" />
-          <folding>
-            <element signature="e#298#344#0" expanded="true" />
-            <element signature="e#366#409#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/biblebooks/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1201,65 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/chapters_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="e#324#343#0" expanded="true" />
-            <element signature="e#420#443#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/nl.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebook_chapters_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#305#320#1" expanded="true" />
-            <element signature="e#333#379#0" expanded="true" />
-            <element signature="e#403#446#0" expanded="true" />
-            <element signature="e#517#536#1" expanded="true" />
-            <element signature="e#609#624#1" expanded="true" />
-            <element signature="e#674#697#1" expanded="true" />
-            <element signature="e#731#770#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/viewing_biblebook_chapters_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/biblebooks_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/chapter.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1288,6 +1122,84 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/viewing_biblebook_chapters_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/nl.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebook_chapters_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#305#320#1" expanded="true" />
+            <element signature="e#333#379#0" expanded="true" />
+            <element signature="e#403#446#0" expanded="true" />
+            <element signature="e#517#536#1" expanded="true" />
+            <element signature="e#609#624#1" expanded="true" />
+            <element signature="e#674#697#1" expanded="true" />
+            <element signature="e#731#770#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/biblebooks_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/chapters_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding>
+            <element signature="e#324#343#0" expanded="true" />
+            <element signature="e#420#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/features/biblebooks/creating_biblebooks_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#298#344#0" expanded="true" />
+            <element signature="e#366#409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
           <folding />
         </state>
       </provider>
