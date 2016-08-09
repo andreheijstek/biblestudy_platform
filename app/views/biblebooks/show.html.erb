@@ -22,8 +22,11 @@
 <ul id="chapters">
   <% @biblebook.chapters.each do |chapter| %>
       <li>
-        <%= chapter.chapter_number %> -
-        <%= link_to chapter.description, [@biblebook, chapter] %>
+        <%= link_to chapter.chapter_number, [@biblebook, chapter] %>
+        <%= if chapter.description.present?
+              " - #{chapter.description}"
+            end
+        %>
       </li>
   <% end %>
 </ul>

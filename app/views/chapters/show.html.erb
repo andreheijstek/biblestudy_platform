@@ -1,9 +1,20 @@
 <div id="chapter">
   <header>
     <h1><%= @biblebook.name %></h1>
+    <ul class="actions">
+      <li><%= link_to t(:delete_chapter), [@biblebook, @chapter],
+                      method: :delete,
+                      data: { confirm: t(:sure_to_delete) },
+                      class: "delete" %>
+      </li>
+    </ul>
   </header>
   <header>
-    <h2><%= @chapter.chapter_number %></h2>
+    <h2>Chapter: <%= @chapter.chapter_number %></h2>
   </header>
   <%= simple_format(@chapter.description) %>
 </div>
+
+
+
+

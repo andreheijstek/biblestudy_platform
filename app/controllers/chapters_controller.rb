@@ -21,6 +21,12 @@ class ChaptersController < ApplicationController
   def show
   end
 
+  def destroy
+    @chapter.destroy
+    flash[:notice] = t(:chapter_deleted)
+    redirect_to @biblebook
+  end
+
   private
 
 

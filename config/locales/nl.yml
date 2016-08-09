@@ -257,3 +257,5 @@ nl:
   chapter_created: "Hoofdstuk is gemaakt"
   chapter_not_created: "Hoofdstuk niet aangemaakt"
   chapter_number_blank: "Hoofdstuknummer mag niet leeg zijn"
+  delete_chapter: "Verwijder hoofdstuk"
+  chapter_deleted: "Hoofdstuk is verwijderd"
