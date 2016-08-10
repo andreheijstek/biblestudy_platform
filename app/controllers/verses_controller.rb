@@ -21,6 +21,19 @@ class VersesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @verse.update(verse_params)
+      flash[:notice] = t(:verse_updated)
+      redirect_to [@biblebook, @chapter, @verse]
+    else
+      flash.now[:alert] = t(:verse_not_updated)
+      render "edit"
+    end
+  end
+
   private
 
   def verse_params

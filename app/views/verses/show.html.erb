@@ -5,5 +5,14 @@
   <header>
     <h2><%= "Verse #{@verse.verse_number}" %></h2>
   </header>
+
+  <header>
+    <h2><%= @verse.verse_text %></h2>
+    <ul class="actions">
+      <li><%= link_to t(:edit_verse), [:edit, @biblebook, @chapter, @verse],
+                      class: "edit" %></li>
+    </ul>
+  </header>
+
   <%= simple_format(@verse.verse_text) %>
 </div>

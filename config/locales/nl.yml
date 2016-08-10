@@ -144,6 +144,7 @@ nl:
       year: jaar
   delete_biblebook: Bijbelboek verwijderen
   edit_bibilebook: Bijbelboek wijzigen
+  edit_verse: Vers wijzigen
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -270,3 +271,4 @@ nl:
   new_verse: "Nieuw vers"
   chapter: "hoofdstuk"
   chapters: "hoofdstukken"
+  verse_updated: "Vers is bijgewerkt"
