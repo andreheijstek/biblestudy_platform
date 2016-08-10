@@ -1,9 +1,9 @@
 <div id="verse">
   <header>
-    <h1> <%= @chapter.chapter_number %></h1>
+    <h1> <%= "Chapter #{@chapter.chapter_number}" %></h1>
   </header>
   <header>
-    <h2><%= @verse.verse_number %></h2>
+    <h2><%= "Verse #{@verse.verse_number}" %></h2>
   </header>
-  <%= simple_format(@verse.verse_number.to_s) %>
+  <%= simple_format(@verse.verse_text) %>
 </div>
