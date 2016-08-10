@@ -6,6 +6,8 @@ nl:
         format: "%{attribute} %{message}"
     models:
       biblebook: bijbelboek
+      chapter: hoofdstuk
+      verse: vers
       messages:
         accepted: moet worden geaccepteerd
         blank: moet opgegeven zijn
@@ -229,11 +231,14 @@ nl:
     labels:
       biblebook:
         name: Naam
-        booksequence: "volgorde"
-        testament: "testament"
+        booksequence: volgorde
+        testament: testament
       chapter:
-        chapter_number: "hoofdstuk"
-        description: "beschrijving"
+        chapter_number: hoofdstuk
+        description: beschrijving
+      verse:
+        verse_number: vers nummer
+        verse_text: bijbeltekst
   support:
     array:
       last_word_connector: " en "
@@ -255,7 +260,13 @@ nl:
   add_chapter: "Voeg hoofdstuk toe"
   new_chapter: "Nieuw hoofdstuk"
   chapter_created: "Hoofdstuk is gemaakt"
-  chapter_not_created: "Hoofdstuk niet aangemaakt"
+  chapter_not_created: "Hoofdstuk niet toegevoegd"
   chapter_number_blank: "Hoofdstuknummer mag niet leeg zijn"
   delete_chapter: "Verwijder hoofdstuk"
   chapter_deleted: "Hoofdstuk is verwijderd"
+  verse_created: "Vers toegevoegd"
+  verse_not_created: "Vers niet toegevoegd"
+  verses: "Verzen"
+  new_verse: "Nieuw vers"
+  chapter: "hoofdstuk"
+  chapters: "hoofdstukken"

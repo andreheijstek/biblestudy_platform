@@ -1,5 +1,6 @@
 class Chapter < ActiveRecord::Base
   belongs_to :biblebook
+  has_many :verses
 
   validates :chapter_number, presence: true
 

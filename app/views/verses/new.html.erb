@@ -1,0 +1,6 @@
+<header>
+  <h1>
+    <%= "#{t(:new_verse)} in #{t(:chapter)} #{@chapter.chapter_number}" %>
+  </h1>
+</header>
+<%= render "form", biblebook: @biblebook, chapter: @chapter, verse: @verse %>

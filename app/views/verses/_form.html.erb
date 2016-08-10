@@ -1,0 +1,5 @@
+<%= simple_form_for([biblebook, chapter, verse]) do |f| %>
+    <%= f.input :verse_number %>
+    <%= f.input :verse_text %>
+    <%= f.button :submit, class: "btn-primary" %>
+<% end %>

@@ -10,9 +10,17 @@
     </ul>
   </header>
   <header>
-    <h2>Chapter: <%= @chapter.chapter_number %></h2>
+    <h2><%= "#{t(:chapter).capitalize} #{@chapter.chapter_number}" %></h2>
   </header>
   <%= simple_format(@chapter.description) %>
+
+  <header>
+    <h2><%= t(:verses) %></h2>
+    <ul class="actions">
+      <li><%= link_to t(:new_verse), new_biblebook_chapter_verse_path(@biblebook, @chapter),
+                      class: "new" %></li>
+    </ul>
+  </header>
 </div>
 
 
