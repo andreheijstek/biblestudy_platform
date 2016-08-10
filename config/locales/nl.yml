@@ -272,3 +272,5 @@ nl:
   chapter: "hoofdstuk"
   chapters: "hoofdstukken"
   verse_updated: "Vers is bijgewerkt"
+  verse_deleted: "Vers is verwijderd"
+  delete_verse: "Verwijder vers"
