@@ -34,6 +34,12 @@ class VersesController < ApplicationController
     end
   end
 
+  def destroy
+    @verse.destroy
+    flash[:notice] = t(:verse_deleted)
+    redirect_to [@biblebook, @chapter]
+  end
+
   private
 
   def verse_params

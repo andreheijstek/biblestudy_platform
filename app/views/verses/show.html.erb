@@ -11,6 +11,10 @@
     <ul class="actions">
       <li><%= link_to t(:edit_verse), [:edit, @biblebook, @chapter, @verse],
                       class: "edit" %></li>
+      <li><%= link_to t(:delete_verse), [@biblebook, @chapter, @verse],
+                      method: :delete,
+                      data: { confirm: t(:sure_to_delete_verse) },
+                      class: "delete" %></li>
     </ul>
   </header>
 

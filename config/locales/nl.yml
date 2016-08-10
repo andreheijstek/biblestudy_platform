@@ -247,7 +247,9 @@ nl:
       words_connector: ", "
     select:
       prompt: Selecteer
-  sure_to_delete: Weet u zeker dat u dit bijbelboek wilt verwijderen?
+  sure_to_delete_biblebook: Weet u zeker dat u dit bijbelboek wilt verwijderen?
+  sure_to_delete_chapter: Weet u zeker dat u dit hoofdstuk wilt verwijderen?
+  sure_to_delete_verse: Weet u zeker dat u dit vers wilt verwijderen?
   time:
     am: "'s ochtends"
     formats:

@@ -12,6 +12,6 @@ RSpec.feature "Users can delete chapters" do
   scenario "successfully" do
     click_link t(:delete_verse)
     expect(page).to have_content t(:verse_deleted)
-    expect(page.current_url).to eq biblebook_url(biblebook)
+    expect(page.current_url).to eq biblebook_chapter_url(biblebook, chapter)
   end
 end
