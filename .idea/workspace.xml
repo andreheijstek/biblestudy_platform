@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" afterPath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ruby-version" afterPath="$PROJECT_DIR$/.ruby-version" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-    </list>
+    <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="" />
     <ignored path="biblestudy_platform.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -668,7 +661,7 @@
       <workItem from="1470169589608" duration="22211000" />
       <workItem from="1470322964754" duration="25132000" />
       <workItem from="1470739525247" duration="495000" />
-      <workItem from="1470755430033" duration="18747000" />
+      <workItem from="1470755430033" duration="19730000" />
     </task>
     <servers />
   </component>
@@ -705,7 +698,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66585000" />
+    <option name="totallyTimeSpent" value="67568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
