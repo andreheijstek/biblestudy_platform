@@ -98,28 +98,24 @@ books.each do |book|
   id = Biblebook.find_by(name: book[:name]).id
   (1..book[:chapters]).each do |chapter|
     unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
-      Chapter.create(chapter_number: chapter, description: "", biblebook_id: id)
+      Chapter.create!(chapter_number: chapter, description: "", biblebook_id: id)
     end
   end
 end
 
-verses = {"Genesis" => [31,25],
-          "Exodus"  => [10,11]}
+book_content = {"Genesis" => [31,25,22],
+                "Exodus"  => [10,11]}
 
-puts "Adding verses"
 
-# books.each do |book|
-("Genesis" .. "Exodus").each do |book|
-  puts "Boek: #{book}"
-  id = Biblebook.find_by(name: book[:name]).id
-  # (1..book[:chapters]).each do |chapter|
-  (1..2).each do |chapter|
-    puts "#{book} - chapters: #{book[:chapters]} - verses: #{verses[book[:name]]}"
-    chapter_id = Chapter.find_by(chapter_number: chapter, biblebook_id: id)
-    verses[book[:name]].each do |verse|
-      puts "Verse: #{verse}"
+book_content.each do |book|
+  book_title = book[0]
+  book_id    = Biblebook.find_by(name: book[0]).id
+  nr_of_chapters = book_content[book[0]].length
+  book_content[book[0]].each_with_index do |nr_of_verses, index|
+    chapter_id = Chapter.find_by(chapter_number: index+1, biblebook_id: book_id).id
+    (1..nr_of_verses).each do |verse|
       unless Verse.exists?(verse_number: verse, chapter_id: chapter_id)
-        Verse.create(verse_number: verse, chapter_id: chapter_id)
+        Verse.create!(verse_number: verse, chapter_id: chapter_id)
       end
     end
   end
