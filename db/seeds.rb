@@ -102,3 +102,25 @@ books.each do |book|
     end
   end
 end
+
+verses = {"Genesis" => [31,25],
+          "Exodus"  => [10,11]}
+
+puts "Adding verses"
+
+# books.each do |book|
+("Genesis" .. "Exodus").each do |book|
+  puts "Boek: #{book}"
+  id = Biblebook.find_by(name: book[:name]).id
+  # (1..book[:chapters]).each do |chapter|
+  (1..2).each do |chapter|
+    puts "#{book} - chapters: #{book[:chapters]} - verses: #{verses[book[:name]]}"
+    chapter_id = Chapter.find_by(chapter_number: chapter, biblebook_id: id)
+    verses[book[:name]].each do |verse|
+      puts "Verse: #{verse}"
+      unless Verse.exists?(verse_number: verse, chapter_id: chapter_id)
+        Verse.create(verse_number: verse, chapter_id: chapter_id)
+      end
+    end
+  end
+end
