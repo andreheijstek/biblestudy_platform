@@ -149,10 +149,33 @@ book_content = {
   "Spreuken" =>      [33,22,35,27,23,35,27,36,18,32,31,28,25,35,33,33,28,24,29,30,
                       31,29,35,34,28,28,27,28,27,33,31],
 
-  "Prediker" =>      [18,26,22,17,19,12,29,17,18,20,10,14]
-  # "Hooglied", "Jesaja", "Jeremia",
-#     "Klaagliederen", "Ezechiël", "Daniël", "Hosea", "Joël", "Amos", "Obadja", "Jona", "Micha", "Nahum",
-#     "Habakuk", "Sefanja", "Haggai", "Zacharia", "Maleachi", "Mattheüs", "Markus", "Lukas", "Johannes",
+  "Prediker" =>      [18,26,22,17,19,12,29,17,18,20,10,14],
+  "Hooglied" =>      [17,17,11,16,16,13,13,14],
+  "Jesaja" =>        [31,22,26, 6,30,13,25,23,20,34,16, 6,22,32, 9,14,14, 7,25, 6,
+                      17,25,18,23,12,21,13,29,24,33, 9,20,24,17,10,22,38,22, 8,31,
+                      29,25,28,28,25,13,15,22,26,11,23,15,12,17,13,12,21,14,21,22,
+                      11,12,19,12,25,24],
+  "Jeremia" =>       [19,37,25,31,31,30,34,22,26,25,23,17,27,22,21,21,27,23,15,18,
+                      14,30,40,10,38,24,22,17,32,24,40,44,26,22,19,32,21,28,18,16,
+                      18,22,13,30, 5,28, 7,47,39,46,64,34],
+ "Klaagliederen" =>  [22,22,66,22,22],
+ "Ezechiël" =>       [28,10,27,17,17,14,27,18,11,22,25,28,23,23, 8,63,24,32,14,49,
+                      32,31,49,27,17,21,36,26,21,26,18,32,33,31,15,38,28,23,29,49,
+                      26,20,27,31,25,24,23,35],
+  "Daniël" =>        [21,49,30,37,30,29,28,27,27,21,45,13],
+  "Hosea" =>         [12,22, 5,19,15,11,16,14,17,15,11,15,15,10],
+  "Joël" =>          [20,32,21],
+  "Amos" =>          [15,16,15,13,27,14,17],
+  "Obadja" =>        [21],
+  "Jona" =>          [17,10,10,11],
+  "Micha" =>         [16,13,12,14,14,16,20],
+  "Nahum" =>         [15,13,19],
+  "Habakuk" =>       [17,20,19],
+  "Sefanja" =>       [18,15,20],
+  "Haggai" =>        [14,24],
+  "Zacharia" =>      [21,13,10,14,11,15,14,23,17,12,17,14, 9,21],
+  "Maleachi" =>      [14,17,18,6]
+# "Mattheüs", "Markus", "Lukas", "Johannes",
 #     "Handelingen", "Romeinen", "1 Korintiërs", "2 Korintiërs", "Galaten", "Efeziërs", "Filippenzen",
 #     "Kolossenzen", "1 Tessalonicenzen", "2 Tessalonicenzen", "1 Timotheüs", "2 Timotheüs", "Titus",
 #     "Filemon", "Hebreeën", "Jakobus", "1 Petrus", "2 Petrus", "1 Johannes", "2 Johannes", "3 Johannes",
@@ -161,6 +184,7 @@ book_content = {
 
 book_content.each do |book|
   book_title = book[0]
+  puts book_title
   book_id    = Biblebook.find_by(name: book[0]).id
   nr_of_chapters = book_content[book[0]].length
   book_content[book[0]].each_with_index do |nr_of_verses, index|
