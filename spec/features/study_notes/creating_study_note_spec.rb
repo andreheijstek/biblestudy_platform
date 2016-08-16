@@ -1,3 +1,4 @@
+=begin
 require "rails_helper"
 
 RSpec.feature "Users can create new study-notes and associate them to pericopes" do
@@ -14,12 +15,11 @@ RSpec.feature "Users can create new study-notes and associate them to pericopes"
     expect(page).to have_content t(:study_note_created)
   end
 
-=begin
   scenario "when providing invalid attributes" do
     click_link t(:new_verse)
     submit_form
     expect(page).to have_content t(:verse_not_created)
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
-=end
 end
+=end
