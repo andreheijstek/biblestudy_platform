@@ -7,7 +7,6 @@ nl:
     models:
       biblebook: bijbelboek
       chapter: hoofdstuk
-      verse: vers
       messages:
         accepted: moet worden geaccepteerd
         blank: moet opgegeven zijn
@@ -144,7 +143,6 @@ nl:
       year: jaar
   delete_biblebook: Bijbelboek verwijderen
   edit_bibilebook: Bijbelboek wijzigen
-  edit_verse: Vers wijzigen
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -267,12 +265,7 @@ nl:
   chapter_number_blank: "Hoofdstuknummer mag niet leeg zijn"
   delete_chapter: "Verwijder hoofdstuk"
   chapter_deleted: "Hoofdstuk is verwijderd"
-  verse_created: "Vers toegevoegd"
-  verse_not_created: "Vers niet toegevoegd"
-  verses: "Verzen"
-  new_verse: "Nieuw vers"
   chapter: "hoofdstuk"
   chapters: "hoofdstukken"
-  verse_updated: "Vers is bijgewerkt"
-  verse_deleted: "Vers is verwijderd"
-  delete_verse: "Verwijder vers"
+  new_study_note: "Nieuwe bijbelstudie"
+  study_note_created: "Bijbelstudie toegevoegd"

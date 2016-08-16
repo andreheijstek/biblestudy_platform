@@ -14,25 +14,6 @@
   </header>
   <%= simple_format(@chapter.description) %>
 
-  <header>
-    <h2><%= t(:verses) %></h2>
-    <ul class="actions">
-      <li><%= link_to t(:new_verse), new_biblebook_chapter_verse_path(@biblebook, @chapter),
-                      class: "new" %></li>
-    </ul>
-  </header>
-
-  <ul id="verses">
-    <% @chapter.verses.each do |verse| %>
-        <li>
-          <%= link_to verse.verse_number, [@biblebook, @chapter, verse] %>
-          <%= if verse.verse_text.present?
-                " - #{verse.verse_text}"
-              end
-          %>
-        </li>
-    <% end %>
-  </ul>
 </div>
 
 

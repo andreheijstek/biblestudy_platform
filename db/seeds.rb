@@ -207,18 +207,3 @@ book_content = {
   "Openbaring" =>        [20,29,22,11,14,17,17,13,21,11,19,18,18,20, 8,21,18,24,21,15,
                           27,21]
   }
-
-book_content.each do |book|
-  book_title = book[0]
-  puts book_title
-  book_id    = Biblebook.find_by(name: book[0]).id
-  nr_of_chapters = book_content[book[0]].length
-  book_content[book[0]].each_with_index do |nr_of_verses, index|
-    chapter_id = Chapter.find_by(chapter_number: index+1, biblebook_id: book_id).id
-    (1..nr_of_verses).each do |verse|
-      unless Verse.exists?(verse_number: verse, chapter_id: chapter_id)
-        Verse.create!(verse_number: verse, chapter_id: chapter_id)
-      end
-    end
-  end
-end

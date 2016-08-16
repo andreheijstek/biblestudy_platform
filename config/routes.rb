@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root "biblebooks#index"
 
   resources :biblebooks do
-    resources :chapters do
-      resources :verses
-    end
+    resources :chapters
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
