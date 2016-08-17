@@ -44,6 +44,7 @@ nl:
   biblebook_updated: Bijbelboek is bijgewerkt.
   biblebooks: Bijbelboeken
   biblestudy_platform: Bijbelstudie platform
+  chapter_updated: Hoofdstuk bijgewerkt
   date:
     abbr_day_names:
     - zon
@@ -235,9 +236,7 @@ nl:
       chapter:
         chapter_number: hoofdstuk
         description: beschrijving
-      verse:
-        verse_number: vers nummer
-        verse_text: bijbeltekst
+        nrofverses: "aantal verzen"
   support:
     array:
       last_word_connector: " en "
@@ -269,3 +268,4 @@ nl:
   chapters: "hoofdstukken"
   new_study_note: "Nieuwe bijbelstudie"
   study_note_created: "Bijbelstudie toegevoegd"
+  edit_chapter: "Wijzig hoofdstuk"

@@ -7,12 +7,15 @@
                       data: { confirm: t(:sure_to_delete_chapter) },
                       class: "delete" %>
       </li>
+      <li><%= link_to t(:edit_chapter), edit_biblebook_chapter_path(@biblebook, @chapter), class: "edit" %></li>
     </ul>
   </header>
+
   <header>
     <h2><%= "#{t(:chapter).capitalize} #{@chapter.chapter_number}" %></h2>
   </header>
   <%= simple_format(@chapter.description) %>
+  <%= @chapter.nrofverses %>
 
 </div>
 

@@ -9,7 +9,6 @@
     </data-source>
     <data-source name="Rails biblestudy_platform: development" uuid="f21c3b31-1509-4ca0-88af-a901cb84b845">
       <auth-required>false</auth-required>
-      <first-sync>true</first-sync>
     </data-source>
   </component>
 </project>

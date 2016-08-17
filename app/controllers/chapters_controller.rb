@@ -21,6 +21,19 @@ class ChaptersController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @chapter.update(chapter_params)
+      flash[:notice] = t(:chapter_updated)
+      redirect_to [@biblebook, @chapter]
+    else
+      flash.now[:alert] = t(:chapter_not_updated)
+      render "edit"
+    end
+  end
+
   def destroy
     @chapter.destroy
     flash[:notice] = t(:chapter_deleted)
@@ -31,7 +44,7 @@ class ChaptersController < ApplicationController
 
 
   def chapter_params
-    params.require(:chapter).permit(:chapter_number, :description)
+    params.require(:chapter).permit(:chapter_number, :description, :nrofverses)
   end
 
   def set_biblebook
