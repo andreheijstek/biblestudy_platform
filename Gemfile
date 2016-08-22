@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.2.3" # new ruby
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -35,6 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "bootstrap-sass", "~> 3.3"
 gem "font-awesome-rails", "~> 4.3"
 gem "simple_form", "~> 3.1.0"
+gem "devise", "4.2.0"
+gem 'devise-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

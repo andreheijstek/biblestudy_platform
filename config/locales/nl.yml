@@ -1,12 +1,19 @@
 ---
 nl:
   activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Wachtwoord"
+        password_confirmation: "Herhaal wachtwoord"
+        sign_up: "Registreer"
     errors:
       full_messages:
         format: "%{attribute} %{message}"
     models:
       biblebook: bijbelboek
       chapter: hoofdstuk
+      user: gebruiker
       messages:
         accepted: moet worden geaccepteerd
         blank: moet opgegeven zijn
@@ -226,6 +233,8 @@ nl:
   simple_form:
     helpers:
       submit:
+        user:
+          submit: Registreer
         create: Voeg %{model} toe
         update: Bewaar wijzigingen
     labels:
@@ -269,3 +278,10 @@ nl:
   new_study_note: "Nieuwe bijbelstudie"
   study_note_created: "Bijbelstudie toegevoegd"
   edit_chapter: "Wijzig hoofdstuk"
+  sign_up: "Registreer"
+  email: "Email"
+  password_confirmation: "Wachtwoord bevestiging"
+  sign_in: "Log in"
+  sign_out: "Log uit"
+  password: "Wachtwoord"
+
