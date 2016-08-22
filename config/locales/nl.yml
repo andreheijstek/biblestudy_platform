@@ -7,6 +7,7 @@ nl:
         password: "Wachtwoord"
         password_confirmation: "Herhaal wachtwoord"
         sign_up: "Registreer"
+        sign_in: Log in
     errors:
       full_messages:
         format: "%{attribute} %{message}"
