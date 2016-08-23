@@ -11,3 +11,6 @@ deploy:
   app: biblestudy-platform
   on:
     repo: andreheijstek/biblestudy_platform
+notifications:
+  email:
+    - andre.heijstek@improvementfocus.com
