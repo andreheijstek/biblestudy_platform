@@ -16,7 +16,7 @@ RSpec.feature "Admins can add the number of verses to a chapter" do
 
     submit_form
 
-    expect(page).to have_content "something" # t(:chapter_updated)
+    expect(page).to have_content t(:chapter_updated)
   end
 
 end
