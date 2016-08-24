@@ -19,7 +19,7 @@ nl:
         password: 'Wachtwoord'
       user:
         new:
-          email: 'E-mail to sign in.'
+          email: 'E-mail'
         edit:
           email: 'E-mail.'
     hints:

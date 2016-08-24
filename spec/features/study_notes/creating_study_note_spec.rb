@@ -1,4 +1,3 @@
-=begin
 require "rails_helper"
 
 RSpec.feature "Users can create new study-notes and associate them to pericopes" do
@@ -22,4 +21,3 @@ RSpec.feature "Users can create new study-notes and associate them to pericopes"
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
 end
-=end
