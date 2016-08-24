@@ -24,8 +24,8 @@ nl:
           email: 'E-mail.'
     hints:
       defaults:
-        username: 'User name to sign in.'
-        password: 'No special characters, please.'
+        username: 'Gebruikersnaam om in te loggen'
+        password: 'Geen bijzondere tekens gebruiken'
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'
