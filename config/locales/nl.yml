@@ -252,6 +252,10 @@ nl:
         chapter_number: hoofdstuk
         description: beschrijving
         nrofverses: "aantal verzen"
+      study_note:
+        starting_verse: begin vers
+        ending_verse: laatste vers
+        study_note: bijbelstudie
   support:
     array:
       last_word_connector: " en "
@@ -290,4 +294,8 @@ nl:
   sign_in: "Log in"
   sign_out: "Log uit"
   password: "Wachtwoord"
+  admin: "Admin"
+  study_note_not_created: "Bijbelstudie niet gemaakt"
+  study_notes: "bijbelstudies"
+
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821185114) do
+ActiveRecord::Schema.define(version: 20160825095918) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,31 @@ ActiveRecord::Schema.define(version: 20160821185114) do
   end
 
   add_index "chapters", ["biblebook_id"], name: "index_chapters_on_biblebook_id"
+
+  create_table "pericopes", force: :cascade do |t|
+    t.integer  "starting_verse"
+    t.integer  "ending_verse"
+    t.integer  "biblebook_id"
+    t.integer  "starting_chapter_id"
+    t.integer  "ending_chapter_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "pericopes", ["biblebook_id"], name: "index_pericopes_on_biblebook_id"
+  add_index "pericopes", ["ending_chapter_id"], name: "index_pericopes_on_ending_chapter_id"
+  add_index "pericopes", ["starting_chapter_id"], name: "index_pericopes_on_starting_chapter_id"
+
+  create_table "study_notes", force: :cascade do |t|
+    t.integer  "pericope_id"
+    t.text     "note"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "starting_verse"
+    t.string   "ending_verse"
+  end
+
+  add_index "study_notes", ["pericope_id"], name: "index_study_notes_on_pericope_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
