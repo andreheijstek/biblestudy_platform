@@ -19,6 +19,7 @@ nl:
     models:
       biblebook: bijbelboek
       chapter: hoofdstuk
+      study_note: bijbelstudie
       user: gebruiker
       messages:
         accepted: moet worden geaccepteerd
@@ -252,10 +253,11 @@ nl:
         chapter_number: hoofdstuk
         description: beschrijving
         nrofverses: "aantal verzen"
-      study_note:
-        starting_verse: begin vers
+      pericope:
+        starting_verse: eerste vers
         ending_verse: laatste vers
-        study_note: bijbelstudie
+      study_note:
+        note: bijbelstudie
   support:
     array:
       last_word_connector: " en "

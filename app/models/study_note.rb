@@ -1,3 +1,5 @@
 class StudyNote < ActiveRecord::Base
-  belongs_to :pericope
+  has_many :pericopes, inverse_of: :study_note
+
+  accepts_nested_attributes_for :pericopes
 end

@@ -5,9 +5,9 @@ RSpec.feature "Users can create new study-notes and associate them to pericopes"
   scenario "to a single pericope with valid attributes" do
     ensure_on("/")
     click_link t(:new_study_note)
-    fill_in t('simple_form.labels.study_note.starting_verse'), with: "Jona 1:1"
-    fill_in t('simple_form.labels.study_note.ending_verse'), with: "Jona 1:10"
-    fill_in t('simple_form.labels.study_note.study_note'), with: 'Jona is bijzonder.'
+    fill_in t('simple_form.labels.pericope.starting_verse'), with: "Jona 1:1"
+    fill_in t('simple_form.labels.pericope.ending_verse'), with: "Jona 1:10"
+    fill_in t('simple_form.labels.study_note.note'), with: 'Jona is bijzonder.'
 
     submit_form
 

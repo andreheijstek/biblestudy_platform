@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825095918) do
+ActiveRecord::Schema.define(version: 20160829075522) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160825095918) do
   add_index "chapters", ["biblebook_id"], name: "index_chapters_on_biblebook_id"
 
   create_table "pericopes", force: :cascade do |t|
+    t.integer  "study_note_id"
     t.integer  "starting_verse"
     t.integer  "ending_verse"
     t.integer  "biblebook_id"
@@ -45,14 +46,13 @@ ActiveRecord::Schema.define(version: 20160825095918) do
   add_index "pericopes", ["biblebook_id"], name: "index_pericopes_on_biblebook_id"
   add_index "pericopes", ["ending_chapter_id"], name: "index_pericopes_on_ending_chapter_id"
   add_index "pericopes", ["starting_chapter_id"], name: "index_pericopes_on_starting_chapter_id"
+  add_index "pericopes", ["study_note_id"], name: "index_pericopes_on_study_note_id"
 
   create_table "study_notes", force: :cascade do |t|
-    t.integer  "pericope_id"
     t.text     "note"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "starting_verse"
-    t.string   "ending_verse"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "pericope_id"
   end
 
   add_index "study_notes", ["pericope_id"], name: "index_study_notes_on_pericope_id"

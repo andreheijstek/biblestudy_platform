@@ -1,6 +1,6 @@
 class BiblebooksController < ApplicationController
 
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_biblebook, only: [:show, :edit, :update, :destroy]
 
   def index
     @biblebook = Biblebook.all
@@ -49,7 +49,7 @@ class BiblebooksController < ApplicationController
     params.require(:biblebook).permit(:name, :booksequence, :testament)
   end
 
-  def set_project
+  def set_biblebook
     @biblebook = Biblebook.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = t(:biblebook_not_found)
