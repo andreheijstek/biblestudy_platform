@@ -257,6 +257,7 @@ nl:
         starting_verse: eerste vers
         ending_verse: laatste vers
       study_note:
+        title: titel
         note: bijbelstudie
   support:
     array:

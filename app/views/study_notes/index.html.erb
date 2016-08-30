@@ -4,3 +4,9 @@
 
 <%= link_to t(:new_study_note), new_study_note_path %>
 
+<div id="study_notes">
+  <% @study_note.each do |study_note| %>
+      <h2><%= link_to study_note.title, study_note %></h2>
+  <% end %>
+</div>
+

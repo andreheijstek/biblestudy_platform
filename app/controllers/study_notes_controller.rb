@@ -3,6 +3,7 @@ class StudyNotesController < ApplicationController
   before_action :set_study_note, only: [:show, :edit, :update, :destroy]
 
   def index
+!   @study_note = StudyNote.all
   end
 
   def new
