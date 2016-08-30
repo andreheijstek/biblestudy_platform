@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Users can delete biblebooks" do
   scenario "successfully" do
     FactoryGirl.create(:biblebook, name: "Handelingen")
-    visit "/"
+    visit biblebooks_path
     click_link "Handelingen"
 
     click_link t(:delete_biblebook)

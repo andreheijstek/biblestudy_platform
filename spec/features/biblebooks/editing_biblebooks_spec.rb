@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Users can edit existing biblebooks" do
   before do
     FactoryGirl.create(:biblebook, name: "Voorbeeld bijbelboek")
-    ensure_on ("/")
+    visit biblebooks_path
 
     click_link "Voorbeeld bijbelboek"
     click_link t(:edit_bibilebook)

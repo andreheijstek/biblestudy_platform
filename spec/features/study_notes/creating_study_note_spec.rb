@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Users can create new study-notes and associate them to pericopes" do
 
   scenario "to a single pericope with valid attributes" do
-    ensure_on("/")
+    visit study_notes_path
     click_link t(:new_study_note)
     fill_in t('simple_form.labels.pericope.starting_verse'), with: "Jona 1:1"
     fill_in t('simple_form.labels.pericope.ending_verse'), with: "Jona 1:10"

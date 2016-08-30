@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Users can view biblebooks" do
   scenario "with the biblebook details" do
     biblebook = FactoryGirl.create(:biblebook, name: "Bijbelboek")
-    visit "/"
+    visit biblebooks_path
 
     click_link "Bijbelboek"
 

@@ -5,7 +5,7 @@ RSpec.feature "Admins can create new chapters within biblebooks" do
   before do
     booktitle = "Handelingen"
     book = FactoryGirl.create(:biblebook, name: booktitle)
-    ensure_on ("/")
+    visit biblebooks_path
     visit biblebook_path(book)
   end
 
