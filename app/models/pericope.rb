@@ -13,34 +13,23 @@ class Pericope < ActiveRecord::Base
   # validates :name, presence: true
   def set
     parse_name
+    self.save!
   end
 
   private
 
   def parse_name
-    elements = name.split
-    puts "elements: #{elements}"
+    elements = name.split(/\b/).delete_if {|e| e == " "}
+    puts "name: #{name}, elements: #{elements}"
 
-    get_biblebook_name(elements[0])
-    get_starting_chapter_and_verse(elements[1])
-    get_ending_chapter_and_verse(elements[3])
+    # 'Genesis 1:2-3:4' or Gen 1:2-4 or Gen 1:2-3:4 or Gen 1:2 - Gen 3:4
 
-    puts "Pericope: | #{@biblebook_name} | #{@starting_chapter_nr} | #{@ending_chapter_nr} | #{@starting_verse} | #{@ending_verse} |"
-  end
+    @biblebook_name          = elements[0].dup
+    self.starting_chapter_nr = elements[1].to_i
+    self.starting_verse      = elements[3].to_i
+    self.ending_chapter_nr   = elements[5].to_i
+    self.ending_verse        = elements[7].to_i
 
-  def get_biblebook_name(str)
-    @biblebook_name = str.dup
-  end
-
-  def get_starting_chapter_and_verse(str)
-    elements = str.split(':')
-    @starting_chapter_nr = elements[0]
-    @starting_verse      = elements[1]
-  end
-
-  def get_ending_chapter_and_verse(str)
-    elements = str.split(':')
-    @ending_chapter_nr = elements[0]
-    @ending_verse      = elements[1]
+    puts "Pericope: | #{@biblebook_name} #{starting_chapter_nr} : #{starting_verse} - #{ending_chapter_nr} : #{ending_verse} |"
   end
 end

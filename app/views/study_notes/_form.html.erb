@@ -1,7 +1,6 @@
 <%= simple_form_for (study_note) do |s|  %>
     <%= s.simple_fields_for :pericope do |p| %>
-        <%= p.input :starting_verse %>
-        <%= p.input :ending_verse %>
+        <%= p.input :name %>
     <% end %>
     <%= s.input :title %>
     <%= s.input :note %>

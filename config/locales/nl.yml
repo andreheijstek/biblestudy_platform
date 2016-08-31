@@ -256,6 +256,7 @@ nl:
         description: beschrijving
         nrofverses: "aantal verzen"
       pericope:
+        name: pericoop
         starting_verse: eerste vers
         ending_verse: laatste vers
       study_note:
