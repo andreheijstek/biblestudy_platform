@@ -3,7 +3,7 @@ class StudyNotesController < ApplicationController
   before_action :set_study_note, only: [:show, :edit, :update, :destroy]
 
   def index
-!   @study_note = StudyNote.all
+    @study_note = StudyNote.all
   end
 
   def new
@@ -13,6 +13,8 @@ class StudyNotesController < ApplicationController
 
   def create
     @study_note = StudyNote.new(study_note_params)
+    @study_note.pericopes.build
+
     if @study_note.save
       flash[:notice] = t(:study_note_created)
       redirect_to @study_note
@@ -28,7 +30,8 @@ class StudyNotesController < ApplicationController
   private
 
   def study_note_params
-    params.require(:study_note).permit(:first_verse, :last_verse, :note)
+    params.require(:study_note).permit(:title, :note,
+                                       :pericope => [:starting_verse, :ending_verse])
   end
 
   def set_study_note

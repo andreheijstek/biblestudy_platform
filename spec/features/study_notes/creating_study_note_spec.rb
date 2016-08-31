@@ -2,47 +2,58 @@ require "rails_helper"
 
 RSpec.feature "Users can create new study-notes and associate them to pericopes" do
 
-  scenario "to a single pericope with valid attributes" do
+  before do
     visit study_notes_path
     click_link t(:new_study_note)
+  end
+
+  scenario "to a single pericope with valid attributes" do
     fill_in t('simple_form.labels.pericope.starting_verse'), with: "Jona 1:1"
     fill_in t('simple_form.labels.pericope.ending_verse'), with: "Jona 1:10"
     fill_in t('simple_form.labels.study_note.title'), with: "Titel"
-    fill_in t('simple_form.labels.study_note.note'), with: 'Jona is bijzonder.'
+    fill_in t('simple_form.labels.study_note.note'), with: "Jona is bijzonder."
 
     submit_form
 
     expect(page).to have_content t(:study_note_created)
   end
-  #
-  # scenario "when providing invalid attributes" do
-  #   click_link t(:new_study_note)
-  #   submit_form
-  #   expect(page).to have_content t(:study_note_not_created)
-  #   expect(page).to have_content t('activerecord.models.messages.blank')
-  #
-  #   click_link t(:new_study_note)
-  #   fill_in t(:starting_verse), with: "Jona 1:1"
-  #   submit_form
-  #   expect(page).to have_content t(:study_note_not_created)
-  #   expect(page).to have_content t('activerecord.models.messages.blank')
-  #
-  #   click_link t(:new_study_note)
-  #   fill_in t(:ending_verse), with: "Jona 1:1"
-  #   submit_form
-  #   expect(page).to have_content t(:study_note_not_created)
-  #   expect(page).to have_content t('activerecord.models.messages.blank')
-  #
-  #   click_link t(:new_study_note)
-  #   fill_in t(:starting_verse), with: "Jona 1:1"
-  #   fill_in t(:ending_verse), with: "Jona 1:2"
-  #   submit_form
-  #   expect(page).to have_content t(:study_note_not_created)
-  #   expect(page).to have_content t('activerecord.models.messages.blank')
 
-    # TODO Starting verse must be < ending verse
-  # end
+  scenario "when providing no attributes" do
+    submit_form
+    expect(page).to have_content t(:study_note_not_created)
+    expect(page).to have_content t('activerecord.models.messages.blank')
+  end
 
+  scenario "when providing just the starting verse" do
+    fill_in t(:starting_verse), with: "Jona 1:1"
+    submit_form
+    expect(page).to have_content t(:study_note_not_created)
+    expect(page).to have_content t('activerecord.models.messages.blank')
+  end
+
+  scenario "when providing just the ending verse" do
+    fill_in t(:ending_verse), with: "Jona 1:1"
+    submit_form
+    expect(page).to have_content t(:study_note_not_created)
+    expect(page).to have_content t('activerecord.models.messages.blank')
+  end
+
+  scenario "when providing just starting and ending verse" do
+    fill_in t(:starting_verse), with: "Jona 1:1"
+    fill_in t(:ending_verse), with: "Jona 1:2"
+    submit_form
+    expect(page).to have_content t(:study_note_not_created)
+    expect(page).to have_content t('activerecord.models.messages.blank')
+  end
+
+  scenario "when providing just the title" do
+    fill_in t(:title), with: "Titel"
+    submit_form
+    expect(page).to have_content t(:study_note_not_created)
+    expect(page).to have_content t('activerecord.models.messages.blank')
+  end
+
+  # TODO Starting verse must be < ending verse - test moet niet hier maar kan een model unit test zijn
 
   # scenario "to multiple pericopes" do
   # end
