@@ -12,24 +12,30 @@ RSpec.describe Pericope, type: :model do
   it "name must contain a valid pericope string, like Genesis 1:1 - 1:10" do
     pericope = Pericope.new(name: 'Genesis 1:2 - 3:4')
     pericope.set
-    puts "Pericope: #{pericope.inspect}"
+    expect(pericope.starting_chapter_nr).to eq(1)
+    expect(pericope.starting_verse).to      eq(2)
+    expect(pericope.ending_chapter_nr).to   eq(3)
+    expect(pericope.ending_verse).to        eq(4)
   end
 
-=begin
   it "name must contain a valid pericope string, like Genesis 1:1-1:10" do
     pericope = Pericope.new(name: 'Genesis 1:2-3:4')
     pericope.set
-    expect(pericope).to_not be_valid
+    expect(pericope.starting_chapter_nr).to eq(1)
+    expect(pericope.starting_verse).to      eq(2)
+    expect(pericope.ending_chapter_nr).to   eq(3)
+    expect(pericope.ending_verse).to        eq(4)
   end
-=end
 
-=begin
   it "name must contain a valid pericope string, like Genesis 1:1 - 10" do
-    pericope = Pericope.new(name: 'Genesis 1:1 - 10')
+    pericope = Pericope.new(name: 'Genesis 1:2 - 3')
     pericope.set
-    expect(pericope).to_not be_valid
+    puts "Pericope: #{pericope.inspect}"
+    expect(pericope.starting_chapter_nr).to eq(1)
+    expect(pericope.starting_verse).to      eq(2)
+    expect(pericope.ending_chapter_nr).to   eq(1)
+    expect(pericope.ending_verse).to        eq(3)
   end
-=end
 
   # it "verse may contain a biblebook abbreviation"
   # it "ending chapter must be greater or equal than starting chapter"
