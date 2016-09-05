@@ -31,7 +31,7 @@ class StudyNotesController < ApplicationController
 
   def study_note_params
     params.require(:study_note).permit(:title, :note,
-                                       :pericope => [:starting_verse, :ending_verse])
+                                       pericope_attributes: [:starting_verse, :ending_verse, :name])
   end
 
   def set_study_note

@@ -3,6 +3,15 @@ class Pericope < ActiveRecord::Base
   has_one :biblebook
 
   # validates :name, presence: true
+
+  def after_initialize
+    parse_name
+    self.save!
+  end
+
+  # set only exists temporarily to allow testing the parsing method
+  # can be removed when the after_initialize is working well
+
   def set
     parse_name
     self.save!

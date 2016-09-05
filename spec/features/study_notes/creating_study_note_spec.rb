@@ -17,6 +17,7 @@ RSpec.feature "Users can create new study-notes and associate them to pericopes"
     expect(page).to have_content t(:study_note_created)
   end
 
+=begin
   scenario "when providing no attributes" do
     submit_form
     expect(page).to have_content t(:study_note_not_created)
@@ -29,6 +30,7 @@ RSpec.feature "Users can create new study-notes and associate them to pericopes"
     expect(page).to have_content t(:study_note_not_created)
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
+=end
 
   # scenario "to multiple pericopes" do
   # end

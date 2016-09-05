@@ -237,76 +237,72 @@
       <column id="29" parent="4" name="biblebook_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="30" parent="4" name="starting_chapter_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="31" parent="4" name="ending_chapter_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="32" parent="4" name="created_at">
+      <column id="30" parent="4" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="33" parent="4" name="updated_at">
+      <column id="31" parent="4" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <index id="34" parent="4" name="index_pericopes_on_study_note_id">
+      <column id="32" parent="4" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="33" parent="4" name="ending_chapter_nr">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="34" parent="4" name="starting_chapter_nr">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="35" parent="4" name="index_pericopes_on_study_note_id">
         <columns>study_note_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="35" parent="4" name="index_pericopes_on_biblebook_id">
+      <index id="36" parent="4" name="index_pericopes_on_biblebook_id">
         <columns>biblebook_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="36" parent="4" name="index_pericopes_on_starting_chapter_id">
-        <columns>starting_chapter_id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <index id="37" parent="4" name="index_pericopes_on_ending_chapter_id">
-        <columns>ending_chapter_id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="38" parent="4">
+      <key id="37" parent="4">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="39" parent="5" name="version">
+      <column id="38" parent="5" name="version">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <index id="40" parent="5" name="unique_schema_migrations">
+      <index id="39" parent="5" name="unique_schema_migrations">
         <columns>version</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <column id="41" parent="6" name="name">
+      <column id="40" parent="6" name="name">
         <data-type>(0,-1)|12</data-type>
       </column>
-      <column id="42" parent="6" name="seq">
+      <column id="41" parent="6" name="seq">
         <data-type>(0,-1)|12</data-type>
       </column>
-      <column id="43" parent="7" name="id">
+      <column id="42" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="44" parent="7" name="note">
+      <column id="43" parent="7" name="note">
         <data-type>TEXT(0,-1)|12</data-type>
       </column>
-      <column id="45" parent="7" name="created_at">
+      <column id="44" parent="7" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="46" parent="7" name="updated_at">
+      <column id="45" parent="7" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="47" parent="7" name="pericope_id">
+      <column id="46" parent="7" name="pericope_id">
         <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="47" parent="7" name="title">
+        <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
       <index id="48" parent="7" name="index_study_notes_on_pericope_id">
         <columns>pericope_id</columns>
@@ -469,76 +465,72 @@
       <column id="29" parent="4" name="biblebook_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="30" parent="4" name="starting_chapter_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="31" parent="4" name="ending_chapter_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="32" parent="4" name="created_at">
+      <column id="30" parent="4" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="33" parent="4" name="updated_at">
+      <column id="31" parent="4" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <index id="34" parent="4" name="index_pericopes_on_study_note_id">
+      <column id="32" parent="4" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="33" parent="4" name="ending_chapter_nr">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="34" parent="4" name="starting_chapter_nr">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="35" parent="4" name="index_pericopes_on_study_note_id">
         <columns>study_note_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="35" parent="4" name="index_pericopes_on_biblebook_id">
+      <index id="36" parent="4" name="index_pericopes_on_biblebook_id">
         <columns>biblebook_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="36" parent="4" name="index_pericopes_on_starting_chapter_id">
-        <columns>starting_chapter_id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <index id="37" parent="4" name="index_pericopes_on_ending_chapter_id">
-        <columns>ending_chapter_id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="38" parent="4">
+      <key id="37" parent="4">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="39" parent="5" name="version">
+      <column id="38" parent="5" name="version">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <index id="40" parent="5" name="unique_schema_migrations">
+      <index id="39" parent="5" name="unique_schema_migrations">
         <columns>version</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <column id="41" parent="6" name="name">
+      <column id="40" parent="6" name="name">
         <data-type>(0,-1)|12</data-type>
       </column>
-      <column id="42" parent="6" name="seq">
+      <column id="41" parent="6" name="seq">
         <data-type>(0,-1)|12</data-type>
       </column>
-      <column id="43" parent="7" name="id">
+      <column id="42" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="44" parent="7" name="note">
+      <column id="43" parent="7" name="note">
         <data-type>TEXT(0,-1)|12</data-type>
       </column>
-      <column id="45" parent="7" name="created_at">
+      <column id="44" parent="7" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="46" parent="7" name="updated_at">
+      <column id="45" parent="7" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="47" parent="7" name="pericope_id">
+      <column id="46" parent="7" name="pericope_id">
         <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="47" parent="7" name="title">
+        <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
       <index id="48" parent="7" name="index_study_notes_on_pericope_id">
         <columns>pericope_id</columns>
