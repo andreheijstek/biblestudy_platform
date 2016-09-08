@@ -255,7 +255,7 @@ nl:
         chapter_number: hoofdstuk
         description: beschrijving
         nrofverses: "aantal verzen"
-      pericope:
+      pericopes:
         name: pericoop
         starting_verse: eerste vers
         ending_verse: laatste vers
