@@ -1,5 +1,5 @@
 <%= simple_form_for (study_note) do |s|  %>
-    <%= s.simple_fields_for :pericope do |p| %>
+    <%= s.simple_fields_for :pericopes do |p| %>
         <%= p.input :name %>
     <% end %>
     <%= s.input :title %>

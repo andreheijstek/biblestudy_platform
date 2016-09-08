@@ -12,11 +12,12 @@ class StudyNotesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @study_note = StudyNote.new(study_note_params)
     @study_note.pericopes.build
 
     puts "\n\n----- StudyNotesController#create"
-    puts "@study_note: #{@study_note.inspect}"
+    puts "@study_note:       #{@study_note.inspect}"
     puts "study_note_params: #{study_note_params}\n\n"
 
     if @study_note.save
@@ -34,8 +35,7 @@ class StudyNotesController < ApplicationController
   private
 
   def study_note_params
-    params.require(:study_note).permit(:title, :note,
-                                       pericope_attributes: [:name])
+    params.require(:study_note).permit(:title, :note, pericopes_attributes: [:id, :name])
   end
 
   def set_study_note
