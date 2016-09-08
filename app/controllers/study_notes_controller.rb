@@ -15,6 +15,10 @@ class StudyNotesController < ApplicationController
     @study_note = StudyNote.new(study_note_params)
     @study_note.pericopes.build
 
+    puts "\n\n----- StudyNotesController#create"
+    puts "@study_note: #{@study_note.inspect}"
+    puts "study_note_params: #{study_note_params}\n\n"
+
     if @study_note.save
       flash[:notice] = t(:study_note_created)
       redirect_to @study_note
@@ -31,7 +35,7 @@ class StudyNotesController < ApplicationController
 
   def study_note_params
     params.require(:study_note).permit(:title, :note,
-                                       pericope_attributes: [:starting_verse, :ending_verse, :name])
+                                       pericope_attributes: [:name])
   end
 
   def set_study_note

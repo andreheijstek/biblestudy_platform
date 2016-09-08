@@ -1,12 +1,14 @@
 <header>
-  <h1><%= t(:study_notes) %></h1>
+  <ul class="actions">
+    <h1><%= t(:study_notes) %></h1>
+    <%= link_to t(:new_study_note), new_study_note_path, class: "new" %>
+  </ul>
 </header>
 
-<%= link_to t(:new_study_note), new_study_note_path %>
 
 <div id="study_notes">
   <% @study_note.each do |study_note| %>
-      <h2><%= link_to study_note.title, study_note %></h2>
+      <p><%= link_to study_note.title, study_note %></p>
   <% end %>
 </div>
 
