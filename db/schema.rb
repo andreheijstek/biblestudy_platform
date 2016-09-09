@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831210128) do
+ActiveRecord::Schema.define(version: 20160909112552) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -49,13 +49,10 @@ ActiveRecord::Schema.define(version: 20160831210128) do
 
   create_table "study_notes", force: :cascade do |t|
     t.text     "note"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "pericope_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "title"
   end
-
-  add_index "study_notes", ["pericope_id"], name: "index_study_notes_on_pericope_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -12,13 +12,16 @@ class StudyNotesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @study_note = StudyNote.new(study_note_params)
-    @study_note.pericopes.build
+
+    # binding.pry
 
     puts "\n\n----- StudyNotesController#create"
     puts "@study_note:       #{@study_note.inspect}"
-    puts "study_note_params: #{study_note_params}\n\n"
+    puts "study_note_params: #{study_note_params}"
+    puts "pericope_params:   #{study_note_params[:pericopes_attributes]["0"]}\n\n"
+
+    # @study_note.pericopes.build(study_note_params[:pericopes_attributes]["0"])
 
     if @study_note.save
       flash[:notice] = t(:study_note_created)
@@ -36,6 +39,10 @@ class StudyNotesController < ApplicationController
 
   def study_note_params
     params.require(:study_note).permit(:title, :note, pericopes_attributes: [:id, :name])
+  end
+
+  def pericope_params
+    params.require(:pericope).permit(:name, :id)
   end
 
   def set_study_note
