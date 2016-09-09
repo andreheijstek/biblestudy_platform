@@ -14,15 +14,11 @@ class StudyNotesController < ApplicationController
   def create
     @study_note = StudyNote.new(study_note_params)
 
-    # binding.pry
-
-    puts "\n\n----- StudyNotesController#create"
-    puts "@study_note:       #{@study_note.inspect}"
-    puts "study_note_params: #{study_note_params}"
-    puts "pericope_params:   #{study_note_params[:pericopes_attributes]["0"]}\n\n"
-
-    # @study_note.pericopes.build(study_note_params[:pericopes_attributes]["0"])
-
+    # puts "\n\n----- StudyNotesController#create"
+    # puts "@study_note:       #{@study_note.inspect}"
+    # puts "study_note_params: #{study_note_params}"
+    # puts "pericope_params:   #{study_note_params[:pericopes_attributes]["0"]}\n\n"
+    
     if @study_note.save
       flash[:notice] = t(:study_note_created)
       redirect_to @study_note

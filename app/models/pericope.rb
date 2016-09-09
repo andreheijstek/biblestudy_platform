@@ -1,13 +1,10 @@
 class Pericope < ActiveRecord::Base
   belongs_to :study_note
   has_one :biblebook
+  before_validation :parse_name
+
 
   # validates :name, presence: true
-
-  def after_initialize
-    parse_name
-    self.save!
-  end
 
   # set only exists temporarily to allow testing the parsing method
   # can be removed when the after_initialize is working well
@@ -17,11 +14,11 @@ class Pericope < ActiveRecord::Base
     self.save!
   end
 
-  private
+  protected
 
   def parse_name
     elements = name.split(/\b/).delete_if {|e| e == " "}
-    puts "\n\n->->-> name: #{name}, elements: #{elements}"
+    # puts "\n\n->->-> name: #{name}, elements: #{elements}"
 
     # 'Genesis 1:2-3:4' or Gen 1:2-4 or Gen 1:2-3:4 or Gen 1:2 - Gen 3:4
 
@@ -40,6 +37,6 @@ class Pericope < ActiveRecord::Base
       self.ending_verse        = elements[5].to_i
     end
 
-    puts "->->-> Pericope: | #{@biblebook_name} #{starting_chapter_nr} : #{starting_verse} - #{ending_chapter_nr} : #{ending_verse} |"
+    # puts "->->-> Pericope: | #{@biblebook_name} #{starting_chapter_nr} : #{starting_verse} - #{ending_chapter_nr} : #{ending_verse} |"
   end
 end
