@@ -18,7 +18,7 @@ class StudyNotesController < ApplicationController
     # puts "@study_note:       #{@study_note.inspect}"
     # puts "study_note_params: #{study_note_params}"
     # puts "pericope_params:   #{study_note_params[:pericopes_attributes]["0"]}\n\n"
-    
+
     if @study_note.save
       flash[:notice] = t(:study_note_created)
       redirect_to @study_note
