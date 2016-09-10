@@ -61,17 +61,15 @@ RSpec.describe Pericope, type: :model do
   end
 =end
 
-=begin
   it "ending chapter must be greater or equal than starting chapter" do
     pericope = Pericope.new(name: 'Genesis 4:3 - 2:1')
-    pericope.set
+    pericope.save
     expect(pericope).to_not be_valid
   end
 
   it "within the same chapter ending verse must be greater than starting verse" do
     pericope = Pericope.new(name: 'Genesis 4:3 - 4:1')
-    pericope.set
+    pericope.save
     expect(pericope).to_not be_valid
   end
-=end
 end
