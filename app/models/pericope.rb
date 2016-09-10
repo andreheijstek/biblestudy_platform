@@ -1,22 +1,17 @@
 class Pericope < ActiveRecord::Base
   belongs_to :study_note
   has_one :biblebook
-  before_validation :parse_name
-
-
-  # validates :name, presence: true
-
-  # set only exists temporarily to allow testing the parsing method
-  # can be removed when the after_initialize is working well
-
-  def set
-    parse_name
-    self.save!
-  end
+  validates :name, presence: true
+  after_validation :parse_name
 
   protected
 
   def parse_name
+    return if name.nil? || name.empty?
+    # TODO Ik begrijp niet waarom ik deze check moet doen. Ik zit in een after_validation
+    # dus de validation is al gedaan, daarin zit een precense: op :name, dus eigenlijk had
+    # dit al afgevangen moeten zijn.
+
     elements = name.split(/\b/).delete_if {|e| e == " "}
     # puts "\n\n->->-> name: #{name}, elements: #{elements}"
 
