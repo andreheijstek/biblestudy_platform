@@ -4,5 +4,4 @@ class StudyNote < ActiveRecord::Base
   accepts_nested_attributes_for :pericopes
 
   # validates :title, :note, presence: true
-
 end

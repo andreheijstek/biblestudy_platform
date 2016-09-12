@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :study_note do
-    # FactoryGirl.create(:pericope)
+    # FactoryGirl.create(:pericopes)
     title "titel"
     note "text"
   end

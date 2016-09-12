@@ -37,6 +37,7 @@ gem "font-awesome-rails", "~> 4.3"
 gem "simple_form", "~> 3.1.0"
 gem "devise", "4.2.0"
 gem 'devise-i18n'
+gem 'sorted-activerecord'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'launchy'
   # Use sqlite3 as the database for Active Record and postgress in productiong
   gem "sqlite3"
+  gem 'orderly'
 end
 
 group :development do

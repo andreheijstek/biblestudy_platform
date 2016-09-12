@@ -1,0 +1,16 @@
+<header>
+  <ul class="actions">
+    <h1><%= t(:study_notes) %></h1>
+    <%= link_to t(:new_study_note), new_study_note_path, class: "new" %>
+  </ul>
+</header>
+
+<div id="pericopes">
+  <% @pericope.each do |pericope| %>
+      <p> <%= pericope.name %>
+      <% sn = StudyNote.find(pericope.study_note_id) %>
+      <%= link_to sn.title, @study_note %></p>
+<% end %>
+</div>
+
+

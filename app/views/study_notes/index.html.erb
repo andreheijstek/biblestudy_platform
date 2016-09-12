@@ -5,10 +5,13 @@
   </ul>
 </header>
 
-
 <div id="study_notes">
   <% @study_note.each do |study_note| %>
-      <p><%= link_to study_note.title, study_note %></p>
+      <p><% study_note.pericopes.each do |pericope| %>
+          <%= pericope.name %>
+      <% end %>
+      <%= link_to study_note.title, study_note %></p>
   <% end %>
 </div>
+
 

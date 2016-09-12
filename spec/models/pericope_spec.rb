@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Pericope, type: :model do
 
   before do
-    # create a biblebook first, so that can be connected to the pericope
+    # create a biblebook first, so that can be connected to the pericopes
     book = FactoryGirl.create(:biblebook, name: "Genesis")
     @book_id = book.id
   end
@@ -17,7 +17,7 @@ RSpec.describe Pericope, type: :model do
     expect(Pericope.new(name: nil)).to_not be_valid
   end
 
-  it "name must contain a valid pericope string, like Genesis 1:1 - 1:10" do
+  it "name must contain a valid pericopes string, like Genesis 1:1 - 1:10" do
     pericope = Pericope.new(name: 'Genesis 1:2 - 3:4')
     pericope.save  # trigger the validation and after_validation
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -27,7 +27,7 @@ RSpec.describe Pericope, type: :model do
     expect(pericope.biblebook_id).to        eq(@book_id)
   end
 
-  it "name must contain a valid pericope string, like Genesis 1:1-1:10" do
+  it "name must contain a valid pericopes string, like Genesis 1:1-1:10" do
     pericope = Pericope.new(name: 'Genesis 1:2-3:4')
     pericope.save
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -37,7 +37,7 @@ RSpec.describe Pericope, type: :model do
     expect(pericope.biblebook_id).to        eq(@book_id)
   end
 
-  it "name must contain a valid pericope string, like Genesis 1:1 - 10" do
+  it "name must contain a valid pericopes string, like Genesis 1:1 - 10" do
     pericope = Pericope.new(name: 'Genesis 1:2 - 3')
     pericope.save
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -49,13 +49,13 @@ RSpec.describe Pericope, type: :model do
 
 =begin
   it "verse may contain a biblebook abbreviation" do
-    pericope = Pericope.new(name: 'Gen 1:2 - 3')
-    pericope.set
-    puts "Pericope: #{pericope.inspect}"
-    expect(pericope.starting_chapter_nr).to eq(1)
-    expect(pericope.starting_verse).to      eq(2)
-    expect(pericope.ending_chapter_nr).to   eq(1)
-    expect(pericope.ending_verse).to        eq(3)
+    pericopes = Pericope.new(name: 'Gen 1:2 - 3')
+    pericopes.set
+    puts "Pericope: #{pericopes.inspect}"
+    expect(pericopes.starting_chapter_nr).to eq(1)
+    expect(pericopes.starting_verse).to      eq(2)
+    expect(pericopes.ending_chapter_nr).to   eq(1)
+    expect(pericopes.ending_verse).to        eq(3)
 
     expect(true).to eq(false) # test makes no sense now, as I don't check on name
   end
