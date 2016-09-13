@@ -1,6 +1,6 @@
 <header>
+  <h1><%= t(:pericopes) %> </h1>
   <ul class="actions">
-    <h1><%= t(:study_notes) %></h1>
     <%= link_to t(:new_study_note), new_study_note_path, class: "new" %>
   </ul>
 </header>
@@ -9,7 +9,8 @@
   <% @pericope.each do |pericope| %>
       <p> <%= pericope.name %>
       <% sn = StudyNote.find(pericope.study_note_id) %>
-      <%= link_to sn.title, @study_note %></p>
+      <%= link_to sn.title, @study_note %>
+      <%= sn.note %></p>
 <% end %>
 </div>
 
