@@ -21,7 +21,7 @@ nl:
     models:
       biblebook: bijbelboek
       chapter: hoofdstuk
-      study_note: bijbelstudie
+      studynote: bijbelstudie
       user: gebruiker
       messages:
         accepted: moet worden geaccepteerd
@@ -259,7 +259,7 @@ nl:
         name: pericoop
         starting_verse: eerste vers
         ending_verse: laatste vers
-      study_note:
+      studynote:
         title: titel
         note: bijbelstudie
   support:
@@ -291,8 +291,8 @@ nl:
   chapter_deleted: "Hoofdstuk is verwijderd"
   chapter: "hoofdstuk"
   chapters: "hoofdstukken"
-  new_study_note: "Nieuwe bijbelstudie"
-  study_note_created: "Bijbelstudie toegevoegd"
+  new_studynote: "Nieuwe bijbelstudie"
+  studynote_created: "Bijbelstudie toegevoegd"
   edit_chapter: "Wijzig hoofdstuk"
   sign_up: "Registreer"
   email: "Email"
@@ -301,8 +301,8 @@ nl:
   sign_out: "Log uit"
   password: "Wachtwoord"
   admin: "Admin"
-  study_note_not_created: "Bijbelstudie niet gemaakt"
-  study_notes: "bijbelstudies"
+  studynote_not_created: "Bijbelstudie niet gemaakt"
+  studynotes: "bijbelstudies"
   pericopes: "bijbelgedeelten"
 
 

@@ -1,0 +1,17 @@
+<header>
+  <ul class="actions">
+    <h1><%= t(:studynotes) %></h1>
+    <%= link_to t(:new_studynote), new_studynote_path, class: "new" %>
+  </ul>
+</header>
+
+<div id="study_notes">
+  <% @studynote.each do |studynote| %>
+      <p><% studynote.pericopes.each do |pericope| %>
+          <%= pericope.name %>
+      <% end %>
+      <%= link_to studynote.title, studynote %></p>
+  <% end %>
+</div>
+
+

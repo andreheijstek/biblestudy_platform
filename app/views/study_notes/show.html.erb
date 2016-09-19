@@ -1,9 +1,0 @@
-<% title(@study_note.note, t(:study_notes)) %>
-
-<header>
-  <h2><%= @study_note.title %></h2>
-  <p><%= @study_note.note %></p>
-  <p><% @study_note.pericopes.each do |pericope| %>
-    <%= pericope.name %>
-  <% end %></p>
-</header>
