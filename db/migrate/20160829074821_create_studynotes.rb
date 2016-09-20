@@ -1,4 +1,4 @@
-class CreateStudyNotes < ActiveRecord::Migration
+class CreateStudynotes < ActiveRecord::Migration
   def change
     create_table :studynotes do |t|
       t.text :note
