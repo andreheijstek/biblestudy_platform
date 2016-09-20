@@ -13,6 +13,7 @@ class StudynotesController < ApplicationController
 
   def create
     @studynote = Studynote.new(studynote_params)
+    # @studynote.pericopes << @pericope
 
     if @studynote.save
       flash[:notice] = t(:studynote_created)
