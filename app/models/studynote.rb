@@ -1,5 +1,5 @@
 class Studynote < ActiveRecord::Base
-  has_many :pericopes
+  has_many :pericopes, dependent: :destroy
   has_many :biblebooks, through: :pericopes
   accepts_nested_attributes_for :pericopes
 
