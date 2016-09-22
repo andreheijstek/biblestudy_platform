@@ -11,7 +11,7 @@
     <tr>
       <td><%= pericope.name %></td>
       <td><% sn = Studynote.find(pericope.studynote_id) %>
-      <%= link_to sn.title, @studynote %></td>
+      <%= link_to sn.title, sn %></td>
     </tr>
 <% end %>
   </table>
