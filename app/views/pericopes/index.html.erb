@@ -7,13 +7,13 @@
 
 <div id="pericopes">
   <table id="pericopes">
-  <% @pericope.each do |pericope| %>
-    <tr>
-      <td><%= pericope.name %></td>
-      <td><% sn = Studynote.find(pericope.studynote_id) %>
-      <%= link_to sn.title, sn %></td>
-    </tr>
-<% end %>
+    <% @pericope.each do |pericope| %>
+      <tr>
+        <td><%= pericope.name %></td>
+        <td><% sn = Studynote.find(pericope.studynote_id) %>
+        <%= link_to sn.title, sn %></td>
+      </tr>
+    <% end %>
   </table>
 </div>
 

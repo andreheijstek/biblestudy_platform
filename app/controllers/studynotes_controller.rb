@@ -27,6 +27,19 @@ class StudynotesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @studynote.update(studynote_params)
+      flash[:notice] = t(:studynote_updated)
+      redirect_to @studynote
+    else
+      flash.now[:alert] = t(:studynote_not_updated)
+      render "edit"
+    end
+  end
+
   private
 
   def studynote_params

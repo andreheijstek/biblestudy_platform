@@ -306,5 +306,10 @@ nl:
   admin: "Admin"
 
   pericopes: "bijbelgedeelten"
+  edit_studynote: "Wijzig bijbelstudie"
+  sure_to_delete_studynote: "Weet u zeker dat u deze bijbelstudie wilt verwijderen?"
+  delete_studynote: "Verwijder bijbelstudie"
+  studynote_updated: "bijbelstudie bijgewerkt"
+  studynote_not_updated: "Bijbelstudie niet bijgewerkt"
 
 

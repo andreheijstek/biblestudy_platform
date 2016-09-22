@@ -1,7 +1,17 @@
 <% title(@studynote.note, t(:studynotes)) %>
 
 <header>
-  <h2><%= @studynote.title %></h2>
+  <h1><%= @studynote.title %></h1>
+  <ul class="actions">
+    <li><%= link_to t(:edit_studynote), edit_studynote_path(@studynote), class: "edit" %></li>
+    <li><%= link_to t(:delete_studynote), studynote_path(@studynote),
+                    method: :delete,
+                    data: { confirm: t(:sure_to_delete_studynote) },
+                    class: "delete" %></li>
+  </ul>
+</header>
+
+<header>
   <p><% @studynote.pericopes.each do |pericope| %>
     <%= pericope.name %>
   <% end %></p>
