@@ -40,6 +40,12 @@ class StudynotesController < ApplicationController
     end
   end
 
+  def destroy
+    @studynote.destroy
+    flash[:notice] = t(:studynote_deleted)
+    redirect_to studynotes_path
+  end
+
   private
 
   def studynote_params
