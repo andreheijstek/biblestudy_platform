@@ -1,14 +1,14 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Admins can create new bible books" do
+RSpec.feature 'Admins can create new bible books' do
 
   before do
     visit biblebooks_path
     click_link t(:new_biblebook)
   end
 
-  scenario "for single bible books" do
-    bookname = "Handelingen"
+  scenario 'for single bible books' do
+    bookname = 'Handelingen'
     fill_in t('simple_form.labels.biblebook.name'),  with: bookname
     fill_in t('simple_form.labels.biblebook.booksequence'), with: 0
     fill_in t('simple_form.labels.biblebook.testament'), with: 'nieuw'
@@ -16,11 +16,11 @@ RSpec.feature "Admins can create new bible books" do
     submit_form
 
     expect(page).to have_content t(:biblebook_created)
-    book = Biblebook.find_by(name: "Handelingen")
+    book = Biblebook.find_by(name: 'Handelingen')
     expect(page.current_url).to eq biblebook_url(book)
   end
 
-  scenario "when providing invalid attributes" do
+  scenario 'when providing invalid attributes' do
     submit_form
 
     expect(page).to have_content t(:biblebook_not_created)

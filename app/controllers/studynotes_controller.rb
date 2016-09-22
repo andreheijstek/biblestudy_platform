@@ -12,7 +12,7 @@ class StudynotesController < ApplicationController
   end
 
   def create
-    @pericope = Pericope.new(name: "Genesis 1:1-10")
+    @pericope = Pericope.new
     @studynote = Studynote.new(studynote_params)
 
     if @studynote.save
@@ -53,8 +53,6 @@ class StudynotesController < ApplicationController
   end
 
   def pericope_params
-    @pericope = @studynote.pericopes.find(params[:studynote]['pericopes'])
-
     params.require(:pericope).permit(pericopes_attributes: [:name, :id])
   end
 
@@ -63,9 +61,5 @@ class StudynotesController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = t(:studynote_not_found)
     redirect_to studynotes_path
-  end
-
-  def set_pericope
-    @pericope = @studynote.pericopes.find(params[:studynote]['pericopes'])
   end
 end

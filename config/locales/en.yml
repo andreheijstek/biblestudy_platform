@@ -202,3 +202,4 @@ en:
       short: "%d %b %H:%M"
       time: "%H:%M"
     pm: "'s middags"
+  studynote_deleted: "bijbelstudie verwijderd"

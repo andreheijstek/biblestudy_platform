@@ -1,16 +1,16 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Admins can add the number of verses to a chapter" do
+RSpec.feature 'Admins can add the number of verses to a chapter' do
 
   before do
-    booktitle = "Handelingen"
+    booktitle = 'Handelingen'
     book = FactoryGirl.create(:biblebook, name: booktitle)
     chapter = FactoryGirl.create(:chapter, biblebook: book, chapter_number: '1')
     visit biblebooks_path
     visit biblebook_chapter_path(book, chapter)
   end
 
-  scenario "with valid attributes" do
+  scenario 'with valid attributes' do
     click_link t(:edit_chapter)
     fill_in t('simple_form.labels.chapter.nrofverses'), with: '31'
 
