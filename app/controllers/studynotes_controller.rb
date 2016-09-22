@@ -1,7 +1,6 @@
 class StudynotesController < ApplicationController
 
   before_action :set_studynote, only: [:show, :edit, :update, :destroy]
-  # before_action :set_pericope,  only: [:show, :edit, :update, :destroy]
 
   def index
     @studynote = Studynote.all.order(:title)

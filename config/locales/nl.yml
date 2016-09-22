@@ -293,6 +293,9 @@ nl:
   chapters: "hoofdstukken"
   new_studynote: "Nieuwe bijbelstudie"
   studynote_created: "Bijbelstudie toegevoegd"
+  studynote_not_created: "Bijbelstudie niet gemaakt"
+  studynotes: "bijbelstudies"
+  studynote_not_found: "bijbelstudie niet gevonden"
   edit_chapter: "Wijzig hoofdstuk"
   sign_up: "Registreer"
   email: "Email"
@@ -301,8 +304,7 @@ nl:
   sign_out: "Log uit"
   password: "Wachtwoord"
   admin: "Admin"
-  studynote_not_created: "Bijbelstudie niet gemaakt"
-  studynotes: "bijbelstudies"
+
   pericopes: "bijbelgedeelten"
 
 

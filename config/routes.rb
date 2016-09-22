@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root "pericopes#index"
+  root 'pericopes#index'
 
   resources :biblebooks do
     resources :chapters
