@@ -6,12 +6,15 @@
 </header>
 
 <div id="pericopes">
+  <table id="pericopes">
   <% @pericope.each do |pericope| %>
-      <p> <%= pericope.name %>
-      <% sn = Studynote.find(pericope.studynote_id) %>
-      <%= link_to sn.title, @studynote %>
-      <%= sn.note %></p>
+    <tr>
+      <td><%= pericope.name %></td>
+      <td><% sn = Studynote.find(pericope.studynote_id) %>
+      <%= link_to sn.title, @studynote %></td>
+    </tr>
 <% end %>
+  </table>
 </div>
 
 
