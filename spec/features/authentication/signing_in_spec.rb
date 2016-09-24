@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users can sign in' do
 
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { create(:user) }
 
   scenario 'with valid credentials' do
     ensure_on '/'

@@ -4,8 +4,8 @@ RSpec.feature 'Admins can add the number of verses to a chapter' do
 
   before do
     booktitle = 'Handelingen'
-    book = FactoryGirl.create(:biblebook, name: booktitle)
-    chapter = FactoryGirl.create(:chapter, biblebook: book, chapter_number: '1')
+    book = create(:biblebook, name: booktitle)
+    chapter = create(:chapter, biblebook: book, chapter_number: '1')
     visit biblebooks_path
     visit biblebook_chapter_path(book, chapter)
   end

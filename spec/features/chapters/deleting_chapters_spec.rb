@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.feature 'Users can delete chapters' do
 
-  let(:biblebook) { FactoryGirl.create(:biblebook) }
-  let(:chapter)   { FactoryGirl.create(:chapter, biblebook: biblebook) }
+  let(:biblebook) { create(:biblebook) }
+  let(:chapter)   { create(:chapter, biblebook: biblebook) }
 
   before do
     visit biblebook_chapter_path(biblebook, chapter)

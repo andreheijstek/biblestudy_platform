@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Users can view an overview of all biblebooks' do
   scenario 'sorted by the given order' do
-    biblebook1 = FactoryGirl.create(:biblebook, name: 'Bijbelboek1', booksequence: 1)
-    biblebook2 = FactoryGirl.create(:biblebook, name: 'Bijbelboek2', booksequence: 2)
+    biblebook1 = create(:biblebook, name: 'Bijbelboek1', booksequence: 1)
+    biblebook2 = create(:biblebook, name: 'Bijbelboek2', booksequence: 2)
     visit biblebooks_path
 
     expect(page).to have_content 'Bijbelboek1'

@@ -8,7 +8,7 @@ RSpec.feature "Users can create new studynotes and associate them to pericopes" 
   end
 
   scenario "to a single pericopes with valid attributes" do
-    FactoryGirl.create(:biblebook, name: "Jona")
+    create(:biblebook, name: "Jona")
     fill_in t('simple_form.labels.pericopes.name'), with: "Jona 1:1 - 1:10"
     fill_in t('simple_form.labels.studynote.title'), with: "Titel"
     fill_in t('simple_form.labels.studynote.note'), with: "Jona is bijzonder."
