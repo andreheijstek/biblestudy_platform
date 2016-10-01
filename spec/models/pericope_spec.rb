@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe Pericope, type: :model do
 
   before do
-    # create a biblebook first, so that can be connected to the pericopes
-    book = create(:biblebook, name: 'Genesis')
-    @book_id = book.id
+    # create a biblebook first, so that it can be connected to the pericopes
+    genesis = create(:biblebook, name: 'Genesis')
+    @genesis_id = genesis.id
+    korinte = create(:biblebook, name: '1 Korintiërs')
+    @korinte_id = korinte.id
   end
 
   it 'is valid with valid attributes' do
     expect(Pericope.new(name: 'Genesis 1:1 - 1:10')).to be_valid
+    expect(Pericope.new(name: '1 Korintiërs 1:1 - 1:10')).to be_valid
   end
 
   it 'is not valid without a name' do
@@ -24,7 +27,7 @@ RSpec.describe Pericope, type: :model do
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
-    expect(pericope.biblebook_id).to        eq(@book_id)
+    expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
   it 'name must contain a valid pericopes string, like Genesis 1:1-1:10' do
@@ -34,7 +37,7 @@ RSpec.describe Pericope, type: :model do
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
-    expect(pericope.biblebook_id).to        eq(@book_id)
+    expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
   it 'name must contain a valid pericopes string, like Genesis 1:1 - 10' do
@@ -44,7 +47,7 @@ RSpec.describe Pericope, type: :model do
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(1)
     expect(pericope.ending_verse).to        eq(3)
-    expect(pericope.biblebook_id).to        eq(@book_id)
+    expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
 =begin
