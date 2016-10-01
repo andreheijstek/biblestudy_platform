@@ -1,6 +1,6 @@
 <%= simple_form_for (studynote) do |s|  %>
     <%= s.simple_fields_for :pericopes do |p| %>
-        <%= p.input :name %>
+        <%= p.input :name, placeholder: 'Genesis 1:1-3:21' %>
     <% end %>
     <%= s.input :title %>
     <%= s.input :note %>
