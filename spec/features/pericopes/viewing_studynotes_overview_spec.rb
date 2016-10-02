@@ -1,21 +1,21 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'Users can view an overview of all studynotes' do
+RSpec.feature "Users can view an overview of all studynotes" do
 
-  let!(:b1) { create(:biblebook, name: 'Jona', booksequence: 34) }
-  let!(:s1) { create(:studynote, title: 'Jona', note: 'Jona is bijzonder.') }
-  let!(:p1) { create(:pericope_by_name, name: 'Jona 1:1 - 1:10', biblebook_id: b1.id, studynote_id: s1.id) }
+  let!(:b1) { create(:biblebook, name: "Jona", booksequence: 34) }
+  let!(:s1) { create(:studynote, title: "Jona", note: "Jona is bijzonder.") }
+  let!(:p1) { create(:pericope_by_name, name: "Jona 1:1 - 1:10", biblebook_id: b1.id, studynote_id: s1.id) }
 
-  let!(:b2) { create(:biblebook, name: 'Handelingen', booksequence: 53) }
-  let!(:s2) { create(:studynote, title: 'Handelingen', note: 'Handelingen ook.') }
-  let!(:p2) { create(:pericope_by_name, name: 'Handelingen 1:1 - 1:10', biblebook_id: b2.id, studynote_id: s2.id) }
+  let!(:b2) { create(:biblebook, name: "Handelingen", booksequence: 53) }
+  let!(:s2) { create(:studynote, title: "Handelingen", note: "Handelingen ook.") }
+  let!(:p2) { create(:pericope_by_name, name: "Handelingen 1:1 - 1:10", biblebook_id: b2.id, studynote_id: s2.id) }
 
-  scenario 'sorted by pericopes name' do
+  scenario "sorted by pericopes name" do
     visit pericopes_path
 
-    expect(page).to have_content 'Jona'
-    expect(page).to have_content 'Handelingen'
+    expect(page).to have_content "Jona"
+    expect(page).to have_content "Handelingen"
 
-    expect('Jona').to appear_before('Handelingen')
+    expect("Jona").to appear_before("Handelingen")
   end
 end

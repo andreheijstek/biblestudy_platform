@@ -41,8 +41,7 @@ class ChaptersController < ApplicationController
   end
 
   private
-
-
+  
   def chapter_params
     params.require(:chapter).permit(:chapter_number, :description, :nrofverses)
   end
@@ -54,5 +53,4 @@ class ChaptersController < ApplicationController
   def set_chapter
     @chapter = @biblebook.chapters.find(params[:id])
   end
-
 end

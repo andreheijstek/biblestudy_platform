@@ -20,7 +20,7 @@ class StudynotesController < ApplicationController
       redirect_to @studynote
     else
       flash.now[:alert] = t(:studynote_not_created)
-      render "new"
+      render 'new'
     end
   end
 
@@ -36,7 +36,7 @@ class StudynotesController < ApplicationController
       redirect_to @studynote
     else
       flash.now[:alert] = t(:studynote_not_updated)
-      render "edit"
+      render 'edit'
     end
   end
 

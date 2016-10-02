@@ -2,7 +2,6 @@ class Biblebook < ActiveRecord::Base
   validates :name, presence: true
 
   has_many :chapters, dependent: :delete_all
-
   has_many :pericopes
   has_many :studynotes, through: :pericopes
 end

@@ -6,8 +6,8 @@ class PericopeValidator < ActiveModel::Validator
     end
 
     pericope = PericopeString.new(record.name)
-    biblebook_name    = pericope.biblebook_name
-    biblebook         = Biblebook.find_by(name: biblebook_name)
+    biblebook_name = pericope.biblebook_name
+    biblebook      = Biblebook.find_by(name: biblebook_name)
     if biblebook.nil?
       record.errors[:name] << "Unknown biblebook"
       return

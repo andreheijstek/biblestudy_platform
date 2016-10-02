@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'Signed-in users can sign out' do
+RSpec.feature "Signed-in users can sign out" do
 
   let!(:user) { create(:user) }
 
@@ -9,10 +9,10 @@ RSpec.feature 'Signed-in users can sign out' do
   end
 
   scenario do
-    visit '/'
+    visit "/"
 
     click_link t(:sign_out)
 
-    expect(page).to have_content t('devise.sessions.signed_out')
+    expect(page).to have_content t("devise.sessions.signed_out")
   end
 end
