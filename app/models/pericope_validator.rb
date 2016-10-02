@@ -5,7 +5,13 @@ class PericopeValidator < ActiveModel::Validator
       return
     end
 
-    pericope = PericopeString.new(record.name)
+    begin
+      pericope = PericopeString.new(record.name)
+    rescue
+      record.errors[:name] << "Invalid pericope"
+      return
+    end
+
     biblebook_name = pericope.biblebook_name
     biblebook      = Biblebook.find_by(name: biblebook_name)
     if biblebook.nil?
