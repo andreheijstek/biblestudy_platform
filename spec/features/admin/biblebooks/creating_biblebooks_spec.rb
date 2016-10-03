@@ -4,7 +4,7 @@ RSpec.feature "Admins can create new bible books" do
 
   before do
     login_as(FactoryGirl.create(:user, :admin))
-    visit biblebooks_path
+    visit admin_biblebooks_path
     click_link t(:new_biblebook)
   end
 
@@ -18,7 +18,7 @@ RSpec.feature "Admins can create new bible books" do
 
     expect(page).to have_content t(:biblebook_created)
     book = Biblebook.find_by(name: "Handelingen")
-    expect(page.current_url).to eq biblebook_url(book)
+    expect(page.current_url).to eq admin_biblebook_url(book)
   end
 
   scenario "when providing invalid attributes" do
@@ -27,7 +27,6 @@ RSpec.feature "Admins can create new bible books" do
     expect(page).to have_content t(:biblebook_not_created)
     expect(page).to have_content t("activerecord.models.messages.blank")
   end
-
 end
 
 

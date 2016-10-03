@@ -1,5 +1,5 @@
 require "rails_helper"
 
-RSpec.describe ChaptersController, type: :controller do
+RSpec.describe Admin::ChaptersController, type: :controller do
 
 end

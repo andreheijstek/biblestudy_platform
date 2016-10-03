@@ -1,5 +1,4 @@
-class ChaptersController < ApplicationController
-
+class Admin::ChaptersController < Admin::ApplicationController
   before_action :set_biblebook
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
@@ -11,7 +10,7 @@ class ChaptersController < ApplicationController
     @chapter = @biblebook.chapters.build(chapter_params)
     if @chapter.save
       flash[:notice] = t(:chapter_created)
-      redirect_to [@biblebook, @chapter]
+      redirect_to [:admin, @biblebook, @chapter]
     else
       flash.now[:alert] = t(:chapter_not_created)
       render "new"
@@ -27,7 +26,7 @@ class ChaptersController < ApplicationController
   def update
     if @chapter.update(chapter_params)
       flash[:notice] = t(:chapter_updated)
-      redirect_to [@biblebook, @chapter]
+      redirect_to [:admin, @biblebook, @chapter]
     else
       flash.now[:alert] = t(:chapter_not_updated)
       render "edit"
@@ -37,7 +36,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter.destroy
     flash[:notice] = t(:chapter_deleted)
-    redirect_to @biblebook
+    redirect_to [:admin, @biblebook]
   end
 
   private

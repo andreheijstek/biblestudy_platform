@@ -3,10 +3,11 @@ require "rails_helper"
 RSpec.feature "Admins can create new chapters within biblebooks" do
 
   before do
+    login_as(FactoryGirl.create(:user, :admin))
     booktitle = "Handelingen"
     book = create(:biblebook, name: booktitle)
-    visit biblebooks_path
-    visit biblebook_path(book)
+    visit admin_biblebooks_path
+    visit admin_biblebook_path(book)
   end
 
   scenario "with valid attributes" do
