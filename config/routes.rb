@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'application/index'
+  end
+
+  root 'pericopes#index'
+
+  namespace :admin do
     get 'application/index'
     resources :biblebooks do
       resources :chapters
@@ -8,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root 'pericopes#index'
 
   resources :studynotes
   resources :pericopes

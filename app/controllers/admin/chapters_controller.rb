@@ -51,5 +51,8 @@ class Admin::ChaptersController < Admin::ApplicationController
 
   def set_chapter
     @chapter = @biblebook.chapters.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = t(:chapter_not_found)
+    redirect_to admin_biblebook_chapters_path
   end
 end

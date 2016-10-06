@@ -141,10 +141,10 @@ books.each do |book|
 end
 
 unless User.exists?(email: "admin@biblestudy.com")
-  User.create!(email: "admin@biblestudy.com", password: "password", admin: true
+  User.create!(email: "admin@biblestudy.com", password: "bsp4ever", admin: true
   )
 end
 
 unless User.exists?(email: "viewer@biblestudy.com")
-  User.create!(email: "viewer@biblestudy.com", password: "password")
+  User.create!(email: "viewer@biblestudy.com", password: "bsp4ever")
 end
