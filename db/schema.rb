@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003052316) do
+ActiveRecord::Schema.define(version: 20161012185857) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -47,12 +47,26 @@ ActiveRecord::Schema.define(version: 20161003052316) do
   add_index "pericopes", ["biblebook_id"], name: "index_pericopes_on_biblebook_id"
   add_index "pericopes", ["studynote_id"], name: "index_pericopes_on_studynote_id"
 
+  create_table "roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role"
+    t.integer  "studynote_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "roles", ["studynote_id"], name: "index_roles_on_studynote_id"
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id"
+
   create_table "studynotes", force: :cascade do |t|
     t.text     "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
+    t.integer  "author_id"
   end
+
+  add_index "studynotes", ["author_id"], name: "index_studynotes_on_author_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

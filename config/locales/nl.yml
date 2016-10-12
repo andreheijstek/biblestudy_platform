@@ -312,5 +312,10 @@ nl:
   studynote_not_updated: "Bijbelstudie niet bijgewerkt"
   studynote_deleted: "bijbelstudie verwijderd"
   chapter_not_found: "hoofdstuk bestaat niet"
+  author: "auteur"
+  created: "geschreven"
+  ago: "geleden"
+  pericope: "pericoop"
+  studynote: "bijbelstudie"
 
 

@@ -18,6 +18,7 @@
 @import "biblebooks";
 @import "admin/application";
 @import "responsive";
+@import "studynotes";
 
 header {
   @extend .page-header;
@@ -93,4 +94,8 @@ ul.actions {
   right: 2px;
   max-width: 45%;
   text-align: right;
+}
+
+th, td {
+  padding: 5px;
 }

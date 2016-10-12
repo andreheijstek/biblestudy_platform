@@ -1,9 +1,11 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit existing studynotes" do
+  let(:user) { FactoryGirl.create(:user) }
+
   before do
     b1 = create(:biblebook, name: "Jona")
-    s1 = create(:studynote, title: "Jona", note: "Jona is bijzonder.")
+    s1 = create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user)
     create(:pericope_by_name, name: "Jona 1:1 - 1:10", biblebook_id: b1.id, studynote_id: s1.id)
     visit studynotes_path
 

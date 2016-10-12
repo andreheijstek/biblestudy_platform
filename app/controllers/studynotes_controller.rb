@@ -14,6 +14,7 @@ class StudynotesController < ApplicationController
   def create
     @pericope = Pericope.new
     @studynote = Studynote.new(studynote_params)
+    @studynote.author = current_user
 
     if @studynote.save
       flash[:notice] = t(:studynote_created)
@@ -25,6 +26,7 @@ class StudynotesController < ApplicationController
   end
 
   def show
+    # authorize @studynote, :show?
   end
 
   def edit

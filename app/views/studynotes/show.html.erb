@@ -1,19 +1,31 @@
-<% title(@studynote.note, t(:studynotes)) %>
+<div id="studynote">
+  <% title(@studynote.note, t(:studynotes)) %>
 
-<header>
-  <h1><%= @studynote.title %></h1>
-  <ul class="actions">
-    <li><%= link_to t(:edit_studynote), edit_studynote_path(@studynote), class: "edit" %></li>
-    <li><%= link_to t(:delete_studynote), studynote_path(@studynote),
-                    method: :delete,
-                    data: { confirm: t(:sure_to_delete_studynote) },
-                    class: "delete" %></li>
-  </ul>
-</header>
+  <header>
+    <h1><%= @studynote.title %></h1>
+    <ul class="actions">
+      <li><%= link_to t(:edit_studynote), edit_studynote_path(@studynote), class: "edit" %></li>
+      <li><%= link_to t(:delete_studynote), studynote_path(@studynote),
+                      method: :delete,
+                      data: { confirm: t(:sure_to_delete_studynote) },
+                      class: "delete" %></li>
+    </ul>
+  </header>
 
-<header>
-  <p><% @studynote.pericopes.each do |pericope| %>
-    <%= pericope.name %>
-  <% end %></p>
-  <p><%= @studynote.note %></p>
-</header>
+  <header>
+    <p><% @studynote.pericopes.each do |pericope| %>
+      <%= pericope.name %>
+    <% end %></p>
+    <p><%= @studynote.note %></p>
+  </header>
+  <table id="attributes">
+    <tr>
+      <th><%= t('author') %>: </th>
+      <td><%= @studynote.author.email %></td>
+    </tr>
+    <tr>
+      <th><%= t('created') %>: </th>
+      <td><%= time_ago_in_words(@studynote.created_at) %> <%= t('ago') %></td>
+    </tr>
+  </table>
+</div>
