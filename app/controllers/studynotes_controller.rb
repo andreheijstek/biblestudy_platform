@@ -26,7 +26,7 @@ class StudynotesController < ApplicationController
   end
 
   def show
-    # authorize @studynote, :show?
+    authorize @studynote, :show?
   end
 
   def edit

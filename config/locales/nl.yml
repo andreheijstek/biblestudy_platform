@@ -8,6 +8,12 @@ nl:
         password_confirmation: "Herhaal wachtwoord"
         sign_up: "Registreer"
         sign_in: Log in
+        is_admin: is admin
+    messages:
+      created: Gebruiker is aangemaakt
+      notcreated: Gebruiker is niet aangemaakt
+      updated: Gebruiker is gewijzigd
+      not_updated: Gebruiker is niet gewijzigd
     errors:
       full_messages:
         format: "%{attribute} %{message}"
