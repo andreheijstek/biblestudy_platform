@@ -1,5 +1,6 @@
 class StudynotesController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_studynote, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,13 +27,14 @@ class StudynotesController < ApplicationController
   end
 
   def show
-    authorize @studynote, :show?
   end
 
   def edit
+    authorize @studynote, :update?
   end
 
   def update
+    authorize @studynote, :update?
     if @studynote.update(studynote_params)
       flash[:notice] = t(:studynote_updated)
       redirect_to @studynote

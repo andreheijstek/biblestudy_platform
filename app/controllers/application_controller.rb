@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+
+  private
+
+  def not_authorized
+    redirect_to root_path, alert: t("not_allowed")
+  end
 end
