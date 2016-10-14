@@ -9,10 +9,8 @@ RSpec.feature "Users can edit existing studynotes" do
     create(:pericope_by_name, name: "Jona 1:1 - 1:10", biblebook_id: b1.id, studynote_id: s1.id)
 
     login_as(user)
-    assign_role!(user, :study_reader, s1)
 
     visit studynotes_path
-
     click_link "Jona"
     click_link t(:edit_studynote)
   end

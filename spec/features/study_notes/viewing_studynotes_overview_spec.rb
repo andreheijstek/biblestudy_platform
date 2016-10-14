@@ -11,11 +11,6 @@ RSpec.feature "Users can view an overview of all studynotes" do
   let!(:s2) { create(:studynote, title: "Handelingen", note: "Handelingen ook.", author: user) }
   let!(:p2) { create(:pericope_by_name, name: "Handelingen 1:1 - 1:10", biblebook_id: b2.id, studynote_id: s2.id) }
 
-  before do
-    login_as(user)
-    assign_role!(user, :study_reader, s1)
-  end
-
   scenario "sorted by pericopes name" do
     visit pericopes_path
 
