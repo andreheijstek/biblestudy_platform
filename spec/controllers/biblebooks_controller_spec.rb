@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Admin::BiblebooksController, type: :controller do
+describe Admin::BiblebooksController, type: :controller do
   let(:user) { FactoryGirl.create(:user, :admin) }
 
   before do

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can view biblebooks" do
+feature "Users can view biblebooks" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
   end

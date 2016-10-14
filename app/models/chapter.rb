@@ -4,5 +4,4 @@ class Chapter < ActiveRecord::Base
   validates :chapter_number, presence: true
 
   default_scope { order("chapter_number ASC") }
-
 end

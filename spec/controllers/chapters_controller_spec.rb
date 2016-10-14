@@ -4,9 +4,10 @@
 # I think the get :show calls a chapter route without prefixing a biblebook
 
 =begin
+
 require "rails_helper"
 
-RSpec.describe Admin::ChaptersController, type: :controller do
+describe Admin::ChaptersController, type: :controller do
   let(:user) { FactoryGirl.create(:user, :admin) }
 
   before do

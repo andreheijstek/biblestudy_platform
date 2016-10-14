@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Page title is set according to the page content" do
+feature "Page title is set according to the page content" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
   end

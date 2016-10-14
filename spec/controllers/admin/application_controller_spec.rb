@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Admin::ApplicationController, type: :controller do
+describe Admin::ApplicationController, type: :controller do
   let(:user) { FactoryGirl.create(:user) }
 
   before do

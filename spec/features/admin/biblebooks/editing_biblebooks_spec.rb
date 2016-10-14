@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can edit existing biblebooks" do
+feature "Users can edit existing biblebooks" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
     create(:biblebook, name: "Voorbeeld bijbelboek")

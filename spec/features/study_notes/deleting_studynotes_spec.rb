@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can delete studynotes" do
+feature "Users can delete studynotes" do
   let(:user) { FactoryGirl.create(:user) }
 
   scenario "successfully" do

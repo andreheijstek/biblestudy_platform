@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can view an overview of all studynotes" do
+feature "Users can view an overview of all studynotes" do
   let(:user) { FactoryGirl.create(:user) }
 
   let!(:b1) { create(:biblebook, name: "Jona", booksequence: 34) }

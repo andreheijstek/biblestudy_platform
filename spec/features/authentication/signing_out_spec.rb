@@ -1,14 +1,10 @@
 require "rails_helper"
 
-RSpec.feature "Signed-in users can sign out" do
-
+feature "Signed-in users can sign out" do
   let!(:user) { create(:user) }
 
-  before do
-    login_as(user)
-  end
-
   scenario do
+    login_as(user)
     visit "/"
 
     click_link t(:sign_out)

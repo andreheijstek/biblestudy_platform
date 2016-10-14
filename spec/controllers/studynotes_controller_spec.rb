@@ -1,7 +1,7 @@
 =begin
 require "rails_helper"
 
-RSpec.describe StudynotesController, type: :controller do
+describe StudynotesController, type: :controller do
   let(:user) { FactoryGirl.create(:user) }
 
   it "handles permission errors by redirecting to a safe place" do

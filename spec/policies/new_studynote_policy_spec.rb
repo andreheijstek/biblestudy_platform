@@ -1,7 +1,7 @@
 =begin
 require 'rails_helper'
 
-RSpec.describe StudynotePolicy do
+describe StudynotePolicy do
   subject { StudynotePolicy.new(user, studynote) }
 
   let(:studynote) { FactoryGirl.create(:studynote) }

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Pericope, type: :model do
+describe Pericope, type: :model do
 
   before do
     # create a biblebook first, so that it can be connected to the pericopes

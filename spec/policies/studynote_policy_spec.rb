@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe StudynotePolicy do
-  let(:user) { FactoryGirl.create :user }
+describe StudynotePolicy do
+  let(:user)      { FactoryGirl.create :user }
   let(:studynote) { FactoryGirl.create :studynote }
 
   permissions :show? do
@@ -42,17 +42,14 @@ RSpec.describe StudynotePolicy do
     end
   end
 
-
-=begin
   permissions :create? do
     subject { StudynotePolicy }
 
-    it "blocks anonymous users" do
-      expect(subject).not_to permit(nil, studynote)
-    end
+    # it "blocks anonymous users" do
+    #   expect(subject).not_to permit(nil, studynote)
+    # end
 
     it "allows registered users" do
-      login_as(user)
       expect(subject).to permit(user, studynote)
     end
 
@@ -61,5 +58,4 @@ RSpec.describe StudynotePolicy do
       expect(subject).to permit(admin, studynote)
     end
   end
-=end
 end

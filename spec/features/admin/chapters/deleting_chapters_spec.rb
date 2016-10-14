@@ -1,6 +1,6 @@
 require "rails_helper"
-RSpec.feature "Users can delete chapters" do
 
+feature "Users can delete chapters" do
   let(:biblebook) { create(:biblebook) }
   let(:chapter)   { create(:chapter, biblebook: biblebook) }
 

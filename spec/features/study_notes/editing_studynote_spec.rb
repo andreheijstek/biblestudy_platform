@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can edit existing studynotes" do
+feature "Users can edit existing studynotes" do
   let(:user) { FactoryGirl.create(:user) }
 
   before do

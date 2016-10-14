@@ -9,6 +9,9 @@ nl:
         sign_up: "Registreer"
         sign_in: Log in
         is_admin: is admin
+        messages:
+          updated: "gebruiker is bijgewerkt"
+          notupdated: "gebruiker is niet bijgewerkt"
     messages:
       created: Gebruiker is aangemaakt
       notcreated: Gebruiker is niet aangemaakt
@@ -324,5 +327,11 @@ nl:
   pericope: "pericoop"
   studynote: "bijbelstudie"
   not_allowed: "dit is niet toegestaan"
+  chapter_not_updated: "hoofdstuk niet bijgewerkt"
+  name_not_empty: "naam mag niet leeg zijn"
+  invalid_pericope: "onjuiste pericoop"
+  unknown_biblebook: "onjuist/onbekend bijbelboek"
+  starting_greater_than_ending: "beginhoofdstuk mag niet groter zijn dan eindhoofdstuk"
+  starting_verse_chapter_mismatch: "beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk"
 
 

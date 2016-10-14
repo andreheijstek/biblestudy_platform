@@ -1,7 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can create new studynotes and associate them to pericopes" do
-
+feature "Users can create new studynotes and associate them to pericopes" do
   let(:user) { FactoryGirl.create(:user) }
 
   before do
@@ -25,7 +24,6 @@ RSpec.feature "Users can create new studynotes and associate them to pericopes" 
     end
   end
 
-=begin
   scenario "when providing no attributes" do
     submit_form
     expect(page).to have_content t(:studynote_not_created)
@@ -38,7 +36,6 @@ RSpec.feature "Users can create new studynotes and associate them to pericopes" 
     expect(page).to have_content t(:studynote_not_created)
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
-=end
 
   # scenario "to multiple pericopes" do
   # end

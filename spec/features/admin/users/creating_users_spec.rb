@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Admins can create new users" do
+feature "Admins can create new users" do
   let(:admin) { FactoryGirl.create(:user, :admin) }
 
   before do

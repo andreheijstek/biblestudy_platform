@@ -2,6 +2,9 @@ class Admin::ChaptersController < Admin::ApplicationController
   before_action :set_biblebook
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
+  def show
+  end
+
   def new
     @chapter = @biblebook.chapters.build
   end
@@ -15,9 +18,6 @@ class Admin::ChaptersController < Admin::ApplicationController
       flash.now[:alert] = t(:chapter_not_created)
       render "new"
     end
-  end
-
-  def show
   end
 
   def edit

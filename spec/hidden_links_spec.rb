@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can only see the appropriate links" do
+feature "Users can only see the appropriate links" do
   let(:user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
 

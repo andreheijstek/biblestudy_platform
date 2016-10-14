@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can view an overview of all biblebooks" do
+feature "Users can view an overview of all biblebooks" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
   end

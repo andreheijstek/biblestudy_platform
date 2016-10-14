@@ -1,10 +1,13 @@
 class StudynotesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :set_studynote, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [       :create, :edit, :update, :destroy]
+  before_action :set_studynote,      only: [:show,          :edit, :update, :destroy]
 
   def index
     @studynote = Studynote.all.order(:title)
+  end
+
+  def show
   end
 
   def new
@@ -26,9 +29,6 @@ class StudynotesController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     authorize @studynote, :update?
   end
@@ -45,6 +45,7 @@ class StudynotesController < ApplicationController
   end
 
   def destroy
+    authorize @studynote, :destroy?
     @studynote.destroy
     flash[:notice] = t(:studynote_deleted)
     redirect_to studynotes_path

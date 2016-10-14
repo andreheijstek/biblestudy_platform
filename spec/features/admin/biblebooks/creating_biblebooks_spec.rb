@@ -1,7 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Admins can create new bible books" do
-
+feature "Admins can create new bible books" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
     visit admin_biblebooks_path

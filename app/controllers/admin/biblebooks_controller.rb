@@ -5,6 +5,9 @@ class Admin::BiblebooksController < Admin::ApplicationController
     @biblebook = Biblebook.all
   end
 
+  def show
+  end
+
   def new
     @biblebook = Biblebook.new
   end
@@ -18,9 +21,6 @@ class Admin::BiblebooksController < Admin::ApplicationController
       flash.now[:alert] = t(:biblebook_not_created)
       render "new"
     end
-  end
-
-  def show
   end
 
   def edit

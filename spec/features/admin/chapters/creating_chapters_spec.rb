@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.feature "Admins can create new chapters within biblebooks" do
-
+feature "Admins can create new chapters within biblebooks" do
   before do
     login_as(FactoryGirl.create(:user, :admin))
     booktitle = "Handelingen"
     book = create(:biblebook, name: booktitle)
+
     visit admin_biblebooks_path
     visit admin_biblebook_path(book)
   end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Admins can change a user's details" do
+feature "Admins can change a user's details" do
   let(:admin_user) { FactoryGirl.create(:user, :admin) }
   let(:user) { FactoryGirl.create(:user) }
 
