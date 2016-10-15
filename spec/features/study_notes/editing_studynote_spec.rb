@@ -1,7 +1,9 @@
 require "rails_helper"
 
 feature "Users can edit existing studynotes" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user)      { FactoryGirl.create(:user) }
+  let(:otheruser) { FactoryGirl.create(:user) }
+
 
   before do
     b1 = create(:biblebook, name: "Jona")
@@ -28,5 +30,13 @@ feature "Users can edit existing studynotes" do
     fill_in t("simple_form.labels.studynote.note"), with: ""
     submit_form
     expect(page).to have_content t(:studynote_not_updated)
+  end
+
+  scenario "unless they do not have permission" do
+    login_as(otheruser)
+    visit studynotes_path
+
+    click_link "Jona"
+    expect(page).not_to have_link t(:delete_studynote)
   end
 end
