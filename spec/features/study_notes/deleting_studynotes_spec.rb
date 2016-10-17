@@ -16,7 +16,7 @@ feature "Users can delete studynotes" do
     click_link t(:delete_studynote)
 
     expect(page).to have_content t(:studynote_deleted)
-    expect(page.current_url).to eq studynotes_url
+    expect(page.current_url).to eq pericopes_url
     expect(page).to have_no_content "Jona"
   end
 

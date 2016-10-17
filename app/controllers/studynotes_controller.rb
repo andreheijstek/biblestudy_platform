@@ -48,7 +48,7 @@ class StudynotesController < ApplicationController
     authorize @studynote, :destroy?
     @studynote.destroy
     flash[:notice] = t(:studynote_deleted)
-    redirect_to studynotes_path
+    redirect_to pericopes_path
   end
 
   private
