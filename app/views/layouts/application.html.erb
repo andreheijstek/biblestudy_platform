@@ -50,7 +50,7 @@
         <% if user_signed_in? %>
             <div class="navbar-right">
               <p class="navbar-text">
-                Signed in as <%= current_user.email %>
+                <%= t("signed_in_as") %> <%= current_user.email %>
               </p>
               <ul class="nav navbar-nav">
                 <li>

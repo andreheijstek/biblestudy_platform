@@ -333,5 +333,6 @@ nl:
   unknown_biblebook: "onjuist/onbekend bijbelboek"
   starting_greater_than_ending: "beginhoofdstuk mag niet groter zijn dan eindhoofdstuk"
   starting_verse_chapter_mismatch: "beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk"
+  signed_in_as: "ingelogd als:"
 
 
