@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/policies/new_studynote_policy_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/controllers/chapters_controller_spec.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/controllers/studynotes_controller_spec.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" afterPath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/policies/studynote_policy.rb" afterPath="$PROJECT_DIR$/app/policies/studynote_policy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/policies/studynote_policy_spec.rb" afterPath="$PROJECT_DIR$/spec/policies/studynote_policy_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/support/pundit_matchers.rb" afterPath="$PROJECT_DIR$/spec/support/pundit_matchers.rb" />
     </list>
     <ignored path="biblestudy_platform.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,14 +33,14 @@
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admin__ChaptersController_handles_a_missing_chapter_correctly__biblestudy_platform.coverage" NAME="Admin::ChaptersController handles a missing chapter correctly: biblestudy_platform Coverage Results" MODIFIED="1475768439123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Pericope__biblestudy_platform.coverage" NAME="Pericope: biblestudy_platform Coverage Results" MODIFIED="1473425360118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__viewing_biblebooks_spec___biblestudy_platform.coverage" NAME="Run spec 'viewing_biblebooks_spec': biblestudy_platform Coverage Results" MODIFIED="1474744806965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__studynotes_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'studynotes_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476479270383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__studynotes_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'studynotes_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476814141907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_studynote_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_studynote_spec': biblestudy_platform Coverage Results" MODIFIED="1476477762400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@routes.coverage" NAME="routes Coverage Results" MODIFIED="1472057405192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/config" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__chapters_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'chapters_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476477144794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__editing_verses_spec___biblestudy_platform.coverage" NAME="Run spec 'editing_verses_spec': biblestudy_platform Coverage Results" MODIFIED="1470840746004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_study_note_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_study_note_spec': biblestudy_platform Coverage Results" MODIFIED="1473007677723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__pericope_spec___biblestudy_platform.coverage" NAME="Run spec 'pericope_spec': biblestudy_platform Coverage Results" MODIFIED="1475330563915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1476461111306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1476814804221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_users_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_users_spec': biblestudy_platform Coverage Results" MODIFIED="1476364199987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admins_can_create_new_bible_sections_when_providing_invalid_attributes__biblestudy_platform.coverage" NAME="Admins can create new bible sections when providing invalid attributes: biblestudy_platform Coverage Results" MODIFIED="1470319109751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admins_can_create_new_bible_sections_for_single_bible_books__biblestudy_platform.coverage" NAME="Admins can create new bible sections for single bible books: biblestudy_platform Coverage Results" MODIFIED="1470429988762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
@@ -52,7 +49,7 @@
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__hidden_links_spec___biblestudy_platform.coverage" NAME="Run spec 'hidden_links_spec': biblestudy_platform Coverage Results" MODIFIED="1476359595565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_features__biblestudy_platform.coverage" NAME="All specs in features: biblestudy_platform Coverage Results" MODIFIED="1476461072678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_study_notes__biblestudy_platform.coverage" NAME="All specs in study_notes: biblestudy_platform Coverage Results" MODIFIED="1476305455903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__biblebooks_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'biblebooks_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1475768382716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__biblebooks_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'biblebooks_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476805772907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__setting_page_title_spec___biblestudy_platform.coverage" NAME="Run spec 'setting_page_title_spec': biblestudy_platform Coverage Results" MODIFIED="1470319121387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__deleting_studynotes_spec___biblestudy_platform.coverage" NAME="Run spec 'deleting_studynotes_spec': biblestudy_platform Coverage Results" MODIFIED="1476729530981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_verses_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_verses_spec': biblestudy_platform Coverage Results" MODIFIED="1470775418788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
@@ -101,18 +98,7 @@
     <favorites_list name="biblestudy_platform" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="studynote_policy_spec.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/policies/studynote_policy_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -151,7 +137,6 @@
         <option value="$PROJECT_DIR$/spec/controllers/admin/application_controller_spec.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/biblebooks_controller_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/controllers/chapters_controller_spec.rb" />
         <option value="$PROJECT_DIR$/spec/factories/studynote_factory.rb" />
         <option value="$PROJECT_DIR$/spec/features/admin/biblebooks/creating_biblebooks_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/admin/biblebooks/deleting_biblebooks_spec.rb" />
@@ -174,7 +159,6 @@
         <option value="$PROJECT_DIR$/spec/hidden_links_spec.rb" />
         <option value="$PROJECT_DIR$/spec/i18n_spec.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-        <option value="$PROJECT_DIR$/spec/controllers/studynotes_controller_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/editing_studynote_spec.rb" />
         <option value="$PROJECT_DIR$/app/helpers/time_helper.rb" />
@@ -188,6 +172,8 @@
         <option value="$PROJECT_DIR$/spec/policies/new_studynote_policy_spec.rb" />
         <option value="$PROJECT_DIR$/app/policies/studynote_policy.rb" />
         <option value="$PROJECT_DIR$/spec/policies/studynote_policy_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/controllers/studynotes_controller_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/controllers/chapters_controller_spec.rb" />
       </list>
     </option>
   </component>
@@ -361,25 +347,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="policies" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,7 +432,7 @@
       <recent name="$PROJECT_DIR$/app/views/study_notes" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.Run spec 'new_studynote_policy_spec': biblestudy_platform">
+  <component name="RunManager" selected="RSpec.All specs in spec: biblestudy_platform">
     <configuration default="false" name="Run spec 'studynotes_controller_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="biblestudy_platform" />
@@ -486,74 +454,6 @@
       </EXTENSION>
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/studynotes_controller_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Run spec 'deleting_studynotes_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="biblestudy_platform" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/features/study_notes/deleting_studynotes_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Run spec 'editing_studynote_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="biblestudy_platform" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/features/study_notes/editing_studynote_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
@@ -626,6 +526,74 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Run spec 'biblebooks_controller_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="biblestudy_platform" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/biblebooks_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="All specs in spec: biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="biblestudy_platform" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$MODULE_DIR$/spec" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="ALL_IN_FOLDER" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
@@ -830,18 +798,18 @@
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: biblestudy_platform" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: biblestudy_platform" />
       <item index="4" class="java.lang.String" itemvalue="RSpec.Run spec 'studynotes_controller_spec': biblestudy_platform" />
-      <item index="5" class="java.lang.String" itemvalue="RSpec.Run spec 'deleting_studynotes_spec': biblestudy_platform" />
-      <item index="6" class="java.lang.String" itemvalue="RSpec.Run spec 'editing_studynote_spec': biblestudy_platform" />
-      <item index="7" class="java.lang.String" itemvalue="RSpec.Run spec 'new_studynote_policy_spec': biblestudy_platform" />
-      <item index="8" class="java.lang.String" itemvalue="RSpec.Run spec 'studynote_policy_spec': biblestudy_platform" />
+      <item index="5" class="java.lang.String" itemvalue="RSpec.Run spec 'new_studynote_policy_spec': biblestudy_platform" />
+      <item index="6" class="java.lang.String" itemvalue="RSpec.Run spec 'studynote_policy_spec': biblestudy_platform" />
+      <item index="7" class="java.lang.String" itemvalue="RSpec.Run spec 'biblebooks_controller_spec': biblestudy_platform" />
+      <item index="8" class="java.lang.String" itemvalue="RSpec.All specs in spec: biblestudy_platform" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.Run spec 'new_studynote_policy_spec': biblestudy_platform" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'studynote_policy_spec': biblestudy_platform" />
-        <item index="2" class="java.lang.String" itemvalue="RSpec.Run spec 'deleting_studynotes_spec': biblestudy_platform" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.Run spec 'editing_studynote_spec': biblestudy_platform" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.Run spec 'studynotes_controller_spec': biblestudy_platform" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.All specs in spec: biblestudy_platform" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'studynotes_controller_spec': biblestudy_platform" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.Run spec 'biblebooks_controller_spec': biblestudy_platform" />
+        <item index="3" class="java.lang.String" itemvalue="RSpec.Run spec 'new_studynote_policy_spec': biblestudy_platform" />
+        <item index="4" class="java.lang.String" itemvalue="RSpec.Run spec 'studynote_policy_spec': biblestudy_platform" />
       </list>
     </recent_temporary>
   </component>
@@ -889,44 +857,44 @@
       <workItem from="1475818091805" duration="3098000" />
       <workItem from="1475838319667" duration="1442000" />
       <workItem from="1476042071385" duration="18419000" />
-      <workItem from="1476342638929" duration="42028000" />
+      <workItem from="1476342638929" duration="44339000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 31m 28s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="All_specs_in_spec__biblestudy_platform - 2016.10.18 at 20h 20m 16s.xml">
+      <configuration name="All specs in spec: biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 32m 54s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'biblebooks_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 49m 38s.xml">
+      <configuration name="Run spec 'biblebooks_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 33m 43s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 46m 59s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 17h 30m 58s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 49m 03s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 17h 31m 39s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 50m 45s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 17h 34m 51s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 51m 23s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'new_studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 17h 35m 27s.xml">
-      <configuration name="Run spec 'new_studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 53m 15s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 27m 45s.xml">
-      <configuration name="Run spec 'studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 17h 53m 42s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 29m 01s.xml">
-      <configuration name="Run spec 'studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 20h 07m 07s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'studynote_policy_spec'__biblestudy_platform - 2016.10.18 at 07h 29m 50s.xml">
-      <configuration name="Run spec 'studynote_policy_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'studynotes_controller_spec'__biblestudy_platform - 2016.10.18 at 20h 09m 09s.xml">
+      <configuration name="Run spec 'studynotes_controller_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371749000" />
+    <option name="totallyTimeSpent" value="374060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,7 +907,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1269" height="773" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24449877" sideWeight="0.4948605" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -947,7 +915,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32305434" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3876652" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50367105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20113085" sideWeight="0.5051395" order="2" side_tool="true" content_ui="tabs" />
@@ -998,30 +966,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/features/admin/chapters/creating_chapters_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/features/admin/chapters/deleting_chapters_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/features/admin/chapters/viewing_chapters_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/admin/users/creating_users_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1110,14 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/rails_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1143,14 +1079,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/studynotes_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1402,9 +1330,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/pericopes_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/studynotes_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/chapters_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/biblebooks_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/rails_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/policies/studynote_policy_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="533">
           <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
           <folding />
         </state>
