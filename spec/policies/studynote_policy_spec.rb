@@ -1,61 +1,46 @@
 require 'rails_helper'
 
 describe StudynotePolicy do
-  let(:user)      { FactoryGirl.create :user }
-  let(:studynote) { FactoryGirl.create :studynote }
 
-  permissions :show? do
-    subject { StudynotePolicy }
+  context "permissions" do
+    subject { StudynotePolicy.new(user, studynote) }
 
-    it "allows everybody to view everything" do
-      expect(subject).to permit(nil, studynote)
+    context "for a visitor" do
+      let(:user)      { nil }
+      let(:author)    { FactoryGirl.create(:user) }
+      let(:studynote) { FactoryGirl.create(:studynote, author: author) }
+
+      it { should     permit_action(:show)    }
+      it { should_not permit_action(:create)  }
+      it { should_not permit_action(:new)     }
+      it { should_not permit_action(:update)  }
+      it { should_not permit_action(:edit)    }
+      it { should_not permit_action(:destroy) }
     end
 
-    it "allows administrators" do
-      admin = FactoryGirl.create :user, :admin
-      expect(subject).to permit(admin, studynote)
-    end
-  end
+    context "for an author" do
+      let(:user)      { FactoryGirl.create(:user) }
+      let(:studynote) { FactoryGirl.create(:studynote, author: user) }
 
-  permissions :update?, :destroy? do
-    let(:user) { FactoryGirl.create :user }
-    let(:studynote) { FactoryGirl.create :studynote, author: user }
-
-    subject { StudynotePolicy }
-
-    it "blocks anonymous users" do
-      expect(subject).not_to permit(nil, studynote)
+      it { should permit_action(:show)    }
+      it { should permit_action(:create)  }
+      it { should permit_action(:new)     }
+      it { should permit_action(:update)  }
+      it { should permit_action(:edit)    }
+      it { should permit_action(:destroy) }
     end
 
-    it "blocks registered users who are not the author" do
-      other_user = FactoryGirl.create :user
-      expect(subject).not_to permit(other_user, studynote)
-    end
+    context "for a user" do
+      let(:user)      { FactoryGirl.create(:user) }
+      let(:author)    { FactoryGirl.create(:user) }
+      let(:studynote) { FactoryGirl.create(:studynote, author: author) }
 
-    it "allows registered users who are the author" do
-      expect(subject).to permit(user, studynote)
-    end
-
-    it "allows administrators" do
-      admin = FactoryGirl.create :user, :admin
-      expect(subject).to permit(admin, studynote)
-    end
-  end
-
-  permissions :create? do
-    subject { StudynotePolicy }
-
-    # it "blocks anonymous users" do
-    #   expect(subject).not_to permit(nil, studynote)
-    # end
-
-    it "allows registered users" do
-      expect(subject).to permit(user, studynote)
-    end
-
-    it "allows administrators" do
-      admin = FactoryGirl.create :user, :admin
-      expect(subject).to permit(admin, studynote)
+      it { should     permit_action(:show)    }
+      it { should     permit_action(:create)  }
+      it { should     permit_action(:new)     }
+      it { should_not permit_action(:update)  }
+      it { should_not permit_action(:edit)    }
+      it { should_not permit_action(:destroy) }
     end
   end
 end

@@ -6,7 +6,7 @@ class StudynotePolicy < ApplicationPolicy
   end
 
   def create?
-    true    # because the user is an authenticate_user! in the studynote_controller#before_action
+    @user != nil
   end
 
   def update?
