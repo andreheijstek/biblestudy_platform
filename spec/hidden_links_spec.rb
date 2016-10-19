@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Users can only see the appropriate links" do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:admin) { FactoryGirl.create(:user, :admin) }
+  let(:user)  { create(:user) }
+  let(:admin) { create(:user, :admin) }
 
   context "anonymous users" do
     scenario "cannot see the Admin link" do

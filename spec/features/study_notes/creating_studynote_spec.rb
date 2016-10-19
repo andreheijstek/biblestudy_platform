@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Users can create new studynotes and associate them to pericopes" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   before do
     create(:biblebook, name: "Jona")

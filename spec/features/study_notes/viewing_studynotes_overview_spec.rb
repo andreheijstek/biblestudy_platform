@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Users can view an overview of all studynotes" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   let!(:b1) { create(:biblebook, name: "Jona", booksequence: 34) }
   let!(:s1) { create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user) }

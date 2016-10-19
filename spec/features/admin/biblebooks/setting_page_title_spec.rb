@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Page title is set according to the page content" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
   end
 
   scenario "when adding a new biblebook" do

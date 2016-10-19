@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Admins can view all chapters within biblebooks" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
   end
 
   scenario "for a given biblebook" do

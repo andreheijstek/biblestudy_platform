@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Admins can create new bible books" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
     visit admin_biblebooks_path
     click_link t(:new_biblebook)
   end

@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Users can view biblebooks" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
   end
 
   scenario "with the biblebook details" do

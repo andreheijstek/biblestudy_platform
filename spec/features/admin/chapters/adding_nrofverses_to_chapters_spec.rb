@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Admins can add the number of verses to a chapter" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
     booktitle = "Handelingen"
     book = create(:biblebook, name: booktitle)
     chapter = create(:chapter, biblebook: book, chapter_number: "1")

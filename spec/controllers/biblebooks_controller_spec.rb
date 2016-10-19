@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe Admin::BiblebooksController, type: :controller do
-  let(:user) { FactoryGirl.create(:user, :admin) }
+  let(:user) { create(:user, :admin) }
 
   before do
     allow(controller).to receive(:authenticate_user!)

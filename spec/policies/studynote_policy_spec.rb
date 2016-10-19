@@ -7,8 +7,8 @@ describe StudynotePolicy do
 
     context "for a visitor" do
       let(:user)      { nil }
-      let(:author)    { FactoryGirl.create(:user) }
-      let(:studynote) { FactoryGirl.create(:studynote, author: author) }
+      let(:author)    { create(:user) }
+      let(:studynote) { create(:studynote, author: author) }
 
       it { should     permit_action(:show)    }
       it { should_not permit_action(:create)  }
@@ -19,8 +19,8 @@ describe StudynotePolicy do
     end
 
     context "for an author" do
-      let(:user)      { FactoryGirl.create(:user) }
-      let(:studynote) { FactoryGirl.create(:studynote, author: user) }
+      let(:user)      { create(:user) }
+      let(:studynote) { create(:studynote, author: user) }
 
       it { should permit_action(:show)    }
       it { should permit_action(:create)  }
@@ -31,9 +31,9 @@ describe StudynotePolicy do
     end
 
     context "for a user" do
-      let(:user)      { FactoryGirl.create(:user) }
-      let(:author)    { FactoryGirl.create(:user) }
-      let(:studynote) { FactoryGirl.create(:studynote, author: author) }
+      let(:user)      { create(:user) }
+      let(:author)    { create(:user) }
+      let(:studynote) { create(:studynote, author: author) }
 
       it { should     permit_action(:show)    }
       it { should     permit_action(:create)  }

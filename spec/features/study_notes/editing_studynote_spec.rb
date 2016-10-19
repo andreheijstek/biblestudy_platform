@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Users can edit existing studynotes" do
-  let(:user)      { FactoryGirl.create(:user) }
-  let(:otheruser) { FactoryGirl.create(:user) }
+  let(:user)      { create(:user) }
+  let(:otheruser) { create(:user) }
 
 
   before do

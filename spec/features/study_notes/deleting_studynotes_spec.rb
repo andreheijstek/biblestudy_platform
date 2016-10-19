@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Users can delete studynotes" do
-  let(:user)      { FactoryGirl.create(:user) }
-  let(:otheruser) { FactoryGirl.create(:user) }
+  let(:user)      { create(:user) }
+  let(:otheruser) { create(:user) }
 
   let!(:b1)       { create(:biblebook, name: "Jona") }
   let!(:s1)       { create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user) }

@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Users can view an overview of all biblebooks" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
   end
 
   scenario "sorted by the given order" do

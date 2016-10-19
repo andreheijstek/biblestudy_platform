@@ -5,7 +5,7 @@ feature "Users can delete chapters" do
   let(:chapter)   { create(:chapter, biblebook: biblebook) }
 
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
     visit admin_biblebook_chapter_path(biblebook, chapter)
   end
 

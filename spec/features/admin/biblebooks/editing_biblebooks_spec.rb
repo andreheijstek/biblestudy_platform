@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Users can edit existing biblebooks" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(create(:user, :admin))
     create(:biblebook, name: "Voorbeeld bijbelboek")
     visit admin_biblebooks_path
 
