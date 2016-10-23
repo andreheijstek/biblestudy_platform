@@ -6,7 +6,6 @@ feature "Users can create new studynotes and associate them to pericopes" do
   before do
     create(:biblebook, name: "Jona")
     login_as(user)
-
     visit studynotes_path
     click_link t(:new_studynote)
   end

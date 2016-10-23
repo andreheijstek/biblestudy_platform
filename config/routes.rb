@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   root "pericopes#index"
 
   namespace :admin do
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :studynotes
   resources :pericopes
+
+  get 'profile', to: 'users#show'
 end
