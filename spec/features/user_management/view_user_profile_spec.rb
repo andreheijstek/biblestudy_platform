@@ -13,7 +13,7 @@ feature "Users can view their data" do
 
     fill_in t("activerecord.attributes.user.email"), with: user.email
     fill_in t("activerecord.attributes.user.password"), with: "password"
-    click_button t(:sign_in)
+    click_button t(:Update)
 
     expect(page).to have_content t("activerecord.attributes.user.username")
     expect(page).to have_content t("activerecord.attributes.user.email")

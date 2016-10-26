@@ -1,10 +1,10 @@
 nl:
   simple_form:
-    "yes": 'Ja'
-    "no": 'Nee'
+    yes: Ja
+    no: Nee
     required:
-      text: 'verplicht'
-      mark: '*'
+      text: verplicht
+      mark: "*"
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
@@ -12,20 +12,16 @@ nl:
       default_message: "Please review the problems below:"
     labels:
       defaults:
-        password: 'Wachtwoord'
-    # Examples
-    labels:
-      defaults:
-        password: 'Wachtwoord'
+        password: Wachtwoord
       user:
         new:
-          email: 'E-mail'
+          email: E-mail
         edit:
-          email: 'E-mail.'
+          email: E-mail
     hints:
       defaults:
-        username: 'Gebruikersnaam om in te loggen'
-        password: 'Geen bijzondere tekens gebruiken'
+        username: Gebruikersnaam die bij uw bijbelstudies wordt getoond
+        password: Geen bijzondere tekens gebruiken
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'

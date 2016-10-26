@@ -7,7 +7,6 @@ feature "Admins can create new users" do
     login_as(admin)
     visit "/"
     click_link "Admin"
-    click_link "Users"
     click_link "New User"
   end
 

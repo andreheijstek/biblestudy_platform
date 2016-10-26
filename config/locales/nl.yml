@@ -3,6 +3,7 @@ nl:
   activerecord:
     attributes:
       user:
+        username: Gebruikersnaam
         email: "E-mail"
         password: "Wachtwoord"
         password_confirmation: "Herhaal wachtwoord"
@@ -335,5 +336,16 @@ nl:
   starting_verse_chapter_mismatch: "beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk"
   signed_in_as: "ingelogd als:"
   user_profile: "Mijn profiel"
+  password_leave_blank: "Laat dit veld leeg als u uw wachtwoord niet wilt wijzigen"
+  need_current_password: "we hebben uw huidige wachtwoord nodig om wijzigingen te kunnen maken"
+  Update: "Aanpassen"
+  cancel_account: "Annuleer mijn profiel"
+  sure: "weet u het zeker?"
+  Back: "terug"
+  unhappy: Ontevreden?
+  User profile: Gebruikersprofiel
+  username: "gebruikersnaam"
+  Edit_account: "Mijn profiel"
+  logged_in_as: "ingelogd als:"
 
 

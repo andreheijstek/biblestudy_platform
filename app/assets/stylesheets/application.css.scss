@@ -19,6 +19,7 @@
 @import "admin/application";
 @import "responsive";
 @import "studynotes";
+@import "users";
 
 header {
   @extend .page-header;
@@ -99,3 +100,4 @@ ul.actions {
 th, td {
   padding: 5px;
 }
+

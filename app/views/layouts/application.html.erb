@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    <% if content_for?(:title) %>
-        <%= yield(:title) %>
-    <% else %>
-        <%= t(:biblestudy_platform) %>
-    <% end %>
-  </title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      <% if content_for?(:title) %>
+          <%= yield(:title) %>
+      <% else %>
+          <%= t(:biblestudy_platform) %>
+      <% end %>
+    </title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <body>
     <div class="container">
-      <div class="navbar-header">
-        <%= link_to t(:biblestudy_platform), root_path, class: "navbar-brand" %>
-        <button type="button" class="navbar-toggle collapsed"
-                data-toggle="collapse" data-target="#collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="collapse">
-        <ul class="nav navbar-nav">
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+      <main role="main">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>
+<!--
+
+
+
+
           <li class="<%= "active" if current_page?("/") %>">
             <%= link_to t(:home), root_path %>
           </li>
@@ -75,3 +76,4 @@
     <%= yield %>
   </div>
 </body>
+-->

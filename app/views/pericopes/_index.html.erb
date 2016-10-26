@@ -1,0 +1,18 @@
+<div id="pericopes">
+  <table id="pericopes" >
+    <tr>
+      <th> <%= t('pericope') %></th>
+      <th> <%= t('author') %></th>
+      <th> <%= t('studynote') %></th>
+    </tr>
+
+    <% @pericope.each do |pericope| %>
+        <tr>
+          <td><%= pericope.name %></td>
+          <td><% sn = Studynote.find(pericope.studynote_id) %>
+            <%= sn.author.username %></td>
+          <td><%= link_to sn.title, sn %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

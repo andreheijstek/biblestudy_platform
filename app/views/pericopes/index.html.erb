@@ -17,7 +17,7 @@
       <tr>
         <td><%= pericope.name %></td>
         <td><% sn = Studynote.find(pericope.studynote_id) %>
-        <%= sn.author.email %></td>
+        <%= sn.author.username %></td>
         <td><%= link_to sn.title, sn %></td>
       </tr>
     <% end %>
