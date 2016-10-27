@@ -19,10 +19,11 @@
         <%= render 'layouts/nav_links_for_admin' %>
       </ul>
       <% if user_signed_in? %>
-          <div class="navbar-right">
-            <p class="navbar-text">
-              <%= t("signed_in_as") %> <%= current_user.email %>
-            </p> </div>
+        <div class="navbar-right">
+          <p class="navbar-text">
+            <%= t("signed_in_as") %> <%= current_user.email %>
+          </p>
+        </div>
       <% end %>
     </div>
   </div>
