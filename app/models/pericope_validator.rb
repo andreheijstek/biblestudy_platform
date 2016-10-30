@@ -1,7 +1,7 @@
 class PericopeValidator < ActiveModel::Validator
   def validate(record)
     if record.name.nil? || record.name.empty?
-      record.errors[:name] << t("name_not_empty")
+      record.errors[:name] << I18n.t("name_not_empty")
       return
     end
 
@@ -14,8 +14,9 @@ class PericopeValidator < ActiveModel::Validator
 
     biblebook_name = pericope.biblebook_name
     biblebook      = Biblebook.find_by(name: biblebook_name)
+    # binding.pry
     if biblebook.nil?
-      record.errors[:name] << t("unknown_biblebook")
+      record.errors[:name] << I18n.t("unknown_biblebook")
       return
     end
     record.biblebook_id = biblebook.id
