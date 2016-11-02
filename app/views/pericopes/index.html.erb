@@ -15,7 +15,7 @@
 
     <% @pericope.each do |pericope| %>
       <tr>
-        <td sorttable_customkey = <%= pericope[:sequence] %> > <%= pericope[:book] %></td>
+        <td sorttable_customkey = <%= pericope[:sequence] %> > <%= pericope[:pericope] %></td>
         <td> <%= pericope[:author] %> </td>
         <td><%= link_to pericope[:title], pericope[:note] %></td>
       </tr>
