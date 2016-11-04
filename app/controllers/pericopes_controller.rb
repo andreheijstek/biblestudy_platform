@@ -6,7 +6,7 @@ class PericopesController < ApplicationController
       booksequence = Biblebook.find(pericope.biblebook_id).booksequence
       studynote    = Studynote.find(pericope.studynote_id)
       @pericope << {sequence: booksequence, pericope: pericope.name, author: studynote.author.username,
-                    title: studynote.title, note: studynote.note}
+                    title: studynote.title, note: studynote}
     end
     @pericope.sort_by! { |hsh| hsh[:sequence] }
   end
