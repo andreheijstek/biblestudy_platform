@@ -18,28 +18,24 @@ feature "Users can view an overview of all studynotes" do
   let!(:s4) { create(:studynote, title: "Handelingen alles", note: "Handelingen ook.", author: user) }
   let!(:p4) { create(:pericope_by_name, name: "Handelingen", biblebook_id: b2.id, studynote_id: s4.id) }
 
-# Commented out after adding the sorttable option to this table. Kept these tests here for a while
-# Maybe sorttable does not really sort my pericopes in the right order
-
-=begin
-  scenario "sorted by biblebook name" do
+  before do
     visit pericopes_path
+  end
 
+  scenario "sorted by biblebook name" do
     expect(page).to have_content "Jona"
     expect(page).to have_content "Handelingen"
 
     expect("Jona").to appear_before("Handelingen")
-
-    click_link "Jona"
   end
 
   scenario "sorted by chapter number" do
-    visit pericopes_path
-
     expect("Handelingen eerst").to appear_before("Handelingen later")
-    expect("Handelingen alles").to appear_after("Handelingen eerst")
-
-    click_link "Jona"
+    expect("Handelingen eerst").to appear_before("Handelingen alles")
   end
-=end
+
+  scenario "and view the details of a studynote" do
+    click_link "Jona"
+    expect(page).to have_content "Jona is bijzonder"
+  end
 end
