@@ -35,6 +35,29 @@ feature "Users can create new studynotes and associate them to pericopes" do
     expect(page).to have_content t(:studynote_not_created)
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
+=begin
+
+  scenario "when providing an abbreviated biblebook" do
+    create(:biblebook, name: "Genesis", abbreviation: "gen")
+
+    fill_in t('simple_form.labels.pericopes.name'), with: "gen 1:1 - 1:10"
+    fill_in t('simple_form.labels.studynote.title'), with: "Titel"
+    fill_in t('simple_form.labels.studynote.note'), with: "Genesis in het kort"
+
+    submit_form
+
+    expect(page).to have_content t(:studynote_created)
+    within("#studynote") do
+      expect(page).to have_content "gen 1:1 - 1:10"
+    end
+
+    visit pericopes_path
+    expect(page).to have_content "Genesis"
+  end
+=end
+
+  ## Ook Psalmen, Psalm, ps
+  ## lowercase
 
   # scenario "to multiple pericopes" do
   # end

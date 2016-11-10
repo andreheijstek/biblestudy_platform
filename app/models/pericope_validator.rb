@@ -14,10 +14,14 @@ class PericopeValidator < ActiveModel::Validator
 
     biblebook_name = pericope.biblebook_name
     biblebook      = Biblebook.find_by(name: biblebook_name)
-    # binding.pry
     if biblebook.nil?
-      record.errors[:name] << I18n.t("unknown_biblebook")
-      return
+      biblebook = Biblebook.find_by(abbreviation: biblebook_name)
+      if biblebook.nil?
+        record.errors[:name] << I18n.t("unknown_biblebook")
+        return
+      else
+        record.name = biblebook.name # Replace the abbreviation with the full name
+      end
     end
     record.biblebook_id = biblebook.id
 

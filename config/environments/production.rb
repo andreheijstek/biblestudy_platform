@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # Email setup
   ActionMailer::Base.delivery_method = :smtp
-  host = "bijbelstudie-platform.nl"
+  host = "www.bijbelstudie-platform.nl"
   ActionMailer::Base.smtp_settings = {
       port: ENV['MAILGUN_SMTP_PORT'],
       address: ENV['MAILGUN_SMTP_SERVER'],
