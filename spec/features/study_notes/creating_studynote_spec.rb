@@ -38,9 +38,9 @@ feature "Users can create new studynotes and associate them to pericopes" do
 =begin
 
   scenario "when providing an abbreviated biblebook" do
-    create(:biblebook, name: "Genesis", abbreviation: "gen")
+    create(:biblebook, name: "Genesis", abbreviation: "Gen")
 
-    fill_in t('simple_form.labels.pericopes.name'), with: "gen 1:1 - 1:10"
+    fill_in t('simple_form.labels.pericopes.name'), with: "Gen 1:1 - 1:10"
     fill_in t('simple_form.labels.studynote.title'), with: "Titel"
     fill_in t('simple_form.labels.studynote.note'), with: "Genesis in het kort"
 
@@ -48,11 +48,11 @@ feature "Users can create new studynotes and associate them to pericopes" do
 
     expect(page).to have_content t(:studynote_created)
     within("#studynote") do
-      expect(page).to have_content "gen 1:1 - 1:10"
+      expect(page).to have_content "Gen 1:1 - 1:10"
     end
 
     visit pericopes_path
-    expect(page).to have_content "Genesis"
+    expect(page).to have_content "Genesis in het kort"
   end
 =end
 
