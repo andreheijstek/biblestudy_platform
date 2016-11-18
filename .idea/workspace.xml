@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" afterPath="$PROJECT_DIR$/.idea/biblestudy_platform.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/pericope.rb" afterPath="$PROJECT_DIR$/app/models/pericope.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/pericope_string.rb" afterPath="$PROJECT_DIR$/app/models/pericope_string.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/pericope_validator.rb" afterPath="$PROJECT_DIR$/app/models/pericope_validator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/nl.yml" afterPath="$PROJECT_DIR$/config/locales/nl.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" afterPath="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" />
     </list>
     <ignored path="biblestudy_platform.iws" />
@@ -36,13 +37,13 @@
     <SUITE FILE_PATH="coverage/biblestudy_platform@Pericope__biblestudy_platform.coverage" NAME="Pericope: biblestudy_platform Coverage Results" MODIFIED="1473425360118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__viewing_biblebooks_spec___biblestudy_platform.coverage" NAME="Run spec 'viewing_biblebooks_spec': biblestudy_platform Coverage Results" MODIFIED="1474744806965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__studynotes_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'studynotes_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476814141907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_studynote_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_studynote_spec': biblestudy_platform Coverage Results" MODIFIED="1479142271028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_studynote_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_studynote_spec': biblestudy_platform Coverage Results" MODIFIED="1479497040504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@routes.coverage" NAME="routes Coverage Results" MODIFIED="1472057405192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/config" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__chapters_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'chapters_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476477144794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__editing_verses_spec___biblestudy_platform.coverage" NAME="Run spec 'editing_verses_spec': biblestudy_platform Coverage Results" MODIFIED="1470840746004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_study_note_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_study_note_spec': biblestudy_platform Coverage Results" MODIFIED="1473007677723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__pericope_spec___biblestudy_platform.coverage" NAME="Run spec 'pericope_spec': biblestudy_platform Coverage Results" MODIFIED="1475330563915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1479142042154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1479321965600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_users_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_users_spec': biblestudy_platform Coverage Results" MODIFIED="1476364199987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__edit_user_profile_spec___biblestudy_platform.coverage" NAME="Run spec 'edit_user_profile_spec': biblestudy_platform Coverage Results" MODIFIED="1477673815366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admins_can_create_new_bible_sections_when_providing_invalid_attributes__biblestudy_platform.coverage" NAME="Admins can create new bible sections when providing invalid attributes: biblestudy_platform Coverage Results" MODIFIED="1470319109751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
@@ -110,44 +111,18 @@
       <file leaf-file-name="creating_studynote_spec.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="56" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="174">
+              <caret line="58" column="91" selection-start-line="58" selection-start-column="91" selection-end-line="58" selection-end-column="91" />
               <folding>
-                <marker date="1479308679000" expanded="false" signature="1337:1375" ph="&quot;pericoop&quot;" />
-                <marker date="1479308679000" expanded="false" signature="1412:1451" ph="&quot;titel&quot;" />
-                <marker date="1479308679000" expanded="false" signature="1479:1517" ph="&quot;bijbelstudie&quot;" />
-                <marker date="1479308679000" expanded="false" signature="1598:1619" ph="&quot;Bijbelstudie toegevoegd&quot;" />
+                <element signature="e#2836#2874#0" expanded="true" />
+                <element signature="e#2920#2959#0" expanded="true" />
+                <element signature="e#2990#3028#0" expanded="true" />
+                <element signature="e#3110#3131#1" expanded="true" />
+                <marker date="1479497040000" expanded="false" signature="3488:3526" ph="&quot;pericoop&quot;" />
+                <marker date="1479497040000" expanded="false" signature="3563:3602" ph="&quot;titel&quot;" />
+                <marker date="1479497040000" expanded="false" signature="3644:3682" ph="&quot;bijbelstudie&quot;" />
+                <marker date="1479497040000" expanded="false" signature="3756:3777" ph="&quot;Bijbelstudie toegevoegd&quot;" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="production.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="development.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="25" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pericope_string.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/pericope_string.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -155,8 +130,47 @@
       <file leaf-file-name="pericope_validator.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+            <state relative-caret-position="135">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="e#895#922#0" expanded="true" />
+                <element signature="e#993#1025#0" expanded="true" />
+                <element signature="e#1147#1174#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="callbacks.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.3/lib/active_support/callbacks.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statement.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sqlite3-1.3.12/lib/sqlite3/statement.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pericopes" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/pericopes">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -210,7 +224,6 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/studynotes/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
         <option value="$PROJECT_DIR$/config/locales/simple_form.en.yml" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
@@ -242,11 +255,12 @@
         <option value="$PROJECT_DIR$/spec/factories/biblebook_factory.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/app/models/pericope_validator.rb" />
         <option value="$PROJECT_DIR$/app/controllers/studynotes_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/pericope.rb" />
         <option value="$PROJECT_DIR$/app/models/pericope_string.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/pericope_validator.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" />
       </list>
     </option>
@@ -422,24 +436,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="features" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -463,70 +459,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="study_notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biblestudy_platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -997,44 +929,44 @@
       <workItem from="1478080878700" duration="5483000" />
       <workItem from="1478622342928" duration="8302000" />
       <workItem from="1478797293779" duration="933000" />
-      <workItem from="1479142007267" duration="3680000" />
+      <workItem from="1479142007267" duration="14327000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_specs_in_spec__biblestudy_platform - 2016.11.14 at 17h 47m 43s.xml">
-      <configuration name="All specs in spec: biblestudy_platform" configurationId="RSpecRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.08 at 23h 04m 22s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 51m 24s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.08 at 23h 07m 05s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 51m 45s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.09 at 20h 18m 34s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 52m 06s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.14 at 17h 48m 09s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 52m 48s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.14 at 17h 50m 58s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 53m 11s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.14 at 17h 51m 17s.xml">
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 53m 37s.xml">
       <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'viewing_studynotes_overview_spec'__biblestudy_platform - 2016.11.08 at 17h 32m 39s.xml">
-      <configuration name="Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 53m 53s.xml">
+      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'viewing_studynotes_overview_spec'__biblestudy_platform - 2016.11.08 at 17h 32m 55s.xml">
-      <configuration name="Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 54m 06s.xml">
+      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'viewing_studynotes_overview_spec'__biblestudy_platform - 2016.11.08 at 22h 42m 40s.xml">
-      <configuration name="Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 17h 56m 28s.xml">
+      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.18 at 20h 24m 09s.xml">
+      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="448925000" />
+    <option name="totallyTimeSpent" value="459572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1049,16 +981,16 @@
     <frame x="2" y="23" width="1269" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18826406" sideWeight="0.7488987" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18826406" sideWeight="0.74085367" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.503231" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5433186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51835537" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18826406" sideWeight="0.25110132" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39941263" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18826406" sideWeight="0.25914633" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37738618" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1094,17 +1026,21 @@
           <line>5</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/models/pericope_validator.rb</url>
+          <line>18</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="RSpecRunConfigurationType">
         <watch expression="@biblebook_name" language="ruby" />
-        <watch expression="@ending_chapter" language="ruby" />
-        <watch expression="@buffer.inspect" language="ruby" />
+        <watch expression="record.name" language="ruby" />
       </configuration>
       <configuration name="RailsRunConfigurationType">
         <watch expression="@pericope" language="ruby" />
@@ -1112,34 +1048,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/cookies.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/query_cache.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/connection_adapters/abstract/connection_pool.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="653" column="0" selection-start-line="653" selection-start-column="0" selection-end-line="653" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/callbacks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1364,18 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5cd1e78b/78e5ac23-2edc-4c9a-bf82-3dd94ac061c6/biblebooks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1390,19 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/biblebooks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1412,14 +1295,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/studynotes/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1456,26 +1331,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/pericope.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pericope_string.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1496,15 +1355,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studynotes/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/pericopes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/pericope_string.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/biblebooks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sqlite3-1.3.12/lib/sqlite3/statement.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.3/lib/active_support/callbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5cd1e78b/78e5ac23-2edc-4c9a-bf82-3dd94ac061c6/biblebooks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#895#922#0" expanded="true" />
+            <element signature="e#993#1025#0" expanded="true" />
+            <element signature="e#1147#1174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="56" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="174">
+          <caret line="58" column="91" selection-start-line="58" selection-start-column="91" selection-end-line="58" selection-end-column="91" />
           <folding>
-            <marker date="1479308679000" expanded="false" signature="1337:1375" ph="&quot;pericoop&quot;" />
-            <marker date="1479308679000" expanded="false" signature="1412:1451" ph="&quot;titel&quot;" />
-            <marker date="1479308679000" expanded="false" signature="1479:1517" ph="&quot;bijbelstudie&quot;" />
-            <marker date="1479308679000" expanded="false" signature="1598:1619" ph="&quot;Bijbelstudie toegevoegd&quot;" />
+            <element signature="e#2836#2874#0" expanded="true" />
+            <element signature="e#2920#2959#0" expanded="true" />
+            <element signature="e#2990#3028#0" expanded="true" />
+            <element signature="e#3110#3131#1" expanded="true" />
+            <marker date="1479497040000" expanded="false" signature="3488:3526" ph="&quot;pericoop&quot;" />
+            <marker date="1479497040000" expanded="false" signature="3563:3602" ph="&quot;titel&quot;" />
+            <marker date="1479497040000" expanded="false" signature="3644:3682" ph="&quot;bijbelstudie&quot;" />
+            <marker date="1479497040000" expanded="false" signature="3756:3777" ph="&quot;Bijbelstudie toegevoegd&quot;" />
           </folding>
         </state>
       </provider>

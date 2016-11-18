@@ -1,5 +1,8 @@
 class PericopeValidator < ActiveModel::Validator
   def validate(record)
+
+    # TODO Refactor! Far too long, clumsy code
+
     if record.name.nil? || record.name.empty?
       record.errors[:name] << I18n.t("name_not_empty")
       return
@@ -12,18 +15,32 @@ class PericopeValidator < ActiveModel::Validator
       return
     end
 
+    # first seach by whole name
     biblebook_name = pericope.biblebook_name
     biblebook      = Biblebook.find_by(name: biblebook_name)
     if biblebook.nil?
-      biblebook = Biblebook.find_by(abbreviation: biblebook_name)
+      # then search by the standard abbreviation (my standard)
+      biblebook      = Biblebook.find_by(abbreviation: biblebook_name)
       if biblebook.nil?
-        record.errors[:name] << I18n.t("unknown_biblebook")
-        return
-      else
-        pericope.biblebook_name = biblebook.name # Replace the abbreviation with the full name
+        # then do a LIKE search
+        biblebooks = Biblebook.where("name LIKE (?)", "%#{biblebook_name.slice(0, 5)}%")
+        if biblebooks.length == 0
+          record.errors[:name] << I18n.t("unknown_biblebook")
+        elsif biblebooks.length > 1
+          record.errors[:name] << I18n.t("ambiguous_abbreviation")
+        else
+          biblebook = biblebooks[0]
+        end
+        if biblebook.nil?
+          record.errors[:name] << I18n.t("unknown_biblebook")
+          return
+        else
+          pericope.biblebook_name = biblebook.name # Replace the abbreviation with the full name
+        end
       end
     end
     record.biblebook_id = biblebook.id
+    record.name = "#{biblebook.name} #{pericope.starting_chapter}:#{pericope.starting_verse} - #{pericope.ending_chapter}:#{pericope.ending_verse}"
 
     record.starting_chapter_nr = pericope.starting_chapter
     record.starting_verse      = pericope.starting_verse
