@@ -102,7 +102,10 @@ feature "Users can create new studynotes and associate them to pericopes" do
     submit_form
 
     expect(page).to have_content t(:studynote_not_created)
-    expect(page).to have_content t("ambiguous_abbreviation")
+    expect(page).to have_content "#{t("ambiguous_abbreviation")}: 'Jo' kan "
+    expect(page).to have_content "Jona"
+    expect(page).to have_content "Job"
+    expect(page).to have_content "Johannes"
   end
 
   # TODO Add several more examples of biblebooks/abbreviations

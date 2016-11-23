@@ -67,11 +67,19 @@ class PericopeValidator < ActiveModel::Validator
       @record.errors[:name] << I18n.t("unknown_biblebook")
       @biblebook = nil
     elsif biblebooks.length > 1
-      @record.errors[:name] << I18n.t("ambiguous_abbreviation")
+      @record.errors[:name] << ambiguous_string(@biblebook_name, biblebooks)
       @biblebook = nil
     else
       @biblebook = biblebooks[0]
     end
+  end
+
+  def ambiguous_string(book_name, biblebooks)
+    book_list = []
+    biblebooks.each do |book|
+      book_list << book.name
+    end
+    "#{I18n.t('ambiguous_abbreviation')}: '#{book_name}' kan #{book_list.join(', ')} zijn"
   end
 
   def updateRecord
