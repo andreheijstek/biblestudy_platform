@@ -20,7 +20,7 @@ class PericopeString < String
   def parse
     @biblebook_name = @pericope.scan(/(\d +\p{Word}+)|\p{Word}+/)  # e.g. 1 Samuel or Samuel
     return if @pericope.eos?
-    @biblebook_name.capitalize!
+    @biblebook_name = titleize(@biblebook_name)
 
     @starting_chapter = @pericope.scan(/\s+\d+\s*/).strip.to_i
 
@@ -43,5 +43,9 @@ class PericopeString < String
       @ending_chapter = @starting_chapter
       @ending_verse   = @starting_verse
     end
+  end
+
+  def titleize(str)
+    str.split(/ |\_/).map(&:capitalize).join(" ")
   end
 end
