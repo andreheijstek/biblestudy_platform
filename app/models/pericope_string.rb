@@ -20,6 +20,7 @@ class PericopeString < String
   def parse
     @biblebook_name = @pericope.scan(/(\d +\p{Word}+)|\p{Word}+/)  # e.g. 1 Samuel or Samuel
     return if @pericope.eos?
+    @biblebook_name.capitalize!
 
     @starting_chapter = @pericope.scan(/\s+\d+\s*/).strip.to_i
 

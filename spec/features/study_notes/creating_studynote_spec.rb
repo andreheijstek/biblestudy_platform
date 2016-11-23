@@ -58,10 +58,12 @@ feature "Users can create new studynotes and associate them to pericopes" do
     examples = [
         # [pericope, title, studynote] => method_result
         { :inputs => "Gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 1:10" },
+        { :inputs => "gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 1:10" },
         { :inputs => "Ex 1:1 - 1:10",             :expected => "Exodus 1:1 - 1:10" },
         { :inputs => "1 Kon 1:1 - 1:10",          :expected => "1 Koningen 1:1 - 1:10" },
         { :inputs => "1 Kron 1:1 - 1:10",         :expected => "1 Kronieken 1:1 - 1:10" },
         { :inputs => "1 Kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 1:10" },
+        { :inputs => "1 kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 1:10" },
         { :inputs => "1 Korintiërs 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 1:10" },
         { :inputs => "1 Korintiers 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 1:10" },
         { :inputs => "1 Korinthiërs 1:1 - 1:10",  :expected => "1 Korintiërs 1:1 - 1:10" },
