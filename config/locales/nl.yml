@@ -128,26 +128,26 @@ nl:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: ongeveer Ã©Ã©n uur
+        one: ongeveer één uur
         other: ongeveer %{count} uur
       about_x_months:
-        one: ongeveer Ã©Ã©n maand
+        one: ongeveer één maand
         other: ongeveer %{count} maanden
       about_x_years:
-        one: ongeveer Ã©Ã©n jaar
+        one: ongeveer één jaar
         other: ongeveer %{count} jaar
       almost_x_years:
-        one: bijna Ã©Ã©n jaar
+        one: bijna één jaar
         other: bijna %{count} jaar
       half_a_minute: een halve minuut
       less_than_x_minutes:
-        one: minder dan Ã©Ã©n minuut
+        one: minder dan één minuut
         other: minder dan %{count} minuten
       less_than_x_seconds:
-        one: minder dan Ã©Ã©n seconde
+        one: minder dan één seconde
         other: minder dan %{count} seconden
       over_x_years:
-        one: meer dan Ã©Ã©n jaar
+        one: meer dan één jaar
         other: meer dan %{count} jaar
       x_days:
         one: 1 dag

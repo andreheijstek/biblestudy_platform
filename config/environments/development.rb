@@ -13,28 +13,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  # config.action_mailer.raise_delivery_errors = false
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #     :authentication => :plain,
-  #     :address => "smtp.mailgun.org",
-  #     :port => 587,
-  #     :domain => "www.bijbelstudie-platform.nl",
-  #     :user_name => "postmaster@www.bijbelstudie-platform.nl.mailgun.org",
-  #     :password => "24b17f60ea0b90fc766db04c0518afe2"
-  # }
+  # host = "www.bijbelstudie-platform.nl"
+  host = "localhost:3000"
 
-  # Email setup
-  ActionMailer::Base.delivery_method = :smtp
-  host = "www.bijbelstudie-platform.nl"
-  ActionMailer::Base.smtp_settings = {
-      port: ENV['MAILGUN_SMTP_PORT'],
-      address: ENV['MAILGUN_SMTP_SERVER'],
-      user_name: ENV['MAILGUN_SMTP_LOGIN'],
-      password: ENV['MAILGUN_SMTP_PASSWORD'],
-      domain: host,
-      authentication: :plain,
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => "smtp.mailgun.org",
+      :port => 587,
+      :domain => "bijbelstudie-platform.mailgun.org",
+      :user_name => "postmaster@bijbelstudie-platform.mailgun.org",
+      :password => "MYPASSWORD"
   }
   config.action_mailer.default_url_options = { host: host }
 
