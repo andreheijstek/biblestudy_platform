@@ -1,83 +1,90 @@
 class PericopeValidator < ActiveModel::Validator
   def validate(record)
-    return if emptyRecord?(record)
+    @record = record
+    return if emptyRecord?
 
-    begin
-      pericope = PericopeString.new(record.name)
-    rescue
-      record.errors[:name] << t("invalid_pericope")
-      return
-    end
+    getPericope
+    return if @pericope.nil?
 
-    biblebook = findBook(pericope)
-
-    record = updateRecord(biblebook, pericope, record)
-    return if incorrectSequence?(record)
+    findBiblebook
+    return if @biblebook.nil?
+    updateRecord
+    return if incorrectSequence?
   end
 
   private
 
-  def emptyRecord?(record)
-    if record.name.nil? || record.name.empty?
-      record.errors[:name] << I18n.t("name_not_empty")
+  def getPericope
+    begin
+      @pericope = PericopeString.new(@record.name)
+    rescue
+      @record.errors[:name] << I18n.t("invalid_pericope")
+    end
+  end
+
+  def emptyRecord?
+    if @record.name.nil? || @record.name.empty?
+      @record.errors[:name] << I18n.t("name_not_empty")
       return
     end
   end
 
-  def incorrectSequence?(record)
-    if record.starting_chapter_nr > record.ending_chapter_nr
-      record.errors[:name] << t("starting_greater_than_ending")
+  def incorrectSequence?
+    if @record.starting_chapter_nr > @record.ending_chapter_nr
+      @record.errors[:name] << I18n.t("starting_greater_than_ending")
       return
     end
 
-    if (record.starting_chapter_nr == record.ending_chapter_nr) && (record.starting_verse > record.ending_verse)
-      record.errors[:name] << t("starting_verse_chapter_mismatch")
+    if (@record.starting_chapter_nr == @record.ending_chapter_nr) && (@record.starting_verse > @record.ending_verse)
+      @record.errors[:name] << I18n.t("starting_verse_chapter_mismatch")
       return
     end
   end
 
-  def reformatName(biblebook, pericope)
-    "#{biblebook.name} #{pericope.starting_chapter}:#{pericope.starting_verse} - #{pericope.ending_chapter}:#{pericope.ending_verse}"
-  end
-
-  def findBook(pericope)
-    # first seach by whole name
-    biblebook_name = pericope.biblebook_name
-    biblebook      = Biblebook.find_by(name: biblebook_name)
-    if biblebook.nil?
-      # then search by the standard abbreviation (my standard)
-      biblebook      = Biblebook.find_by(abbreviation: biblebook_name)
-      if biblebook.nil?
-        # then do a LIKE search
-        biblebooks = Biblebook.where("name LIKE (?)", "%#{biblebook_name.slice(0, 5)}%")
-        if biblebooks.length == 0
-          record.errors[:name] << I18n.t("unknown_biblebook")
-        elsif biblebooks.length > 1
-          record.errors[:name] << I18n.t("ambiguous_abbreviation")
-        else
-          biblebook = biblebooks[0]
-        end
-
-        if biblebook.nil?
-          record.errors[:name] << I18n.t("unknown_biblebook")
-          return nil
-        else
-          pericope.biblebook_name = biblebook.name # Replace the abbreviation with the full name
-        end
+  def findBiblebook
+    @biblebook_name = @pericope.biblebook_name
+    @biblebook = findByFullName
+    if @biblebook.nil?
+      @biblebook = findByAbbreviation
+      if @biblebook.nil?
+        @biblebook = findByLike
       end
     end
-    biblebook
+    @pericope.biblebook_name = @biblebook.name unless @biblebook.nil? # Replace the abbreviation with the full name
   end
 
-  def updateRecord(biblebook, pericope, record)
-    record.biblebook_id = biblebook.id
-    record.name = reformatName(biblebook, pericope)
+  def findByFullName
+    @biblebook = Biblebook.find_by(name: @biblebook_name)
+  end
 
-    record.starting_chapter_nr = pericope.starting_chapter
-    record.starting_verse = pericope.starting_verse
-    record.ending_chapter_nr = pericope.ending_chapter
-    record.ending_verse = pericope.ending_verse
+  def findByAbbreviation
+    @biblebook = Biblebook.find_by(abbreviation: @biblebook_name)
+  end
 
-    record
+  def findByLike
+    biblebooks = Biblebook.where("name LIKE (?)", "%#{@biblebook_name.slice(0, 5)}%")
+    if biblebooks.length == 0
+      @record.errors[:name] << I18n.t("unknown_biblebook")
+      @biblebook = nil
+    elsif biblebooks.length > 1
+      @record.errors[:name] << I18n.t("ambiguous_abbreviation")
+      @biblebook = nil
+    else
+      @biblebook = biblebooks[0]
+    end
+  end
+
+  def updateRecord
+    @record.biblebook_id = @biblebook.id
+    @record.name = reformatName
+
+    @record.starting_chapter_nr = @pericope.starting_chapter
+    @record.starting_verse = @pericope.starting_verse
+    @record.ending_chapter_nr = @pericope.ending_chapter
+    @record.ending_verse = @pericope.ending_verse
+  end
+
+  def reformatName
+    "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"
   end
 end

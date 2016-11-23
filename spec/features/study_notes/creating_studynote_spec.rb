@@ -29,6 +29,15 @@ feature "Users can create new studynotes and associate them to pericopes" do
     expect(page).to have_content t('activerecord.models.messages.blank')
   end
 
+  scenario "when providing out of sequence chapters and verses" do
+    fill_in t('simple_form.labels.pericopes.name'), with: "Jona 3:1 - 1:10"
+    fill_in t('simple_form.labels.studynote.title'), with: "Titel"
+    fill_in t('simple_form.labels.studynote.note'), with: "Jona is bijzonder."
+    submit_form
+    expect(page).to have_content t(:studynote_not_created)
+    expect(page).to have_content t("starting_greater_than_ending")
+  end
+
   scenario "when providing just the title" do
     fill_in t('simple_form.labels.studynote.title'), with: "Titel"
     submit_form
@@ -62,7 +71,7 @@ feature "Users can create new studynotes and associate them to pericopes" do
     examples.each do |example|
       inputs = example[:inputs]
 
-      it "should add a studynote with abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
+      it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
         fill_in t('simple_form.labels.pericopes.name'), with: "#{example[:inputs]}"
         fill_in t('simple_form.labels.studynote.title'), with: "abbr"
         fill_in t('simple_form.labels.studynote.note'), with: "bijbelstudie"
@@ -80,59 +89,18 @@ feature "Users can create new studynotes and associate them to pericopes" do
     end
   end
 
-  scenario "when providing an abbreviated biblebook for Genesis" do
-    create(:biblebook, name: "Genesis", abbreviation: "Gen")
+  scenario "except when providing an incorrect biblebook" do
+    create(:biblebook, name: "Job")
+    create(:biblebook, name: "Johannes")
 
-    fill_in t('simple_form.labels.pericopes.name'), with: "Gen 1:1 - 1:10"
-    fill_in t('simple_form.labels.studynote.title'), with: "Genesis in het kort"
-    fill_in t('simple_form.labels.studynote.note'), with: "bijbelstudie"
-
-    submit_form
-
-    expect(page).to have_content t(:studynote_created)
-    within("#studynote") do
-      expect(page).to have_content "Genesis 1:1 - 1:10"
-    end
-
-    visit pericopes_path
-    expect(page).to have_content "Genesis in het kort"
-  end
-
-  scenario "when providing an abbreviated biblebook for Psalmen as Ps" do
-    create(:biblebook, name: "Psalmen", abbreviation: "Ps")
-
-    fill_in t('simple_form.labels.pericopes.name'), with: "Ps 149:1-14"
-    fill_in t('simple_form.labels.studynote.title'), with: "Ps een Psalm"
-    fill_in t('simple_form.labels.studynote.note'), with: "Psalm"
+    fill_in t('simple_form.labels.pericopes.name'), with: "Jo 1:1 - 1:10"
+    fill_in t('simple_form.labels.studynote.title'), with: "Titel"
+    fill_in t('simple_form.labels.studynote.note'), with: "Jona of Job of Johannes?"
 
     submit_form
 
-    expect(page).to have_content t(:studynote_created)
-    within("#studynote") do
-      expect(page).to have_content "Psalmen 149:1 - 149:14"
-    end
-
-    visit pericopes_path
-    expect(page).to have_content "Ps een Psalm"
-  end
-
-
-  scenario "when providing an abbreviated biblebook for Psalmen as Psalm" do
-    create(:biblebook, name: "Psalmen", abbreviation: "Ps")
-
-    fill_in t('simple_form.labels.pericopes.name'), with: "Psalm 149:1-14"
-    fill_in t('simple_form.labels.studynote.title'), with: "Ps een Psalm"
-    fill_in t('simple_form.labels.studynote.note'), with: "Psalm"
-
-    submit_form
-
-    expect(page).to have_content t(:studynote_created)
-    within("#studynote") do
-      expect(page).to have_content "Psalmen 149:1 - 149:14"
-    end
-
-    visit pericopes_path
-    expect(page).to have_content "Ps een Psalm"
+    expect(page).to have_content t(:studynote_not_created)
+    expect(page).to have_content t("ambiguous_abbreviation")
   end
 
   # TODO Add several more examples of biblebooks/abbreviations
