@@ -25,8 +25,9 @@ class PericopeValidator < ActiveModel::Validator
   def emptyRecord?
     if @record.name.nil? || @record.name.empty?
       @record.errors[:name] << I18n.t("name_not_empty")
-      return
+      return true
     end
+    false
   end
 
   def incorrectSequence?
@@ -51,6 +52,7 @@ class PericopeValidator < ActiveModel::Validator
       end
     end
     @pericope.biblebook_name = @biblebook.name unless @biblebook.nil? # Replace the abbreviation with the full name
+    @biblebook_name = @pericope.biblebook_name
   end
 
   def findByFullName
@@ -84,15 +86,35 @@ class PericopeValidator < ActiveModel::Validator
 
   def updateRecord
     @record.biblebook_id = @biblebook.id
-    @record.name = reformatName
 
     @record.starting_chapter_nr = @pericope.starting_chapter
     @record.starting_verse = @pericope.starting_verse
     @record.ending_chapter_nr = @pericope.ending_chapter
     @record.ending_verse = @pericope.ending_verse
+
+    name = reformatName
+    @record.name = name
   end
 
   def reformatName
-    "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"
+    name = ""
+    name << @biblebook_name
+    name << " "
+    name << @pericope.starting_chapter.to_s
+    if @pericope.ending_chapter > @pericope.starting_chapter
+      name << ":"
+      name << @pericope.starting_verse.to_s
+      name << " - "
+      name << @pericope.ending_chapter.to_s
+      name << ":"
+      name << @pericope.ending_verse.to_s
+    elsif @pericope.ending_verse > @pericope.starting_verse
+      name << ":"
+      name << @pericope.starting_verse.to_s
+      name << " - "
+      name << @pericope.ending_verse.to_s
+    end
+    name
+    # "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"
   end
 end

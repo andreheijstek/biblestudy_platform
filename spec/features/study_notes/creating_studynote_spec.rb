@@ -57,18 +57,18 @@ feature "Users can create new studynotes and associate them to pericopes" do
 
     examples = [
         # [pericope, title, studynote] => method_result
-        { :inputs => "Gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 1:10" },
-        { :inputs => "gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 1:10" },
-        { :inputs => "Ex 1:1 - 1:10",             :expected => "Exodus 1:1 - 1:10" },
-        { :inputs => "1 Kon 1:1 - 1:10",          :expected => "1 Koningen 1:1 - 1:10" },
-        { :inputs => "1 Kron 1:1 - 1:10",         :expected => "1 Kronieken 1:1 - 1:10" },
-        { :inputs => "1 Kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "1 kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "1 Korintiërs 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "1 Korintiers 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "1 Korinthiërs 1:1 - 1:10",  :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "1 Korinthiers 1:1 - 1:10",  :expected => "1 Korintiërs 1:1 - 1:10" },
-        { :inputs => "2 Kor 1:1 - 1:10",          :expected => "2 Korintiërs 1:1 - 1:10" }
+        { :inputs => "Gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 10" },
+        { :inputs => "gen 1:1 - 1:10",            :expected => "Genesis 1:1 - 10" },
+        { :inputs => "Ex 1:1 - 1:10",             :expected => "Exodus 1:1 - 10" },
+        { :inputs => "1 Kon 1:1 - 1:10",          :expected => "1 Koningen 1:1 - 10" },
+        { :inputs => "1 Kron 1:1 - 1:10",         :expected => "1 Kronieken 1:1 - 10" },
+        { :inputs => "1 Kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "1 kor 1:1 - 1:10",          :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "1 Korintiërs 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "1 Korintiers 1:1 - 1:10",   :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "1 Korinthiërs 1:1 - 1:10",  :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "1 Korinthiers 1:1 - 1:10",  :expected => "1 Korintiërs 1:1 - 10" },
+        { :inputs => "2 Kor 1:1 - 1:10",          :expected => "2 Korintiërs 1:1 - 10" }
     ]
     examples.each do |example|
       inputs = example[:inputs]
@@ -107,13 +107,6 @@ feature "Users can create new studynotes and associate them to pericopes" do
     expect(page).to have_content "Job"
     expect(page).to have_content "Johannes"
   end
-
-  # TODO Add several more examples of biblebooks/abbreviations
-  # Look for close matches
-  # Is there a scenario outline like construction possible?
-  # Or, maybe better: turn into Cucumber!
-
-  ## lowercase
 
   # scenario "to multiple pericopes" do
   # end
