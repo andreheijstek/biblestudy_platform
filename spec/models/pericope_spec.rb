@@ -50,19 +50,16 @@ describe Pericope, type: :model do
     expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
-=begin
   it "verse may contain a biblebook abbreviation" do
-    pericopes = Pericope.new(name: "Gen 1:2 - 3")
-    pericopes.set
-    puts "Pericope: #{pericopes.inspect}"
-    expect(pericopes.starting_chapter_nr).to eq(1)
-    expect(pericopes.starting_verse).to      eq(2)
-    expect(pericopes.ending_chapter_nr).to   eq(1)
-    expect(pericopes.ending_verse).to        eq(3)
+    pericope = Pericope.new(name: "Gen 1:2 - 3")
+    pericope.save
+    expect(pericope.starting_chapter_nr).to eq(1)
+    expect(pericope.starting_verse).to      eq(2)
+    expect(pericope.ending_chapter_nr).to   eq(1)
+    expect(pericope.ending_verse).to        eq(3)
 
-    expect(true).to eq(false) # test makes no sense now, as I don"t check on name
+    expect(pericope).to be_valid # test makes no sense now, as I don"t check on name
   end
-=end
 
   it "ending chapter must be greater or equal than starting chapter" do
     pericope = Pericope.new(name: "Genesis 4:3 - 2:1")

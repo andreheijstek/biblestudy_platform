@@ -10,6 +10,9 @@ class PericopeValidator < ActiveModel::Validator
     return if @biblebook.nil?
     updateRecord
     return if incorrectSequence?
+
+    name = reformatName
+    @record.name = name
   end
 
   private
@@ -33,13 +36,14 @@ class PericopeValidator < ActiveModel::Validator
   def incorrectSequence?
     if @record.starting_chapter_nr > @record.ending_chapter_nr
       @record.errors[:name] << I18n.t("starting_greater_than_ending")
-      return
+      return true
     end
 
     if (@record.starting_chapter_nr == @record.ending_chapter_nr) && (@record.starting_verse > @record.ending_verse)
       @record.errors[:name] << I18n.t("starting_verse_chapter_mismatch")
-      return
+      return true
     end
+    false
   end
 
   def findBiblebook
@@ -91,9 +95,6 @@ class PericopeValidator < ActiveModel::Validator
     @record.starting_verse = @pericope.starting_verse
     @record.ending_chapter_nr = @pericope.ending_chapter
     @record.ending_verse = @pericope.ending_verse
-
-    name = reformatName
-    @record.name = name
   end
 
   def reformatName

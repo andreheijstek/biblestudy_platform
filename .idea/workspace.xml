@@ -7,7 +7,7 @@
     <list default="true" id="2c420792-a212-4ec5-ada5-5daa2faeb8bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/pericope_validator.rb" afterPath="$PROJECT_DIR$/app/models/pericope_validator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" afterPath="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/pericope_spec.rb" afterPath="$PROJECT_DIR$/spec/models/pericope_spec.rb" />
     </list>
     <ignored path="biblestudy_platform.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +38,11 @@
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__chapters_controller_spec___biblestudy_platform.coverage" NAME="Run spec 'chapters_controller_spec': biblestudy_platform Coverage Results" MODIFIED="1476477144794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__editing_verses_spec___biblestudy_platform.coverage" NAME="Run spec 'editing_verses_spec': biblestudy_platform Coverage Results" MODIFIED="1470840746004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_study_note_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_study_note_spec': biblestudy_platform Coverage Results" MODIFIED="1473007677723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__pericope_spec___biblestudy_platform.coverage" NAME="Run spec 'pericope_spec': biblestudy_platform Coverage Results" MODIFIED="1475330563915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
-    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1479933312144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__pericope_spec___biblestudy_platform.coverage" NAME="Run spec 'pericope_spec': biblestudy_platform Coverage Results" MODIFIED="1480068042380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@All_specs_in_spec__biblestudy_platform.coverage" NAME="All specs in spec: biblestudy_platform Coverage Results" MODIFIED="1480068060136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__creating_users_spec___biblestudy_platform.coverage" NAME="Run spec 'creating_users_spec': biblestudy_platform Coverage Results" MODIFIED="1476364199987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__edit_user_profile_spec___biblestudy_platform.coverage" NAME="Run spec 'edit_user_profile_spec': biblestudy_platform Coverage Results" MODIFIED="1477673815366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
+    <SUITE FILE_PATH="coverage/biblestudy_platform@pericope_validator.coverage" NAME="pericope_validator Coverage Results" MODIFIED="1480067392206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/models" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admins_can_create_new_bible_sections_when_providing_invalid_attributes__biblestudy_platform.coverage" NAME="Admins can create new bible sections when providing invalid attributes: biblestudy_platform Coverage Results" MODIFIED="1470319109751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Admins_can_create_new_bible_sections_for_single_bible_books__biblestudy_platform.coverage" NAME="Admins can create new bible sections for single bible books: biblestudy_platform Coverage Results" MODIFIED="1470429988762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
     <SUITE FILE_PATH="coverage/biblestudy_platform@Run_spec__view_user_profile_spec___biblestudy_platform.coverage" NAME="Run spec 'view_user_profile_spec': biblestudy_platform Coverage Results" MODIFIED="1477329408676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="biblestudy_platform" />
@@ -98,36 +99,6 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="Rails biblestudy_platform: development" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="Rails biblestudy_platform: development" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="pericopes" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -135,25 +106,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="creating_studynote_spec.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb">
+      <file leaf-file-name="pericope_validator.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="138">
+              <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
-                <marker date="1480025932000" expanded="false" signature="339:377" ph="&quot;pericoop&quot;" />
-                <marker date="1480025932000" expanded="false" signature="415:454" ph="&quot;titel&quot;" />
-                <marker date="1480025932000" expanded="false" signature="482:520" ph="&quot;bijbelstudie&quot;" />
-                <marker date="1480025932000" expanded="false" signature="600:621" ph="&quot;Bijbelstudie toegevoegd&quot;" />
-                <marker date="1480025932000" expanded="false" signature="688:699" ph="&quot;auteur&quot;" />
-                <marker date="1480025932000" expanded="false" signature="1428:1467" ph="&quot;titel&quot;" />
-                <marker date="1480025932000" expanded="false" signature="1532:1557" ph="&quot;Bijbelstudie niet gemaakt&quot;" />
-                <marker date="1480025932000" expanded="false" signature="1591:1630" ph="&quot;moet opgegeven zijn&quot;" />
-                <marker date="1480025932000" expanded="false" signature="3441:3479" ph="&quot;pericoop&quot;" />
-                <marker date="1480025932000" expanded="false" signature="3525:3564" ph="&quot;titel&quot;" />
-                <marker date="1480025932000" expanded="false" signature="3595:3633" ph="&quot;bijbelstudie&quot;" />
-                <marker date="1480025932000" expanded="false" signature="3715:3736" ph="&quot;Bijbelstudie toegevoegd&quot;" />
+                <element signature="e#593#617#0" expanded="true" />
+                <element signature="e#780#818#0" expanded="true" />
+                <element signature="e#994#1035#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pericope_spec.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/models/pericope_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/features/admin/chapters/viewing_chapters_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/admin/users/editing_users_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/deleting_studynotes_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/editing_studynote_spec.rb" />
@@ -234,6 +205,7 @@
         <option value="$PROJECT_DIR$/app/models/pericope_string.rb" />
         <option value="$PROJECT_DIR$/spec/features/study_notes/creating_studynote_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/pericope_validator.rb" />
+        <option value="$PROJECT_DIR$/spec/models/pericope_spec.rb" />
       </list>
     </option>
   </component>
@@ -534,7 +506,7 @@
       <recent name="$PROJECT_DIR$/spec/features/study_notes" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.Run spec 'creating_studynote_spec': biblestudy_platform">
+  <component name="RunManager" selected="RSpec.All specs in spec: biblestudy_platform">
     <configuration default="false" name="All specs in spec: biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="biblestudy_platform" />
@@ -560,74 +532,6 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="ALL_IN_FOLDER" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Run spec 'edit_user_profile_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="biblestudy_platform" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/features/user_management/edit_user_profile_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="biblestudy_platform" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/features/study_notes/viewing_studynotes_overview_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
@@ -703,6 +607,59 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Run spec 'pericope_spec': biblestudy_platform" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="biblestudy_platform" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/models/pericope_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="pericope_validator" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="biblestudy_platform" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/app/models" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/app/models/pericope_validator.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -900,18 +857,18 @@
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: biblestudy_platform" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: biblestudy_platform" />
       <item index="4" class="java.lang.String" itemvalue="RSpec.All specs in spec: biblestudy_platform" />
-      <item index="5" class="java.lang.String" itemvalue="RSpec.Run spec 'edit_user_profile_spec': biblestudy_platform" />
-      <item index="6" class="java.lang.String" itemvalue="RSpec.Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" />
-      <item index="7" class="java.lang.String" itemvalue="RSpec.Run spec 'creating_studynote_spec': biblestudy_platform" />
-      <item index="8" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_string_spec': biblestudy_platform" />
+      <item index="5" class="java.lang.String" itemvalue="RSpec.Run spec 'creating_studynote_spec': biblestudy_platform" />
+      <item index="6" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_string_spec': biblestudy_platform" />
+      <item index="7" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_spec': biblestudy_platform" />
+      <item index="8" class="java.lang.String" itemvalue="Ruby.pericope_validator" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.Run spec 'creating_studynote_spec': biblestudy_platform" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_string_spec': biblestudy_platform" />
-        <item index="2" class="java.lang.String" itemvalue="RSpec.Run spec 'viewing_studynotes_overview_spec': biblestudy_platform" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.Run spec 'edit_user_profile_spec': biblestudy_platform" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.All specs in spec: biblestudy_platform" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.All specs in spec: biblestudy_platform" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_spec': biblestudy_platform" />
+        <item index="2" class="java.lang.String" itemvalue="Ruby.pericope_validator" />
+        <item index="3" class="java.lang.String" itemvalue="RSpec.Run spec 'creating_studynote_spec': biblestudy_platform" />
+        <item index="4" class="java.lang.String" itemvalue="RSpec.Run spec 'pericope_string_spec': biblestudy_platform" />
       </list>
     </recent_temporary>
   </component>
@@ -971,44 +928,44 @@
       <workItem from="1478797293779" duration="933000" />
       <workItem from="1479142007267" duration="24964000" />
       <workItem from="1479887475296" duration="21464000" />
-      <workItem from="1480025168030" duration="1063000" />
+      <workItem from="1480025168030" duration="3275000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 17m 39s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="All_specs_in_spec__biblestudy_platform - 2016.11.25 at 11h 01m 14s.xml">
+      <configuration name="All specs in spec: biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 17m 50s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 56m 14s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 18m 23s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 56m 36s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 18m 40s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 57m 15s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 19m 03s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 57m 33s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 22m 44s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 58m 36s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 23m 14s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 10h 59m 48s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 23m 22s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 11h 00m 10s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 23m 26s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 11h 00m 33s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_spec_'creating_studynote_spec'__biblestudy_platform - 2016.11.24 at 23h 23m 42s.xml">
-      <configuration name="Run spec 'creating_studynote_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'pericope_spec'__biblestudy_platform - 2016.11.25 at 11h 00m 48s.xml">
+      <configuration name="Run spec 'pericope_spec': biblestudy_platform" configurationId="RSpecRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492736000" />
+    <option name="totallyTimeSpent" value="494948000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1021,18 +978,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1269" height="773" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19233903" sideWeight="0.74085367" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.503231" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21108395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6696035" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5535976" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18826406" sideWeight="0.25914633" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36563876" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54772395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1059,11 +1016,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/spec/models/pericope_spec.rb</url>
-          <line>14</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/spec/features/study_notes/viewing_studynotes_overview_spec.rb</url>
           <line>5</line>
           <option name="timeStamp" value="7" />
@@ -1074,15 +1026,25 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/spec/models/pericope_spec.rb</url>
+          <line>64</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/models/pericope_validator.rb</url>
-          <line>99</line>
-          <option name="timeStamp" value="17" />
+          <line>36</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/models/pericope_validator.rb</url>
+          <line>5</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="21" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="RSpecRunConfigurationType">
@@ -1107,46 +1069,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/5cd1e78b/f21c3b31-1509-4ca0-88af-a901cb84b845/studynotes">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_messages.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_nav_links_for_auth.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_nav_links_for_admin.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1432,41 +1354,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/connection_adapters/abstract/transaction.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activemodel-4.2.3/lib/active_model/validations.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/transactions.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/pericope.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.3/lib/active_support/callbacks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1484,16 +1375,6 @@
         <state relative-caret-position="60">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
-          <folding>
-            <element signature="e#544#568#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1515,6 +1396,90 @@
             <marker date="1480025932000" expanded="false" signature="3595:3633" ph="&quot;bijbelstudie&quot;" />
             <marker date="1480025932000" expanded="false" signature="3715:3736" ph="&quot;Bijbelstudie toegevoegd&quot;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/inheritance.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rspec-support-3.4.1/lib/rspec/support.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-4.2.3/lib/active_support/callbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="502" column="0" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activemodel-4.2.3/lib/active_model/validations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/validations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/attribute_methods/dirty.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/transactions.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="356" column="0" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-4.2.3/lib/active_record/connection_adapters/abstract/transaction.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/pericope_validator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding>
+            <element signature="e#593#617#0" expanded="true" />
+            <element signature="e#780#818#0" expanded="true" />
+            <element signature="e#994#1035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/pericope_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
