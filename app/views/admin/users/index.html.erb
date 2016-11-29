@@ -6,8 +6,20 @@
     </li>
   </ul>
 </header>
-<ul>
+<table id="users", class="sortable">
+  <tr>
+    <th>user</th>
+    <th>#logins</th>
+    <th>last login date</th>
+    <th>#studies</th>
+  </tr>
   <% @users.each do |user| %>
-      <li><%= link_to user, [:admin, user] %></li>
+      <tr>
+        <td id="username"><%= link_to user, [:admin, user] %></td>
+        <td id="signin_count"><%= user.sign_in_count %></td>
+        <td id=last_sign_in"><%= user.last_sign_in_at %></td>
+        <td id="studynote count"><%= Studynote.where(author_id: user).count %></td>
+      </tr>
   <% end %>
-</ul>
+
+</table>
