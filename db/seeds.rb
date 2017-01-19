@@ -153,3 +153,9 @@ end
 unless User.exists?(email: "viewer@biblestudy.com")
   User.create!(email: "viewer@biblestudy.com", password: "bsp4ever")
 end
+
+pericopes = Pericope.all
+pericopes.each do |p|
+  p.biblebook_name = p.bookname if p.biblebook_name.nil?
+  p.save
+end

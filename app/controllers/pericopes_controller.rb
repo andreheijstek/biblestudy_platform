@@ -1,16 +1,6 @@
 class PericopesController < ApplicationController
   def index
-    @pericopes = Pericope.all
-    @pericope = []
-    @pericopes.each do |pericope|
-      booksequence = Biblebook.find(pericope.biblebook_id).booksequence
-      sortsequence = booksequence * 100 + pericope.starting_chapter_nr * 10 + pericope.starting_verse
-      studynote    = Studynote.find(pericope.studynote_id)
-      @pericope << {sequence: sortsequence, pericope: pericope.name, author: studynote.author.username,
-                    title: studynote.title, note: studynote}
-    end
-    @pericope.sort_by! { |hsh| hsh[:sequence] }
+    @ot = Biblebook.where(testament: "oud"  ).select("name")
+    @nt = Biblebook.where(testament: "nieuw").select("name")
   end
-
-  private
 end

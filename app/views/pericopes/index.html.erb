@@ -5,22 +5,41 @@
   </ul>
 </header>
 
-<div id="pericopes">
-  <table id="pericopes", class="sortable" >
-    <tr>
-      <th class="sorttable_numeric"> <%= t('pericope') %></th>
-      <th> <%= t('author') %></th>
-      <th> <%= t('studynote') %></th>
-    </tr>
+<div class="panel-group" id="accordion" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a href="#collapse1" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapse1" id="OT">
+          Oude Testament
+        </a>
+      </h4>
+    </div>
 
-    <% @pericope.each do |pericope| %>
-      <tr>
-        <td sorttable_customkey = <%= pericope[:sequence] %> > <%= pericope[:pericope] %></td>
-        <td> <%= pericope[:author] %> </td>
-        <td><%= link_to pericope[:title], pericope[:note] %></td>
-      </tr>
-    <% end %>
-  </table>
+    <div id="collapse1" class="panel-collapse collapse">
+      <% @ot.each do |row| %>
+          <div class="panel-body">
+            <%= row.name %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+          Nieuwe Testament
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapse2" class="panel-collapse collapse">
+      <% @nt.each do |row| %>
+        <div class="panel-body">
+          <%= row.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
 

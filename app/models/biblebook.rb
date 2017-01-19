@@ -4,4 +4,7 @@ class Biblebook < ActiveRecord::Base
   has_many :chapters, dependent: :delete_all
   has_many :pericopes
   has_many :studynotes, through: :pericopes
+
+  default_scope { order("booksequence ASC") }
+
 end

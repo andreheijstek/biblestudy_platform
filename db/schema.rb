@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108215333) do
+ActiveRecord::Schema.define(version: 20170114115435) do
 
   create_table "biblebooks", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20161108215333) do
     t.string   "name"
     t.integer  "ending_chapter_nr"
     t.integer  "starting_chapter_nr"
+    t.string   "biblebook_name"
+    t.integer  "sequence"
   end
 
   add_index "pericopes", ["biblebook_id"], name: "index_pericopes_on_biblebook_id"

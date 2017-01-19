@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.2.3"
+gem "rails", "4.2.7.1"
 
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
@@ -64,6 +64,7 @@ end
 
 group :test do
   gem "capybara", "~> 2.4"
+  gem "selenium-webdriver"
   gem "factory_girl_rails", "~> 4.5"
   gem "database_cleaner"
   gem "cucumber"

@@ -12,11 +12,11 @@ class StudynotesController < ApplicationController
 
   def new
     @studynote = Studynote.new
-    @pericope = @studynote.pericopes.build
+    @studynote_to_publish = @studynote.pericopes.build
   end
 
   def create
-    @pericope = Pericope.new
+    @studynote_to_publish = Pericope.new
     @studynote = Studynote.new(studynote_params)
     @studynote.author = current_user
 
@@ -58,7 +58,7 @@ class StudynotesController < ApplicationController
   end
 
   def pericope_params
-    params.require(:pericope).permit(pericopes_attributes: [:name, :id])
+    params.require(:studynote_to_publish).permit(pericopes_attributes: [:name, :id])
   end
 
   def set_studynote
