@@ -18,7 +18,8 @@
     <div id="collapse1" class="panel-collapse collapse">
       <% @ot.each do |row| %>
           <div class="panel-body">
-            <%= row.name %>
+            <% count = @biblebook_counts[row.name] ? @biblebook_counts[row.name] : 0 %>
+            <%= "#{row.name} (#{count})" %>
           </div>
       <% end %>
     </div>
@@ -36,7 +37,8 @@
     <div id="collapse2" class="panel-collapse collapse">
       <% @nt.each do |row| %>
         <div class="panel-body">
-          <%= row.name %>
+          <% count = @biblebook_counts[row.name] ? @biblebook_counts[row.name] : 0 %>
+          <%= "#{row.name} (#{count})" %>
         </div>
       <% end %>
     </div>

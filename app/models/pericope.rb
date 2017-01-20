@@ -10,4 +10,3 @@ class Pericope < ActiveRecord::Base
     Biblebook.find(self.biblebook_id).name
   end
 end
-
