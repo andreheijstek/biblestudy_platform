@@ -21,12 +21,13 @@
           <% @ot.each_with_index do |book, index| %>
               <% book_href = "\#bookot#{index}" %>
               <% book_control = "bookot#{index}" %>
+              <% study_count = @biblebook_counts[book.name] || 0 %>
 
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="ot" >
                 <h4 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" data-parent="#ot" href=<%= book_href %> aria-expanded="false" aria-controls=<%= book_control %>>
-                    <%= book.name %>
+                    <%= "#{book.name} (#{study_count})" %>
                   </a>
                 </h4>
               </div>
