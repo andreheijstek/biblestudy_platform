@@ -18,39 +18,30 @@
 
         <!-- nested accordion -->
 
-        <!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="heading1">
-              <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#ot" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                  Genesis
-                </a>
-              </h4>
-            </div>
-            <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
-              <ul class="list-group">
-                <li class="list-group-item">Studie 1</li>
-                <li class="list-group-item">Studie 2</li>
-              </ul>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="heading2">
-              <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#ot" href="#collapse22" aria-expanded="false" aria-controls="collapse22">
-                  Exodus
-                </a>
-              </h4>
-            </div>
-            <div id="collapse22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-              <ul class="list-group">
-                <li class="list-group-item">Studie 3</li>
-              </ul>
-            </div>
-          </div>
-        <!--</div># -->
+          <% @ot.each_with_index do |book, index| %>
+              <% book_href = "\#book#{index}" %>
+              <% book_control = "book#{index}" %>
 
-        <!-- end nested accordion -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="ot" >
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#ot" href=<%= book_href %> aria-expanded="false" aria-controls=<%= book_control %>>
+                    <%= book.name %>
+                  </a>
+                </h4>
+              </div>
+              <div id=<%= book_control %> class="panel-collapse collapse" role="tabpanel" aria-labelledby=<%= book_control %>>
+                <ul class="list-group">
+                  <li class="list-group-item">Studie 1</li>
+                  <li class="list-group-item">Studie 2</li>
+                </ul>
+              </div>
+            </div>
+
+          <% end %>
+
+
+          <!-- end nested accordion -->
 
     </div>
   </div>
