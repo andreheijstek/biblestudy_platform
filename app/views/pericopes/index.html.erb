@@ -33,8 +33,12 @@
               </div>
               <div id=<%= book_control %> class="panel-collapse collapse" role="tabpanel" aria-labelledby=<%= book_control %>>
                 <ul class="list-group">
-                  <li class="list-group-item">Studie 1</li>
-                  <li class="list-group-item">Studie 2</li>
+                  <% Pericope.where(biblebook_name: book.name).each do |study| %>
+                    <li class="list-group-item">
+                      <%= "#{study.name} - #{study.studynote.note}" %>
+                      <%= link_to study.studynote.title, study.studynote %>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
             </div>
@@ -60,12 +64,13 @@
       <% @nt.each_with_index do |book, index| %>
           <% book_href = "\#booknt#{index}" %>
           <% book_control = "booknt#{index}" %>
+          <% study_count = @biblebook_counts[book.name] || 0 %>
 
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="nt" >
               <h4 class="panel-title">
                 <a class="collapsed" data-toggle="collapse" data-parent="#ot" href=<%= book_href %> aria-expanded="false" aria-controls=<%= book_control %>>
-                  <%= book.name %>
+                  <%= "#{book.name} (#{study_count})" %>
                 </a>
               </h4>
             </div>
