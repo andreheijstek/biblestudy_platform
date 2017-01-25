@@ -5,43 +5,67 @@
   </ul>
 </header>
 
-<div class="panel-group" id="accordion" >
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" role="tab" id="ot">
       <h4 class="panel-title">
-        <a href="#collapse1" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapse1" id="OT">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
           Oude Testament
         </a>
       </h4>
     </div>
+        <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ot">
 
-    <div id="collapse1" class="panel-collapse collapse">
-      <% @ot.each do |row| %>
-          <div class="panel-body">
-            <% count = @biblebook_counts[row.name] ? @biblebook_counts[row.name] : 0 %>
-            <%= "#{row.name} (#{count})" %>
+        <!-- nested accordion -->
+
+        <!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading1">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#ot" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                  Genesis
+                </a>
+              </h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+              <ul class="list-group">
+                <li class="list-group-item">Studie 1</li>
+                <li class="list-group-item">Studie 2</li>
+              </ul>
+            </div>
           </div>
-      <% end %>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading2">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#ot" href="#collapse22" aria-expanded="false" aria-controls="collapse22">
+                  Exodus
+                </a>
+              </h4>
+            </div>
+            <div id="collapse22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+              <ul class="list-group">
+                <li class="list-group-item">Studie 3</li>
+              </ul>
+            </div>
+          </div>
+        <!--</div># -->
+
+        <!-- end nested accordion -->
+
     </div>
   </div>
-
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" role="tab" id="nt">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
           Nieuwe Testament
         </a>
       </h4>
     </div>
-
-    <div id="collapse2" class="panel-collapse collapse">
-      <% @nt.each do |row| %>
-        <div class="panel-body">
-          <% count = @biblebook_counts[row.name] ? @biblebook_counts[row.name] : 0 %>
-          <%= "#{row.name} (#{count})" %>
-        </div>
-      <% end %>
+    <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nt">
+      <ul class="list-group">
+        <li class="list-group-item">Mattheus</li>
+      </ul>
     </div>
   </div>
 </div>
-
