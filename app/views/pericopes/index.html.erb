@@ -32,14 +32,22 @@
                 </h4>
               </div>
               <div id=<%= book_control %> class="panel-collapse collapse" role="tabpanel" aria-labelledby=<%= book_control %>>
-                <ul class="list-group">
+
+                <table>
+                  <tr>
+                    <th>Pericoop</th>
+                    <th>Auteur</th>
+                    <th>Titel</th>
+                  </tr>
                   <% Pericope.where(biblebook_name: book.name).each do |study| %>
-                    <li class="list-group-item">
-                      <%= "#{study.name} - #{study.studynote.note}" %>
-                      <%= link_to study.studynote.title, study.studynote %>
-                    </li>
+                    <tr>
+                      <td><%= study.name %></td>
+                      <td><%= study.studynote.author.username %></td>
+                      <td><%= link_to study.studynote.title, study.studynote %></td>
+                    </tr>
                   <% end %>
-                </ul>
+                </table>
+
               </div>
             </div>
 
@@ -75,10 +83,22 @@
               </h4>
             </div>
             <div id=<%= book_control %> class="panel-collapse collapse" role="tabpanel" aria-labelledby=<%= book_control %>>
-            <ul class="list-group">
-              <li class="list-group-item">Studie 1</li>
-              <li class="list-group-item">Studie 2</li>
-            </ul>
+
+            <table>
+              <tr>
+                <th>Pericoop</th>
+                <th>Auteur</th>
+                <th>Titel</th>
+              </tr>
+              <% Pericope.where(biblebook_name: book.name).each do |study| %>
+                  <tr>
+                    <td><%= study.name %></td>
+                    <td><%= study.studynote.author.username %></td>
+                    <td><%= link_to study.studynote.title, study.studynote %></td>
+                  </tr>
+              <% end %>
+            </table>
+
           </div>
           </div>
 
