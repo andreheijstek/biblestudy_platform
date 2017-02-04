@@ -1,0 +1,73 @@
+LOG:  database system was shut down at 2017-01-26 19:11:18 CET
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "development" does not exist
+ERROR:  database "development" already exists
+STATEMENT:  CREATE DATABASE "development" ENCODING = 'unicode'
+ERROR:  database "test" already exists
+STATEMENT:  CREATE DATABASE "test" ENCODING = 'unicode'
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC

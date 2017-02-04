@@ -41,6 +41,9 @@ gem "sorted-activerecord"
 gem "pundit", "~> 0.3.0"
 gem "high_voltage"
 
+gem "pg"
+gem 'tilt', '>= 1.3.4', '~> 1.3'
+
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
@@ -48,8 +51,8 @@ group :development, :test do
   gem "rspec-rails", "~> 3.4.1"
   gem "launchy"
   # Use sqlite3 as the database for Active Record and postgress in productiong
-  gem "sqlite3"
   gem "orderly"
+  gem 'rb-readline'
 end
 
 group :development do
@@ -64,7 +67,7 @@ end
 
 group :test do
   gem "capybara", "~> 2.4"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "3.0.5"
   gem "factory_girl_rails", "~> 4.5"
   gem "database_cleaner"
   gem "cucumber"
@@ -73,7 +76,6 @@ end
 group :production do
   gem "rails_12factor"
   gem "puma"
-  gem "pg"
 end
 
 

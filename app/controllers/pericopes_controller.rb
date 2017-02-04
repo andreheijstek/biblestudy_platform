@@ -4,5 +4,6 @@ class PericopesController < ApplicationController
     @nt = Biblebook.where(testament: "nieuw").select("name")
 
     @biblebook_counts = Pericope.group(:biblebook_name).count
+
   end
 end
