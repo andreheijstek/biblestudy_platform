@@ -14,3 +14,6 @@ deploy:
 notifications:
   email:
     - andre.heijstek@improvementfocus.com
+
+before_script:
+  - psql -c 'create database andreheijstek;' -U postgres

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails biblestudy_platform: production" uuid="f178903c-a2ac-4af0-ac4e-bdec0e69eff2">
-      <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <auth-required>false</auth-required>
+      <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4.1212.jre6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
     </data-source>
     <data-source name="Rails biblestudy_platform: test" uuid="78e5ac23-2edc-4c9a-bf82-3dd94ac061c6">
       <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4.1212.jre6">

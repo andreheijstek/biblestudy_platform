@@ -71,3 +71,10 @@ ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be use
 STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
 ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
 STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+FATAL:  database "andreheijstek" does not exist
+FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "postgres", database "postgres", SSL off
+FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "postgres", database "postgres", SSL off
+FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "postgres", database "postgres", SSL off
+FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "andreheijstek", database "andreheijstek", SSL off
+ERROR:  role "andreheijstek" already exists
+STATEMENT:  CREATE ROLE andreheijstek PASSWORD 'md5e7601e895d0152c1111f178cfa8f3184' NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
