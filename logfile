@@ -78,3 +78,79 @@ FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "postgres", database "
 FATAL:  no pg_hba.conf entry for host "fe80::1%lo0", user "andreheijstek", database "andreheijstek", SSL off
 ERROR:  role "andreheijstek" already exists
 STATEMENT:  CREATE ROLE andreheijstek PASSWORD 'md5e7601e895d0152c1111f178cfa8f3184' NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
+FATAL:  database "db/development.sqlite3" does not exist
+FATAL:  database "db/test.sqlite3" does not exist
+FATAL:  database "db/production.sqlite3" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/test.sqlite3" does not exist
+FATAL:  database "db/production.sqlite3" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/production.pg" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/production" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/production" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development.pg" does not exist
+FATAL:  database "db/development" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development" does not exist
+FATAL:  database "db/test.pg" does not exist
+FATAL:  database "db/development" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  syntax error at or near "." at character 26
+STATEMENT:  CREATE DATABASE "db/test"."pg" ENCODING = 'unicode'
+FATAL:  database "db/development" does not exist
+FATAL:  database "db/test" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+FATAL:  database "db/development" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "db/test" already exists
+STATEMENT:  CREATE DATABASE "db/test" ENCODING = 'unicode'
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "db/development" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+FATAL:  database "biblestudy_platform_development" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+FATAL:  database "default:" does not exist
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
