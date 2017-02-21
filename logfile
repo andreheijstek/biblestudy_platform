@@ -154,3 +154,8 @@ ERROR:  database "andreheijstek" already exists
 STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
 ERROR:  database "biblestudy_platform_test" already exists
 STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+ERROR:  database "andreheijstek" already exists
+STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"
