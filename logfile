@@ -159,3 +159,16 @@ STATEMENT:  CREATE DATABASE "andreheijstek" ENCODING = 'unicode'
 ERROR:  database "biblestudy_platform_test" already exists
 STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
 WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"
+LOG:  database system was shut down at 2017-02-21 16:58:31 CET
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "biblestudy_platform_test" does not exist
