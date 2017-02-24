@@ -172,3 +172,4 @@ FATAL:  database "biblestudy_platform_test" does not exist
 FATAL:  database "andreheijstek" does not exist
 FATAL:  database "biblestudy_platform_development" does not exist
 FATAL:  database "biblestudy_platform_test" does not exist
+WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"
