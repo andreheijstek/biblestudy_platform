@@ -3,8 +3,8 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: andre.heijstek@improvementfocus.com
-  password:
+#  username: andre.heijstek@improvementfocus.com
+#  password:
 
 development:
   <<: *default
