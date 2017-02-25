@@ -29,29 +29,29 @@ feature "Users can view an overview of all studynotes" do
     expect(page).to have_content "Nieuwe Testament"
   end
 
-  scenario "Grouped by biblebook", js: true do
-    page.click_on('Oude Testament')
-    expect(page).to have_content "Jona"
-    expect(page).to have_content "Maleachi"
-
-    click_link "Nieuwe Testament"
-    expect(page).to have_content "Mattheus"
-    expect(page).to have_content "Openbaringen"
-  end
-
-  scenario "Showing the number of studynotes per biblebook" do
-    page.click_on('Oude Testament')
-    expect(page).to have_content "Jona (1)"
-
-    page.click_on('Nieuwe Testament')
-    expect(page).to have_content "Handelingen (3)"
-  end
-
-  scenario "Containing studynotes" do
-    page.click_on('Oude Testament')
-    page.click_on('Jona')
-    expect(page).to have_content "Jona is bijzonder"
-  end
+  # scenario "Grouped by biblebook", js: true do
+  #   page.click_on('Oude Testament')
+  #   expect(page).to have_content "Jona"
+  #   expect(page).to have_content "Maleachi"
+  #
+  #   click_link "Nieuwe Testament"
+  #   expect(page).to have_content "Mattheus"
+  #   expect(page).to have_content "Openbaringen"
+  # end
+  #
+  # scenario "Showing the number of studynotes per biblebook" do
+  #   page.click_on('Oude Testament')
+  #   expect(page).to have_content "Jona (1)"
+  #
+  #   page.click_on('Nieuwe Testament')
+  #   expect(page).to have_content "Handelingen (3)"
+  # end
+  #
+  # scenario "Containing studynotes" do
+  #   page.click_on('Oude Testament')
+  #   page.click_on('Jona')
+  #   expect(page).to have_content "Jona is bijzonder"
+  # end
 
 =begin
 
