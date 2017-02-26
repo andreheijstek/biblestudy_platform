@@ -173,3 +173,8 @@ FATAL:  database "andreheijstek" does not exist
 FATAL:  database "biblestudy_platform_development" does not exist
 FATAL:  database "biblestudy_platform_test" does not exist
 WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"
+FATAL:  database "andreheijstek" does not exist
+ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be used in an aggregate function at character 153
+STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
+ERROR:  column biblebooks.sequence does not exist at character 110
+STATEMENT:  SELECT "biblebooks"."name" FROM "biblebooks" WHERE "biblebooks"."testament" = $1  ORDER BY booksequence ASC, "biblebooks"."sequence" ASC

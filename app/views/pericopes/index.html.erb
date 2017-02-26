@@ -39,7 +39,7 @@
                     <th>Auteur</th>
                     <th>Titel</th>
                   </tr>
-                  <% Pericope.where(biblebook_name: book.name).each do |study| %>
+                  <% Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study| %>
                     <tr>
                       <td><%= study.name %></td>
                       <td><%= study.studynote.author.username %></td>
@@ -90,7 +90,7 @@
                 <th>Auteur</th>
                 <th>Titel</th>
               </tr>
-              <% Pericope.where(biblebook_name: book.name).each do |study| %>
+              <% Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study| %>
                   <tr>
                     <td><%= study.name %></td>
                     <td><%= study.studynote.author.username %></td>

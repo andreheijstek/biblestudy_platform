@@ -53,20 +53,21 @@ feature "Users can view an overview of all studynotes" do
     expect(page).to have_content "Jona is bijzonder"
   end
 
-=begin
-
   scenario "sorted by biblebook name" do
     expect(page).to have_content "Jona"
     expect(page).to have_content "Handelingen"
 
-    save_and_open_page
     expect("Jona").to appear_before("Handelingen")
   end
 
+
   scenario "sorted by chapter number" do
+    save_and_open_page
     expect("Handelingen eerst").to appear_before("Handelingen later")
     expect("Handelingen alles").to appear_before("Handelingen eerst")
   end
+
+=begin
 
   scenario "grouped by biblebook" do
     expect(page).to have_content "Handelingen"
