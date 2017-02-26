@@ -42,7 +42,7 @@ gem "pundit", "~> 0.3.0"
 gem "high_voltage"
 
 gem "pg"
-gem 'tilt', '>= 1.3.4', '~> 1.3'
+# gem 'tilt', '>= 1.3.4', '~> 1.3'
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -50,7 +50,6 @@ group :development, :test do
   gem "pry-byebug"
   gem "rspec-rails", "~> 3.4.1"
   gem "launchy"
-  # Use sqlite3 as the database for Active Record and postgress in productiong
   gem "orderly"
   gem 'rb-readline'
 end

@@ -314,7 +314,6 @@ DEPENDENCIES
   simple_form (~> 3.1.0)
   sorted-activerecord
   spring
-  tilt (~> 1.3, >= 1.3.4)
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
