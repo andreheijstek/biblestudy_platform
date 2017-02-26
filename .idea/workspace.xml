@@ -145,10 +145,10 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+            <state relative-caret-position="539">
+              <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
               <folding>
-                <marker date="1488147108000" expanded="true" signature="267:336" ph="before_install: &lt;2 items&gt;" />
+                <marker date="1488147608000" expanded="true" signature="267:336" ph="before_install: &lt;2 items&gt;" />
               </folding>
             </state>
           </provider>
@@ -1083,7 +1083,7 @@
       <workItem from="1487370733424" duration="2006000" />
       <workItem from="1487684607368" duration="556000" />
       <workItem from="1487692792678" duration="4023000" />
-      <workItem from="1488097788186" duration="3079000" />
+      <workItem from="1488097788186" duration="3474000" />
     </task>
     <servers />
   </component>
@@ -1120,7 +1120,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="624413000" />
+    <option name="totallyTimeSpent" value="624808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1635,10 +1635,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        <state relative-caret-position="539">
+          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding>
-            <marker date="1488147108000" expanded="true" signature="267:336" ph="before_install: &lt;2 items&gt;" />
+            <marker date="1488147608000" expanded="true" signature="267:336" ph="before_install: &lt;2 items&gt;" />
           </folding>
         </state>
       </provider>
