@@ -67,7 +67,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     cucumber (2.4.0)
       builder (>= 2.1.2)
       cucumber-core (~> 1.5.0)
@@ -259,7 +259,7 @@ GEM
     thor (0.19.4)
     thread (0.2.2)
     thread_safe (0.3.6)
-    tilt (1.4.1)
+    tilt (2.0.6)
     tins (1.13.2)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
