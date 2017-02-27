@@ -29,7 +29,7 @@ feature "Users can view an overview of all studynotes" do
     expect(page).to have_content "Nieuwe Testament"
   end
 
-  scenario "Grouped by biblebook", js: true do
+  scenario "Grouped by biblebook" do
     page.click_on('Oude Testament')
     expect(page).to have_content "Jona"
     expect(page).to have_content "Maleachi"
