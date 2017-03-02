@@ -178,3 +178,19 @@ ERROR:  column "pericopes.sequence" must appear in the GROUP BY clause or be use
 STATEMENT:  SELECT COUNT(*) AS count_all, "pericopes"."biblebook_name" AS pericopes_biblebook_name FROM "pericopes" GROUP BY "pericopes"."biblebook_name"  ORDER BY sequence ASC
 ERROR:  column biblebooks.sequence does not exist at character 110
 STATEMENT:  SELECT "biblebooks"."name" FROM "biblebooks" WHERE "biblebooks"."testament" = $1  ORDER BY booksequence ASC, "biblebooks"."sequence" ASC
+ERROR:  column "testament" does not exist at character 31
+STATEMENT:  SELECT COUNT(*) AS count_all, "testament" AS testament FROM "pericopes" GROUP BY "testament"
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "andreheijstek" does not exist
+ERROR:  database "biblestudy_platform_test" already exists
+STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+ERROR:  column "pericopes.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "pericopes".* FROM "pericopes" GROUP BY "pericopes"."biblebook_name"
+ERROR:  column "pericopes.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "pericopes".* FROM "pericopes" GROUP BY "pericopes"."biblebook_name"
+ERROR:  column studynotes.testament does not exist at character 47
+STATEMENT:  SELECT "studynotes".* FROM "studynotes" WHERE "studynotes"."testament" = 'oud'
+ERROR:  missing FROM-clause entry for table "biblebook" at character 122
+STATEMENT:  SELECT "pericopes".* FROM "pericopes" INNER JOIN "biblebooks" ON "biblebooks"."id" = "pericopes"."biblebook_id" GROUP BY biblebook.testament
+ERROR:  column "pericopes.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "pericopes".* FROM "pericopes" INNER JOIN "biblebooks" ON "biblebooks"."id" = "pericopes"."biblebook_id" GROUP BY biblebooks.testament
