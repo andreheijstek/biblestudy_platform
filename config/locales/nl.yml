@@ -31,7 +31,10 @@ nl:
     models:
       biblebook: bijbelboek
       chapter: hoofdstuk
-      studynote: bijbelstudie
+      studynote:
+        zero: geen bijbelstudies
+        one: een bijbelstudie
+        other: "%{count} bijbelstudies"
       user: gebruiker
       messages:
         accepted: moet worden geaccepteerd
@@ -326,7 +329,10 @@ nl:
   created: "geschreven"
   ago: "geleden"
   pericope: "pericoop"
-  studynote: "bijbelstudie"
+  studynote:
+    zero: geen bijbelstudies
+    one: 1 bijbelstudie
+    other: "%{count} bijbelstudies"
   not_allowed: "dit is niet toegestaan"
   chapter_not_updated: "hoofdstuk niet bijgewerkt"
   name_not_empty: "naam mag niet leeg zijn"

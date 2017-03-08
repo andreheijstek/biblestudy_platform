@@ -40,8 +40,8 @@ feature "Users can view an overview of all studynotes" do
   end
 
   scenario "Showing the number of studynotes per testament" do
-    expect(page).to have_content "Oude Testament (1)"
-    expect(page).to have_content "Nieuwe Testament (3)"
+    expect(page).to have_content "Oude Testament (1 bijbelstudie)"
+    expect(page).to have_content "Nieuwe Testament (3 bijbelstudies)"
   end
 
   scenario "Showing the number of studynotes per biblebook" do
