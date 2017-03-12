@@ -38,6 +38,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (6.0.4)
     ast (2.3.0)
     autoprefixer-rails (6.7.5)
@@ -287,6 +290,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootstrap-sass (~> 3.3)
   byebug
   capybara (~> 2.4)
@@ -326,4 +330,4 @@ RUBY VERSION
    ruby 2.2.3p173
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
