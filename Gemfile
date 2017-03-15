@@ -64,6 +64,8 @@ group :development do
   gem "spring"
   # gem "i18n-debug"
   gem "i18n-tasks", "~> 0.9.5"
+  gem "rails-erd"
+  gem 'git-flow'
 end
 
 group :test do
