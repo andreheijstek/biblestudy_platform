@@ -67,7 +67,6 @@ feature "Users can view an overview of all studynotes" do
 
 
   scenario "sorted by chapter number" do
-    save_and_open_page
     expect("Handelingen eerst").to appear_before("Handelingen later")
     expect("Handelingen alles").to appear_before("Handelingen eerst")
   end
