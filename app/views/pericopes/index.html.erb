@@ -9,7 +9,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="ot">
       <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
           <% ot_counts = @testament_counts["oud"] || 0 %>
           <%= "Oude Testament (#{t("studynote", :count => ot_counts)})" %>
         </a>
@@ -27,7 +27,7 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="ot" >
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#ot" href=<%= book_href %> aria-expanded="true" aria-controls=<%= book_control %>>
+                  <a class="collapsed" data-toggle="collapse" data-parent="#ot" href=<%= book_href %> aria-expanded="false" aria-controls=<%= book_control %>>
                     <%= "#{book.name} (#{study_count})" %>
                   </a>
                 </h4>
