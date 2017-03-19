@@ -194,3 +194,11 @@ ERROR:  missing FROM-clause entry for table "biblebook" at character 122
 STATEMENT:  SELECT "pericopes".* FROM "pericopes" INNER JOIN "biblebooks" ON "biblebooks"."id" = "pericopes"."biblebook_id" GROUP BY biblebook.testament
 ERROR:  column "pericopes.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
 STATEMENT:  SELECT "pericopes".* FROM "pericopes" INNER JOIN "biblebooks" ON "biblebooks"."id" = "pericopes"."biblebook_id" GROUP BY biblebooks.testament
+LOG:  database system was shut down at 2017-03-17 23:07:33 CET
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist
+FATAL:  database "andreheijstek" does not exist
+FATAL:  database "biblestudy_platform_development" does not exist

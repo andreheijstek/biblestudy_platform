@@ -82,6 +82,8 @@ pickle-email-*.html
 
 # tilde files are usually backup files from a text editor
 *~
-features/step_definitions/
 log/
 tmp/
+pg_upgrade_internal.log
+pg_upgrade_server.log
+pg_upgrade_utility.log
