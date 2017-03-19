@@ -72,21 +72,20 @@ feature "Users can view an overview of all studynotes" do
     expect("Handelingen alles").to appear_before("Handelingen eerst")
   end
 
-=begin
 
   scenario "grouped by biblebook" do
     expect(page).to have_content "Handelingen"
-    within("//li[@id='Handelingen']") do
-      expect(page).to have_content "Jona is bijzonder."
-      expect(page).to_not have_content "Handelingen"
+    within("//table[@id='Handelingen']") do
+      expect(page).to_not have_content "Jona is bijzonder."
+      expect(page).to have_content "Handelingen"
     end
 
     expect(page).to have_content "Jona"
-    within("//li[@id='Jona']") do
-      expect(page).to have_content "Handelingen eerst"
-      expect(page).to have_content "Handelingen later"
-      expect(page).to have_content "Handelingen alles"
-      expect(page).to_not have_content "Jona"
+    within("//table[@id='Jona']") do
+      expect(page).to_not have_content "Handelingen eerst"
+      expect(page).to_not have_content "Handelingen later"
+      expect(page).to_not have_content "Handelingen alles"
+      expect(page).to have_content "Jona"
     end
   end
 
@@ -94,5 +93,9 @@ feature "Users can view an overview of all studynotes" do
     click_link "Jona"
     expect(page).to have_content "Jona is bijzonder"
   end
-=end
+
+  scenario "having the accordion open when there is content" do
+    expect(page).to have_content "Jona"
+    expect(page).to have_content "Handelingen eerst"
+  end
 end
