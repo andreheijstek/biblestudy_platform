@@ -67,7 +67,7 @@
         </a>
       </h4>
     </div>
-    <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nt">
+    <div id="collapse2" class="panel-collapse <%= nt_counts > 0 ? 'collapse.show' : 'collapse' %>" role="tabpanel" aria-labelledby="nt">
 
       <!-- nested accordion -->
 
@@ -84,7 +84,7 @@
                 </a>
               </h4>
             </div>
-            <div id=<%= book_control %> class="panel-collapse collapse" role="tabpanel" aria-labelledby=<%= book_control %>>
+            <div id=<%= book_control %> class="panel-collapse <%= study_count > 0 ? 'collapse.show' : 'collapse' %>" role="tabpanel" aria-labelledby=<%= book_control %>>
 
             <table id=<%= book.name %>>
               <tr>
