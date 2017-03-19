@@ -41,6 +41,7 @@ gem "sorted-activerecord"
 gem "pundit", "~> 0.3.0"
 gem "high_voltage"
 gem "webdrivers", "~> 2.3"
+gem 'annotate'
 
 gem "pg"
 # gem 'tilt', '>= 1.3.4', '~> 1.3'
@@ -63,6 +64,7 @@ group :development do
   gem "spring"
   # gem "i18n-debug"
   gem "i18n-tasks", "~> 0.9.5"
+  gem "rails-erd"
 end
 
 group :test do
