@@ -28,23 +28,14 @@ nl:
           attributes:
             email:
               taken: dit e-mail adres is al in gebruik
-    models:
-      biblebook: bijbelboek
-      chapter: hoofdstuk
-      studynote:
-        zero: geen bijbelstudies
-        one: een bijbelstudie
-        other: "%{count} bijbelstudies"
-      user: gebruiker
-  biblebook: Bijbelboek
   biblebook_created: Bijbelboek is opgeslagen.
   biblebook_deleted: Bijbelboek is verwijderd.
   biblebook_has_been_created: Biblebook has been created.
   biblebook_not_created: Bijbelboek is niet opgeslagen.
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
   biblebook_not_updated: Bijbelboek is niet bijgewerkt.
-  biblebook_updated: Bijbelboek is bijgewerkt.
-  biblebooks: Bijbelboeken
+  biblebook_updated: Bijbelboek is bijgewerkt. # TODO xx_updated can be generalized, and more
+  biblebooks: Bijbelboeken # TODO: Remove when biblebook is pluralized
   biblestudy_platform: Bijbelstudie platform
   chapter_updated: Hoofdstuk bijgewerkt
   delete_biblebook: Bijbelboek verwijderen
@@ -67,7 +58,7 @@ nl:
       studynote:
         title: titel
         note: bijbelstudie
-  sure_to_delete_biblebook: Weet u zeker dat u dit bijbelboek wilt verwijderen?
+  sure_to_delete_biblebook: Weet u zeker dat u dit bijbelboek wilt verwijderen? # TODO Generalized sure_to_delete_X
   sure_to_delete_chapter: Weet u zeker dat u dit hoofdstuk wilt verwijderen?
   sure_to_delete_verse: Weet u zeker dat u dit vers wilt verwijderen?
   update_biblebook: Bijbelboek wijzigen
