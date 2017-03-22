@@ -1,0 +1,5 @@
+---
+nl:
+  biblebooks: Bijbelboeken # TODO: Remove when biblebook is pluralized / can't this be a model item?
+  new_biblebook: Nieuw bijbelboek
+

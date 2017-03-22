@@ -35,12 +35,10 @@ nl:
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
   biblebook_not_updated: Bijbelboek is niet bijgewerkt.
   biblebook_updated: Bijbelboek is bijgewerkt. # TODO xx_updated can be generalized, and more
-  biblebooks: Bijbelboeken # TODO: Remove when biblebook is pluralized
   biblestudy_platform: Bijbelstudie platform
   chapter_updated: Hoofdstuk bijgewerkt
   delete_biblebook: Bijbelboek verwijderen
   edit_bibilebook: Bijbelboek wijzigen
-  new_biblebook: Nieuw bijbelboek
   simple_form:
     labels:
       biblebook:

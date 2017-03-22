@@ -3,11 +3,11 @@
 <header>
   <h1><%= @biblebook.name %></h1>
   <ul class="actions">
-    <li><%= link_to t(:edit_bibilebook), edit_admin_biblebook_path(@biblebook), class: "edit" %></li>
+    <li><%= link_to t(:edit_bibilebook), edit_admin_biblebook_path(@biblebook), class: 'edit' %></li>
     <li><%= link_to t(:delete_biblebook), admin_biblebook_path(@biblebook),
                     method: :delete,
                     data: { confirm: t(:sure_to_delete_biblebook) },
-                    class: "delete" %></li>
+                    class: 'delete' %></li>
   </ul>
 </header>
 
@@ -15,7 +15,7 @@
   <h2><%= t(:chapters).capitalize %></h2>
   <ul class="actions">
     <li><%= link_to t(:add_chapter), new_admin_biblebook_chapter_path(@biblebook),
-                    class: "new" %></li>
+                    class: 'new' %></li>
   </ul>
 </header>
 
@@ -23,10 +23,7 @@
   <% @biblebook.chapters.each do |chapter| %>
       <li>
         <%= link_to chapter.chapter_number, [:admin, @biblebook, chapter] %>
-        <%= if chapter.description.present?
-              " - #{chapter.description}"
-            end
-        %>
+        <%= " - #{chapter.description}" if chapter.description.present? %>
       </li>
   <% end %>
 </ul>
