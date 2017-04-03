@@ -15,7 +15,7 @@ feature "Admins can create new bible books" do
 
     submit_form
 
-    expect(page).to have_content t(:biblebook_created)
+    should_see t(:biblebook_created)
     book = Biblebook.find_by(name: "Handelingen")
     expect(page.current_url).to eq admin_biblebook_url(book)
   end
@@ -23,8 +23,8 @@ feature "Admins can create new bible books" do
   scenario "when providing invalid attributes" do
     submit_form
 
-    expect(page).to have_content t(:biblebook_not_created)
-    expect(page).to have_content t("activerecord.models.messages.blank")
+    should_see t(:biblebook_not_created)
+    should_see t("activerecord.models.messages.blank")
   end
 end
 

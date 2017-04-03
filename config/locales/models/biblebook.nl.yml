@@ -2,6 +2,8 @@
 nl:
   activerecord:
     models:
-      biblebook: bijbelboek # TODO: add pluralization
+      biblebook:
+        one: bijbelboek
+        other: bijbelboeken
       studynote:
       user: gebruiker

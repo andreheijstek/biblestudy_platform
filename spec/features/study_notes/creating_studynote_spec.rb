@@ -17,16 +17,16 @@ feature "Users can create new studynotes and associate them to pericopes" do
 
     submit_form
 
-    expect(page).to have_content t(:studynote_created)
+    should_see t('activerecord.messages.created', model: t('studynote'))
     within("#studynote") do
-      expect(page).to have_content "#{t("author")}: #{user.email}"
+      should_see "#{t("author")}: #{user.email}"
     end
   end
 
   scenario "when providing no attributes" do
     submit_form
-    expect(page).to have_content t(:studynote_not_created)
-    expect(page).to have_content t('activerecord.models.messages.blank')
+    should_see t(:studynote_not_created)
+    should_see t('activerecord.models.messages.blank')
   end
 
   scenario "when providing out of sequence chapters and verses" do
@@ -34,15 +34,15 @@ feature "Users can create new studynotes and associate them to pericopes" do
     fill_in t('simple_form.labels.studynote.title'), with: "Titel"
     fill_in t('simple_form.labels.studynote.note'), with: "Jona is bijzonder."
     submit_form
-    expect(page).to have_content t(:studynote_not_created)
-    expect(page).to have_content t("starting_greater_than_ending")
+    should_see t(:studynote_not_created)
+    should_see t("starting_greater_than_ending")
   end
 
   scenario "when providing just the title" do
     fill_in t('simple_form.labels.studynote.title'), with: "Titel"
     submit_form
-    expect(page).to have_content t(:studynote_not_created)
-    expect(page).to have_content t('activerecord.models.messages.blank')
+    should_see t(:studynote_not_created)
+    should_see t('activerecord.models.messages.blank')
   end
 
   context "abbreviated biblebooks" do
@@ -80,13 +80,13 @@ feature "Users can create new studynotes and associate them to pericopes" do
 
         submit_form
 
-        expect(page).to have_content t(:studynote_created)
+        should_see t('activerecord.messages.created', model: t('studynote'))
         within("#studynote") do
-          expect(page).to have_content "#{example[:expected]}"
+          should_see "#{example[:expected]}"
         end
 
         visit pericopes_path
-        expect(page).to have_content "bijbelstudie"
+        should_see "bijbelstudie"
       end
     end
   end
@@ -101,11 +101,11 @@ feature "Users can create new studynotes and associate them to pericopes" do
 
     submit_form
 
-    expect(page).to have_content t(:studynote_not_created)
-    expect(page).to have_content "#{t("ambiguous_abbreviation")}: 'Jo' kan "
-    expect(page).to have_content "Jona"
-    expect(page).to have_content "Job"
-    expect(page).to have_content "Johannes"
+    should_see t(:studynote_not_created)
+    should_see "#{t("ambiguous_abbreviation")}: 'Jo' kan "
+    should_see "Jona"
+    should_see "Job"
+    should_see "Johannes"
   end
 
   # scenario "to multiple pericopes" do

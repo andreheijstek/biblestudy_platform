@@ -21,7 +21,7 @@ class StudynotesController < ApplicationController
     @studynote.author = current_user
 
     if @studynote.save
-      flash[:notice] = t(:studynote_created)
+      flash[:notice] = t('activerecord.messages.created', model: t('studynote'))
       redirect_to @studynote
     else
       flash.now[:alert] = t(:studynote_not_created)
@@ -47,7 +47,7 @@ class StudynotesController < ApplicationController
   def destroy
     authorize @studynote, :destroy?
     @studynote.destroy
-    flash[:notice] = t(:studynote_deleted)
+    flash[:notice] = t('activerecord.messages.deleted', model: 'bijbelstudie')
     redirect_to pericopes_path
   end
 

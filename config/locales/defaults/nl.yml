@@ -1,6 +1,8 @@
 ---
 nl:
   activerecord:
+    models:
+      studynote: bijbelstudie
     attributes:
       user:
         username: Gebruikersnaam
@@ -18,6 +20,8 @@ nl:
       notcreated: Gebruiker is niet aangemaakt
       updated: Gebruiker is gewijzigd
       not_updated: Gebruiker is niet gewijzigd
+      created: "%{model} is opgeslagen"
+      deleted: "%{model} is verwijderd"
     errors:
       full_messages:
         format: "%{attribute} %{message}"
@@ -28,8 +32,6 @@ nl:
           attributes:
             email:
               taken: dit e-mail adres is al in gebruik
-  biblebook_created: Bijbelboek is opgeslagen.
-  biblebook_deleted: Bijbelboek is verwijderd.
   biblebook_has_been_created: Biblebook has been created.
   biblebook_not_created: Bijbelboek is niet opgeslagen.
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
@@ -70,7 +72,7 @@ nl:
   chapter: hoofdstuk
   chapters: hoofdstukken
   new_studynote: Nieuwe bijbelstudie
-  studynote_created: Bijbelstudie toegevoegd
+#  studynote_created: Bijbelstudie toegevoegd
   studynote_not_created: Bijbelstudie niet gemaakt
   studynotes: bijbelstudies
   studynote_not_found: bijbelstudie niet gevonden

@@ -12,7 +12,7 @@ feature "Users can delete biblebooks" do
 
     click_link t(:delete_biblebook)
 
-    expect(page).to have_content t(:biblebook_deleted)
+    should_see t(:biblebook_deleted)
     expect(page.current_url).to eq admin_biblebooks_url
     expect(page).to have_no_content "Handelingen"
   end

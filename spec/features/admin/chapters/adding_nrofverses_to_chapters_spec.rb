@@ -17,6 +17,6 @@ feature "Admins can add the number of verses to a chapter" do
 
     submit_form
 
-    expect(page).to have_content t(:chapter_updated)
+    should_see t(:chapter_updated)
   end
 end

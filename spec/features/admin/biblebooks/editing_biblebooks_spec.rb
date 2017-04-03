@@ -15,13 +15,13 @@ feature "Users can edit existing biblebooks" do
 
     submit_form
 
-    expect(page).to have_content t(:biblebook_updated)
-    expect(page).to have_content "Acts"
+    should_see t(:biblebook_updated)
+    should_see "Acts"
   end
 
   scenario "when providing invalid attributes" do
     fill_in t("simple_form.labels.biblebook.name"), with: ""
     submit_form
-    expect(page).to have_content t(:biblebook_not_updated)
+    should_see t(:biblebook_not_updated)
   end
 end

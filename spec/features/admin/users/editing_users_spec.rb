@@ -15,9 +15,9 @@ feature "Admins can change a user's details" do
 
     submit_form
 
-    expect(page).to have_content t("activerecord.attributes.user.messages.updated")
-    expect(page).to have_content "newguy@example.com"
-    expect(page).to_not have_content user.email
+    should_see t("activerecord.attributes.user.messages.updated")
+    should_see "newguy@example.com"
+    should_not_see user.email
   end
 
   scenario "when toggling a user's admin ability" do
@@ -25,7 +25,7 @@ feature "Admins can change a user's details" do
 
     submit_form
 
-    expect(page).to have_content t("activerecord.attributes.user.messages.updated")
-    expect(page).to have_content "#{user.email} (Admin)"
+    should_see t("activerecord.attributes.user.messages.updated")
+    should_see "#{user.email} (Admin)"
   end
 end

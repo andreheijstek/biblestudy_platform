@@ -9,7 +9,7 @@ feature "Admins can view a list of all users" do
     login_as(admin)
     visit "/"
     click_link "Admin"
-    expect(page).to have_content "jan.jansen"
+    should_see "jan.jansen"
   end
 
   scenario "#logins are shown correctly" do

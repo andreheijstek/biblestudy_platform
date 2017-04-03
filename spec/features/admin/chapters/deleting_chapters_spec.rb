@@ -11,7 +11,7 @@ feature "Users can delete chapters" do
 
   scenario "successfully" do
     click_link t(:delete_chapter)
-    expect(page).to have_content t(:chapter_deleted)
+    should_see t(:chapter_deleted)
     expect(page.current_url).to eq admin_biblebook_url(biblebook)
   end
 end

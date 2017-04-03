@@ -11,7 +11,7 @@ feature "Admins can view all chapters within biblebooks" do
     chapter = create(:chapter, biblebook: book, chapter_number: "1", description: "Inleiding")
     visit admin_biblebook_path(book)
 
-    expect(page).to have_content "1 - Inleiding"
+    should_see "1 - Inleiding"
   end
 
 end

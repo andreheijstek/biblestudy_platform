@@ -10,8 +10,8 @@ feature "Users can view an overview of all biblebooks" do
     biblebook2 = create(:biblebook, name: "Bijbelboek2", booksequence: 2)
     visit admin_biblebooks_path
 
-    expect(page).to have_content "Bijbelboek1"
-    expect(page).to have_content "Bijbelboek2"
+    should_see "Bijbelboek1"
+    should_see "Bijbelboek2"
 
     expect("Bijbelboek1").to appear_before("Bijbelboek2")
   end

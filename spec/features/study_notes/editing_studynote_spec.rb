@@ -22,14 +22,14 @@ feature "Users can edit existing studynotes" do
 
     submit_form
 
-    expect(page).to have_content t(:studynote_updated)
-    expect(page).to have_content "Jona is heel bijzonder."
+    should_see t(:studynote_updated)
+    should_see "Jona is heel bijzonder."
   end
 
   scenario "when providing invalid attributes" do
     fill_in t("simple_form.labels.studynote.note"), with: ""
     submit_form
-    expect(page).to have_content t(:studynote_not_updated)
+    should_see t(:studynote_not_updated)
   end
 
   scenario "unless they do not have permission" do

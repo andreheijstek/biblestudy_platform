@@ -25,42 +25,42 @@ feature "Users can view an overview of all studynotes" do
   end
 
   scenario "Ordered by testament" do
-    expect(page).to have_content "Oude Testament"
-    expect(page).to have_content "Nieuwe Testament"
+    should_see "Oude Testament"
+    should_see "Nieuwe Testament"
   end
 
   scenario "Grouped by biblebook" do
     page.click_on('Oude Testament')
-    expect(page).to have_content "Jona"
-    expect(page).to have_content "Maleachi"
+    should_see "Jona"
+    should_see "Maleachi"
 
     click_link "Nieuwe Testament"
-    expect(page).to have_content "Mattheus"
-    expect(page).to have_content "Openbaringen"
+    should_see "Mattheus"
+    should_see "Openbaringen"
   end
 
   scenario "Showing the number of studynotes per testament" do
-    expect(page).to have_content "Oude Testament (1 bijbelstudie)"
-    expect(page).to have_content "Nieuwe Testament (3 bijbelstudies)"
+    should_see "Oude Testament (1 bijbelstudie)"
+    should_see "Nieuwe Testament (3 bijbelstudies)"
   end
 
   scenario "Showing the number of studynotes per biblebook" do
     page.click_on('Oude Testament')
-    expect(page).to have_content "Jona (1)"
+    should_see "Jona (1)"
 
     page.click_on('Nieuwe Testament')
-    expect(page).to have_content "Handelingen (3)"
+    should_see "Handelingen (3)"
   end
 
   scenario "Containing studynotes" do
     page.click_on('Oude Testament')
     page.click_on('Jona')
-    expect(page).to have_content "Jona is bijzonder"
+    should_see "Jona is bijzonder"
   end
 
   scenario "sorted by biblebook name" do
-    expect(page).to have_content "Jona"
-    expect(page).to have_content "Handelingen"
+    should_see "Jona"
+    should_see "Handelingen"
 
     expect("Jona").to appear_before("Handelingen")
   end
@@ -73,28 +73,28 @@ feature "Users can view an overview of all studynotes" do
 
 
   scenario "grouped by biblebook" do
-    expect(page).to have_content "Handelingen"
+    should_see "Handelingen"
     within("//table[@id='Handelingen']") do
-      expect(page).to_not have_content "Jona is bijzonder."
-      expect(page).to have_content "Handelingen"
+      should_not_see "Jona is bijzonder."
+      should_see "Handelingen"
     end
 
-    expect(page).to have_content "Jona"
+    should_see "Jona"
     within("//table[@id='Jona']") do
-      expect(page).to_not have_content "Handelingen eerst"
-      expect(page).to_not have_content "Handelingen later"
-      expect(page).to_not have_content "Handelingen alles"
-      expect(page).to have_content "Jona"
+      should_not_see "Handelingen eerst"
+      should_not_see "Handelingen later"
+      should_not_see "Handelingen alles"
+      should_see "Jona"
     end
   end
 
   scenario "and view the details of a studynote" do
     click_link "Jona"
-    expect(page).to have_content "Jona is bijzonder"
+    should_see "Jona is bijzonder"
   end
 
   scenario "having the accordion open when there is content" do
-    expect(page).to have_content "Jona"
-    expect(page).to have_content "Handelingen eerst"
+    should_see "Jona"
+    should_see "Handelingen eerst"
   end
 end
