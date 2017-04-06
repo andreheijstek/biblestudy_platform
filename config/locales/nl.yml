@@ -4,7 +4,7 @@ nl:
     models:
       studynote: bijbelstudie
 
-  biblebook_has_been_created: Biblebook has been created.
+  biblebook_has_been_created: Bijbelboek is opgeslagen.
   biblebook_not_created: Bijbelboek is niet opgeslagen.
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
   biblebook_not_updated: Bijbelboek is niet bijgewerkt.
@@ -70,6 +70,7 @@ nl:
   created: geschreven
   ago: geleden
   pericope: pericoop
+  studynote: bijbelstudie
   studynote:
     zero: geen bijbelstudies
     one: 1 bijbelstudie
