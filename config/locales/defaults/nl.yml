@@ -3,35 +3,7 @@ nl:
   activerecord:
     models:
       studynote: bijbelstudie
-    attributes:
-      user:
-        username: Gebruikersnaam
-        email: E-mail
-        password: Wachtwoord
-        password_confirmation: Herhaal wachtwoord
-        sign_up: Registreer
-        sign_in: Log in
-        is_admin: is admin
-        messages:
-          updated: gebruiker is bijgewerkt
-          notupdated: gebruiker is niet bijgewerkt
-    messages:
-      created: Gebruiker is aangemaakt
-      notcreated: Gebruiker is niet aangemaakt
-      updated: Gebruiker is gewijzigd
-      not_updated: Gebruiker is niet gewijzigd
-      created: "%{model} is opgeslagen"
-      deleted: "%{model} is verwijderd"
-    errors:
-      full_messages:
-        format: "%{attribute} %{message}"
-      messages:
-        record_invalid: onjuist record
-      models:
-        user:
-          attributes:
-            email:
-              taken: dit e-mail adres is al in gebruik
+
   biblebook_has_been_created: Biblebook has been created.
   biblebook_not_created: Bijbelboek is niet opgeslagen.
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
@@ -40,7 +12,9 @@ nl:
   biblestudy_platform: Bijbelstudie platform
   chapter_updated: Hoofdstuk bijgewerkt
   delete_biblebook: Bijbelboek verwijderen
-  edit_bibilebook: Bijbelboek wijzigen
+  edit_biblebook: Bijbelboek wijzigen
+  biblebooks: Bijbelboeken # TODO: Remove when biblebook is pluralized / can't this be a model item?
+
   simple_form:
     labels:
       biblebook:
@@ -123,5 +97,6 @@ nl:
   about: Over
   about_this_website: Over het bijbelstudie-platform
   ambiguous_abbreviation: de afkorting is niet duidelijk genoeg
+  new_biblebook: "Nieuw bijbelboek"
 
 

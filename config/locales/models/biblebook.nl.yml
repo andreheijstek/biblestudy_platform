@@ -1,9 +1,0 @@
----
-nl:
-  activerecord:
-    models:
-      biblebook:
-        one: bijbelboek
-        other: bijbelboeken
-      studynote:
-      user: gebruiker

@@ -1,5 +1,0 @@
----
-nl:
-  activerecord:
-    models:
-      user: gebruiker

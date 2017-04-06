@@ -1,7 +1,0 @@
-nl:
-  activerecord:
-    models:
-      studynote:
-        zero: geen bijbelstudies
-        one: een bijbelstudie
-        other: "%{count} bijbelstudies"

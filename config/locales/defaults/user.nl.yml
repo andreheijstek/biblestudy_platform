@@ -1,0 +1,69 @@
+---
+nl:
+  activerecord:
+    attributes:
+      user:
+        username: Gebruikersnaam
+        email: Email
+        password: Wachtwoord
+        password_confirmation: Herhaal wachtwoord
+        sign_up: Registreer
+        sign_in: Log in
+        is_admin: is admin
+        messages:
+          updated: gebruiker is bijgewerkt
+          notupdated: gebruiker is niet bijgewerkt
+    messages:
+      created: Gebruiker is aangemaakt
+      notcreated: Gebruiker is niet aangemaakt
+      updated: Gebruiker is gewijzigd
+      not_updated: Gebruiker is niet gewijzigd
+      created: "%{model} is opgeslagen"
+      deleted: "%{model} is verwijderd"
+    errors:
+      full_messages:
+        format: "%{attribute} %{message}"
+      messages:
+        record_invalid: onjuist record
+      models:
+        user:
+          attributes:
+            email:
+              taken: dit e-mail adres is al in gebruik
+
+  sign_up: Registreer
+  sign_in: Log in
+  sign_out: Log uit
+
+  email: Email
+  password_confirmation: Wachtwoord bevestiging
+  password: Wachtwoord
+  admin: Admin
+  signed_in_as: "ingelogd als:"
+  user_profile: Mijn profiel
+  password_leave_blank: Laat dit veld leeg als u uw wachtwoord niet wilt wijzigen
+  need_current_password: we hebben uw huidige wachtwoord nodig om wijzigingen te kunnen maken
+  update: Aanpassen
+  cancel_account: Annuleer mijn profiel
+  sure: weet u het zeker?
+  back: terug
+  unhappy: Ontevreden?
+  user-profile: Gebruikersprofiel
+  username: gebruikersnaam
+  edit_account: Mijn profiel
+
+  simple_form:
+    labels:
+      defaults:
+        password: Wachtwoord
+      user:
+        new:
+          email: Email
+        edit:
+          email: Email
+    hints:
+      defaults:
+        username: Gebruikersnaam die bij uw bijbelstudies wordt getoond
+        password: Geen bijzondere tekens gebruiken
+
+
