@@ -3,7 +3,6 @@ nl:
     attributes:
       user:
         current_password: Huidig wachtwoord
-#        email: Email
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord
         remember_me: Ingelogd blijven

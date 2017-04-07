@@ -1,5 +1,5 @@
 <header>
-<h1><%= t(:biblebooks) %></h1>
+<h1><%= Biblebook.model_name.human(count: 2).capitalize %></h1>
   <ul class="actions">
     <li><%= link_to t(:new_biblebook), new_admin_biblebook_path, class: 'new' %></li>
   </ul>
