@@ -4,7 +4,7 @@
   <h1><%= @biblebook.name %></h1>
   <ul class="actions">
     <li><%= link_to t(:edit_biblebook), edit_admin_biblebook_path(@biblebook), class: 'edit' %></li>
-    <li><%= link_to t(:delete_biblebook), admin_biblebook_path(@biblebook),
+    <li><%= link_to t(:delete_item, item: Biblebook.model_name.human), admin_biblebook_path(@biblebook),
                     method: :delete,
                     data: { confirm: t(:sure_to_delete, item: Biblebook.model_name.human) },
                     class: 'delete' %></li>

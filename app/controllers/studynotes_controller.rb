@@ -36,10 +36,10 @@ class StudynotesController < ApplicationController
   def update
     authorize @studynote, :update?
     if @studynote.update(studynote_params)
-      flash[:notice] = t(:studynote_updated)
+      flash[:notice] = t(:item_updated, item: Studynote.model_name.human)
       redirect_to @studynote
     else
-      flash.now[:alert] = t(:studynote_not_updated)
+      flash.now[:alert] = t(:item_not_updated, item: Studynote.model_name.human)
       render 'edit'
     end
   end

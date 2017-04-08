@@ -22,14 +22,14 @@ feature "Users can edit existing studynotes" do
 
     submit_form
 
-    should_see t(:studynote_updated)
+    should_see t(:item_updated, item: Studynote.model_name.human)
     should_see "Jona is heel bijzonder."
   end
 
   scenario "when providing invalid attributes" do
     fill_in t("simple_form.labels.studynote.note"), with: ""
     submit_form
-    should_see t(:studynote_not_updated)
+    should_see t(:item_not_updated, item: Studynote.model_name.human)
   end
 
   scenario "unless they do not have permission" do
@@ -37,6 +37,6 @@ feature "Users can edit existing studynotes" do
     visit studynotes_path
 
     click_link "Jona"
-    expect(page).not_to have_link t(:delete_studynote)
+    expect(page).not_to have_link t(:delete_item, item: Studynote.model_name.human)
   end
 end

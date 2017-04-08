@@ -13,14 +13,12 @@ nl:
   biblebook_created: Bijbelboek is opgeslagen.
   biblebook_not_created: Bijbelboek is niet opgeslagen.
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
-  biblebook_not_updated: Het bijbelboek is niet bijgewerkt.
-  biblebook_updated: Het bijbelboek is bijgewerkt.
-  delete_biblebook: Bijbelboek verwijderen
+  item_updated: "%{item} is bijgewerkt"
+  item_not_updated: "%{item} is niet bijgewerkt"
+  delete_item: "%{item} verwijderen"
   edit_biblebook: Bijbelboek wijzigen
 
   biblestudy_platform: Bijbelstudie platform
-
-  chapter_updated: Het hoofdstuk is bijgewerkt.
 
   simple_form:
     labels:
@@ -40,7 +38,14 @@ nl:
         title: titel
         note: bijbelstudie
 
+  # Hoe los ik het probleem met dit/deze nou netjes op?
+  # Toch maar geen reuse?
+  # Maar hoe krijg je dan consistentie in je teksten?
+  # Bij elkaar zetten zoals hier?
+  # Dus niet groeperen op Entiteiten maar juist op 'zinnen'
+
   sure_to_delete: Weet u zeker dat u dit %{item} wilt verwijderen?
+  sure_to_delete_studynote: Weet u zeker dat u deze bijbelstudie wilt verwijderen?
 
   update_biblebook: Bijbelboek wijzigen
   add_chapter: Voeg hoofdstuk toe
@@ -48,7 +53,6 @@ nl:
   chapter_created: Hoofdstuk is gemaakt
   chapter_not_created: Hoofdstuk niet toegevoegd
   chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
-  delete_chapter: Verwijder hoofdstuk
   chapter_deleted: Hoofdstuk is verwijderd
   chapter: hoofdstuk
   chapters: hoofdstukken
@@ -66,10 +70,6 @@ nl:
   admin: Admin
   pericopes: bijbelgedeelten
   edit_studynote: Wijzig bijbelstudie
-  sure_to_delete_studynote: Weet u zeker dat u deze bijbelstudie wilt verwijderen?
-  delete_studynote: Verwijder bijbelstudie
-  studynote_updated: bijbelstudie bijgewerkt
-  studynote_not_updated: Bijbelstudie niet bijgewerkt
   studynote_deleted: bijbelstudie verwijderd
   chapter_not_found: hoofdstuk bestaat niet
   author: auteur
@@ -82,7 +82,6 @@ nl:
     one: 1 bijbelstudie
     other: "%{count} bijbelstudies"
   not_allowed: dit is niet toegestaan
-  chapter_not_updated: hoofdstuk niet bijgewerkt
   name_not_empty: naam mag niet leeg zijn
   invalid_pericope: onjuiste pericoop
   unknown_biblebook: onjuist/onbekend bijbelboek

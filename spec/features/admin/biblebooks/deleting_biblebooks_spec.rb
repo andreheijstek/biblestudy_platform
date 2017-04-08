@@ -10,7 +10,7 @@ feature "Users can delete biblebooks" do
     visit admin_biblebooks_path
     click_link "Handelingen"
 
-    click_link t(:delete_biblebook)
+    click_link t(:delete_item, item: Biblebook.model_name.human)
 
     should_see t(:biblebook_deleted)
     expect(page.current_url).to eq admin_biblebooks_url

@@ -13,7 +13,7 @@ feature 'Users can delete studynotes' do
     visit studynotes_path
 
     click_link 'Jona'
-    click_link t(:delete_studynote)
+    click_link t(:delete_item, item: Studynote.model_name.human)
 
     should_see t('activerecord.messages.deleted', model: 'bijbelstudie')
     expect(page.current_url).to eq pericopes_url
@@ -25,6 +25,6 @@ feature 'Users can delete studynotes' do
     visit studynotes_path
 
     click_link 'Jona'
-    expect(page).not_to have_link t(:delete_studynote)
+    expect(page).not_to have_link t(:delete_item, item: Studynote.model_name.human)
   end
 end

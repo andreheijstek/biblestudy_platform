@@ -17,6 +17,6 @@ feature "Admins can add the number of verses to a chapter" do
 
     submit_form
 
-    should_see t(:chapter_updated)
+    should_see t(:item_updated, item: Chapter.model_name.human)
   end
 end

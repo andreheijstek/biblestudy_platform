@@ -9,7 +9,7 @@
         <li><%= link_to t(:edit_studynote), edit_studynote_path(@studynote), class: "edit" %></li>
       <% end %>
       <% if policy(@studynote).destroy? %>
-        <li><%= link_to t(:delete_studynote), studynote_path(@studynote),
+        <li><%= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote),
                         method: :delete,
                         data: { confirm: t(:sure_to_delete_studynote) },
                         class: "delete" %></li>

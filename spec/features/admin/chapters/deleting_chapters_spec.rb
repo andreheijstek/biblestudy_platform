@@ -10,7 +10,7 @@ feature "Users can delete chapters" do
   end
 
   scenario "successfully" do
-    click_link t(:delete_chapter)
+    click_link t(:delete_item, item: Chapter.model_name.human)
     should_see t(:chapter_deleted)
     expect(page.current_url).to eq admin_biblebook_url(biblebook)
   end

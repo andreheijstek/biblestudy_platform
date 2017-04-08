@@ -28,10 +28,10 @@ class Admin::BiblebooksController < Admin::ApplicationController
 
   def update
     if @biblebook.update(biblebook_params)
-      flash[:notice] = t(:biblebook_updated)
+      flash[:notice] = t(:item_updated, item: Biblebook.model_name.human) # t(:biblebook_updated)
       redirect_to [:admin, @biblebook]
     else
-      flash.now[:alert] = t(:biblebook_not_updated)
+      flash.now[:alert] = t(:item_not_updated, item: Biblebook.model_name.human)
       render "edit"
     end
   end

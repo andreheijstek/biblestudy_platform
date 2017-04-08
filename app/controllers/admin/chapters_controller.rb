@@ -25,10 +25,10 @@ class Admin::ChaptersController < Admin::ApplicationController
 
   def update
     if @chapter.update(chapter_params)
-      flash[:notice] = t(:chapter_updated)
+      flash[:notice] = t(:item_updated, item: Chapter.model_name.human)
       redirect_to [:admin, @biblebook, @chapter]
     else
-      flash.now[:alert] = t(:chapter_not_updated)
+      flash.now[:alert] = t(:item_not_updated, item: Chapter.model_name.human)
       render "edit"
     end
   end
