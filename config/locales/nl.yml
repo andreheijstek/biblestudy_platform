@@ -10,13 +10,19 @@ nl:
       chapter: hoofdstuk
       user: gebruiker
 
-  biblebook_created: Bijbelboek is opgeslagen.
-  biblebook_not_created: Bijbelboek is niet opgeslagen.
-  biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
+  item_created: "%{item} is opgeslagen."
+  item_not_created: "%{item} is niet opgeslagen."
   item_updated: "%{item} is bijgewerkt"
   item_not_updated: "%{item} is niet bijgewerkt"
   delete_item: "%{item} verwijderen"
-  edit_biblebook: Bijbelboek wijzigen
+  edit_item: "%{item} wijzigen"
+
+  item_deleted: "%{item} verwijderd"
+
+
+  biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
+  studynote_not_found: bijbelstudie niet gevonden
+  chapter_not_found: hoofdstuk bestaat niet
 
   biblestudy_platform: Bijbelstudie platform
 
@@ -48,19 +54,13 @@ nl:
   sure_to_delete_studynote: Weet u zeker dat u deze bijbelstudie wilt verwijderen?
 
   update_biblebook: Bijbelboek wijzigen
+
   add_chapter: Voeg hoofdstuk toe
-  new_chapter: Nieuw hoofdstuk
-  chapter_created: Hoofdstuk is gemaakt
-  chapter_not_created: Hoofdstuk niet toegevoegd
   chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
-  chapter_deleted: Hoofdstuk is verwijderd
   chapter: hoofdstuk
   chapters: hoofdstukken
   new_studynote: Nieuwe bijbelstudie
-  studynote_not_created: Bijbelstudie niet gemaakt
   studynotes: bijbelstudies
-  studynote_not_found: bijbelstudie niet gevonden
-  edit_chapter: Wijzig hoofdstuk
   sign_up: Registreer
   email: Email
   password_confirmation: Wachtwoord bevestiging
@@ -69,9 +69,6 @@ nl:
   password: Wachtwoord
   admin: Admin
   pericopes: bijbelgedeelten
-  edit_studynote: Wijzig bijbelstudie
-  studynote_deleted: bijbelstudie verwijderd
-  chapter_not_found: hoofdstuk bestaat niet
   author: auteur
   created: geschreven
   ago: geleden

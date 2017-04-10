@@ -15,10 +15,10 @@ class Admin::BiblebooksController < Admin::ApplicationController
   def create
     @biblebook = Biblebook.new(biblebook_params)
     if @biblebook.save
-      flash[:notice] = t(:biblebook_created)
+      flash[:notice] = t(:item_created, item: Biblebook.model_name.human)
       redirect_to [:admin, @biblebook]
     else
-      flash.now[:alert] = t(:biblebook_not_created)
+      flash.now[:alert] = t(:item_not_created, item: Biblebook.model_name.human)
       render "new"
     end
   end

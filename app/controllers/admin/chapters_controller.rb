@@ -12,10 +12,10 @@ class Admin::ChaptersController < Admin::ApplicationController
   def create
     @chapter = @biblebook.chapters.build(chapter_params)
     if @chapter.save
-      flash[:notice] = t(:chapter_created)
+      flash[:notice] = t(:item_created, item: Chapter.model_name.human)
       redirect_to [:admin, @biblebook, @chapter]
     else
-      flash.now[:alert] = t(:chapter_not_created)
+      flash.now[:alert] = t(:item_not_created, item: Chapter.model_name.human)
       render "new"
     end
   end
@@ -35,7 +35,7 @@ class Admin::ChaptersController < Admin::ApplicationController
 
   def destroy
     @chapter.destroy
-    flash[:notice] = t(:chapter_deleted)
+    flash[:notice] = t(:item_deleted, item: Chapter.model_name.human)
     redirect_to [:admin, @biblebook]
   end
 

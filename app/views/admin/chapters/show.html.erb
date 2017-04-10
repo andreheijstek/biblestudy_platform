@@ -7,7 +7,7 @@
                       data: { confirm: t(:sure_to_delete, item: Chapter.model_name.human) },
                       class: "delete" %>
       </li>
-      <li><%= link_to t(:edit_chapter), edit_admin_biblebook_chapter_path(@biblebook, @chapter), class: "edit" %></li>
+      <li><%= link_to t(:edit_item, item: Chapter.model_name.human), edit_admin_biblebook_chapter_path(@biblebook, @chapter), class: "edit" %></li>
     </ul>
   </header>
 

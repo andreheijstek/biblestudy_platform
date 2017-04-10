@@ -6,7 +6,7 @@
     <h1><%= @studynote.title %></h1>
     <ul class="actions">
       <% if policy(@studynote).update? %>
-        <li><%= link_to t(:edit_studynote), edit_studynote_path(@studynote), class: "edit" %></li>
+        <li><%= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(@studynote), class: "edit" %></li>
       <% end %>
       <% if policy(@studynote).destroy? %>
         <li><%= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote),

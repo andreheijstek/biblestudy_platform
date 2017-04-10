@@ -12,7 +12,7 @@ feature "Admins can add the number of verses to a chapter" do
   end
 
   scenario "with valid attributes" do
-    click_link t(:edit_chapter)
+    click_link t(:edit_item, item: Chapter.model_name.human)
     fill_in t("simple_form.labels.chapter.nrofverses"), with: "31"
 
     submit_form

@@ -17,13 +17,13 @@ feature "Admins can create new chapters within biblebooks" do
 
     submit_form
 
-    should_see t(:chapter_created)
+    should_see t(:item_created, item: Chapter.model_name.human)
   end
 
   scenario "when providing invalid attributes" do
     click_link t(:add_chapter)
     submit_form
-    should_see t(:chapter_not_created)
+    should_see t(:item_not_created, item: Chapter.model_name.human)
     should_see t("activerecord.models.messages.blank")
   end
 end

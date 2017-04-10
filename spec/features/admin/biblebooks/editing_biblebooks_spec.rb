@@ -7,7 +7,7 @@ feature "Users can edit existing biblebooks" do
     visit admin_biblebooks_path
 
     click_link "Voorbeeld bijbelboek"
-    click_link t(:edit_biblebook)
+    click_link t(:edit_item, item: Biblebook.model_name.human)
   end
 
   scenario "with valid attributes" do

@@ -1,4 +1,4 @@
 <header>
-  <h1><%= t(:edit_biblebook) %></h1>
+  <h1><%= t(:edit_item, item: Biblebook.model_name.human) %></h1>
 </header>
 <%= render "form", biblebook: @biblebook %>

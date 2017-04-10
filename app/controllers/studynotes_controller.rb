@@ -24,7 +24,7 @@ class StudynotesController < ApplicationController
       flash[:notice] = t('activerecord.messages.created', model: t('studynote'))
       redirect_to @studynote
     else
-      flash.now[:alert] = t(:studynote_not_created)
+      flash.now[:alert] = t(:item_not_created, item: Studynote.model_name.human)
       render 'new'
     end
   end

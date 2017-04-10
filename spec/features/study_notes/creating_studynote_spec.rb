@@ -25,7 +25,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
   scenario 'when providing no attributes' do
     submit_form
-    should_see t(:studynote_not_created)
+    should_see t(:item_not_created, item: Studynote.model_name.human)
     should_see t('activerecord.models.messages.blank')
   end
 
@@ -34,14 +34,14 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
     submit_form
-    should_see t(:studynote_not_created)
+    should_see t(:item_not_created, item: Studynote.model_name.human)
     should_see t('starting_greater_than_ending')
   end
 
   scenario 'when providing just the title' do
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     submit_form
-    should_see t(:studynote_not_created)
+    should_see t(:item_not_created, item: Studynote.model_name.human)
     should_see t('activerecord.models.messages.blank')
   end
 
@@ -101,7 +101,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     submit_form
 
-    should_see t(:studynote_not_created)
+    should_see t(:item_not_created, item: Studynote.model_name.human)
     should_see "#{t('ambiguous_abbreviation')}: 'Jo' kan "
     should_see 'Jona'
     should_see 'Job'
