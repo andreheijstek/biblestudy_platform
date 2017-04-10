@@ -12,7 +12,7 @@
 </header>
 
 <header>
-  <h2><%= t(:chapters).capitalize %></h2>
+  <h2><%= t('activerecord.models.chapter', count: 1).capitalize %></h2>
   <ul class="actions">
     <li><%= link_to t(:add_chapter), new_admin_biblebook_chapter_path(@biblebook),
                     class: 'new' %></li>

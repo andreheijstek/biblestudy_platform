@@ -21,7 +21,7 @@ class StudynotesController < ApplicationController
     @studynote.author = current_user
 
     if @studynote.save
-      flash[:notice] = t('activerecord.messages.created', model: t('studynote'))
+      flash[:notice] = t(:item_created, item: Studynote.model_name.human)
       redirect_to @studynote
     else
       flash.now[:alert] = t(:item_not_created, item: Studynote.model_name.human)

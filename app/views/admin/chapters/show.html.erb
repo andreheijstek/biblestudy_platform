@@ -12,7 +12,8 @@
   </header>
 
   <header>
-    <h2><%= "#{t(:chapter).capitalize} #{@chapter.chapter_number}" %></h2>
+    <!--<h2><%= "#{t('activerecord.models.chapter', count: 1).capitalize} #{@chapter.chapter_number}" %></h2>-->
+    <h2><%= "#{t('activerecord.models.chapter', count: 1).capitalize} #{@chapter.chapter_number}" %></h2>
   </header>
   <%= simple_format(@chapter.description) %>
   <%= @chapter.nrofverses %>

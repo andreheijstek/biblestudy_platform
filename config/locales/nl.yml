@@ -6,9 +6,15 @@ nl:
       biblebook:
         one: bijbelboek
         other: bijbelboeken
-      pericope: pericoop
-      chapter: hoofdstuk
-      user: gebruiker
+      pericope:
+        one: pericoop
+        other: pericopen
+      chapter:
+        one: hoofdstuk
+        other: hoofdstukken
+      user:
+        one: gebruiker
+        other: gebruikers
 
   item_created: "%{item} is opgeslagen."
   item_not_created: "%{item} is niet opgeslagen."
@@ -19,7 +25,6 @@ nl:
 
   item_deleted: "%{item} verwijderd"
 
-
   biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
   studynote_not_found: bijbelstudie niet gevonden
   chapter_not_found: hoofdstuk bestaat niet
@@ -29,7 +34,7 @@ nl:
   simple_form:
     labels:
       biblebook:
-        name: Naam
+        name: naam
         booksequence: volgorde
         testament: testament
       chapter:
@@ -56,23 +61,22 @@ nl:
   update_biblebook: Bijbelboek wijzigen
 
   add_chapter: Voeg hoofdstuk toe
+
   chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
-  chapter: hoofdstuk
-  chapters: hoofdstukken
+
   new_studynote: Nieuwe bijbelstudie
-  studynotes: bijbelstudies
+
   sign_up: Registreer
   email: Email
   password_confirmation: Wachtwoord bevestiging
   sign_in: Log in
   sign_out: Log uit
   password: Wachtwoord
-  admin: Admin
-  pericopes: bijbelgedeelten
+  admin: admin
   author: auteur
+
   created: geschreven
   ago: geleden
-  pericope: pericoop
   studynote: bijbelstudie
   studynote:
     zero: geen bijbelstudies

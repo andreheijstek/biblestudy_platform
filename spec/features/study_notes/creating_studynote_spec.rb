@@ -17,7 +17,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     submit_form
 
-    should_see t('activerecord.messages.created', model: t('studynote'))
+    should_see t('item_created', item: Studynote.model_name.human)
     within('#studynote') do
       should_see "#{t('author')}: #{user.email}"
     end
@@ -80,7 +80,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
         submit_form
 
-        should_see t('activerecord.messages.created', model: t('studynote'))
+        should_see t(:item_created, item: Studynote.model_name.human)
         within('#studynote') do
           should_see "#{example[:expected]}"
         end

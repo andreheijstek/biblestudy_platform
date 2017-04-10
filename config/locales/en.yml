@@ -31,6 +31,8 @@ en:
         header:
           one: "%{model} niet opgeslagen: 1 fout gevonden"
           other: "%{model} niet opgeslagen: %{count} fouten gevonden"
+    models:
+      chapter: "chapter"
   biblebook: Bijbelboek
   biblebook_created: Bijbelboek is opgeslagen.
   biblebook_deleted: Bijbelboek is verwijderd.
