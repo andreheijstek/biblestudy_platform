@@ -15,6 +15,9 @@ nl:
       user:
         one: gebruiker
         other: gebruikers
+    attributes:
+      studynote:
+        title: titel
 
   item_created: "%{item} is opgeslagen."
   item_not_created: "%{item} is niet opgeslagen."
@@ -49,12 +52,6 @@ nl:
         title: titel
         note: bijbelstudie
 
-  # Hoe los ik het probleem met dit/deze nou netjes op?
-  # Toch maar geen reuse?
-  # Maar hoe krijg je dan consistentie in je teksten?
-  # Bij elkaar zetten zoals hier?
-  # Dus niet groeperen op Entiteiten maar juist op 'zinnen'
-
   sure_to_delete: Weet u zeker dat u dit %{item} wilt verwijderen?
   sure_to_delete_studynote: Weet u zeker dat u deze bijbelstudie wilt verwijderen?
 
@@ -84,26 +81,32 @@ nl:
     other: "%{count} bijbelstudies"
   not_allowed: dit is niet toegestaan
   name_not_empty: naam mag niet leeg zijn
+
   invalid_pericope: onjuiste pericoop
   unknown_biblebook: onjuist/onbekend bijbelboek
   starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
   starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
+  ambiguous_abbreviation: de afkorting is niet duidelijk genoeg
+  new_biblebook: Nieuw bijbelboek
+
   signed_in_as: "ingelogd als:"
   user_profile: Mijn profiel
   password_leave_blank: Laat dit veld leeg als u uw wachtwoord niet wilt wijzigen
   need_current_password: we hebben uw huidige wachtwoord nodig om wijzigingen te kunnen maken
-  update: Aanpassen
   cancel_account: Annuleer mijn profiel
+
+  update: Aanpassen
   sure: weet u het zeker?
   back: terug
   unhappy: Ontevreden?
   user-profile: Gebruikersprofiel
   username: gebruikersnaam
   edit_account: Mijn profiel
-  logged_in_as: "ingelogd als:"
   about: Over
   about_this_website: Over het bijbelstudie-platform
-  ambiguous_abbreviation: de afkorting is niet duidelijk genoeg
-  new_biblebook: "Nieuw bijbelboek"
+
+  old_testament: Oude Testament
+  new_testament: Nieuwe Testament
+
 
 

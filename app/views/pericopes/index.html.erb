@@ -11,7 +11,7 @@
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
           <% ot_counts = @testament_counts["oud"] || 0 %>
-          <H2><%= "Oude Testament (#{t("studynote", :count => ot_counts)})" %></H2>
+          <H2><%= "#{t('old_testament')}  (#{t("studynote", :count => ot_counts)})" %></H2>
         </a>
       </h4>
     </div>
@@ -36,9 +36,9 @@
 
                 <table id=<%= book.name %>>
                   <tr>
-                    <th>Pericoop</th>
-                    <th>Auteur</th>
-                    <th>Titel</th>
+                    <th><%= t('activerecord.models.pericope', count: 1) %></th>
+                    <th><%= t('author') %></th>
+                    <th><%= Studynote.human_attribute_name(:title) %></th>
                   </tr>
                   <% Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study| %>
                     <tr>
@@ -63,7 +63,7 @@
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
           <% nt_counts = @testament_counts["nieuw"] || 0 %>
-          <H2><%= "Nieuwe Testament (#{t("studynote", :count => nt_counts)})" %></H2>
+          <H2><%= "#{t('new_testament')} (#{t("studynote", :count => nt_counts)})" %></H2>
         </a>
       </h4>
     </div>
@@ -88,9 +88,9 @@
 
             <table id=<%= book.name %>>
               <tr>
-                <th>Pericoop</th>
-                <th>Auteur</th>
-                <th>Titel</th>
+                <th><%= t('activerecord.models.pericope', count: 1) %></th>
+                <th><%= t('author') %></th>
+                <th><%= Studynote.human_attribute_name(:title) %></th>
               </tr>
               <% Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study| %>
                   <tr>
@@ -102,7 +102,7 @@
             </table>
 
           </div>
-          </div>
+        </div>
 
       <% end %>
 
