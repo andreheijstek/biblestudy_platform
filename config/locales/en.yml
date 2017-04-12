@@ -1,207 +1,101 @@
 ---
 en:
+  about: Over
+  about_this_website: Over het bijbelstudie-platform
   activerecord:
-    errors:
-      full_messages:
-        format: "%{attribute} %{message}"
-      messages:
-        accepted: moet worden geaccepteerd
-        blank: moet opgegeven zijn
-        confirmation: komt niet met de bevestiging overeen
-        empty: moet opgegeven zijn
-        equal_to: moet gelijk zijn aan %{count}
-        even: moet even zijn
-        exclusion: is niet beschikbaar
-        greater_than: moet groter zijn dan %{count}
-        greater_than_or_equal_to: moet groter dan of gelijk zijn aan %{count}
-        inclusion: is niet in de lijst opgenomen
-        invalid: is ongeldig
-        less_than: moet minder zijn dan %{count}
-        less_than_or_equal_to: moet minder dan of gelijk zijn aan %{count}
-        not_a_number: is geen getal
-        not_an_integer: moet een geheel getal zijn
-        odd: moet oneven zijn
-        record_invalid: 'Validatie mislukt: %{errors}'
-        taken: is al in gebruik
-        too_long: is te lang (maximaal %{count} tekens)
-        too_short: is te kort (minimaal %{count} tekens)
-        wrong_length: heeft onjuiste lengte (moet %{count} tekens lang zijn)
-      template:
-        body: 'Controleer de volgende velden:'
-        header:
-          one: "%{model} niet opgeslagen: 1 fout gevonden"
-          other: "%{model} niet opgeslagen: %{count} fouten gevonden"
-    models:
-      chapter: "chapter"
-  biblebook: Bijbelboek
-  biblebook_created: Bijbelboek is opgeslagen.
-  biblebook_deleted: Bijbelboek is verwijderd.
-  biblebook_has_been_created: Biblebook has been created.
-  biblebook_not_created: Bijbelboek is niet opgeslagen.
-  biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
-  biblebook_not_updated: Bijbelboek is niet bijgewerkt.
-  biblebook_updated: Bijbelboek is bijgewerkt.
-  biblebooks: Bijbelboeken
-  biblestudy_platform: Bijbelstudie platform
-  date:
-    abbr_day_names: '["zon", "maa", "din", "woe", "don", "vri", "zat"]'
-    abbr_month_names: '[nil, "jan", "feb", "mar", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]'
-    day_names: '["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]'
-    formats:
-      default: "%d/%m/%Y"
-      long: "%e %B %Y"
-      only_day: "%e"
-      short: "%e %b"
-    month_names: '[nil, "januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"]'
-    order: "[:day, :month, :year]"
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: ongeveer Ã©Ã©n uur
-        other: ongeveer %{count} uur
-      about_x_months:
-        one: ongeveer Ã©Ã©n maand
-        other: ongeveer %{count} maanden
-      about_x_years:
-        one: ongeveer Ã©Ã©n jaar
-        other: ongeveer %{count} jaar
-      almost_x_years:
-        one: bijna Ã©Ã©n jaar
-        other: bijna %{count} jaar
-      half_a_minute: een halve minuut
-      less_than_x_minutes:
-        one: minder dan Ã©Ã©n minuut
-        other: minder dan %{count} minuten
-      less_than_x_seconds:
-        one: minder dan Ã©Ã©n seconde
-        other: minder dan %{count} seconden
-      over_x_years:
-        one: meer dan Ã©Ã©n jaar
-        other: meer dan %{count} jaar
-      x_days:
-        one: 1 dag
-        other: "%{count} dagen"
-      x_minutes:
-        one: 1 minuut
-        other: "%{count} minuten"
-      x_months:
-        one: 1 maand
-        other: "%{count} maanden"
-      x_seconds:
-        one: 1 seconde
-        other: "%{count} seconden"
-    prompts:
-      day: dag
-      hour: uur
-      minute: minuut
-      month: maand
-      second: seconde
-      year: jaar
-  delete_biblebook: Bijbelboek verwijderen
-  edit_bibilebook: Bijbelboek wijzigen
-  errors:
-    format: "%{attribute} %{message}"
+    attributes:
+      user:
+        is_admin: Is admin
+        messages:
+          notupdated: Notupdated
+          updated: Updated
+        sign_in: Sign in
+        sign_up: Sign up
     messages:
-      accepted: moet worden geaccepteerd
-      blank: moet opgegeven zijn
-      confirmation: komt niet met de bevestiging overeen
-      empty: moet opgegeven zijn
-      equal_to: moet gelijk zijn aan %{count}
-      even: moet even zijn
-      exclusion: is niet beschikbaar
-      greater_than: moet groter zijn dan %{count}
-      greater_than_or_equal_to: moet groter dan of gelijk zijn aan %{count}
-      inclusion: is niet in de lijst opgenomen
-      invalid: is ongeldig
-      less_than: moet minder zijn dan %{count}
-      less_than_or_equal_to: moet minder dan of gelijk zijn aan %{count}
-      not_a_number: is geen getal
-      not_an_integer: moet een geheel getal zijn
-      odd: moet oneven zijn
-      too_long: is te lang (maximaal %{count} tekens)
-      too_short: is te kort (minimaal %{count} tekens)
-      wrong_length: heeft onjuiste lengte (moet %{count} tekens lang zijn)
-  hello: Hello world
-  helpers:
-    select:
-      prompt: Selecteer
-    submit:
-      create: "%{model} toevoegen"
-      submit: "%{model} opslaan"
-      update: "%{model} bewaren"
-  home: Home
+      created: Created
+      deleted: Deleted
+      notcreated: Notcreated
+    models:
+      chapter: chapter
+      pericope:
+        one: pericoop
+        other: pericopen
+      studynote: bijbelstudie
+  add_chapter: Voeg hoofdstuk toe
+  admin: admin
+  ago: geleden
+  ambiguous_abbreviation: de afkorting is niet duidelijk genoeg
+  author: auteur
+  back: terug
+  biblebook_deleted: Bijbelboek is verwijderd.
+  biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
+  biblestudy_platform: Bijbelstudie platform
+  cancel_account: Annuleer mijn profiel
+  chapter_not_found: hoofdstuk bestaat niet
+  created: geschreven
+  delete_item: "%{item} verwijderen"
+  devise:
+    mailer:
+      confirmation_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+      password_change:
+        greeting: Greeting
+        message: Message
+      reset_password_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+        instruction_2: Instruction 2
+        instruction_3: Instruction 3
+      unlock_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+        message: Message
+    passwords:
+      password_forgotten: Password forgotten
+      send_instructions: Send instructions
+    shared:
+      links:
+        didn_t_receive_confirmation_instructions: Didn t receive confirmation instructions
+        didn_t_receive_unlock_instructions: Didn t receive unlock instructions
+        forgot_your_password: Forgot your password
+        sign_in: Sign in
+        sign_in_with_provider: Sign in with provider
+        sign_up: Sign up
+  edit_account: Mijn profiel
+  edit_item: "%{item} wijzigen"
+  invalid_pericope: onjuiste pericoop
+  item_created: "%{item} is opgeslagen."
+  item_deleted: "%{item} verwijderd"
+  item_not_created: "%{item} is niet opgeslagen."
+  item_not_updated: "%{item} is niet bijgewerkt"
+  item_updated: "%{item} is bijgewerkt"
+  name_not_empty: naam mag niet leeg zijn
+  need_current_password: we hebben uw huidige wachtwoord nodig om wijzigingen te kunnen maken
   new_biblebook: Nieuw bijbelboek
-  number:
-    currency:
-      format:
-        delimiter: "."
-        format: "%u%n"
-        precision: '2'
-        separator: ","
-        significant: Significant
-        strip_insignificant_zeros: Strip insignificant zeros
-        unit: "€"
-    format:
-      delimiter: "."
-      precision: '2'
-      separator: ","
-      significant: Significant
-      strip_insignificant_zeros: Strip insignificant zeros
-    human:
-      decimal_units:
-        format: "%n %u"
-        units:
-          billion: miljard
-          million: miljoen
-          quadrillion: biljard
-          thousand: duizend
-          trillion: biljoen
-          unit: Unit
-      format:
-        delimiter: Delimiter
-        precision: '3'
-        significant: 'true'
-        strip_insignificant_zeros: 'true'
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: Byte
-            other: Bytes
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
-    percentage:
-      format:
-        delimiter: Delimiter
-    precision:
-      format:
-        delimiter: Delimiter
-  simple_form:
-    helpers:
-      submit:
-        create: Voeg %{model} toe
-        update: Bewaar wijzigingen
-    labels:
-      biblebook:
-        name: Naam
-        new: Voeg bijbelboek toe
-  support:
-    array:
-      last_word_connector: " en "
-      two_words_connector: " en "
-      words_connector: ", "
-    select:
-      prompt: Selecteer
+  new_studynote: Nieuwe bijbelstudie
+  new_testament: Nieuwe Testament
+  not_allowed: dit is niet toegestaan
+  old_testament: Oude Testament
+  password_leave_blank: Laat dit veld leeg als u uw wachtwoord niet wilt wijzigen
+  sign_in: Log in
+  sign_out: Log uit
+  sign_up: Registreer
+  signed_in_as: 'ingelogd als:'
+  starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
+  starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
+  studynote:
+    one: 1 bijbelstudie
+    other: "%{count} bijbelstudies"
+    zero: geen bijbelstudies
+  studynote_not_found: bijbelstudie niet gevonden
+  sure: weet u het zeker?
   sure_to_delete: Weet u zeker dat u dit bijbelboek wilt verwijderen?
-  time:
-    am: "'s ochtends"
-    formats:
-      default: "%a %d %b %Y %H:%M:%S %Z"
-      long: "%d %B %Y %H:%M"
-      only_second: "%S"
-      short: "%d %b %H:%M"
-      time: "%H:%M"
-    pm: "'s middags"
-  studynote_deleted: "bijbelstudie verwijderd"
+  sure_to_delete_studynote: Weet u zeker dat u deze bijbelstudie wilt verwijderen?
+  unhappy: Ontevreden?
+  unknown_biblebook: onjuist/onbekend bijbelboek
+  update: Aanpassen
+  user_profile: Mijn profiel

@@ -1,7 +1,7 @@
 # i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
 
 # The "main" locale.
-base_locale: en
+base_locale: nl
 ## All available locales are inferred from the data by default. Alternatively, specify them explicitly:
 # locales: [es, fr]
 ## Reporting locale, default: en. Available: en, ru.
@@ -65,6 +65,7 @@ search:
   exclude:
     - app/assets/images
     - app/assets/fonts
+    - app/assets/videos
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -88,12 +89,12 @@ search:
 # - '{devise,simple_form}.*'
 
 ## Consider these keys used:
- ignore_unused:
- - 'activerecord.attributes.*'
- - '{devise,kaminari,will_paginate}.*'
- - 'simple_form.{yes,no}'
- - 'simple_form.{placeholders,hints,labels}.*'
- - 'simple_form.{error_notification,required}.:'
+# ignore_unused:
+# - 'activerecord.attributes.*'
+# - '{devise,kaminari,will_paginate}.*'
+# - 'simple_form.{yes,no}'
+# - 'simple_form.{placeholders,hints,labels}.*'
+# - 'simple_form.{error_notification,required}.:'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
@@ -110,11 +111,11 @@ search:
 ## e.g. in case of a relative key defined in a helper method.
 ## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
 #
-# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
-#        only: %w(*.html.haml *.html.slim),
-#        patterns: [['= title\b', '.page_title']] %>
+# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#       only: %w(*.html.haml *.html.slim),
+#       patterns: [['= title\b', '.page_title']] %>
 #
 # The PatternMapper can also match key literals via a special %{key} interpolation, e.g.:
 #
-# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
-#        patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>
+# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#       patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>

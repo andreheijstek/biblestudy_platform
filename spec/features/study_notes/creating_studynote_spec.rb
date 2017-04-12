@@ -19,7 +19,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     should_see t('item_created', item: Studynote.model_name.human)
     within('#studynote') do
-      should_see "#{t('author')}: #{user.email}"
+      should_see "#{t('author')}: #{user.username}"
     end
   end
 

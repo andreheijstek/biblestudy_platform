@@ -63,8 +63,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   # gem "i18n-debug"
-  gem "i18n-tasks", "~> 0.9.5"
   gem "rails-erd"
+  gem 'i18n-tasks', '~> 0.9.13'
 end
 
 group :test do
