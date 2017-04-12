@@ -25,11 +25,14 @@
   <table id="attributes">
     <tr>
       <th><%= t('author') %>: </th>
-      <td><%= @studynote.author.email %></td>
+      <td><%= @studynote.author.username %></td>
     </tr>
     <tr>
       <th><%= t('created') %>: </th>
       <td><%= time_ago_in_words(@studynote.created_at) %> <%= t('ago') %></td>
     </tr>
   </table>
+
+    <%= link_to t(:new_studynote), new_studynote_path, class: "new" %>
+
 </div>
