@@ -1,7 +1,7 @@
 class StudynotesController < ApplicationController
 
-  before_action :authenticate_user!, only: [       :create, :edit, :update, :destroy]
-  before_action :set_studynote,      only: [:show,          :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new,        :create, :edit, :update, :destroy]
+  before_action :set_studynote,      only: [      :show,          :edit, :update, :destroy]
 
   def index
     @studynote = Studynote.all.order(:title)

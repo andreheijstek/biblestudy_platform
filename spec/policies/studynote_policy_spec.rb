@@ -10,6 +10,8 @@ describe StudynotePolicy do
       let(:author)    { create(:user) }
       let(:studynote) { create(:studynote, author: author) }
 
+      before { assign_role!(user, :viewer, studynote) }
+
       it { should     permit_action(:show)    }
       it { should_not permit_action(:create)  }
       it { should_not permit_action(:new)     }
