@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -31,6 +31,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'high_voltage'
+gem 'i18n-debug'
 gem 'pundit'
 gem 'simple_form'
 gem 'sorted-activerecord'
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rb-readline'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do

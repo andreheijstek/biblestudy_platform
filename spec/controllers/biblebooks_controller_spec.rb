@@ -9,7 +9,7 @@ describe Admin::BiblebooksController, type: :controller do
   end
 
   it "handles a missing biblebook correctly" do
-    get :show, id: "not-here"
+    get :show, params: { id: "not-here" }
     expect(response).to redirect_to(admin_biblebooks_path)
     message = t(:biblebook_not_found)
     expect(flash[:alert]).to eq message
