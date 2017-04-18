@@ -25,6 +25,7 @@ gem 'sdoc', group: :doc
 
 gem 'annotate'
 gem 'bootstrap-sass'
+gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'devise'
@@ -33,7 +34,6 @@ gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'i18n-debug'
 gem 'pundit'
-gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'webdrivers'
 
