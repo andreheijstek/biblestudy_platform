@@ -12,6 +12,7 @@ class StudynotesController < ApplicationController
 
   def new
     @studynote = Studynote.new
+    authorize @studynote, :create?
     @studynote_to_publish = @studynote.pericopes.build
   end
 

@@ -2,7 +2,9 @@
 nl:
   activerecord:
     models:
-      studynote: bijbelstudie
+      studynote:
+        one: bijbelstudie
+        other: bijbelstudies
       biblebook:
         one: bijbelboek
         other: bijbelboeken
@@ -107,6 +109,7 @@ nl:
 
   old_testament: Oude Testament
   new_testament: Nieuwe Testament
+  add_pericope: "Voeg nog een pericoop toe"
 
 
 

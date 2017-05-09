@@ -108,6 +108,18 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see 'Johannes'
   end
 
-  # scenario 'to multiple pericopes' do
-  # end
+  scenario 'to multiple pericopes with valid attributes', js: true do
+    fill_in t('simple_form.labels.pericopes.name'), with: 'Jona 1:1 - 1:10'
+    click_on t('add_pericope')
+    fill_in t('simple_form.labels.pericopes.name'), with: 'Mat 12:41'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder. Meer dan Jona is hier'
+
+    submit_form
+
+    should_see t('item_created', item: Studynote.model_name.human)
+    within('#studynote') do
+      should_see "#{t('author')}: #{user.username}"
+    end
+  end
 end
