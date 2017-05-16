@@ -4,7 +4,7 @@ class PericopeValidator < ActiveModel::Validator
     return if emptyRecord?
 
     getPericope
-    return if @studynote_to_publish.nil?
+    return if @pericope_to_publish.nil?
 
     findBiblebook
     return if @biblebook.nil?
@@ -19,7 +19,7 @@ class PericopeValidator < ActiveModel::Validator
 
   def getPericope
     begin
-      @studynote_to_publish = PericopeString.new(@record.name)
+      @pericope_to_publish = PericopeString.new(@record.name)
     rescue
       @record.errors[:name] << I18n.t("invalid_pericope")
     end
@@ -47,7 +47,7 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def findBiblebook
-    @biblebook_name = @studynote_to_publish.biblebook_name
+    @biblebook_name = @pericope_to_publish.biblebook_name
     @biblebook = findByFullName
     if @biblebook.nil?
       @biblebook = findByAbbreviation
@@ -55,8 +55,8 @@ class PericopeValidator < ActiveModel::Validator
         @biblebook = findByLike
       end
     end
-    @studynote_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil? # Replace the abbreviation with the full name
-    @biblebook_name = @studynote_to_publish.biblebook_name
+    @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil? # Replace the abbreviation with the full name
+    @biblebook_name = @pericope_to_publish.biblebook_name
   end
 
   def findByFullName
@@ -92,10 +92,10 @@ class PericopeValidator < ActiveModel::Validator
     @record.biblebook_id = @biblebook.id
     @record.biblebook_name = @biblebook_name
 
-    @record.starting_chapter_nr = @studynote_to_publish.starting_chapter
-    @record.starting_verse = @studynote_to_publish.starting_verse
-    @record.ending_chapter_nr = @studynote_to_publish.ending_chapter
-    @record.ending_verse = @studynote_to_publish.ending_verse
+    @record.starting_chapter_nr = @pericope_to_publish.starting_chapter
+    @record.starting_verse = @pericope_to_publish.starting_verse
+    @record.ending_chapter_nr = @pericope_to_publish.ending_chapter
+    @record.ending_verse = @pericope_to_publish.ending_verse
 
     @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
   end
@@ -104,19 +104,19 @@ class PericopeValidator < ActiveModel::Validator
     name = ""
     name << @biblebook_name
     name << " "
-    name << @studynote_to_publish.starting_chapter.to_s
-    if @studynote_to_publish.ending_chapter > @studynote_to_publish.starting_chapter
+    name << @pericope_to_publish.starting_chapter.to_s
+    if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
       name << ":"
-      name << @studynote_to_publish.starting_verse.to_s
+      name << @pericope_to_publish.starting_verse.to_s
       name << " - "
-      name << @studynote_to_publish.ending_chapter.to_s
+      name << @pericope_to_publish.ending_chapter.to_s
       name << ":"
-      name << @studynote_to_publish.ending_verse.to_s
-    elsif @studynote_to_publish.ending_verse > @studynote_to_publish.starting_verse
+      name << @pericope_to_publish.ending_verse.to_s
+    elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
       name << ":"
-      name << @studynote_to_publish.starting_verse.to_s
+      name << @pericope_to_publish.starting_verse.to_s
       name << " - "
-      name << @studynote_to_publish.ending_verse.to_s
+      name << @pericope_to_publish.ending_verse.to_s
     end
     name
     # "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"

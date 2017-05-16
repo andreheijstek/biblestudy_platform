@@ -1,3 +1,7 @@
-<%= s.simple_fields_for :pericopes, validate: true do |p| %>
-    <%= p.input :name, placeholder: "Genesis 1:1-3:21", autofocus: true %>
-<% end %>
+<div id='pericopes'>
+    <%= s.simple_fields_for :pericopes, validate: true do |p| %>
+        <%= p.input :name, placeholder: "Genesis 1:1-3:21", autofocus: true %>
+    <% end %>
+    # <%= link_to t('add_pericope'), new_pericope_path, remote: true,
+    #             id: "add_pericope" %>
+</div>

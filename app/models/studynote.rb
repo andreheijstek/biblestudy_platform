@@ -17,7 +17,7 @@ class Studynote < ActiveRecord::Base
 
   belongs_to :author, class_name: "User"
 
-  accepts_nested_attributes_for :pericopes
+  accepts_nested_attributes_for :pericopes, reject_if: :all_blank
 
   validates :note,  presence: true
   validates :title, presence: true

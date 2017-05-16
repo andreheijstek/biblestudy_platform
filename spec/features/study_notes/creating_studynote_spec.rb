@@ -9,6 +9,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     visit studynotes_path
     click_link t(:new_studynote)
   end
+=begin
 
   scenario 'to a single pericopes with valid attributes' do
     fill_in t('simple_form.labels.pericopes.name'), with: 'Jona 1:1 - 1:10'
@@ -107,11 +108,12 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see 'Job'
     should_see 'Johannes'
   end
+=end
 
   scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in t('simple_form.labels.pericopes.name'), with: 'Jona 1:1 - 1:10'
-    click_on t('add_pericope')
-    fill_in t('simple_form.labels.pericopes.name'), with: 'Mat 12:41'
+    fill_in "pericoop 1", with: 'Jona 1:1 - 1:10'
+    save_and_open_page
+    fill_in "pericoop 2", with: 'Mat 12:4'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder. Meer dan Jona is hier'
 

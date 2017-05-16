@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $("#add_pericope").on "ajax:success", (event, data) ->
-    $("#pericopes").append data
+#$ ->
+#  $("#add_pericope").on "ajax:success", (event, data) ->
+#    $("#pericopes").append data
