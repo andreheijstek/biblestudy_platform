@@ -13,7 +13,7 @@ class StudynotesController < ApplicationController
   def new
     @studynote = Studynote.new
     authorize @studynote, :create?
-    2.times { @studynote.pericopes.build }
+    3.times { @studynote.pericopes.build }
   end
 
   def create

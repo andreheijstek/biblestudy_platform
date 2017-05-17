@@ -19,6 +19,7 @@
   <header>
     <p><% @studynote.pericopes.each do |pericope| %>
       <%= pericope.name %>
+          |
     <% end %></p>
     <p><%= simple_format @studynote.note %></p>
   </header>

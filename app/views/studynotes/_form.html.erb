@@ -1,7 +1,7 @@
 <%= simple_form_for studynote, validate: true do |s|  %>
     <% index = 0 %>
     <%= s.simple_fields_for :pericopes, validate: true do |p| %>
-        <%= p.input :name, placeholder: "Genesis 1:1-3:21", label: "pericoop #{index + 1}", autofocus: true %>
+        <%= p.input :name, placeholder: "Genesis 1:1-3:21", label: "pericoop #{index + 1}", id: "pericoop #{index + 1}", autofocus: true %>
         <% index += 1 %>
     <% end %>
     <%= s.input :title %>

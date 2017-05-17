@@ -9,10 +9,9 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     visit studynotes_path
     click_link t(:new_studynote)
   end
-=begin
 
   scenario 'to a single pericopes with valid attributes' do
-    fill_in t('simple_form.labels.pericopes.name'), with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
@@ -31,7 +30,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
   end
 
   scenario 'when providing out of sequence chapters and verses' do
-    fill_in t('simple_form.labels.pericopes.name'), with: 'Jona 3:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
     submit_form
@@ -75,7 +74,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
       inputs = example[:inputs]
 
       it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
-        fill_in t('simple_form.labels.pericopes.name'), with: "#{example[:inputs]}"
+        fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: "#{example[:inputs]}"
         fill_in t('simple_form.labels.studynote.title'), with: 'abbr'
         fill_in t('simple_form.labels.studynote.note'), with: 'bijbelstudie'
 
@@ -96,7 +95,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     create(:biblebook, name: 'Job')
     create(:biblebook, name: 'Johannes')
 
-    fill_in t('simple_form.labels.pericopes.name'), with: 'Jo 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jo 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona of Job of Johannes?'
 
@@ -108,13 +107,11 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see 'Job'
     should_see 'Johannes'
   end
-=end
 
-  scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in "pericoop 1", with: 'Jona 1:1 - 1:10'
-    save_and_open_page
-    fill_in "pericoop 2", with: 'Mat 12:4'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+  scenario 'to multiple pericopes with valid attributes' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 2", with: 'Jona 2:2 - 3:3'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Een Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder. Meer dan Jona is hier'
 
     submit_form
