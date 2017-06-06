@@ -32,7 +32,6 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'high_voltage'
-gem 'i18n-debug'
 gem 'pundit'
 gem 'sorted-activerecord'
 gem 'webdrivers'
@@ -59,6 +58,7 @@ group :development do
   gem 'i18n-tasks'
   gem 'rails-erd'
   gem 'spring'
+  # gem 'i18n-debug'
 end
 
 group :test do

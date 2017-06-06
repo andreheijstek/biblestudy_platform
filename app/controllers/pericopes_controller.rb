@@ -12,8 +12,9 @@ class PericopesController < ApplicationController
   end
 
   def new
+    @index = params[:index].to_i
     @studynote = Studynote.new
-    @pericope = @studynote.pericopes.build
+    @studynote.pericopes.build
     render layout: false
   end
 
