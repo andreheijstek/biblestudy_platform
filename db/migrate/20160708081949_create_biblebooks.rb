@@ -1,4 +1,4 @@
-class CreateBiblebooks < ActiveRecord::Migration
+class CreateBiblebooks < ActiveRecord::Migration[4.2]
   def change
     create_table :biblebooks do |t|
       t.string :name
