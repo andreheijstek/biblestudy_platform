@@ -1,4 +1,4 @@
-class CreateVerses < ActiveRecord::Migration
+class CreateVerses < ActiveRecord::Migration[4.2]
   def change
     create_table :verses do |t|
       t.integer :verse_number

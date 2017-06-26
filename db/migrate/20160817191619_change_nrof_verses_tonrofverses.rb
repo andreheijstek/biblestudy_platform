@@ -1,4 +1,4 @@
-class ChangeNrofVersesTonrofverses < ActiveRecord::Migration
+class ChangeNrofVersesTonrofverses < ActiveRecord::Migration[4.2]
   def change
     rename_column :chapters, :NrOfVerses, :nrofverses
   end

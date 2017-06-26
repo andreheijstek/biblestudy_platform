@@ -1,4 +1,4 @@
-class ChangeColumnOrder < ActiveRecord::Migration
+class ChangeColumnOrder < ActiveRecord::Migration[4.2]
   def change
     def up
       change_table :biblebooks do |t|

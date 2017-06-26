@@ -1,4 +1,4 @@
-class CreatePericopes < ActiveRecord::Migration
+class CreatePericopes < ActiveRecord::Migration[4.2]
   def change
     create_table :pericopes do |t|
       t.belongs_to :studynote, index: true, foreign_key: true

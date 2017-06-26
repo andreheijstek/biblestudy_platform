@@ -1,4 +1,4 @@
-class RemovePericopeIdFromStudynotes < ActiveRecord::Migration
+class RemovePericopeIdFromStudynotes < ActiveRecord::Migration[4.2]
   def change
     remove_column :studynotes, :pericope_id, :integer
   end
