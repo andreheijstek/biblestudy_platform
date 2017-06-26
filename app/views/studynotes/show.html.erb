@@ -17,10 +17,12 @@
   </header>
 
   <header>
-    <p><% @studynote.pericopes.each do |pericope| %>
-      <%= pericope.name %>
+    <p>
+      <% @studynote.pericopes.each do |pericope| %>
+        <%= pericope.name %>
           |
-    <% end %></p>
+      <% end %>
+    </p>
     <p><%= simple_format @studynote.note %></p>
   </header>
   <table id="attributes">
