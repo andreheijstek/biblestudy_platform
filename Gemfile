@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'simplecov', :require => false
 end
 
 group :development do

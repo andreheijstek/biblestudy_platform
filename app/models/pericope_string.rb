@@ -26,7 +26,7 @@ class PericopeString < String
 
     if @pericope_to_publish.check(/:/)                                 # is a verse included after the chapter?
       @pericope_to_publish.scan(/:/)                                   # skip the separator
-      @starting_verse = @pericope_to_publish.scan(/\s*\d\s*/).strip.to_i
+      @starting_verse = @pericope_to_publish.scan(/\s*\d+\s*/).strip.to_i
     end
 
     if @pericope_to_publish.check(/\s*-/)                              # is there an ending chapter or verse?

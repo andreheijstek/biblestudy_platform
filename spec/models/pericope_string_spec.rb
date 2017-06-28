@@ -25,6 +25,14 @@ describe PericopeString  do
     expect(ps.ending_verse).to     eq(4)
   end
 
+  it "should parse complete verses with different chapters into its parts" do
+    ps = PericopeString.new("Genesis 2:20-3:4")
+    expect(ps.starting_chapter).to eq(2)
+    expect(ps.starting_verse).to   eq(20)
+    expect(ps.ending_chapter).to   eq(3)
+    expect(ps.ending_verse).to     eq(4)
+  end
+
   it "should parse complete verses with same chapters into its parts" do
     ps = PericopeString.new("Genesis 1:2-1:4")
     expect(ps.starting_chapter).to eq(1)
