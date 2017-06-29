@@ -38,7 +38,7 @@ describe Pericope, type: :model do
     expect(Pericope.new(name: nil)).to_not be_valid
   end
 
-  it "name must contain a valid pericopes string, like Genesis 1:1 - 1:10" do
+  it "name must contain a valid pericopes string, and can include spaces" do
     pericope = Pericope.new(name: "Genesis 1:2 - 3:4")
     pericope.save  # trigger the validation and after_validation
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -48,7 +48,7 @@ describe Pericope, type: :model do
     expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
-  it "name must contain a valid pericopes string, like Genesis 1:1-1:10" do
+  it "name must contain a valid pericopes string, and may be without spaces" do
     pericope = Pericope.new(name: "Genesis 1:2-3:4")
     pericope.save
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -58,7 +58,7 @@ describe Pericope, type: :model do
     expect(pericope.biblebook_id).to        eq(@genesis_id)
   end
 
-  it "name must contain a valid pericopes string, like Genesis 1:1 - 10" do
+  it "name must contain a valid pericopes string, where the ending chapter is not required" do
     pericope = Pericope.new(name: "Genesis 1:2 - 3")
     pericope.save
     expect(pericope.starting_chapter_nr).to eq(1)
