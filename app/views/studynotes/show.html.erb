@@ -18,10 +18,12 @@
 
   <header>
     <p>
-      <% @studynote.pericopes.each do |pericope| %>
-        <%= pericope.name %>
-          |
-      <% end %>
+      <div id="pericope">
+        <% @studynote.pericopes.each do |pericope| %>
+          <%= pericope.name %>
+            |
+        <% end %>
+      </div>
     </p>
     <p><%= simple_format @studynote.note %></p>
   </header>

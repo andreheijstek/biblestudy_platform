@@ -22,6 +22,8 @@ def should_not_see(text)
   expect(page).to have_no_content(text)
 end
 
+# Example of usage:
+#
 # scenario do
 #   # ...
 #   within_table_row(3) do

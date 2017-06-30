@@ -24,13 +24,43 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see 'Jona 1:1 - 10'
   end
 
-  scenario 'when providing no attributes' do
+  scenario 'to a single pericopes with valid attributes, containing one complete chapter' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+
+    submit_form
+
+    should_see t('item_created', item: Studynote.model_name.human)
+    within('#studynote') do
+      should_see "#{t('author')}: #{user.username}"
+    end
+    should_see 'Jona 1'
+    should_not_see 'Jona 1:0'
+  end
+
+  scenario 'except when providing no attributes' do
     submit_form
     should_see t(:item_not_created, item: Studynote.model_name.human)
     should_see t('activerecord.models.messages.blank')
   end
 
-  scenario 'when providing out of sequence chapters and verses' do
+  scenario 'to a single pericopes with valid attributes, containing one complete biblebook' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+
+    submit_form
+
+    should_see t('item_created', item: Studynote.model_name.human)
+    within('#studynote') do
+      should_see "#{t('author')}: #{user.username}"
+    end
+    should_see 'Jona'
+    should_not_see 'Jona 0'
+  end
+
+  scenario 'except when providing out of sequence chapters and verses' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
@@ -39,7 +69,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see t('starting_greater_than_ending')
   end
 
-  scenario 'when providing just the title' do
+  scenario 'except when providing just the title' do
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     submit_form
     should_see t(:item_not_created, item: Studynote.model_name.human)

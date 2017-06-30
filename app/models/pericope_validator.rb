@@ -103,21 +103,24 @@ class PericopeValidator < ActiveModel::Validator
   def reformatName
     name = ""
     name << @biblebook_name
-    name << " "
-    name << @pericope_to_publish.starting_chapter.to_s
-    if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
-      name << ":"
-      name << @pericope_to_publish.starting_verse.to_s
-      name << " - "
-      name << @pericope_to_publish.ending_chapter.to_s
-      name << ":"
-      name << @pericope_to_publish.ending_verse.to_s
-    elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
-      name << ":"
-      name << @pericope_to_publish.starting_verse.to_s
-      name << " - "
-      name << @pericope_to_publish.ending_verse.to_s
+    if @pericope_to_publish.starting_chapter != 0
+      name << " "
+      name << @pericope_to_publish.starting_chapter.to_s
+      if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
+        name << ":"
+        name << @pericope_to_publish.starting_verse.to_s
+        name << " - "
+        name << @pericope_to_publish.ending_chapter.to_s
+        name << ":"
+        name << @pericope_to_publish.ending_verse.to_s
+      elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
+        name << ":"
+        name << @pericope_to_publish.starting_verse.to_s
+        name << " - "
+        name << @pericope_to_publish.ending_verse.to_s
+      end
     end
+
     name
     # "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"
   end
