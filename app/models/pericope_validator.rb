@@ -11,6 +11,7 @@ class PericopeValidator < ActiveModel::Validator
     updateRecord
     return if incorrectSequence?
 
+    # Todo: dit hoort hier niet, single responsibility principle
     name = reformatName
     @record.name = name
   end
@@ -103,25 +104,28 @@ class PericopeValidator < ActiveModel::Validator
   def reformatName
     name = ""
     name << @biblebook_name
-    if @pericope_to_publish.starting_chapter != 0
+    if @pericope_to_publish.starting_chapter != 0 # Chapter filled, so this is not just a complete biblebook
       name << " "
       name << @pericope_to_publish.starting_chapter.to_s
-      if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
-        name << ":"
-        name << @pericope_to_publish.starting_verse.to_s
-        name << " - "
-        name << @pericope_to_publish.ending_chapter.to_s
-        name << ":"
-        name << @pericope_to_publish.ending_verse.to_s
-      elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
-        name << ":"
-        name << @pericope_to_publish.starting_verse.to_s
-        name << " - "
-        name << @pericope_to_publish.ending_verse.to_s
+      if @pericope_to_publish.starting_verse != 0
+        # there are verses, so this is not a whole chapter
+        if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
+          # multiple chapters, so publish a full 4 element string (1:2-3:4)
+          name << ':'
+          name << @pericope_to_publish.starting_verse.to_s
+          name << ' - '
+          name << @pericope_to_publish.ending_chapter.to_s
+          name << ':'
+          name << @pericope_to_publish.ending_verse.to_s
+        elsif @pericope_to_publish.ending_verse >= @pericope_to_publish.starting_verse
+          # whole pericope, but within the same chapter (1:2-1:8)
+          name << ':'
+          name << @pericope_to_publish.starting_verse.to_s
+          name << ' - '
+          name << @pericope_to_publish.ending_verse.to_s
+        end
       end
     end
-
     name
-    # "#{@biblebook.name} #{@pericope.starting_chapter}:#{@pericope.starting_verse} - #{@pericope.ending_chapter}:#{@pericope.ending_verse}"
   end
 end

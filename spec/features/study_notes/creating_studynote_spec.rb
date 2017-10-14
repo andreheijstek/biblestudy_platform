@@ -60,6 +60,22 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_not_see 'Jona 0'
   end
 
+  scenario 'to a single pericope with just one single verse' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Maar 1 vers'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+    #todo refactor, de 2e en 3e fill_in zijn voor deze test niet relevant, ik vul ze alleen maar omdat ze
+    #  verplicht zijn, kan vast wel in een before of factory
+
+    submit_form
+
+    should_see t('item_created', item: Studynote.model_name.human)
+    within('#studynote') do
+      should_see "#{t('author')}: #{user.username}"
+    end
+    should_see 'Jona 1:1'
+  end
+
   scenario 'except when providing out of sequence chapters and verses' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'

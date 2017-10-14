@@ -91,6 +91,12 @@ describe Pericope, type: :model do
     expect(pericope).to_not be_valid
   end
 
+  it "could just be a single verse" do
+    pericope = Pericope.new(name: "Genesis 4:3")
+    pericope.save
+    expect(pericope).to be_valid
+  end
+
   it "parses the biblebook from the name" do
     pericope = Pericope.create(name: "Genesis 4:3 - 2:1")
     expect(pericope.bookname).to eq("Genesis")
