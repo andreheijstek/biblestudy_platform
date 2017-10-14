@@ -117,12 +117,16 @@ class PericopeValidator < ActiveModel::Validator
           name << @pericope_to_publish.ending_chapter.to_s
           name << ':'
           name << @pericope_to_publish.ending_verse.to_s
-        elsif @pericope_to_publish.ending_verse >= @pericope_to_publish.starting_verse
+        elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
           # whole pericope, but within the same chapter (1:2-1:8)
           name << ':'
           name << @pericope_to_publish.starting_verse.to_s
           name << ' - '
           name << @pericope_to_publish.ending_verse.to_s
+        elsif @pericope_to_publish.ending_verse == @pericope_to_publish.starting_verse
+          # pericope consisting of just one verse
+          name << ':'
+          name << @pericope_to_publish.starting_verse.to_s
         end
       end
     end
