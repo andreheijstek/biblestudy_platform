@@ -3,7 +3,6 @@ class PericopeString < String
   attr_reader :starting_chapter, :ending_chapter, :starting_verse, :ending_verse
   attr_accessor :biblebook_name
 
-
   def initialize(pericope_string)
     super
     @starting_chapter = 0
@@ -46,6 +45,6 @@ class PericopeString < String
   end
 
   def titleize(str)
-    str.split(/ |\_/).map(&:capitalize).join(" ")
+    str.split(/ |\_/).map(&:capitalize).join(' ')
   end
 end

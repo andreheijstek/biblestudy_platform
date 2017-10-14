@@ -8,12 +8,13 @@ class PericopeValidator < ActiveModel::Validator
 
     findBiblebook
     return if @biblebook.nil?
+
     updateRecord
     return if incorrectSequence?
 
     # Todo: dit hoort hier niet, single responsibility principle
-    name = reformatName
-    @record.name = name
+    # kan evt. naar een after_validation hook?
+    @record.name = reformat_name
   end
 
   private
@@ -22,13 +23,13 @@ class PericopeValidator < ActiveModel::Validator
     begin
       @pericope_to_publish = PericopeString.new(@record.name)
     rescue
-      @record.errors[:name] << I18n.t("invalid_pericope")
+      @record.errors[:name] << I18n.t('invalid_pericope')
     end
   end
 
   def emptyRecord?
     if @record.name.nil? || @record.name.empty?
-      @record.errors[:name] << I18n.t("name_not_empty")
+      @record.errors[:name] << I18n.t('name_not_empty')
       return true
     end
     false
@@ -36,12 +37,12 @@ class PericopeValidator < ActiveModel::Validator
 
   def incorrectSequence?
     if @record.starting_chapter_nr > @record.ending_chapter_nr
-      @record.errors[:name] << I18n.t("starting_greater_than_ending")
+      @record.errors[:name] << I18n.t('starting_greater_than_ending')
       return true
     end
 
     if (@record.starting_chapter_nr == @record.ending_chapter_nr) && (@record.starting_verse > @record.ending_verse)
-      @record.errors[:name] << I18n.t("starting_verse_chapter_mismatch")
+      @record.errors[:name] << I18n.t('starting_verse_chapter_mismatch')
       return true
     end
     false
@@ -56,7 +57,8 @@ class PericopeValidator < ActiveModel::Validator
         @biblebook = findByLike
       end
     end
-    @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil? # Replace the abbreviation with the full name
+    @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil?
+    # Replace the abbreviation with the full name
     @biblebook_name = @pericope_to_publish.biblebook_name
   end
 
@@ -69,9 +71,10 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def findByLike
-    biblebooks = Biblebook.where("name LIKE (?)", "%#{@biblebook_name.slice(0, 5)}%")
+    biblebooks = Biblebook.where('name LIKE (?)',
+                                 "%#{@biblebook_name.slice(0, 5)}%")
     if biblebooks.length == 0
-      @record.errors[:name] << I18n.t("unknown_biblebook")
+      @record.errors[:name] << I18n.t('unknown_biblebook')
       @biblebook = nil
     elsif biblebooks.length > 1
       @record.errors[:name] << ambiguous_string(@biblebook_name, biblebooks)
@@ -101,11 +104,12 @@ class PericopeValidator < ActiveModel::Validator
     @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
   end
 
-  def reformatName
-    name = ""
+  def reformat_name
+    name = ''
     name << @biblebook_name
-    if @pericope_to_publish.starting_chapter != 0 # Chapter filled, so this is not just a complete biblebook
-      name << " "
+    if @pericope_to_publish.starting_chapter != 0
+      # Chapter filled, so this is not just a complete biblebook
+      name << ' '
       name << @pericope_to_publish.starting_chapter.to_s
       if @pericope_to_publish.starting_verse != 0
         # there are verses, so this is not a whole chapter

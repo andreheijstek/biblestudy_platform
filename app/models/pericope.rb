@@ -24,7 +24,7 @@ class Pericope < ActiveRecord::Base
   validates :name, presence: true
   validates_with PericopeValidator
 
-  def bookname
+  def biblebookName
     Biblebook.find(self.biblebook_id).name
   end
 end

@@ -100,7 +100,7 @@ describe Pericope, type: :model do
 
   it 'parses the biblebook from the name' do
     pericope = Pericope.create(name: 'Genesis 4:3 - 2:1')
-    expect(pericope.bookname).to eq('Genesis')
+    expect(pericope.biblebookName).to eq('Genesis')
   end
 
   # Todo: add similar tests for starting/ending chapter/verse
