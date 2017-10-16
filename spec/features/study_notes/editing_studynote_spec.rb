@@ -4,7 +4,6 @@ feature "Users can edit existing studynotes" do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
-
   before do
     b1 = create(:biblebook, name: "Jona")
     s1 = create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user)

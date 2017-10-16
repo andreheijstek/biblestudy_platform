@@ -8,12 +8,13 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     login_as(user)
     visit studynotes_path
     click_link t(:new_studynote)
-  end
 
-  scenario 'to a single pericopes with valid attributes' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+  end
+
+  scenario 'showing who did the update' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
 
     submit_form
 
@@ -21,75 +22,40 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     within('#studynote') do
       should_see "#{t('author')}: #{user.username}"
     end
+  end
+
+  scenario 'to a single pericopes with valid attributes' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+
+    submit_form
+
     should_see 'Jona 1:1 - 10'
   end
 
   scenario 'to a single pericopes with valid attributes, containing one complete chapter' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
     submit_form
 
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
-    end
     should_see 'Jona 1'
     should_not_see 'Jona 1:0'
   end
 
-  scenario 'except when providing no attributes' do
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('activerecord.models.messages.blank')
-  end
-
   scenario 'to a single pericopes with valid attributes, containing one complete biblebook' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
     submit_form
 
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
-    end
     should_see 'Jona'
     should_not_see 'Jona 0'
   end
 
   scenario 'to a single pericope with just one single verse' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Maar 1 vers'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-    #todo refactor, de 2e en 3e fill_in zijn voor deze test niet relevant, ik vul ze alleen maar omdat ze
-    #  verplicht zijn, kan vast wel in een before of factory
 
     submit_form
 
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
-    end
     should_see 'Jona 1:1'
-  end
-
-  scenario 'except when providing out of sequence chapters and verses' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('starting_greater_than_ending')
-  end
-
-  scenario 'except when providing just the title' do
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('activerecord.models.messages.blank')
   end
 
   context 'abbreviated biblebooks' do
@@ -103,27 +69,23 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     end
 
     examples = [
-        # [pericope, title, studynote] => method_result
-        { :inputs => 'Gen 1:1 - 1:10',            :expected => 'Genesis 1:1 - 10' },
-        { :inputs => 'gen 1:1 - 1:10',            :expected => 'Genesis 1:1 - 10' },
-        { :inputs => 'Ex 1:1 - 1:10',             :expected => 'Exodus 1:1 - 10' },
-        { :inputs => '1 Kon 1:1 - 1:10',          :expected => '1 Koningen 1:1 - 10' },
-        { :inputs => '1 Kron 1:1 - 1:10',         :expected => '1 Kronieken 1:1 - 10' },
-        { :inputs => '1 Kor 1:1 - 1:10',          :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '1 kor 1:1 - 1:10',          :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '1 Korintiërs 1:1 - 1:10',   :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '1 Korintiers 1:1 - 1:10',   :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '1 Korinthiërs 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '1 Korinthiers 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
-        { :inputs => '2 Kor 1:1 - 1:10',          :expected => '2 Korintiërs 1:1 - 10' }
+      # [pericope, title, studynote] => method_result
+      { :inputs => 'Gen 1:1 - 1:10',           :expected => 'Genesis 1:1 - 10' },
+      { :inputs => 'gen 1:1 - 1:10',           :expected => 'Genesis 1:1 - 10' },
+      { :inputs => 'Ex 1:1 - 1:10',            :expected => 'Exodus 1:1 - 10' },
+      { :inputs => '1 Kon 1:1 - 1:10',         :expected => '1 Koningen 1:1 - 10' },
+      { :inputs => '1 Kron 1:1 - 1:10',        :expected => '1 Kronieken 1:1 - 10' },
+      { :inputs => '1 Kor 1:1 - 1:10',         :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '1 kor 1:1 - 1:10',         :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '1 Korintiërs 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '1 Korintiers 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '1 Korinthiërs 1:1 - 1:10', :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '1 Korinthiers 1:1 - 1:10', :expected => '1 Korintiërs 1:1 - 10' },
+      { :inputs => '2 Kor 1:1 - 1:10',         :expected => '2 Korintiërs 1:1 - 10' }
     ]
     examples.each do |example|
-      inputs = example[:inputs]
-
       it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
         fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: "#{example[:inputs]}"
-        fill_in t('simple_form.labels.studynote.title'), with: 'abbr'
-        fill_in t('simple_form.labels.studynote.note'), with: 'bijbelstudie'
 
         submit_form
 
@@ -131,11 +93,52 @@ feature 'Users can create new studynotes and associate them to pericopes' do
         within('#studynote') do
           should_see "#{example[:expected]}"
         end
-
-        visit pericopes_path
-        should_see 'bijbelstudie'
       end
     end
+  end
+
+  scenario 'to multiple pericopes with valid attributes', js: true do
+    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
+    click_on 'Voeg nog een pericoop toe'
+    should_see 'pericoop 2'
+    fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+
+    submit_form
+    
+    should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3 |'
+  end
+end
+
+feature 'Users can not create new studynotes and associate them to pericopes' do
+  let(:user) { create(:user) }
+
+  before do
+    create(:biblebook, name: 'Jona')
+    login_as(user)
+    visit studynotes_path
+    click_link t(:new_studynote)
+  end
+
+  scenario 'when providing no attributes' do
+    submit_form
+    should_see t(:item_not_created, item: Studynote.model_name.human)
+    should_see t('activerecord.models.messages.blank')
+  end
+
+  scenario 'when providing out of sequence chapters and verses' do
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+    submit_form
+    should_see t(:item_not_created, item: Studynote.model_name.human)
+    should_see t('starting_greater_than_ending')
+  end
+
+  scenario 'when providing just the title' do
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    submit_form
+    should_see t(:item_not_created, item: Studynote.model_name.human)
+    should_see t('activerecord.models.messages.blank')
   end
 
   scenario 'except when providing an incorrect biblebook' do
@@ -153,22 +156,5 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     should_see 'Jona'
     should_see 'Job'
     should_see 'Johannes'
-  end
-
-  scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in "pericoop 1", with: 'Jona 1:1 - 1:10'
-    click_on "Voeg nog een pericoop toe"
-    should_see 'pericoop 2'
-    fill_in "pericoop 2", with: 'Jona 2:20 - 3:3'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Een Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder. Meer dan Jona is hier'
-
-    submit_form
-
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
-    end
-    should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3 |'
   end
 end
