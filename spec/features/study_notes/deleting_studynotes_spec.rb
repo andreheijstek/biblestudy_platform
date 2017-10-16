@@ -4,7 +4,7 @@ feature 'Users can delete studynotes' do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
-  let!(:s1) { create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user) }
+  let!(:s1) { create(:studynote, title: 'Jona', author: user) }
 
   scenario 'successfully' do
     login_as(user)
