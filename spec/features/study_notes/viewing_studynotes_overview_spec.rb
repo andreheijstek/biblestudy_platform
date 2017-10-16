@@ -9,16 +9,16 @@ feature "Users can view an overview of all studynotes" do
   let!(:book_handelingen)  { create(:biblebook, name: "Handelingen", testament: "nieuw", booksequence: 53) }
 
   let!(:study_jona)        { create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user) }
-  let!(:pericope_jona)     { create(:pericope_by_name, name: "Jona 1:1 - 1:10", biblebook_id: book_jona.id, studynote_id: study_jona.id) }
+  let!(:pericope_jona)     { create(:pericope, name: "Jona 1:1 - 1:10", biblebook_id: book_jona.id, studynote_id: study_jona.id) }
 
   let!(:study_hand1)       { create(:studynote, title: "Handelingen later", note: "Handelingen ook.", author: user) }
-  let!(:pericope_hand1)    { create(:pericope_by_name, name: "Handelingen 1:2 - 1:10", biblebook_id: book_handelingen.id, studynote_id: study_hand1.id) }
+  let!(:pericope_hand1)    { create(:pericope, name: "Handelingen 1:2 - 1:10", biblebook_id: book_handelingen.id, studynote_id: study_hand1.id) }
 
   let!(:study_hand2)       { create(:studynote, title: "Handelingen eerst", note: "Handelingen ook.", author: user) }
-  let!(:pericope_hand2)    { create(:pericope_by_name, name: "Handelingen 1:1 - 1:10", biblebook_id: book_handelingen.id, studynote_id: study_hand2.id) }
+  let!(:pericope_hand2)    { create(:pericope, name: "Handelingen 1:1 - 1:10", biblebook_id: book_handelingen.id, studynote_id: study_hand2.id) }
 
   let!(:study_hand3)       { create(:studynote, title: "Handelingen alles", note: "Handelingen ook.", author: user) }
-  let!(:pericope_hand3)    { create(:pericope_by_name, name: "Handelingen", biblebook_id: book_handelingen.id, studynote_id: study_hand3.id) }
+  let!(:pericope_hand3)    { create(:pericope, name: "Handelingen", biblebook_id: book_handelingen.id, studynote_id: study_hand3.id) }
 
   before do
     visit pericopes_path

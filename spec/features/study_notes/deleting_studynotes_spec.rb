@@ -4,9 +4,7 @@ feature 'Users can delete studynotes' do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
-  let!(:b1)       { create(:biblebook, name: 'Jona') }
-  let!(:s1)       { create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user) }
-  let!(:p1)       { create(:pericope_by_name, name: 'Jona 1:1 - 1:10', biblebook_id: b1.id, studynote_id: s1.id) }
+  let!(:s1) { create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user) }
 
   scenario 'successfully' do
     login_as(user)

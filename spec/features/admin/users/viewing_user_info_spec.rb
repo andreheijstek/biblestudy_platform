@@ -37,7 +37,7 @@ feature "Admins can view a list of all users" do
     login_as(user)
     b1 = create(:biblebook, name: "Jona")
     s1 = create(:studynote, title: "Jona", note: "Jona is bijzonder.", author: user)
-    create(:pericope_by_name, name: "Jona 1:1 - 1:10", biblebook_id: b1.id, studynote_id: s1.id)
+    create(:pericope, name: "Jona 1:1 - 1:10", biblebook_id: b1.id, studynote_id: s1.id)
 
     login_as(admin)
     visit "/"
