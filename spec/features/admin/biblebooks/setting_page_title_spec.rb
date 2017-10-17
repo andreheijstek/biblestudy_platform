@@ -1,15 +1,15 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "Page title is set according to the page content" do
+feature 'Page title is set according to the page content' do
   before do
     login_as(create(:user, :admin))
   end
 
-  scenario "when adding a new biblebook" do
+  scenario 'when adding a new biblebook' do
     visit admin_biblebooks_path
     click_link t(:new_biblebook)
 
-    bookname = "Handelingen"
+    bookname = 'Handelingen'
     fill_in t(:name, scope: [:simple_form, :labels, :biblebook]), with: bookname
 
     submit_form
