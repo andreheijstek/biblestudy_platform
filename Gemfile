@@ -60,6 +60,7 @@ group :development do
   gem 'rails-erd'
   gem 'spring'
   # gem 'i18n-debug'
+  gem 'yard' # used to document code with comments about return types and parameters before each method
 end
 
 group :test do
