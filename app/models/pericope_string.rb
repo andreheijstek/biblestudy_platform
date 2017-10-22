@@ -1,10 +1,11 @@
 # Turns a String into a PericopeString, containing all constituent elements (biblebook, chapter, verse)
-class PericopeString < String
+class PericopeString
 
   attr_reader :starting_chapter, :ending_chapter, :starting_verse, :ending_verse, :biblebook_name
 
   def initialize(pericope_string)
-    super
+    @pericope_string  = StringScanner.new pericope_string
+
     @starting_chapter = 0
     @ending_chapter   = 0
     @starting_verse   = 0
@@ -22,34 +23,59 @@ class PericopeString < String
   # Parses a String, pulling out all constituent elements of a Pericope (biblebook, chapter, verse)
   # and storing these into the object attributes
   def parse
-    pericope_to_publish = StringScanner.new self
+    parse_biblebook
+    return if @pericope_string.eos?
 
-    parse_biblebook(pericope_to_publish)
-    return if pericope_to_publish.eos?
+    parse_chapters_and_verses
+  end
 
-    parse_chapters_and_verses(pericope_to_publish)
+  # Parses a string and pulls out the biblebook
+  # @params [String] @pericope_string - a raw pericope_string, like 'Gen 1:1-5'
+  # Sets the @biblebook_name attribute
+  # e.g. 1 Samuel or Samuel
+  def parse_biblebook
+    @biblebook_name = titleize(@pericope_string.scan(/(\d +\p{Word}+)|\p{Word}+/))
   end
 
   # Parses a string and pulls out chapters and verses
-  # @params [String] pericope_to_publish - a raw pericope_string, like 'Gen 1:1-5'
+  # @params [String] @pericope_string - a raw pericope_string, like 'Gen 1:1-5'
   # Sets all object attributes
-  def parse_chapters_and_verses(pericope_to_publish)
-    @starting_chapter = pericope_to_publish.scan(/\s+\d+\s*/).strip.to_i
+  def parse_chapters_and_verses
+    parse_starting_chapter
+    parse_starting_verse
+    scan_ending_chapter_and_verse
+  end
 
-    if pericope_to_publish.check(/:/) # is a verse included after the chapter?
-      pericope_to_publish.scan(/:/) # skip the separator
-      @starting_verse = pericope_to_publish.scan(/\s*\d+\s*/).strip.to_i
+  def parse_starting_chapter
+    @starting_chapter = parse_digit
+  end
+
+  def parse_starting_verse
+    if contains_verse?
+      skip_colon
+      @starting_verse = @pericope_string.scan(/\s*\d+\s*/)
+      @starting_verse = @starting_verse.strip.to_i
     end
+  end
 
-    if pericope_to_publish.check(/\s*-/) # is there an ending chapter or verse?
-      pericope_to_publish.scan(/\s*-/) # skip the separator
-      if pericope_to_publish.check(/\s*\d+:/) # is there a chapter AND a verse?
-        @ending_chapter = pericope_to_publish.scan(/\s*\d+/).strip.to_i
-        pericope_to_publish.scan(/:\s*/) # skip the separator
-        @ending_verse = pericope_to_publish.scan(/\d+/).strip.to_i
+  def skip_colon
+    @pericope_string.scan(/:/)
+  end
+
+  def contains_verse?
+    @pericope_string.check(/:/)
+  end
+
+  def scan_ending_chapter_and_verse
+    if contains_ending_chapter_or_verse?
+      skip_dash # skip the separator
+      if contains_chapter_and_verse?
+        @ending_chapter = @pericope_string.scan(/\s*\d+/).strip.to_i
+        skip_colon # skip the separator
+        @ending_verse = @pericope_string.scan(/\d+/).strip.to_i
       else
         @ending_chapter = starting_chapter
-        @ending_verse = pericope_to_publish.scan(/\s*\d+/).strip.to_i
+        @ending_verse = @pericope_string.scan(/\s*\d+/).strip.to_i
       end
     else
       @ending_chapter = starting_chapter
@@ -57,12 +83,20 @@ class PericopeString < String
     end
   end
 
-  # Parses a string and pulls out the official biblebook
-  # @params [String] pericope_to_publish - a raw pericope_string, like 'Gen 1:1-5'
-  # Sets the @biblebook_name attribute
-  def parse_biblebook(pericope_to_publish)
-    @biblebook_name = pericope_to_publish.scan(/(\d +\p{Word}+)|\p{Word}+/) # e.g. 1 Samuel or Samuel
-    @biblebook_name = titleize(biblebook_name) # Todo: refactor, dit is procedureel, OO zou zijn @biblebook_name.titleize
+  def contains_chapter_and_verse?
+    @pericope_string.check(/\s*\d+:/)
+  end
+
+  def skip_dash
+    @pericope_string.scan(/\s*-/)
+  end
+
+  def contains_ending_chapter_or_verse?
+    @pericope_string.check(/\s*-/)
+  end
+
+  def parse_digit
+    @pericope_string.scan(/\s+\d+\s*/).strip.to_i
   end
 
   # Turns a pericope_string into a good looking and standard format

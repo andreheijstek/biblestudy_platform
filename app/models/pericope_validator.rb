@@ -31,15 +31,18 @@ class PericopeValidator < ActiveModel::Validator
   private
 
   # Turns a String into a PericopeString, so the scan method can be used
+  # and sets the error message
   def pericope
     begin
       @pericope_to_publish = PericopeString.new(@record.name)
+        # TODO: Can this dependecy be removed? Pass in the PericopeString in the constructor?
     rescue
       @record.errors[:name] << I18n.t('invalid_pericope')
     end
   end
 
   # Checks of the record is completely empty or contains an empty name string
+  # and sets the error message
   def empty_record?
     if @record.name.nil? || @record.name.empty?
       @record.errors[:name] << I18n.t('name_not_empty')
@@ -49,6 +52,7 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   # Checks if the sequence of chapters and verses is correct
+  # and sets the error message
   def incorrect_sequence?
     if @record.starting_chapter_nr > @record.ending_chapter_nr
       @record.errors[:name] << I18n.t('starting_greater_than_ending')
@@ -143,13 +147,13 @@ class PericopeValidator < ActiveModel::Validator
           name << ':'
           name << @pericope_to_publish.ending_verse.to_s
         elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
-          # whole pericope, but within the same chapter (1:2-1:8)
+          # whole pericope, but within the same chapter (1:2-8)
           name << ':'
           name << @pericope_to_publish.starting_verse.to_s
           name << ' - '
           name << @pericope_to_publish.ending_verse.to_s
         elsif @pericope_to_publish.ending_verse == @pericope_to_publish.starting_verse
-          # pericope consisting of just one verse
+          # pericope consisting of just one verse (1:2)
           name << ':'
           name << @pericope_to_publish.starting_verse.to_s
         end
