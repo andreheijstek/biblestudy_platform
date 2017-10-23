@@ -14,7 +14,7 @@ class PericopeValidator < ActiveModel::Validator
     @record = record
     return if empty_record?
 
-    pericope
+    create_pericope_from_string
     return if @pericope_to_publish.nil?
 
     find_biblebook
@@ -32,7 +32,7 @@ class PericopeValidator < ActiveModel::Validator
 
   # Turns a String into a PericopeString, so the scan method can be used
   # and sets the error message
-  def pericope
+  def create_pericope_from_string
     begin
       @pericope_to_publish = PericopeString.new(@record.name)
         # TODO: Can this dependecy be removed? Pass in the PericopeString in the constructor?
@@ -41,7 +41,7 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
-  # Checks of the record is completely empty or contains an empty name string
+  # Checks if the record is completely empty or contains an empty name string
   # and sets the error message
   def empty_record?
     if @record.name.nil? || @record.name.empty?
