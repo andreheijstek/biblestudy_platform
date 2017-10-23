@@ -53,8 +53,7 @@ class PericopeString
   def parse_starting_verse
     if contains_verse?
       skip_colon
-      @starting_verse = @pericope_string.scan(/\s*\d+\s*/)
-      @starting_verse = @starting_verse.strip.to_i
+      @starting_verse = parse_digit
     end
   end
 
@@ -68,14 +67,14 @@ class PericopeString
 
   def scan_ending_chapter_and_verse
     if contains_ending_chapter_or_verse?
-      skip_dash # skip the separator
+      skip_dash
       if contains_chapter_and_verse?
-        @ending_chapter = @pericope_string.scan(/\s*\d+/).strip.to_i
-        skip_colon # skip the separator
-        @ending_verse = @pericope_string.scan(/\d+/).strip.to_i
+        @ending_chapter = parse_digit
+        skip_colon
+        @ending_verse = parse_digit
       else
         @ending_chapter = starting_chapter
-        @ending_verse = @pericope_string.scan(/\s*\d+/).strip.to_i
+        @ending_verse = parse_digit
       end
     else
       @ending_chapter = starting_chapter
@@ -96,7 +95,7 @@ class PericopeString
   end
 
   def parse_digit
-    @pericope_string.scan(/\s+\d+\s*/).strip.to_i
+    @pericope_string.scan(/\s*\d+\s*/).strip.to_i
   end
 
   # Turns a pericope_string into a good looking and standard format
