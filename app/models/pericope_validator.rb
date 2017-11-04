@@ -20,22 +20,22 @@ class PericopeValidator < ActiveModel::Validator
 
   private
 
+  # Validates a pericope record
+  # To do that, a record is composed from the name
+  # Check if
+  # - name is a valid pericpe_string
+  # - the biblebook in the name exists
+  # - the order of chapters/verses
   def validate_name
-
     begin
       @pericope_to_publish = PericopeString.new(@name)
     rescue
-      self.errors[:name] << I18n.t('invalid_pericope')
+      self.errors.add :name, I18n.t('invalid_pericope')
     end
 
     return if find_biblebook.nil?
-
     update_record
-
-    if correct_sequence?
-      name = reformat_name
-      @record.name = name
-    end
+    validate_sequence
   end
 
   # Turns a String into a PericopeString, so the scan method can be used
@@ -56,7 +56,7 @@ class PericopeValidator < ActiveModel::Validator
 
   # Checks if the sequence of chapters and verses is correct
   # and sets the error message
-  def correct_sequence?
+  def validate_sequence
     if @record.starting_chapter_nr > @record.ending_chapter_nr
       @record.errors[:name] << I18n.t('starting_greater_than_ending')
       return false
@@ -141,38 +141,5 @@ class PericopeValidator < ActiveModel::Validator
     @record.ending_verse = @pericope_to_publish.ending_verse
 
     @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
-  end
-
-  def reformat_name
-    name = ''
-    name << @biblebook.name
-    if @pericope_to_publish.starting_chapter != 0
-      # Chapter filled, so this is not just a complete biblebook
-      name << ' '
-      name << @pericope_to_publish.starting_chapter.to_s
-      if @pericope_to_publish.starting_verse != 0
-        # there are verses, so this is not a whole chapter
-        if @pericope_to_publish.ending_chapter > @pericope_to_publish.starting_chapter
-          # multiple chapters, so publish a full 4 element string (1:2-3:4)
-          name << ':'
-          name << @pericope_to_publish.starting_verse.to_s
-          name << ' - '
-          name << @pericope_to_publish.ending_chapter.to_s
-          name << ':'
-          name << @pericope_to_publish.ending_verse.to_s
-        elsif @pericope_to_publish.ending_verse > @pericope_to_publish.starting_verse
-          # whole pericope, but within the same chapter (1:2-8)
-          name << ':'
-          name << @pericope_to_publish.starting_verse.to_s
-          name << ' - '
-          name << @pericope_to_publish.ending_verse.to_s
-        elsif @pericope_to_publish.ending_verse == @pericope_to_publish.starting_verse
-          # pericope consisting of just one verse (1:2)
-          name << ':'
-          name << @pericope_to_publish.starting_verse.to_s
-        end
-      end
-    end
-    name
   end
 end
