@@ -202,3 +202,76 @@ FATAL:  database "andreheijstek" does not exist
 FATAL:  database "biblestudy_platform_development" does not exist
 FATAL:  database "andreheijstek" does not exist
 FATAL:  database "biblestudy_platform_development" does not exist
+2017-10-30 09:35:29.304 CET [16772] LOG:  listening on IPv6 address "::1", port 5432
+2017-10-30 09:35:29.306 CET [16772] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-10-30 09:35:29.307 CET [16772] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-10-30 09:35:29.320 CET [16773] LOG:  database system was shut down at 2017-10-30 09:35:19 CET
+2017-10-30 09:35:29.323 CET [16772] LOG:  database system is ready to accept connections
+2017-10-30 09:35:39.574 CET [16804] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:35:39.720 CET [16805] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:36:09.281 CET [16834] FATAL:  database "biblestudy_platform_development" does not exist
+2017-10-30 09:46:32.708 CET [20121] FATAL:  database "biblestudy_platform_development" does not exist
+2017-10-30 09:52:26.371 CET [20505] FATAL:  database "biblestudy_platform_development" does not exist
+2017-10-30 09:57:50.057 CET [20579] ERROR:  role "andreheijstek" already exists
+2017-10-30 09:57:50.057 CET [20579] STATEMENT:  CREATE ROLE andreheijstek NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
+2017-10-30 09:59:18.700 CET [20679] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.765 CET [20680] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.772 CET [20681] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.779 CET [20682] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.785 CET [20683] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.790 CET [20684] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.798 CET [20685] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.808 CET [20686] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.816 CET [20687] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.826 CET [20688] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.839 CET [20689] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.845 CET [20690] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.851 CET [20691] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.857 CET [20692] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.865 CET [20693] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.872 CET [20694] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.882 CET [20695] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.892 CET [20696] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.905 CET [20697] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.914 CET [20698] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.919 CET [20699] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.925 CET [20700] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.932 CET [20701] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.942 CET [20702] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.950 CET [20703] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.959 CET [20704] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.970 CET [20705] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.977 CET [20706] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.983 CET [20707] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.991 CET [20708] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:18.997 CET [20709] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 09:59:19.069 CET [20710] FATAL:  database "biblestudy_platform_test" does not exist
+2017-10-30 10:00:59.519 CET [21103] ERROR:  relation "pericopes" does not exist at character 566
+2017-10-30 10:00:59.519 CET [21103] STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+	                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+	                FROM pg_attribute a
+	                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	                LEFT JOIN pg_type t ON a.atttypid = t.oid
+	                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+	               WHERE a.attrelid = '"pericopes"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+2017-10-30 10:02:00.616 CET [21169] ERROR:  database "biblestudy_platform_development" already exists
+2017-10-30 10:02:00.616 CET [21169] STATEMENT:  CREATE DATABASE "biblestudy_platform_development" ENCODING = 'unicode'
+2017-10-30 10:02:00.626 CET [21170] ERROR:  database "biblestudy_platform_test" already exists
+2017-10-30 10:02:00.626 CET [21170] STATEMENT:  CREATE DATABASE "biblestudy_platform_test" ENCODING = 'unicode'
+2017-10-31 11:01:12.077 CET [42046] LOG:  unexpected EOF on client connection with an open transaction
+2017-10-31 11:04:14.731 CET [44003] LOG:  unexpected EOF on client connection with an open transaction
+2017-10-31 12:01:51.816 CET [45679] ERROR:  index "unique_schema_migrations" does not exist
+2017-10-31 12:01:51.816 CET [45679] STATEMENT:  DROP INDEX "public"."unique_schema_migrations";
+	
+2017-10-31 12:23:14.734 CET [46039] LOG:  unexpected EOF on client connection with an open transaction
+2017-10-31 12:36:45.075 CET [46087] LOG:  unexpected EOF on client connection with an open transaction
+2017-10-31 12:36:45.100 CET [46257] LOG:  could not send data to client: Broken pipe
+2017-10-31 12:36:45.101 CET [46257] FATAL:  connection to client lost
+2017-10-31 12:36:45.115 CET [46291] LOG:  could not send data to client: Broken pipe
+2017-10-31 12:36:45.115 CET [46291] FATAL:  connection to client lost
+2017-10-31 14:56:34.439 CET [47911] LOG:  could not send data to client: Broken pipe
+2017-10-31 14:56:34.441 CET [47911] FATAL:  connection to client lost

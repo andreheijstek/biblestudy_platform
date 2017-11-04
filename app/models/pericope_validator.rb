@@ -12,64 +12,81 @@ class PericopeValidator < ActiveModel::Validator
 
   def validate(record)
     @record = record
+    @name = record.name
     return if empty_record?
 
-    create_pericope_from_string
-    return if @pericope_to_publish.nil?
-
-    find_biblebook
-    return if @biblebook.nil?
-
-    update_record
-    return if incorrect_sequence?
-
-    # TODO: dit hoort hier niet, single responsibility principle
-    # kan evt. naar een after_validation hook?
-    @record.name = reformat_name
+    validate_name
   end
 
   private
 
+  def validate_name
+
+    begin
+      @pericope_to_publish = PericopeString.new(@name)
+    rescue
+      self.errors[:name] << I18n.t('invalid_pericope')
+    end
+
+    return if find_biblebook.nil?
+
+    update_record
+
+    if correct_sequence?
+      name = reformat_name
+      @record.name = name
+    end
+  end
+
   # Turns a String into a PericopeString, so the scan method can be used
   # and sets the error message
-  def create_pericope_from_string
-    begin
-      @pericope_to_publish = PericopeString.new(@record.name)
-        # TODO: Can this dependecy be removed? Pass in the PericopeString in the constructor?
-    rescue
-      @record.errors[:name] << I18n.t('invalid_pericope')
+  # Deze method krijgt @record.name als input, die is al gezet als een Pericope wordt gemaakt
+  # Levert dan een @pericope_to_publish op
+  # In de nieuwe situatie met Pericope.new dat gaan doen. Dan is er geen @pericope_to_publish
+  # meer, maar zijn wel alle Pericope attributen al gezet
+  # def create_pericope_from_string
+  #   begin
+  #     @pericope_to_publish = PericopeString.new(@record.name)
+  #       # TODO: Can this dependecy be removed? Pass in the PericopeString in the constructor?
+  #   rescue
+  #     @record.errors[:name] << I18n.t('invalid_pericope')
+  #   end
+  # end
+
+
+  # Checks if the sequence of chapters and verses is correct
+  # and sets the error message
+  def correct_sequence?
+    if @record.starting_chapter_nr > @record.ending_chapter_nr
+      @record.errors[:name] << I18n.t('starting_greater_than_ending')
+      return false
     end
+
+    if (@record.starting_chapter_nr == @record.ending_chapter_nr) &&
+        (@record.starting_verse > @record.ending_verse)
+      @record.errors[:name] << I18n.t('starting_verse_chapter_mismatch')
+      return false
+    end
+    true
+  end
+
+  # TODO: ik weet niet of deze message nodig is. Als een pericope goed gemaakt is, is de
+  # afgekorte bijbelboeknaam toch al vervangen door de gehele naam. Je hebt dan deze indirectie
+  # niet meer nodig
+  def biblebook_name
+    Biblebook.find(self.biblebook_id).name
   end
 
   # Checks if the record is completely empty or contains an empty name string
   # and sets the error message
   def empty_record?
-    if @record.name.nil? || @record.name.empty?
+    if @name.nil? || @name.empty?
       @record.errors[:name] << I18n.t('name_not_empty')
       return true
     end
     false
   end
 
-  # Checks if the sequence of chapters and verses is correct
-  # and sets the error message
-  def incorrect_sequence?
-    if @record.starting_chapter_nr > @record.ending_chapter_nr
-      @record.errors[:name] << I18n.t('starting_greater_than_ending')
-      return true
-    end
-
-    if (@record.starting_chapter_nr == @record.ending_chapter_nr) &&
-        (@record.starting_verse > @record.ending_verse)
-      @record.errors[:name] << I18n.t('starting_verse_chapter_mismatch')
-      return true
-    end
-    false
-  end
-
-  # Finds the complete biblebook from the Pericope
-  # The incoming biblebook may be abbreviated
-  # The output biblebook is the full, official name
   def find_biblebook
     @biblebook_name = @pericope_to_publish.biblebook_name
     @biblebook = find_by_full_name
@@ -79,10 +96,10 @@ class PericopeValidator < ActiveModel::Validator
     end
     @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil?
     # Replace the abbreviation with the full name
-    @biblebook_name = @pericope_to_publish.biblebook_name
+    # @biblebook_name = @pericope_to_publish.biblebook_name
+    @biblebook
   end
 
-  # TODO: Refactor into find_by(:type) met type = :fullname, :abbreviation, etc.
   def find_by_full_name
     @biblebook = Biblebook.find_by(name: @biblebook_name)
   end
@@ -105,7 +122,6 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
-  # Puts all possible biblebooks that match an abbreviation into an error message
   def ambiguous_string(book_name, biblebooks)
     book_list = []
     biblebooks.each do |book|
@@ -114,10 +130,10 @@ class PericopeValidator < ActiveModel::Validator
     "#{I18n.t('ambiguous_abbreviation')}: '#{book_name}' kan #{book_list.join(', ')} zijn"
   end
 
-  # Updates the Pericope record with all the elements that consistute a Pericope
   def update_record
     @record.biblebook_id = @biblebook.id
-    @record.biblebook_name = @biblebook_name
+    @record.biblebook_name = @biblebook.name
+    @record.name = @name
 
     @record.starting_chapter_nr = @pericope_to_publish.starting_chapter
     @record.starting_verse = @pericope_to_publish.starting_verse
@@ -127,11 +143,9 @@ class PericopeValidator < ActiveModel::Validator
     @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
   end
 
-  # Reformats the name of a Pericope into a standardized format
-  # @return [String] name of the Pericope, like: 'Genesis 1:1 - 3:5'
   def reformat_name
     name = ''
-    name << @biblebook_name
+    name << @biblebook.name
     if @pericope_to_publish.starting_chapter != 0
       # Chapter filled, so this is not just a complete biblebook
       name << ' '

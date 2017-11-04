@@ -22,55 +22,55 @@ describe Pericope, type: :model do
 
   before do
     # create a biblebook first, so that it can be connected to the pericopes
-    genesis = create(:biblebook, name: 'Genesis')
-    @genesis_id = genesis.id
-    korinte = create(:biblebook, name: '1 Korintiërs')
-    @korinte_id = korinte.id
+    @genesis = create(:biblebook, name: 'Genesis')
+    create(:biblebook, name: '1 Korintiërs')
   end
 
   it 'is valid with valid attributes' do
-    expect(Pericope.new(name: 'Genesis 1:1 - 1:10')).to be_valid
-    expect(Pericope.new(name: '1 Korintiërs 1:1 - 1:10')).to be_valid
+    expect(Pericope.create(name: 'Genesis 1:1 - 1:10')).to be_valid
+    expect(Pericope.create(name: '1 Korintiërs 1:1 - 1:10')).to be_valid
+  end
+
+  it 'is valid with abbreviated biblebook' do
+    expect(Pericope.create(name: 'Gen 1:1 - 1:10')).to be_valid
+    expect(Pericope.create(name: '1 Kor 1:1 - 1:10')).to be_valid
   end
 
   it 'is not valid without a name' do
-    expect(Pericope.new(name: '')).to_not be_valid
-    expect(Pericope.new(name: nil)).to_not be_valid
+    expect(Pericope.create(name: '')).to_not be_valid
+    expect(Pericope.create(name: nil)).to_not be_valid
   end
 
   it 'name must contain a valid pericopes string, and can include spaces' do
-    pericope = Pericope.new(name: 'Genesis 1:2 - 3:4')
-    pericope.save  # trigger the validation and after_validation
+    pericope = Pericope.create(name: 'Genesis 1:2 - 3:4')
+    # pericope.save  # trigger the validation and after_validation
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
-    expect(pericope.biblebook_id).to        eq(@genesis_id)
+    expect(pericope.biblebook_id).to        eq(@genesis.id)
   end
 
   it 'name must contain a valid pericopes string, and may be without spaces' do
-    pericope = Pericope.new(name: 'Genesis 1:2-3:4')
-    pericope.save
+    pericope = Pericope.create(name: 'Genesis 1:2-3:4')
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
-    expect(pericope.biblebook_id).to        eq(@genesis_id)
+    expect(pericope.biblebook_id).to        eq(@genesis.id)
   end
 
   it 'name must contain a valid pericopes string, where the ending chapter is not required' do
-    pericope = Pericope.new(name: 'Genesis 1:2 - 3')
-    pericope.save
+    pericope = Pericope.create(name: 'Genesis 1:2 - 3')
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(1)
     expect(pericope.ending_verse).to        eq(3)
-    expect(pericope.biblebook_id).to        eq(@genesis_id)
+    expect(pericope.biblebook_id).to        eq(@genesis.id)
   end
 
   it 'verse may contain a biblebook abbreviation' do
-    pericope = Pericope.new(name: 'Gen 1:2 - 3')
-    pericope.save
+    pericope = Pericope.create(name: 'Gen 1:2 - 3')
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to      eq(2)
     expect(pericope.ending_chapter_nr).to   eq(1)
@@ -80,27 +80,24 @@ describe Pericope, type: :model do
   end
 
   it 'ending chapter must be greater or equal than starting chapter' do
-    pericope = Pericope.new(name: 'Genesis 4:3 - 2:1')
-    pericope.save
+    pericope = Pericope.create(name: 'Genesis 4:3 - 2:1')
     expect(pericope).to_not be_valid
   end
 
   it 'within the same chapter ending verse must be greater than starting verse' do
-    pericope = Pericope.new(name: 'Genesis 4:3 - 4:1')
-    pericope.save
+    pericope = Pericope.create(name: 'Genesis 4:3 - 4:1')
     expect(pericope).to_not be_valid
   end
 
   it 'could just be a single verse' do
-    pericope = Pericope.new(name: 'Genesis 4:3')
-    pericope.save
+    pericope = Pericope.create(name: 'Genesis 4:3')
     expect(pericope).to be_valid
     expect(pericope.name).to eq('Genesis 4:3')
   end
 
   it 'parses the biblebook from the name' do
-    pericope = Pericope.create(name: 'Genesis 4:3 - 2:1')
-    expect(pericope.biblebookName).to eq('Genesis')
+    pericope = Pericope.create(name: 'Genesis 1:2 - 3:4')
+    expect(pericope.biblebook.name).to eq('Genesis')
   end
 
   # Todo: add similar tests for starting/ending chapter/verse

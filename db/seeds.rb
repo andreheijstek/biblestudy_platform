@@ -156,6 +156,6 @@ end
 
 pericopes = Pericope.all
 pericopes.each do |p|
-  p.biblebook_name = p.biblebookName if p.biblebook_name.nil?
+  p.biblebook_name = p.biblebook_name if p.biblebook_name.nil?
   p.save
 end

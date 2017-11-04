@@ -159,5 +159,5 @@ feature 'Users can not create new studynotes and associate them to pericopes' do
     should_see 'Jona'
     should_see 'Job'
     should_see 'Johannes'
-  end
+    end
 end

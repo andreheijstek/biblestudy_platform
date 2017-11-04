@@ -17,13 +17,20 @@
 #
 
 class Pericope < ActiveRecord::Base
+  # attr_accessor :name
+
   belongs_to :studynote
   belongs_to :biblebook
 
   validates :name, presence: true
   validates_with PericopeValidator
 
-  def biblebookName
-    Biblebook.find(self.biblebook_id).name
+  def initialize(attributes={})
+    super
+    unless attributes.empty?
+      @name = attributes[:name]
+    end
+    self
   end
+
 end

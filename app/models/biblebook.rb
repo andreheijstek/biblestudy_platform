@@ -20,4 +20,11 @@ class Biblebook < ActiveRecord::Base
 
   default_scope { order("booksequence ASC") }
 
+  def chapter_valid?(chapter)
+    chapter > 0 && chapter <= nr_of_chapters
+  end
+
+  def nr_of_chapters
+    Chapter.where(biblebook_id: self.id).count
+  end
 end
