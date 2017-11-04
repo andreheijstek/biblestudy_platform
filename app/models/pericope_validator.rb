@@ -38,33 +38,17 @@ class PericopeValidator < ActiveModel::Validator
     validate_sequence
   end
 
-  # Turns a String into a PericopeString, so the scan method can be used
-  # and sets the error message
-  # Deze method krijgt @record.name als input, die is al gezet als een Pericope wordt gemaakt
-  # Levert dan een @pericope_to_publish op
-  # In de nieuwe situatie met Pericope.new dat gaan doen. Dan is er geen @pericope_to_publish
-  # meer, maar zijn wel alle Pericope attributen al gezet
-  # def create_pericope_from_string
-  #   begin
-  #     @pericope_to_publish = PericopeString.new(@record.name)
-  #       # TODO: Can this dependecy be removed? Pass in the PericopeString in the constructor?
-  #   rescue
-  #     @record.errors[:name] << I18n.t('invalid_pericope')
-  #   end
-  # end
-
-
   # Checks if the sequence of chapters and verses is correct
   # and sets the error message
   def validate_sequence
     if @record.starting_chapter_nr > @record.ending_chapter_nr
-      @record.errors[:name] << I18n.t('starting_greater_than_ending')
+      @record.errors.add :name, I18n.t('starting_greater_than_ending')
       return false
     end
 
     if (@record.starting_chapter_nr == @record.ending_chapter_nr) &&
         (@record.starting_verse > @record.ending_verse)
-      @record.errors[:name] << I18n.t('starting_verse_chapter_mismatch')
+      @record.errors.add :name, I18n.t('starting_verse_chapter_mismatch')
       return false
     end
     true
@@ -81,7 +65,7 @@ class PericopeValidator < ActiveModel::Validator
   # and sets the error message
   def empty_record?
     if @name.nil? || @name.empty?
-      @record.errors[:name] << I18n.t('name_not_empty')
+      @record.errors.add :name, I18n.t('name_not_empty')
       return true
     end
     false
@@ -95,8 +79,6 @@ class PericopeValidator < ActiveModel::Validator
       @biblebook = find_by_like if @biblebook.nil?
     end
     @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil?
-    # Replace the abbreviation with the full name
-    # @biblebook_name = @pericope_to_publish.biblebook_name
     @biblebook
   end
 
@@ -112,10 +94,10 @@ class PericopeValidator < ActiveModel::Validator
     biblebooks = Biblebook.where('name LIKE (?)',
                                  "%#{@biblebook_name.slice(0, 5)}%")
     if biblebooks.empty?
-      @record.errors[:name] << I18n.t('unknown_biblebook')
+      @record.errors.add :name, I18n.t('unknown_biblebook')
       @biblebook = nil
     elsif biblebooks.length > 1
-      @record.errors[:name] << ambiguous_string(@biblebook_name, biblebooks)
+      @record.errors.add :name, ambiguous_string(@biblebook_name, biblebooks)
       @biblebook = nil
     else
       @biblebook = biblebooks[0]
