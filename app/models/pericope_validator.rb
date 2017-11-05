@@ -6,14 +6,16 @@
 # - contains existing biblebook
 # - chapters withing valid range of biblebook
 # - verses within valid range of chapter
-# And it writes a correctly formatted string for biblebook into the Pericope record
 #
 class PericopeValidator < ActiveModel::Validator
 
   def validate(record)
     @record = record
     @name = record.name
-    return if empty_record?
+    if empty_record?
+      @record.errors.add :name, I18n.t('name_not_empty')
+      return
+    end
 
     validate_name
   end
@@ -27,19 +29,27 @@ class PericopeValidator < ActiveModel::Validator
   # - the biblebook in the name exists
   # - the order of chapters/verses
   def validate_name
-    begin
-      @pericope_to_publish = PericopeString.new(@name)
-    rescue
-      self.errors.add :name, I18n.t('invalid_pericope')
-    end
+    @parsed_pericope = parse_pericope(@name)
 
-    return if find_biblebook.nil?
+    return unless find_biblebook
     update_record
     validate_sequence
   end
 
+  def parse_pericope(name)
+    begin
+      @parsed_pericope = PericopeString.new(name)
+    rescue
+      @record.errors.add :name, I18n.t('invalid_pericope')
+    end
+  end
+
   # Checks if the sequence of chapters and verses is correct
   # and sets the error message
+  # TODO
+  # - single responsibility: so valid_sequence? checkt alleen of de sequence klopt en geeft true/false
+  # - eronder methods voor valid_chapter_sequence? en valid_verse_sequence?
+  # - valid_order beter dan sequence?
   def validate_sequence
     if @record.starting_chapter_nr > @record.ending_chapter_nr
       @record.errors.add :name, I18n.t('starting_greater_than_ending')
@@ -54,31 +64,19 @@ class PericopeValidator < ActiveModel::Validator
     true
   end
 
-  # TODO: ik weet niet of deze message nodig is. Als een pericope goed gemaakt is, is de
-  # afgekorte bijbelboeknaam toch al vervangen door de gehele naam. Je hebt dan deze indirectie
-  # niet meer nodig
-  def biblebook_name
-    Biblebook.find(self.biblebook_id).name
-  end
-
   # Checks if the record is completely empty or contains an empty name string
-  # and sets the error message
   def empty_record?
-    if @name.nil? || @name.empty?
-      @record.errors.add :name, I18n.t('name_not_empty')
-      return true
-    end
-    false
+    @name.nil? || @name.empty?
   end
 
   def find_biblebook
-    @biblebook_name = @pericope_to_publish.biblebook_name
+    @biblebook_name = @parsed_pericope.biblebook_name
     @biblebook = find_by_full_name
     if @biblebook.nil?
       @biblebook = find_by_abbreviation
       @biblebook = find_by_like if @biblebook.nil?
     end
-    @pericope_to_publish.biblebook_name = @biblebook.name unless @biblebook.nil?
+    @parsed_pericope.biblebook_name = @biblebook.name unless @biblebook.nil?
     @biblebook
   end
 
@@ -113,14 +111,15 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def update_record
+    # TODO Can't I use a tap here?
     @record.biblebook_id = @biblebook.id
     @record.biblebook_name = @biblebook.name
     @record.name = @name
 
-    @record.starting_chapter_nr = @pericope_to_publish.starting_chapter
-    @record.starting_verse = @pericope_to_publish.starting_verse
-    @record.ending_chapter_nr = @pericope_to_publish.ending_chapter
-    @record.ending_verse = @pericope_to_publish.ending_verse
+    @record.starting_chapter_nr = @parsed_pericope.starting_chapter
+    @record.starting_verse = @parsed_pericope.starting_verse
+    @record.ending_chapter_nr = @parsed_pericope.ending_chapter
+    @record.ending_verse = @parsed_pericope.ending_verse
 
     @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
   end
