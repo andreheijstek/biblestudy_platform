@@ -1,7 +1,7 @@
 # Turns a String into a PericopeString, containing all constituent elements (biblebook, chapter, verse)
 class PericopeString
 
-  attr_reader :starting_chapter, :ending_chapter, :starting_verse, :ending_verse, :biblebook_name
+  attr_reader :starting_chapter, :ending_chapter, :starting_verse, :ending_verse, :biblebook_name, :errors
 
   def initialize(pericope_string)
     @pericope_string  = StringScanner.new pericope_string
@@ -10,6 +10,8 @@ class PericopeString
     @ending_chapter   = 0
     @starting_verse   = 0
     @ending_verse     = 0
+
+    @errors           = []
 
     parse
   end
@@ -27,6 +29,7 @@ class PericopeString
     return if @pericope_string.eos?
 
     parse_chapters_and_verses
+    validate
   end
 
   # Parses a string and pulls out the biblebook
@@ -105,5 +108,14 @@ class PericopeString
   #
   def titleize(str)
     str.split(/ |\_/).map(&:capitalize).join(' ')
+  end
+
+  def validate
+    if starting_chapter > ending_chapter
+      @errors << I18n.t('starting_greater_than_ending')
+    end
+    if starting_chapter == ending_chapter && starting_verse > ending_verse
+      @errors << I18n.t('starting_verse_chapter_mismatch')
+    end
   end
 end
