@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'users/index'
 
-  root "pericopes#index"
+  root 'pericopes#index'
 
   namespace :admin do
-    root "application#index"
+    root 'application#index'
     resources :biblebooks do
       resources :chapters
     end

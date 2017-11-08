@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 require_relative '../../app/models/pericope_string'
 
-describe PericopeString  do
+describe PericopeString do
   it 'should parse into a simple biblebook_name' do
     ps = PericopeString.new('Genesis 1:2-3:4')
     expect(ps.biblebook_name).to eq('Genesis')

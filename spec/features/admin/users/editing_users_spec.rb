@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require "rails_helper"
+
+require 'rails_helper'
 
 feature "Admins can change a user's details" do
   let(:admin_user) { create(:user, :admin) }
@@ -8,25 +9,25 @@ feature "Admins can change a user's details" do
   before do
     login_as(admin_user)
     visit admin_user_path(user)
-    click_link "Edit User"
+    click_link 'Edit User'
   end
 
-  scenario "with valid details" do
-    fill_in t("activerecord.attributes.user.email"), with: "newguy@example.com"
+  scenario 'with valid details' do
+    fill_in t('activerecord.attributes.user.email'), with: 'newguy@example.com'
 
     submit_form
 
-    should_see t("activerecord.attributes.user.messages.updated")
-    should_see "newguy@example.com"
+    should_see t('activerecord.attributes.user.messages.updated')
+    should_see 'newguy@example.com'
     should_not_see user.email
   end
 
   scenario "when toggling a user's admin ability" do
-    check t("activerecord.attributes.user.is_admin")
+    check t('activerecord.attributes.user.is_admin')
 
     submit_form
 
-    should_see t("activerecord.attributes.user.messages.updated")
+    should_see t('activerecord.attributes.user.messages.updated')
     should_see "#{user.email} (Admin)"
   end
 end

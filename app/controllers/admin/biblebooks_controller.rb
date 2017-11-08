@@ -1,13 +1,13 @@
 # frozen_string_literal: true
+
 class Admin::BiblebooksController < Admin::ApplicationController
-  before_action :set_biblebook, only: [:show, :edit, :update, :destroy]
+  before_action :set_biblebook, only: %i[show edit update destroy]
 
   def index
     @biblebook = Biblebook.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @biblebook = Biblebook.new
@@ -20,12 +20,11 @@ class Admin::BiblebooksController < Admin::ApplicationController
       redirect_to [:admin, @biblebook]
     else
       flash.now[:alert] = t(:item_not_created, item: Biblebook.model_name.human)
-      render "new"
+      render 'new'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @biblebook.update(biblebook_params)
@@ -33,7 +32,7 @@ class Admin::BiblebooksController < Admin::ApplicationController
       redirect_to [:admin, @biblebook]
     else
       flash.now[:alert] = t(:item_not_updated, item: Biblebook.model_name.human)
-      render "edit"
+      render 'edit'
     end
   end
 

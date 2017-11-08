@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AuthorizationHelpers
   def assign_role!(user, role, studynote)
     Role.where(user: user, studynote: studynote).delete_all

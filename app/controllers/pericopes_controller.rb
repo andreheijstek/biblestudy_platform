@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-class PericopesController < ApplicationController
 
+class PericopesController < ApplicationController
   # skip_after_action :verify_authorized, only: [:new]
 
   def index

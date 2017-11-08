@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+
 # Turns a String into a PericopeString, containing all constituent elements (biblebook, chapter, verse)
 class PericopeString
-
   attr_reader :starting_chapter, :ending_chapter, :starting_verse, :ending_verse, :biblebook_name, :errors
 
   def initialize(pericope_string)
@@ -17,9 +17,7 @@ class PericopeString
     parse
   end
 
-  def biblebook_name=(raw_biblebook_name)
-    @biblebook_name = raw_biblebook_name
-  end
+  attr_writer :biblebook_name
 
   private
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require "rails_helper"
+
+require 'rails_helper'
 
 describe Admin::ApplicationController, type: :controller do
   let(:user) { create(:user) }
@@ -9,11 +10,11 @@ describe Admin::ApplicationController, type: :controller do
     allow(controller).to receive(:current_user).and_return(user)
   end
 
-  context "non-admin users" do
-    it "are not able to access the index action" do
+  context 'non-admin users' do
+    it 'are not able to access the index action' do
       get :index, params: {}
-      expect(response).to redirect_to "/"
-      expect(flash[:alert]).to eq "You must be an admin to do that."
+      expect(response).to redirect_to '/'
+      expect(flash[:alert]).to eq 'You must be an admin to do that.'
     end
   end
 end

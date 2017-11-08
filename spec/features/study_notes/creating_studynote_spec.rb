@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Users can create new studynotes and associate them to pericopes' do
@@ -72,45 +73,43 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     examples = [
       # [pericope, title, studynote] => method_result
-      { :inputs => 'Gen 1:1 - 1:10',           :expected => 'Genesis 1:1 - 10' },
-      { :inputs => 'gen 1:1 - 1:10',           :expected => 'Genesis 1:1 - 10' },
-      { :inputs => 'Ex 1:1 - 1:10',            :expected => 'Exodus 1:1 - 10' },
-      { :inputs => '1 Kon 1:1 - 1:10',         :expected => '1 Koningen 1:1 - 10' },
-      { :inputs => '1 Kron 1:1 - 1:10',        :expected => '1 Kronieken 1:1 - 10' },
-      { :inputs => '1 Kor 1:1 - 1:10',         :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '1 kor 1:1 - 1:10',         :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '1 Korintiërs 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '1 Korintiers 1:1 - 1:10',  :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '1 Korinthiërs 1:1 - 1:10', :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '1 Korinthiers 1:1 - 1:10', :expected => '1 Korintiërs 1:1 - 10' },
-      { :inputs => '2 Kor 1:1 - 1:10',         :expected => '2 Korintiërs 1:1 - 10' }
+      { inputs: 'Gen 1:1 - 1:10',           expected: 'Genesis 1:1 - 10' },
+      { inputs: 'gen 1:1 - 1:10',           expected: 'Genesis 1:1 - 10' },
+      { inputs: 'Ex 1:1 - 1:10',            expected: 'Exodus 1:1 - 10' },
+      { inputs: '1 Kon 1:1 - 1:10',         expected: '1 Koningen 1:1 - 10' },
+      { inputs: '1 Kron 1:1 - 1:10',        expected: '1 Kronieken 1:1 - 10' },
+      { inputs: '1 Kor 1:1 - 1:10',         expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '1 kor 1:1 - 1:10',         expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '1 Korintiërs 1:1 - 1:10',  expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '1 Korintiers 1:1 - 1:10',  expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '1 Korinthiërs 1:1 - 1:10', expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '1 Korinthiers 1:1 - 1:10', expected: '1 Korintiërs 1:1 - 10' },
+      { inputs: '2 Kor 1:1 - 1:10',         expected: '2 Korintiërs 1:1 - 10' }
     ]
     examples.each do |example|
       it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
-        fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: "#{example[:inputs]}"
+        fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: (example[:inputs]).to_s
 
         submit_form
 
         should_see t(:item_created, item: Studynote.model_name.human)
         within('#studynote') do
-          should_see "#{example[:expected]}"
+          should_see (example[:expected]).to_s
         end
       end
     end
   end
 
-=begin
-  scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
-    click_on 'Voeg nog een pericoop toe'
-    should_see 'pericoop 2'
-    fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-
-    submit_form
-
-    should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3 |'
-  end
-=end
+  #   scenario 'to multiple pericopes with valid attributes', js: true do
+  #     fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
+  #     click_on 'Voeg nog een pericoop toe'
+  #     should_see 'pericoop 2'
+  #     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+  #
+  #     submit_form
+  #
+  #     should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3 |'
+  #   end
 end
 
 feature 'Users can not create new studynotes and associate them to pericopes' do
@@ -160,5 +159,5 @@ feature 'Users can not create new studynotes and associate them to pericopes' do
     should_see 'Jona'
     should_see 'Job'
     should_see 'Johannes'
-    end
+  end
 end

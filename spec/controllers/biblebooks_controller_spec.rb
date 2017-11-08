@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: biblebooks
@@ -12,7 +13,7 @@
 #  abbreviation :string
 #
 
-require "rails_helper"
+require 'rails_helper'
 
 describe Admin::BiblebooksController, type: :controller do
   let(:user) { create(:user, :admin) }
@@ -22,8 +23,8 @@ describe Admin::BiblebooksController, type: :controller do
     allow(controller).to receive(:current_user).and_return(user)
   end
 
-  it "handles a missing biblebook correctly" do
-    get :show, params: { id: "not-here" }
+  it 'handles a missing biblebook correctly' do
+    get :show, params: { id: 'not-here' }
     expect(response).to redirect_to(admin_biblebooks_path)
     message = t(:biblebook_not_found)
     expect(flash[:alert]).to eq message

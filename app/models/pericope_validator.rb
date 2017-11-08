@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Validates a Pericope
 #
 # Checks on the order of the components
@@ -9,7 +10,6 @@
 # - verses within valid range of chapter
 #
 class PericopeValidator < ActiveModel::Validator
-
   def validate(record)
     @record = record
     @name = record.name
@@ -31,7 +31,7 @@ class PericopeValidator < ActiveModel::Validator
   # - the order of chapters/verses
   def validate_name
     @parsed_pericope = parse_pericope(@name)
-    @parsed_pericope.errors&.each { |error| @record.errors.add :name, error}
+    @parsed_pericope.errors&.each { |error| @record.errors.add :name, error }
     return unless find_biblebook
     update_record
   end
@@ -79,7 +79,7 @@ class PericopeValidator < ActiveModel::Validator
 
   def ambiguous_string(book_name, biblebooks)
     book_list = []
-    biblebooks.each {|book| book_list << book.name}
+    biblebooks.each { |book| book_list << book.name }
     "#{I18n.t('ambiguous_abbreviation')}: '#{book_name}' kan #{book_list.join(', ')} zijn"
   end
 

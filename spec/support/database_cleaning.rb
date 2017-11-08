@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-RSpec.configure do |config|
 
+RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
@@ -28,7 +28,7 @@ RSpec.configure do |config|
     # with the specs, so continue to use transaction strategy for speed.
     driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
 
-    if !driver_shares_db_connection_with_specs
+    unless driver_shares_db_connection_with_specs
       # Driver is probably for an external browser with an app
       # under test that does *not* share a database connection with the
       # specs, so use truncation strategy.
@@ -43,20 +43,17 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 end
-=begin
-
-RSpec.configure do |config|
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :deletion
-    DatabaseCleaner.clean_with(:deletion)
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-end
-=end
+#
+# RSpec.configure do |config|
+#   config.before(:suite) do
+#     DatabaseCleaner.strategy = :deletion
+#     DatabaseCleaner.clean_with(:deletion)
+#   end
+#   config.before(:each) do
+#     DatabaseCleaner.start
+#   end
+#   config.after(:each) do
+#     DatabaseCleaner.clean
+#   end
+# end

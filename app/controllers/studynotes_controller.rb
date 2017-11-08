@@ -1,15 +1,14 @@
 # frozen_string_literal: true
-class StudynotesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new,        :create, :edit, :update, :destroy]
-  before_action :set_studynote,      only: [      :show,          :edit, :update, :destroy]
+class StudynotesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :set_studynote,      only: %i[show edit update destroy]
 
   def index
     @studynote = Studynote.all.order(:title)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @studynote = Studynote.new
@@ -55,7 +54,7 @@ class StudynotesController < ApplicationController
   private
 
   def studynote_params
-    params.require(:studynote).permit(:id, :title, :note, pericopes_attributes: [:id, :name])
+    params.require(:studynote).permit(:id, :title, :note, pericopes_attributes: %i[id name])
   end
 
   def set_studynote

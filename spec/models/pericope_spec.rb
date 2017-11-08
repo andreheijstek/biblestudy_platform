@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pericopes
@@ -20,7 +21,6 @@
 require 'rails_helper'
 
 describe Pericope, type: :model do
-
   before do
     # create a biblebook first, so that it can be connected to the pericopes
     @genesis = create(:biblebook, name: 'Genesis')
@@ -101,5 +101,5 @@ describe Pericope, type: :model do
     expect(pericope.biblebook.name).to eq('Genesis')
   end
 
-  # Todo: add similar tests for starting/ending chapter/verse
+  # TODO: add similar tests for starting/ending chapter/verse
 end

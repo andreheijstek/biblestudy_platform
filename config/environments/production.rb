@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -83,14 +84,14 @@ Rails.application.configure do
 
   # Email setup
   ActionMailer::Base.delivery_method = :smtp
-  host = "www.bijbelstudie-platform.nl"
+  host = 'www.bijbelstudie-platform.nl'
   ActionMailer::Base.smtp_settings = {
-      port: ENV['MAILGUN_SMTP_PORT'],
-      address: ENV['MAILGUN_SMTP_SERVER'],
-      user_name: ENV['MAILGUN_SMTP_LOGIN'],
-      password: ENV['MAILGUN_SMTP_PASSWORD'],
-      domain: host,
-      authentication: :plain,
+    port: ENV['MAILGUN_SMTP_PORT'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
+    domain: host,
+    authentication: :plain
   }
   config.action_mailer.default_url_options = { host: host }
 end

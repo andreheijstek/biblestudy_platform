@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Users can view an overview of all studynotes' do
@@ -65,12 +66,10 @@ feature 'Users can view an overview of all studynotes' do
     expect('Jona').to appear_before('Handelingen')
   end
 
-
   scenario 'sorted by chapter number' do
     expect('Handelingen eerst').to appear_before('Handelingen later')
     expect('Handelingen alles').to appear_before('Handelingen eerst')
   end
-
 
   scenario 'grouped by biblebook' do
     should_see 'Handelingen'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.3.0'
@@ -26,7 +27,6 @@ gem 'sdoc', group: :doc
 
 gem 'annotate'
 gem 'bootstrap-sass'
-gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'devise'
@@ -34,9 +34,10 @@ gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'pundit'
+gem 'rubocop'
+gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'webdrivers'
-gem 'rubocop'
 
 gem 'pg'
 # gem 'tilt'
@@ -47,10 +48,10 @@ group :development, :test do
   gem 'launchy'
   gem 'orderly'
   gem 'pry-byebug'
+  gem 'rails-controller-testing'
   gem 'rb-readline'
   gem 'rspec-rails'
-  gem 'rails-controller-testing'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -74,9 +75,7 @@ group :test do
 end
 
 group :production do
+  gem 'newrelic_rpm'
   gem 'puma'
   gem 'rails_12factor'
-  gem 'newrelic_rpm'
 end
-
-

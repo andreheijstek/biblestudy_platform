@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-def t(string, options={})
+
+def t(string, options = {})
   I18n.t(string, options)
 end
 
@@ -34,7 +35,7 @@ end
 # end
 
 def within_table_row(position)
-  row = find_all("table tr")[position]
+  row = find_all('table tr')[position]
   within(row) do
     yield
   end

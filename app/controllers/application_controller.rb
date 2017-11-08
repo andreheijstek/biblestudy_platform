@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Pundit
 
@@ -25,6 +26,6 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authorized
-    redirect_to root_path, alert: t("not_allowed")
+    redirect_to root_path, alert: t('not_allowed')
   end
 end

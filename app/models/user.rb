@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -29,6 +30,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
 
   def to_s
-    "#{email} (#{admin? ? "Admin" : "User"})"
+    "#{email} (#{admin? ? 'Admin' : 'User'})"
   end
 end

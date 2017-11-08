@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: biblebooks
@@ -15,7 +16,6 @@
 require 'rails_helper'
 
 describe 'Biblebook' do
-
   before do
     @genesis = create(:biblebook, name: 'Genesis')
     create(:chapter, biblebook_id: @genesis.id)

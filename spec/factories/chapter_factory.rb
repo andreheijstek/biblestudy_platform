@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: chapters
@@ -14,7 +15,7 @@
 
 FactoryGirl.define do
   factory :chapter do
-    chapter_number "0"
-    description "Example description"
+    chapter_number '0'
+    description 'Example description'
   end
 end

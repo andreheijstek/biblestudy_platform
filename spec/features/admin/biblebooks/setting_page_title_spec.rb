@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Page title is set according to the page content' do
@@ -11,7 +12,7 @@ feature 'Page title is set according to the page content' do
     click_link t(:new_biblebook)
 
     bookname = 'Handelingen'
-    fill_in t(:name, scope: [:simple_form, :labels, :biblebook]), with: bookname
+    fill_in t(:name, scope: %i[simple_form labels biblebook]), with: bookname
 
     submit_form
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateStudynotes < ActiveRecord::Migration[4.2]
   def change
     create_table :studynotes do |t|

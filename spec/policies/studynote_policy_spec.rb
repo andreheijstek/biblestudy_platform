@@ -1,12 +1,12 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 describe StudynotePolicy do
-
-  context "permissions" do
+  context 'permissions' do
     subject { StudynotePolicy.new(user, studynote) }
 
-    context "for a visitor" do
+    context 'for a visitor' do
       let(:user)      { nil }
       let(:author)    { create(:user) }
       let(:studynote) { create(:studynote, author: author) }
@@ -21,7 +21,7 @@ describe StudynotePolicy do
       it { should_not permit_action(:destroy) }
     end
 
-    context "for an author" do
+    context 'for an author' do
       let(:user)      { create(:user) }
       let(:studynote) { create(:studynote, author: user) }
 
@@ -33,7 +33,7 @@ describe StudynotePolicy do
       it { should permit_action(:destroy) }
     end
 
-    context "for a user" do
+    context 'for a user' do
       let(:user)      { create(:user) }
       let(:author)    { create(:user) }
       let(:studynote) { create(:studynote, author: author) }

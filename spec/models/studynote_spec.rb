@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Studynote', type: :model do
-
   before do
     create(:biblebook, name: 'Genesis', abbreviation: 'Gen')
   end
@@ -21,7 +21,7 @@ describe 'Studynote', type: :model do
     sn = Studynote.new
     sn.pericopes.build
     sn = Studynote.new(title: 'title', note: 'note',
-                       pericopes_attributes: [{name: 'Gen 1:2-3:4'}])
+                       pericopes_attributes: [{ name: 'Gen 1:2-3:4' }])
     expect(sn).to be_valid
   end
 
@@ -46,7 +46,6 @@ describe 'Studynote', type: :model do
     expect(pericope.biblebook.name).to eq('Genesis')
     expect(sn.title).to eq('title')
   end
-
 
   it 'should create a new studynote and associated pericope with valid and abbreviated attributes' do
     sn = Studynote.create(title: 'title', note: 'note')

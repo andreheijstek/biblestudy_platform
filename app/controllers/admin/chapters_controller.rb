@@ -1,10 +1,10 @@
 # frozen_string_literal: true
+
 class Admin::ChaptersController < Admin::ApplicationController
   before_action :set_biblebook
-  before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :set_chapter, only: %i[show edit update destroy]
 
-  def show
-  end
+  def show; end
 
   def new
     @chapter = @biblebook.chapters.build
@@ -17,12 +17,11 @@ class Admin::ChaptersController < Admin::ApplicationController
       redirect_to [:admin, @biblebook, @chapter]
     else
       flash.now[:alert] = t(:item_not_created, item: Chapter.model_name.human)
-      render "new"
+      render 'new'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @chapter.update(chapter_params)
@@ -30,7 +29,7 @@ class Admin::ChaptersController < Admin::ApplicationController
       redirect_to [:admin, @biblebook, @chapter]
     else
       flash.now[:alert] = t(:item_not_updated, item: Chapter.model_name.human)
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -41,7 +40,7 @@ class Admin::ChaptersController < Admin::ApplicationController
   end
 
   private
-  
+
   def chapter_params
     params.require(:chapter).permit(:chapter_number, :description, :nrofverses)
   end
