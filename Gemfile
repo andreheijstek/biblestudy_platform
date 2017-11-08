@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 ruby '2.3.0'
@@ -35,6 +36,7 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'sorted-activerecord'
 gem 'webdrivers'
+gem 'rubocop'
 
 gem 'pg'
 # gem 'tilt'

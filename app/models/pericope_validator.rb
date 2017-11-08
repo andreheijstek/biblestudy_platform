@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Validates a Pericope
 #
 # Checks on the order of the components
@@ -30,7 +31,7 @@ class PericopeValidator < ActiveModel::Validator
   # - the order of chapters/verses
   def validate_name
     @parsed_pericope = parse_pericope(@name)
-    @parsed_pericope.errors&.each {|error| @record.errors.add :name, error}
+    @parsed_pericope.errors&.each { |error| @record.errors.add :name, error}
     return unless find_biblebook
     update_record
   end
@@ -93,7 +94,7 @@ class PericopeValidator < ActiveModel::Validator
       r.ending_chapter_nr = @parsed_pericope.ending_chapter
       r.ending_verse = @parsed_pericope.ending_verse
 
-      @record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
+      r.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
     end
   end
 end

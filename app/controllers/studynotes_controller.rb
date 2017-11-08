@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class StudynotesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new,        :create, :edit, :update, :destroy]

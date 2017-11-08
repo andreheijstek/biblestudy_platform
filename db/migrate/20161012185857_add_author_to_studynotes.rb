@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddAuthorToStudynotes < ActiveRecord::Migration[4.2]
   def change
     add_reference :studynotes, :author, index: true

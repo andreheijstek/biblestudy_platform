@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Admin::BiblebooksController < Admin::ApplicationController
   before_action :set_biblebook, only: [:show, :edit, :update, :destroy]
 

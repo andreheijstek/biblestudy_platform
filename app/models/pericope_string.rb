@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Turns a String into a PericopeString, containing all constituent elements (biblebook, chapter, verse)
 class PericopeString
 

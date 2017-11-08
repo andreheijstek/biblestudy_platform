@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'Users can create new studynotes and associate them to pericopes' do

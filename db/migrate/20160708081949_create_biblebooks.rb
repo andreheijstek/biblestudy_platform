@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateBiblebooks < ActiveRecord::Migration[4.2]
   def change
     create_table :biblebooks do |t|

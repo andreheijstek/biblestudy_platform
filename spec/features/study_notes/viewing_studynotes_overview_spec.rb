@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'Users can view an overview of all studynotes' do

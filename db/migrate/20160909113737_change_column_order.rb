@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ChangeColumnOrder < ActiveRecord::Migration[4.2]
   def change
     def up

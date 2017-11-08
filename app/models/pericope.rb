@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: pericopes
@@ -26,7 +27,7 @@ class Pericope < ActiveRecord::Base
 
   def reformat_name
     return unless errors.empty?
-    new_name = ''
+    new_name = +''
     new_name << biblebook_name
     if starting_chapter_nr != 0
       # Chapter filled, so this is not just a complete biblebook

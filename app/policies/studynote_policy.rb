@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class StudynotePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve

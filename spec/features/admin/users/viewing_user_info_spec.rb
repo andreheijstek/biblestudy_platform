@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "rails_helper"
 
 feature "Admins can view a list of all users" do
