@@ -28,35 +28,47 @@ class Pericope < ActiveRecord::Base
 
   def reformat_name
     return unless errors.empty?
-    new_name = +''
-    new_name << biblebook_name
+    new_name = biblebook_name
     if starting_chapter_nr != 0
-      # Chapter filled, so this is not just a complete biblebook
-      new_name << ' '
-      new_name << starting_chapter_nr.to_s
+      new_name = starting_chapter(new_name)
       if starting_verse != 0
-        # there are verses, so this is not a whole chapter
         if ending_chapter_nr > starting_chapter_nr
-          # multiple chapters, so publish a full 4 element string (1:2-3:4)
-          new_name << ':'
-          new_name << starting_verse.to_s
-          new_name << ' - '
-          new_name << ending_chapter_nr.to_s
-          new_name << ':'
-          new_name << ending_verse.to_s
+          new_name = full_pericope(new_name)
         elsif ending_verse > starting_verse
-          # whole pericope, but within the same chapter (1:2-8)
-          new_name << ':'
-          new_name << starting_verse.to_s
-          new_name << ' - '
-          new_name << ending_verse.to_s
+          new_name = same_chapter(new_name)
         elsif ending_verse == starting_verse
-          # pericope consisting of just one verse (1:2)
-          new_name << ':'
-          new_name << starting_verse.to_s
+          new_name = one_verse(new_name)
         end
       end
     end
     self.name = new_name
+  end
+
+  private
+
+  def starting_chapter(new_name)
+    new_name << ' '
+    new_name << starting_chapter_nr.to_s
+  end
+
+  def full_pericope(new_name)
+    new_name << ':'
+    new_name << starting_verse.to_s
+    new_name << ' - '
+    new_name << ending_chapter_nr.to_s
+    new_name << ':'
+    new_name << ending_verse.to_s
+  end
+
+  def same_chapter(new_name)
+    new_name << ':'
+    new_name << starting_verse.to_s
+    new_name << ' - '
+    new_name << ending_verse.to_s
+  end
+
+  def one_verse(new_name)
+    new_name << ':'
+    new_name << starting_verse.to_s
   end
 end
