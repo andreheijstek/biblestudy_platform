@@ -4,7 +4,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-include FactoryGirl::Syntax::Methods
+include FactoryBot::Syntax::Methods
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'spec_helper'

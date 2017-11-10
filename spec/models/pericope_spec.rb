@@ -50,6 +50,7 @@ describe Pericope, type: :model do
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
     expect(pericope.biblebook_id).to        eq(@genesis.id)
+    expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
   it 'name must contain a valid pericopes string, and may be without spaces' do
@@ -59,6 +60,7 @@ describe Pericope, type: :model do
     expect(pericope.ending_chapter_nr).to   eq(3)
     expect(pericope.ending_verse).to        eq(4)
     expect(pericope.biblebook_id).to        eq(@genesis.id)
+    expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
   it 'name must contain a valid pericopes string, where the ending chapter is not required' do
@@ -68,6 +70,7 @@ describe Pericope, type: :model do
     expect(pericope.ending_chapter_nr).to   eq(1)
     expect(pericope.ending_verse).to        eq(3)
     expect(pericope.biblebook_id).to        eq(@genesis.id)
+    expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
   it 'verse may contain a biblebook abbreviation' do
@@ -78,6 +81,7 @@ describe Pericope, type: :model do
     expect(pericope.ending_verse).to        eq(3)
 
     expect(pericope).to be_valid # test makes no sense now, as I don't check on name
+    expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
   it 'ending chapter must be greater or equal than starting chapter' do
@@ -94,6 +98,7 @@ describe Pericope, type: :model do
     pericope = Pericope.create(name: 'Genesis 4:3')
     expect(pericope).to be_valid
     expect(pericope.name).to eq('Genesis 4:3')
+    expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
   it 'parses the biblebook from the name' do

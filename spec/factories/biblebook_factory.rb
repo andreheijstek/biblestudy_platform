@@ -13,7 +13,7 @@
 #  abbreviation :string
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :biblebook do
     name 'Voorbeeld bijbelboek'
     booksequence 0

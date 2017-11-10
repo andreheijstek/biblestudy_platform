@@ -70,7 +70,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
 end
 

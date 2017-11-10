@@ -18,11 +18,10 @@ describe 'Studynote', type: :model do
   end
 
   it 'should create a studynote with associated pericope' do
-    sn = Studynote.new
-    sn.pericopes.build
-    sn = Studynote.new(title: 'title', note: 'note',
+    sn = Studynote.create(title: 'title', note: 'note',
                        pericopes_attributes: [{ name: 'Gen 1:2-3:4' }])
     expect(sn).to be_valid
+    expect(sn.pericopes[0].biblebook_name).to eq('Genesis')
   end
 
   it 'should reject a new studynote with without a title' do

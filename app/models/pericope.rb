@@ -28,7 +28,7 @@ class Pericope < ActiveRecord::Base
 
   def reformat_name
     return unless errors.empty?
-    new_name = biblebook_name
+    new_name = biblebook_name.dup
     if starting_chapter_nr != 0
       new_name = starting_chapter(new_name)
       if starting_verse != 0

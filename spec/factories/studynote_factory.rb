@@ -12,7 +12,7 @@
 #  author_id  :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :studynote do
     title 'titel'
     note 'text'
