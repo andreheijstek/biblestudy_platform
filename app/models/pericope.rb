@@ -75,7 +75,7 @@ class Pericope < ActiveRecord::Base
   end
 
   def full_pericope
-    ":#{starting_verse} - #{ending_chapter_nr.to_s}:#{ending_verse}"
+    ":#{starting_verse} - #{ending_chapter_nr}:#{ending_verse}"
   end
 
   def same_chapter
