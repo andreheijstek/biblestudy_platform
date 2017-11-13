@@ -19,10 +19,7 @@
   <header>
     <p>
       <div id="pericope">
-        <% @studynote.pericopes.each do |pericope| %>
-          <%= pericope.name %>
-            |
-        <% end %>
+        <%= @studynote.pericopes.collect(&:name).join(' | ') %>
       </div>
     </p>
     <p><%= simple_format @studynote.note %></p>

@@ -51,11 +51,11 @@ class Pericope < ActiveRecord::Base
   end
 
   def whole_chapter?
-    starting_verse == 0
+    starting_verse.zero?
   end
 
   def whole_book?
-    starting_chapter_nr == 0
+    starting_chapter_nr.zero?
   end
 
   def one_verse?
