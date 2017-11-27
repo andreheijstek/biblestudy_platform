@@ -1,0 +1,65 @@
+%body
+  %header
+    %h1
+      = t('activerecord.models.studynote', count: 2)
+    %ul.actions
+      = link_to t(:new_studynote), new_studynote_path, class: "new"
+  #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+    .panel.panel-default
+      #ot.panel-heading{:role => "tab"}
+        %h4.panel-title
+          %a.collapsed{"aria-controls" => "collapse1", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
+            - ot_counts = @testament_counts["oud"] || 0
+            %h2= "#{t('old_testament')}  (#{t("studynote", :count => ot_counts)})"
+      #collapse1{"aria-labelledby" => "ot", :class => "panel-collapse #{ot_counts > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
+        / nested accordion
+        - @ot.each_with_index do |book, index|
+          - book_href = "\#bookot#{index}"
+          - book_control = "bookot#{index}"
+          - study_count = @biblebook_counts[book.name] || 0
+          .panel.panel-default
+            #ot.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"data-parent" => "#nt", "data-toggle" => "collapse", :href => "#{book.name}"}
+                  \#{"#{book.name} (#{study_count})"}
+            %div{:id => "#{book.name}"}
+              %table{:id => "#{book.name}"}
+                %tr
+                  %th= t('activerecord.models.pericope', count: 1)
+                  %th= t('author')
+                  %th= Studynote.human_attribute_name(:title)
+                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |pericope|
+                  %tr
+                    %td= pericope.name
+                    %td= pericope.studynote.author.username
+                    %td= link_to pericope.studynote.title, pericope.studynote
+        / end nested accordion
+    .panel.panel-default
+      #nt.panel-heading{:role => "tab"}
+        %h4.panel-title
+          %a.collapsed{"aria-controls" => "collapse2", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
+            - nt_counts = @testament_counts["nieuw"] || 0
+            %h2= "#{t('new_testament')} (#{t("studynote", :count => nt_counts)})"
+      #collapse2{"aria-labelledby" => "nt", :class => "panel-collapse #{nt_counts > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
+        / nested accordion
+        - @nt.each_with_index do |book, index|
+          - book_href = "\#booknt#{index}"
+          - book_control = "booknt#{index}"
+          - study_count = @biblebook_counts[book.name] || 0
+          .panel.panel-default
+            #nt.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"data-parent" => "#ot", "data-toggle" => "collapse", :href => "#{book.name}"}
+                  \#{"#{book.name} (#{study_count})"}
+            %div{:id => "#{book.name}"}
+              %table{:id => "#{book.name}"}
+                %tr
+                  %th= t('activerecord.models.pericope', count: 1)
+                  %th= t('author')
+                  %th= Studynote.human_attribute_name(:title)
+                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
+                  %tr
+                    %td= study.name
+                    %td= study.studynote.author.username
+                    %td= link_to study.studynote.title, study.studynote
+        / end nested accordion

@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Pericoop
+    %th Auteur
+    %th Titel
+  - Pericope.where(biblebook_name: @book.name).each do |study|
+    %tr
+      %td= study.name
+      %td= study.studynote.author.username
+      %td= link_to study.studynote.title, study.studynote

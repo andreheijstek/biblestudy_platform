@@ -1,0 +1,18 @@
+%body
+  %header
+    %h1 Users
+    %ul.actions
+      %li
+        = link_to "New User", new_admin_user_path, class: "new"
+  %table#users.sortable
+    %tr
+      %th user
+      %th #logins
+      %th last login date
+      %th #studies
+    - @users.each do |user|
+      %tr
+        %td#username= link_to user, [:admin, user]
+        %td#signin_count= user.sign_in_count
+        %td{:id => "last_sign_in\""}= user.last_sign_in_at
+        %td{:id => "studynote count"}= Studynote.where(author_id: user).count

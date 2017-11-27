@@ -21,7 +21,7 @@ feature 'Users can view studynotes' do
 
     should_see t('item_created', item: Studynote.model_name.human)
     within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
+      should_see "#{t('author')} #{user.username}"
     end
   end
 
@@ -34,7 +34,7 @@ feature 'Users can view studynotes' do
 
     should_see t('item_created', item: Studynote.model_name.human)
     within('#studynote') do
-      should_see "#{t('author')}: #{user.username}"
+      should_see "#{t('author')} #{user.username}"
     end
   end
 end

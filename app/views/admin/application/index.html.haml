@@ -1,0 +1,11 @@
+%body
+  #admin.row
+    .col-md-9
+      %header
+        %h1 Admin Lounge
+      %p Welcome to the Admin Lounge. Please enjoy your stay.
+    .col-md-3
+      %h2 Admin Links
+      %ul.nav.nav-stacked
+        %li= link_to 'Users', admin_users_path
+        %li= link_to 'Biblebooks', admin_biblebooks_path

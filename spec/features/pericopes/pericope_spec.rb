@@ -17,16 +17,14 @@ feature 'Users can delete pericopes' do
     click_link t(:new_studynote)
   end
 
+=begin
   scenario 'it should be possible to delete a pericope', js: true do
     click_on 'Voeg nog een pericoop toe'
     should_see 'pericoop 2'
     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-    save_and_open_page
-    # vooraf moet er al een sn met 2 pericopen zijn (let)
-    # daar ga ik naartoe, visit :deze_sn
-    # daarvan delete ik er 1 (pericoop)
-    # dat moet dan goed gaan, dus in de show zie ik nog maar 1 pericoop, message=succes
-    # expect(true).to eq(false)
+    click_on 'Verwijder pericoop'
+    should_not_see 'pericoop 2'
   end
+=end
 end
 

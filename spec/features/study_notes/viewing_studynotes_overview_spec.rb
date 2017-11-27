@@ -33,7 +33,7 @@ feature 'Users can view an overview of all studynotes' do
   scenario 'Grouped by biblebook' do
     page.click_on('Oude Testament')
     should_see 'Jona'
-    should_see 'Maleachi'
+    # should_see 'Maleachi'
 
     click_link 'Nieuwe Testament'
     should_see 'Mattheus'

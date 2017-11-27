@@ -1,0 +1,9 @@
+= simple_form_for studynote, validate: true do |s|
+  #pericopes
+    = render partial: "pericopes/form", locals: { s: s, index: 0 }
+  %p
+    = link_to t('add_pericope'), new_pericope_path, remote: true,             |
+      id: "add_pericope", data: { params: {index: studynote.pericopes.size} } |
+  = s.input :title
+  = s.input :note, :input_html => {:rows => 10}
+  = s.button :submit, class: "btn-primary"

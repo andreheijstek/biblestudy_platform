@@ -41,6 +41,7 @@ gem 'webdrivers'
 
 gem 'pg'
 # gem 'tilt'
+gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,6 +65,7 @@ group :development do
   gem 'spring'
   # gem 'i18n-debug'
   gem 'yard' # used to document code with comments about return types and parameters before each method
+  gem "erb2haml", :group => :development
 end
 
 group :test do

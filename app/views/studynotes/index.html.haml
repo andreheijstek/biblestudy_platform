@@ -1,0 +1,16 @@
+%body
+  %header
+    %h1
+      = t('activerecord.models.studynote', count: 2)
+    %ul.actions
+      = link_to t(:new_studynote), new_studynote_path, class: "new"
+  #studynotes
+    %table#studynotes
+      - @studynote.each do |studynote|
+        %tr
+          %td= link_to studynote.title, studynote
+          %td
+            %table#pericopes
+              - studynote.pericopes.each do |pericope|
+                %tr
+                  %td= pericope.name
