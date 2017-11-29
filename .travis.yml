@@ -25,7 +25,7 @@ deploy:
 
 notifications:
   email:
-    - andre.heijstek@improvementfocus.com
+    - andre.heijstek@gmail.com
 
 addons:
   - postgresql: "9.5.4"
