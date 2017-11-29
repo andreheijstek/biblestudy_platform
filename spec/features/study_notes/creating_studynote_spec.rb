@@ -100,6 +100,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     end
   end
 
+=begin
   scenario 'to multiple pericopes with valid attributes', js: true do
     fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
     click_on 'Voeg nog een pericoop toe'
@@ -110,6 +111,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3'
   end
+=end
 end
 
 feature 'Users can not create new studynotes and associate them to pericopes' do
