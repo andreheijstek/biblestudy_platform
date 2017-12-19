@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219131145) do
+ActiveRecord::Schema.define(version: 20171219181637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bible_verses", force: :cascade do |t|
+    t.bigint "biblebook_id"
+    t.integer "chapter_nr"
+    t.integer "verse_nr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["biblebook_id"], name: "index_bible_verses_on_biblebook_id"
+  end
 
   create_table "biblebooks", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -90,23 +99,11 @@ ActiveRecord::Schema.define(version: 20171219131145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "verses", force: :cascade do |t|
-    t.integer "chapter_nr"
-    t.integer "verse_nr"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "biblebook_id"
-    t.bigint "pericope_id"
-    t.index ["biblebook_id"], name: "index_verses_on_biblebook_id"
-    t.index ["pericope_id"], name: "index_verses_on_pericope_id"
-  end
-
+  add_foreign_key "bible_verses", "biblebooks"
   add_foreign_key "chapters", "biblebooks"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"
   add_foreign_key "roles", "studynotes"
   add_foreign_key "roles", "users"
   add_foreign_key "studynotes", "users", column: "author_id"
-  add_foreign_key "verses", "biblebooks"
-  add_foreign_key "verses", "pericopes"
 end
