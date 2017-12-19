@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219181637) do
+ActiveRecord::Schema.define(version: 20171219195018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20171219181637) do
     t.datetime "updated_at", null: false
     t.integer "nrofverses"
     t.index ["biblebook_id"], name: "index_chapters_on_biblebook_id"
+  end
+
+  create_table "pericope_as_ranges", force: :cascade do |t|
+    t.string "name"
+    t.bigint "starting_verse_id"
+    t.bigint "ending_verse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ending_verse_id"], name: "index_pericope_as_ranges_on_ending_verse_id"
+    t.index ["starting_verse_id"], name: "index_pericope_as_ranges_on_starting_verse_id"
   end
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
@@ -101,6 +111,8 @@ ActiveRecord::Schema.define(version: 20171219181637) do
 
   add_foreign_key "bible_verses", "biblebooks"
   add_foreign_key "chapters", "biblebooks"
+  add_foreign_key "pericope_as_ranges", "bible_verses", column: "ending_verse_id"
+  add_foreign_key "pericope_as_ranges", "bible_verses", column: "starting_verse_id"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"
   add_foreign_key "roles", "studynotes"
