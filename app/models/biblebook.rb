@@ -29,4 +29,5 @@ class Biblebook < ActiveRecord::Base
   def nr_of_chapters
     Chapter.where(biblebook_id: id).count
   end
+  alias size nr_of_chapters
 end

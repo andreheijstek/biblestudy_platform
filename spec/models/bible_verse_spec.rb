@@ -12,6 +12,26 @@
 
 require 'rails_helper'
 
-RSpec.describe BibleVerse, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe BibleVerse, type: :model do
+  before do
+    @genesis = create(:biblebook, name: 'Genesis')
+    create(:chapter, biblebook: @genesis, chapter_number: 1)
+    create(:chapter, biblebook: @genesis, chapter_number: 2)
+  end
+
+  it 'can be created with valid parameters' do
+    verse = create(:bible_verse, biblebook: @genesis, chapter_nr: 1, verse_nr: 1)
+    expect(verse).to be_valid
+  end
+
+  it 'rejects chapters that are out of range' do
+
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 0, verse_nr: 1)
+    expect(verse).to_not be_valid
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: -1, verse_nr: 1)
+    expect(verse).to_not be_valid
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 99, verse_nr: 1)
+    expect(verse).to_not be_valid
+    # -1, 99
+  end
 end
