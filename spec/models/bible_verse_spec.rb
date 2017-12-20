@@ -24,14 +24,19 @@ describe BibleVerse, type: :model do
     expect(verse).to be_valid
   end
 
-  it 'rejects chapters that are out of range' do
+  it 'rejects when not all parameters are given' do
+    verse = BibleVerse.new(biblebook: @genesis, verse_nr: 1)
+    expect(verse).to_not be_valid
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 1)
+    expect(verse).to_not be_valid
+  end
 
+  it 'rejects chapters that are out of range' do
     verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 0, verse_nr: 1)
     expect(verse).to_not be_valid
     verse = BibleVerse.new(biblebook: @genesis, chapter_nr: -1, verse_nr: 1)
     expect(verse).to_not be_valid
     verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 99, verse_nr: 1)
     expect(verse).to_not be_valid
-    # -1, 99
   end
 end
