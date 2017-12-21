@@ -11,6 +11,6 @@
 #
 
 class PericopeAsRange < ApplicationRecord
-  belongs_to :starting_verse
-  belongs_to :ending_verse
+  belongs_to :starting_verse, class_name: 'BibleVerse', foreign_key: 'starting_verse_id'
+  belongs_to :ending_verse, class_name: 'BibleVerse', foreign_key: 'ending_verse_id'
 end

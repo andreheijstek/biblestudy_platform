@@ -12,6 +12,19 @@
 
 require 'rails_helper'
 
-RSpec.describe PericopeAsRange, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe PericopeAsRange, type: :model do
+  before do
+    @genesis = create(:biblebook, name: 'Genesis')
+    create(:chapter, biblebook: @genesis, chapter_number: 1, nrofverses: 4)
+    create(:chapter, biblebook: @genesis, chapter_number: 2, nrofverses: 5)
+    create(:chapter, biblebook: @genesis, chapter_number: 3, nrofverses: 5)
+  end
+
+  it 'can be created with valid parameters' do
+    starting_verse = create(:bible_verse, biblebook: @genesis, chapter_nr: 1, verse_nr: 2)
+    ending_verse   = create(:bible_verse, biblebook: @genesis, chapter_nr: 3, verse_nr: 4)
+    pericope       = PericopeAsRange.create(starting_verse: starting_verse, ending_verse: ending_verse)
+    expect(pericope).to be_valid
+  end
 end
+
