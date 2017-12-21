@@ -8,7 +8,7 @@ class ChangeColumnOrder < ActiveRecord::Migration[4.2]
         t.change :booksequence, :integer, after: :testament
       end
       change_table :chapters do |t|
-        t.change :nrofverses, :integer, after: :description
+        t.change :nr_of_verses, :integer, after: :description
       end
       change_table :pericopes do |t|
         t.change :name, :text, after: :id

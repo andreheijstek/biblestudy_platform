@@ -42,7 +42,7 @@ class Admin::ChaptersController < Admin::ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:chapter_number, :description, :nrofverses)
+    params.require(:chapter).permit(:chapter_number, :description, :nr_of_verses)
   end
 
   def set_biblebook

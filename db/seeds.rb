@@ -137,7 +137,7 @@ books.each do |book|
   id = Biblebook.find_by(name: book[:name]).id
   (1..book[:chapters]).each_with_index do |chapter, index|
     unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
-      Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
+      Chapter.create!(chapter_number: chapter, description: '', nr_of_verses: book[:verses][index], biblebook_id: id)
     end
   end
 
