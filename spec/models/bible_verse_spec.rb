@@ -15,10 +15,8 @@ require 'rails_helper'
 describe BibleVerse, type: :model do
   before do
     @genesis = create(:biblebook, name: 'Genesis')
-    @genesis.chapters.create(chapter_number: 1, nrofverses: 4)
-    @genesis.chapters.create(chapter_number: 2, nrofverses: 3)
-    # create(:chapter, biblebook: @genesis, chapter_number: 1, nrofverses: 4)
-    # create(:chapter, biblebook: @genesis, chapter_number: 2)
+    create(:chapter, biblebook: @genesis, chapter_number: 1, nrofverses: 4)
+    create(:chapter, biblebook: @genesis, chapter_number: 2)
   end
 
   it 'can be created with valid parameters' do
@@ -45,8 +43,8 @@ describe BibleVerse, type: :model do
     expect(verse).to_not be_valid
   end
 
-  # it 'rejects verses that are out of range' do
-  #   verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 5)
-  #   expect(verse).to_not be_valid
-  # end
+  it 'rejects verses that are out of range' do
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 5)
+    expect(verse).to_not be_valid
+  end
 end
