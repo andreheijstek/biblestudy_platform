@@ -27,20 +27,18 @@ class BibleVerse < ApplicationRecord
 
   def number_of_chapters_in_range
     return unless input_safe?
-    if chapter_nr > nr_of_chapters
-      errors.add(:chapter_nr,
-                 "cannot be greater than the number of chapters in this book,
-                   in this case: #{nr_of_chapters}")
-    end
+    return if chapter_nr <= nr_of_chapters
+    errors.add(:chapter_nr,
+               "cannot be greater than the number of chapters in this book,
+                 in this case: #{nr_of_chapters}")
   end
 
   def number_of_verses_in_range
     return unless input_safe? && chapter_nr <= nr_of_chapters
-    if verse_nr > nr_of_verses
-      errors.add(:verse_nr,
-                 "cannot be greater than the number of verses in this chapter,
-                   in this case: #{nr_of_verses}")
-    end
+    return if verse_nr <= nr_of_verses
+    errors.add(:verse_nr,
+               "cannot be greater than the number of verses in this chapter,
+                 in this case: #{nr_of_verses}")
   end
 
   private

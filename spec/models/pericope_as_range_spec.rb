@@ -18,13 +18,39 @@ describe PericopeAsRange, type: :model do
     create(:chapter, biblebook: @genesis, chapter_number: 1, nrofverses: 4)
     create(:chapter, biblebook: @genesis, chapter_number: 2, nrofverses: 5)
     create(:chapter, biblebook: @genesis, chapter_number: 3, nrofverses: 5)
+
+    @exodus = create(:biblebook, name: 'Exodus')
+    create(:chapter, biblebook: @exodus, chapter_number: 1, nrofverses: 4)
+    create(:chapter, biblebook: @exodus, chapter_number: 2, nrofverses: 5)
+    create(:chapter, biblebook: @exodus, chapter_number: 3, nrofverses: 5)
   end
 
   it 'can be created with valid parameters' do
-    starting_verse = create(:bible_verse, biblebook: @genesis, chapter_nr: 1, verse_nr: 2)
-    ending_verse   = create(:bible_verse, biblebook: @genesis, chapter_nr: 3, verse_nr: 4)
-    pericope       = PericopeAsRange.create(starting_verse: starting_verse, ending_verse: ending_verse)
+    starting_verse = create(:bible_verse,
+                            biblebook:  @genesis,
+                            chapter_nr: 1,
+                            verse_nr:   2)
+    ending_verse   = create(:bible_verse,
+                            biblebook:  @genesis,
+                            chapter_nr: 3,
+                            verse_nr:   4)
+    pericope       = PericopeAsRange.create(starting_verse: starting_verse,
+                                            ending_verse:   ending_verse)
     expect(pericope).to be_valid
+  end
+
+  it 'pericopes should be confined to a single biblebook' do
+    starting_verse = create(:bible_verse,
+                            biblebook:  @genesis,
+                            chapter_nr: 1,
+                            verse_nr:   2)
+    ending_verse   = create(:bible_verse,
+                            biblebook:  @exodus,
+                            chapter_nr: 3,
+                            verse_nr:   4)
+    pericope       = PericopeAsRange.create(starting_verse: starting_verse,
+                                            ending_verse:   ending_verse)
+    expect(pericope).to_not be_valid
   end
 end
 
