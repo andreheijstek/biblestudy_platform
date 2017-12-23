@@ -20,7 +20,7 @@ describe BibleVerse, type: :model do
   end
 
   it 'can be created with valid parameters' do
-    verse = create(:bible_verse, biblebook: @genesis, chapter_nr: 1, verse_nr: 1)
+    verse = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 1)
     expect(verse).to be_valid
   end
 

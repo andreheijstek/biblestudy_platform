@@ -14,6 +14,8 @@
 
 # Models a Pericope as a Range of a StartingVerse and an EndingVerse
 class PericopeAsRange < ApplicationRecord
+  include Comparable
+
   belongs_to :starting_verse,
              class_name:  'BibleVerse',
              foreign_key: 'starting_verse_id'

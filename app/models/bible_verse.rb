@@ -15,7 +15,9 @@
 # Models one bibleverse, e.g. [book: Genesis, chapter: 1, verse: 2]
 # To be used as basis for Pericope that is really a Range of Verses
 class BibleVerse < ApplicationRecord
-  belongs_to :biblebook
+  include Comparable
+
+  has_one :biblebook
 
   validates_presence_of :biblebook
   validates_presence_of :chapter_nr
@@ -40,6 +42,30 @@ class BibleVerse < ApplicationRecord
                "cannot be greater than the number of verses in this chapter,
                  in this case: #{nr_of_verses}")
   end
+
+  def <=>(other)
+    (chapter_nr <=> other.chapter_nr) &&
+      (verse_nr <=> other.verse_nr)
+  end
+  #
+  # 1:2 <=> 1:2 = 0
+  # 1:2 <=> 1:3 = -1
+  # 1:3 <=> 1:2 = +1
+  # 1:2 <=> 2:2 = -1
+  #
+  # Als de hoofdstukken gelijk zijn, dan naar de verzen kijken
+  # Als de hoofdstukken gelijk zijn, levert het eerste deel 0 op. Dat is true in ruby, dus dan
+  # moet het tweede deel van de expressie geevalueerd worden.
+
+
+  def next
+    if verse_nr == nr_of_verses
+      self.class.new(biblebook: biblebook, chapter_nr: chapter_nr + 1, verse_nr: 1)
+    else
+      self.class.new(biblebook: biblebook, chapter_nr: chapter_nr, verse_nr: verse_nr + 1)
+    end
+  end
+  alias_method :succ, :next
 
   private
 
