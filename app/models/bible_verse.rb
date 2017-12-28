@@ -44,8 +44,11 @@ class BibleVerse < ApplicationRecord
   end
 
   def <=>(other)
-    (chapter_nr <=> other.chapter_nr) &&
-      (verse_nr <=> other.verse_nr)
+    return 0 if (chapter_nr == other.chapter_nr) && (verse_nr == other.verse_nr)
+    if chapter_nr == other.chapter_nr
+      return verse_nr <=> other.verse_nr
+    end
+    chapter_nr <=> other.chapter_nr
   end
   #
   # 1:2 <=> 1:2 = 0
@@ -57,7 +60,6 @@ class BibleVerse < ApplicationRecord
   # Als de hoofdstukken gelijk zijn, levert het eerste deel 0 op. Dat is true in ruby, dus dan
   # moet het tweede deel van de expressie geevalueerd worden.
 
-
   def next
     if verse_nr == nr_of_verses
       self.class.new(biblebook: biblebook, chapter_nr: chapter_nr + 1, verse_nr: 1)
@@ -65,6 +67,7 @@ class BibleVerse < ApplicationRecord
       self.class.new(biblebook: biblebook, chapter_nr: chapter_nr, verse_nr: verse_nr + 1)
     end
   end
+
   alias_method :succ, :next
 
   private

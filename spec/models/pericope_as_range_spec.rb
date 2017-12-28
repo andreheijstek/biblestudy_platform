@@ -60,22 +60,6 @@ describe PericopeAsRange, type: :model do
     pericope = @starting_verse..@ending_verse
     verse1 = pericope.first
     expect(verse1).to eq(@starting_verse)
-    pericope.each do |verse|
-      p verse
-    end
-    # expect(verse2).to eq(BibleVerse.new(biblebook: @gen, chapter_nr: 1, verse_nr: 3))
   end
 end
 
-# 1:2
-# 1:3
-# 1:4
-# 2:1
-# 2:2
-# 2:3
-# 2:4
-# 2:5
-# 3:1
-# 3:2
-# 3:3
-# 3:4
