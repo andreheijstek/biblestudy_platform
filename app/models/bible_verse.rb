@@ -17,7 +17,7 @@
 class BibleVerse < ApplicationRecord
   include Comparable
 
-  has_one :biblebook
+  belongs_to :biblebook
 
   validates_presence_of :biblebook
   validates_presence_of :chapter_nr

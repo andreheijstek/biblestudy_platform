@@ -69,7 +69,18 @@ describe BibleVerse, type: :model do
   it 'can compare bibleverses across chapters' do
     verse1 = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 1)
     verse2 = BibleVerse.new(biblebook: @genesis, chapter_nr: 2, verse_nr: 1)
+    p verse1
+    puts
+
     expect(verse1 > verse2).to be_falsey
     expect(verse1 < verse2).to be_truthy
+  end
+
+  it 'can create a BibleVerse from a Pericope' do
+    pericope = Pericope.create(name: 'Gen 1:2-3:4')
+    verse    = BibleVerse.create(biblebook:  pericope.biblebook,
+                                 chapter_nr: pericope.starting_chapter_nr,
+                                 verse_nr:   pericope.starting_verse)
+    expect(verse).to be_valid
   end
 end

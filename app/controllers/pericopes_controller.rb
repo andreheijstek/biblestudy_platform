@@ -9,18 +9,18 @@ class PericopesController < ApplicationController
 
     @biblebook_counts = Pericope.group(:biblebook_name).count
     @testament_counts = Pericope.joins(:biblebook)
-                                .group('biblebooks.testament').count
+                            .group('biblebooks.testament').count
   end
 
   def new
-    @index = params[:index].to_i
+    @index     = params[:index].to_i
     @studynote = Studynote.new
     @studynote.pericopes.build
     render layout: false
   end
 
   def show
-    pericope = Pericope.find(params[:id])
+    pericope       = Pericope.find(params[:id])
     authorize pericope, :show?
   end
 end

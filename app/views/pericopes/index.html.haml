@@ -28,11 +28,12 @@
                   %th= t('activerecord.models.pericope', count: 1)
                   %th= t('author')
                   %th= Studynote.human_attribute_name(:title)
-                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |pericope|
+                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
                   %tr
-                    %td= pericope.name
-                    %td= pericope.studynote.author.username
-                    %td= link_to pericope.studynote.title, pericope.studynote
+                    %td= study.name
+                    -#%td= study.studynote.inspect
+                    %td= study.studynote.author.username
+                    %td= link_to study.studynote.title, study.studynote
         / end nested accordion
     .panel.panel-default
       #nt.panel-heading{:role => "tab"}

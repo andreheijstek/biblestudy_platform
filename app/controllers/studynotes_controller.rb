@@ -2,13 +2,22 @@
 
 class StudynotesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_studynote,      only: %i[show edit update destroy]
+  before_action :set_studynote, only: %i[show edit update destroy]
 
   def index
     @studynote = Studynote.all.order(:title)
   end
 
-  def show; end
+  def show
+    # pericope       = Pericope.find(params[:id])
+    # starting_verse = BibleVerse.create(biblebook:  pericope.biblebook,
+    #                                    chapter_nr: pericope.starting_chapter_nr,
+    #                                    verse_nr:   pericope.starting_verse)
+    # ending_verse   = BibleVerse.create(biblebook:  pericope.biblebook,
+    #                                    chapter_nr: pericope.ending_chapter_nr,
+    #                                    verse_nr:   pericope.ending_verse)
+    # pericope_range = starting_verse..ending_verse
+  end
 
   def new
     @studynote = Studynote.new
@@ -17,7 +26,7 @@ class StudynotesController < ApplicationController
   end
 
   def create
-    @studynote = Studynote.new(studynote_params)
+    @studynote        = Studynote.new(studynote_params)
     @studynote.author = current_user
 
     if @studynote.save
