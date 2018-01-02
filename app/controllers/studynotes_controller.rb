@@ -9,14 +9,15 @@ class StudynotesController < ApplicationController
   end
 
   def show
-    # pericope       = Pericope.find(params[:id])
+    # studynote      = Studynote.find(params[:id])
+    # pericope       = studynote.pericopes[0]
     # starting_verse = BibleVerse.create(biblebook:  pericope.biblebook,
     #                                    chapter_nr: pericope.starting_chapter_nr,
     #                                    verse_nr:   pericope.starting_verse)
     # ending_verse   = BibleVerse.create(biblebook:  pericope.biblebook,
     #                                    chapter_nr: pericope.ending_chapter_nr,
     #                                    verse_nr:   pericope.ending_verse)
-    # pericope_range = starting_verse..ending_verse
+    # @pericope_range = starting_verse .. ending_verse
   end
 
   def new
