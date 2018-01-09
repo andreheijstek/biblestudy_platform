@@ -7,10 +7,10 @@
         - if policy(@studynote).update?
           %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(@studynote), class: "edit"
         - if policy(@studynote).destroy?
-          %li= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote), |
-              method: :delete,                                                                       |
-              data: { confirm: t(:sure_to_delete_studynote) },                                       |
-              class: "delete"                                                                        |
+          %li= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote),
+              method: :delete,
+              data: { confirm: t(:sure_to_delete_studynote) },
+              class: "delete"
     %header
       %p
       #pericope

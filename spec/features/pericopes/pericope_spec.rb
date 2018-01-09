@@ -17,14 +17,12 @@ feature 'Users can delete pericopes' do
     click_link t(:new_studynote)
   end
 
-=begin
   scenario 'it should be possible to delete a pericope', js: true do
     click_on 'Voeg nog een pericoop toe'
     should_see 'pericoop 2'
     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-    click_on 'Verwijder pericoop'
+    click_on t(:delete_item, item: Pericope.model_name.human)
     should_not_see 'pericoop 2'
   end
-=end
 end
 

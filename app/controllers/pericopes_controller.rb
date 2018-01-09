@@ -23,4 +23,12 @@ class PericopesController < ApplicationController
     pericope       = Pericope.find(params[:id])
     authorize pericope, :show?
   end
+
+  def edit
+    puts "In de edit message"
+  end
+
+  def destroy
+    puts "In de destroy message"
+  end
 end

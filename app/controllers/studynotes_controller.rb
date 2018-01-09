@@ -29,14 +29,7 @@ class StudynotesController < ApplicationController
   def create
     @studynote        = Studynote.new(studynote_params)
     @studynote.author = current_user
-
-    if @studynote.save
-      flash[:notice] = t(:item_created, item: Studynote.model_name.human)
-      redirect_to @studynote
-    else
-      flash.now[:alert] = t(:item_not_created, item: Studynote.model_name.human)
-      render 'new'
-    end
+    save_studynote
   end
 
   def edit
@@ -62,9 +55,21 @@ class StudynotesController < ApplicationController
   end
 
   private
+  def save_studynote
+    if @studynote.save
+      flash[:notice] = t(:item_created, item: Studynote.model_name.human)
+      redirect_to @studynote
+    else
+      flash.now[:alert] = t(:item_not_created, item: Studynote.model_name.human)
+      render 'new'
+    end
+  end
 
   def studynote_params
-    params.require(:studynote).permit(:id, :title, :note, pericopes_attributes: %i[id name])
+    params.require(:studynote).permit(:id,
+                                      :title,
+                                      :note,
+                                      pericopes_attributes: %i[id name])
   end
 
   def set_studynote

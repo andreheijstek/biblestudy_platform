@@ -110,6 +110,8 @@ nl:
   old_testament: Oude Testament
   new_testament: Nieuwe Testament
   add_pericope: "Voeg nog een pericoop toe"
+  remove_pericope: "verwijder pericoop"
+  sure_to_delete_pericope: "Weet u zeker dat u deze pericoop wilt verwijderen?"
 
 
 
