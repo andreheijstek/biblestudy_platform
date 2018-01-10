@@ -38,6 +38,7 @@ gem 'rubocop'
 gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'webdrivers'
+gem "cocoon"
 
 gem 'pg'
 # gem 'tilt'

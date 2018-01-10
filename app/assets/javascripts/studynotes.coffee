@@ -2,13 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  console.log('DOM is ready - add section')
-  $("#add_pericope").on "ajax:success", (event, data) ->
-    $("#pericopes").append data
-    $(this).data "params", { index: $("#pericopes div.string").length }
-  $("#delete_pericope").on "ajax.success", (event, data) ->
-    console.log('in delete')
+#$ ->
+#  console.log('DOM is ready - add section')
+#  $("#add_pericope").on "ajax:success", (event, data) ->
+#    $("#pericopes").append data
+#    $(this).data "params", { index: $("#pericopes div.string").length }
+#  $("#delete_pericope").on "ajax.success", (event, data) ->
+#    console.log('in delete')
 
 
 

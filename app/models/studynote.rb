@@ -13,13 +13,15 @@
 #
 
 class Studynote < ActiveRecord::Base
-  has_many :pericopes, dependent: :destroy
+  has_many :pericopes, inverse_of: :studynote, dependent: :destroy
+  accepts_nested_attributes_for :pericopes,
+                                allow_destroy: true,
+                                reject_if: :all_blank
+
   has_many :biblebooks, through: :pericopes
   has_many :roles, dependent: :delete_all
 
   belongs_to :author, class_name: 'User'
-
-  accepts_nested_attributes_for :pericopes, reject_if: :all_blank
 
   validates :note,  presence: true
   validates :title, presence: true

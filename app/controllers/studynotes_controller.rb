@@ -49,7 +49,7 @@ class StudynotesController < ApplicationController
 
   def destroy
     authorize @studynote, :destroy?
-    @studynote.destroy
+    @studynote.destroy(studynote_params)
     flash[:notice] = t('activerecord.messages.deleted', model: 'bijbelstudie')
     redirect_to pericopes_path
   end
@@ -69,7 +69,7 @@ class StudynotesController < ApplicationController
     params.require(:studynote).permit(:id,
                                       :title,
                                       :note,
-                                      pericopes_attributes: %i[id name])
+                                      pericopes_attributes: %i[id name _destroy])
   end
 
   def set_studynote

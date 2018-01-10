@@ -15,5 +15,6 @@
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require bootstrap-sprockets
+//= require cocoon
 //= require_tree .
 
