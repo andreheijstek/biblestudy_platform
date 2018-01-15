@@ -1,10 +1,2 @@
-= s.simple_fields_for :pericopes, child_index: index do |pericope|
-  - render 'pericopes/pericope_fields', f: pericope, locals: { index: index }
-
-  -#- if index > 1
-  -#  = link_to t(:delete_item, item: Pericope.model_name.human),
-  -#    edit_pericope_path(@studynote.pericopes[index-1].id), method: 'delete',
-  -#    remote: true,
-  -#    id: "remove_pericope",
-  -#    data:  {confirm: t(:sure_to_delete_pericope),
-  -#    index: index }
+-#= s.simple_fields_for :pericopes, child_index: index do |pericope|
+-#  - render 'pericopes/pericope_fields', f: pericope, locals: {index: 0}

@@ -17,3 +17,16 @@
     line-height: 24px !important;
   }
 }
+
+.pericopes {
+  reset-counter: idx;
+}
+
+.pericope {
+  counter-increment: idx;
+}
+
+.pericope:before {
+  font-weight: bold;
+  content: "* pericoop " counter(idx);
+}
