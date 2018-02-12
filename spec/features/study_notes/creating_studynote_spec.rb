@@ -102,8 +102,14 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
   scenario 'to multiple pericopes with valid attributes', js: true do
     fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
+    wait_for_ajax
     click_on 'Voeg nog een pericoop toe'
+    wait_for_ajax
     should_see 'pericoop 2'
+    wait_for_ajax
+    # click_on 'Voeg nog een pericoop toe'
+    # should_see 'pericoop 2'
+    # save_and_open_page
     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
 
     submit_form

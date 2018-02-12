@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$('#pericopes').on('cocoon:after-insert', (e, inserted_item) ->
-  console.log('in js')
-  num = $('.pericopes').length
-  inserted_item.find('.nested-fields').html('Field #'+num)
-)
+$ ->
+  $("#pericopes").on "cocoon:after-insert", (event, added_item) ->
+    num = $("#pericopes div.nested-fields").length
+    added_item.find('.control-label').html('pericoop '+ num)

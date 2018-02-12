@@ -1,9 +1,10 @@
 = simple_form_for studynote, validate: true do |f|
   #pericopes
     = f.simple_fields_for :pericopes do |pericope|
-      = render 'pericope_fields', f: pericope
+      .input-group
+        = render 'pericope_fields', f: pericope
     .links
-      = link_to_add_association t('add_pericope'), f, :pericopes
+      = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs'
   = f.input :title
-  = f.input :note, :input_html => {:rows => 20}
+  = f.input :note, :input_html => { :rows => 20 }
   = f.button :submit, class: "btn-primary"

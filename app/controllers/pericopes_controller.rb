@@ -14,6 +14,7 @@ class PericopesController < ApplicationController
 
   def new
     @index     = params[:index].to_i
+    puts "In pericopes_controller, index = #{index}"
     @studynote = Studynote.new
     @studynote.pericopes.build
     render layout: false

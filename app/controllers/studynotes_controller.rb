@@ -21,6 +21,7 @@ class StudynotesController < ApplicationController
   end
 
   def new
+    @index = params[:index].to_i
     @studynote = Studynote.new
     authorize @studynote, :create?
     @studynote.pericopes.build
