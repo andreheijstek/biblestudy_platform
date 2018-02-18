@@ -50,7 +50,7 @@ class StudynotesController < ApplicationController
 
   def destroy
     authorize @studynote, :destroy?
-    @studynote.destroy(studynote_params)
+    @studynote.destroy
     flash[:notice] = t('activerecord.messages.deleted', model: 'bijbelstudie')
     redirect_to pericopes_path
   end
