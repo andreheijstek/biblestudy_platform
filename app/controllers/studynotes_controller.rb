@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Studynotes (the main object in the application)
+# Handling the typical CRUD actions
 class StudynotesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_studynote, only: %i[show edit update destroy]
@@ -8,17 +10,7 @@ class StudynotesController < ApplicationController
     @studynote = Studynote.all.order(:title)
   end
 
-  def show
-    # studynote      = Studynote.find(params[:id])
-    # pericope       = studynote.pericopes[0]
-    # starting_verse = BibleVerse.create(biblebook:  pericope.biblebook,
-    #                                    chapter_nr: pericope.starting_chapter_nr,
-    #                                    verse_nr:   pericope.starting_verse)
-    # ending_verse   = BibleVerse.create(biblebook:  pericope.biblebook,
-    #                                    chapter_nr: pericope.ending_chapter_nr,
-    #                                    verse_nr:   pericope.ending_verse)
-    # @pericope_range = starting_verse .. ending_verse
-  end
+  def show; end
 
   def new
     @index = params[:index].to_i
@@ -56,6 +48,7 @@ class StudynotesController < ApplicationController
   end
 
   private
+
   def save_studynote
     if @studynote.save
       flash[:notice] = t(:item_created, item: Studynote.model_name.human)
@@ -70,7 +63,8 @@ class StudynotesController < ApplicationController
     params.require(:studynote).permit(:id,
                                       :title,
                                       :note,
-                                      pericopes_attributes: %i[id name _destroy])
+                                      pericopes_attributes:
+                                          %i[id name _destroy])
   end
 
   def set_studynote

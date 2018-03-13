@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Main Controller
+# Security and localization concerns
 class ApplicationController < ActionController::Base
   include Pundit
 
