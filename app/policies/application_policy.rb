@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Models the Policies for authorization
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -40,6 +41,7 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  # Models the scope within which the authorization applies
   class Scope
     attr_reader :user, :scope
 

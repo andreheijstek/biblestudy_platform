@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Policy defining who may CRUD a Studynote
 class StudynotePolicy < ApplicationPolicy
+  # Policy defining who may CRUD a Studynote
   class Scope < Scope
     def resolve
       scope
@@ -12,16 +14,16 @@ class StudynotePolicy < ApplicationPolicy
   end
 
   def update?
-    is_owner?
+    owner?
   end
 
   def destroy?
-    is_owner?
+    owner?
   end
 
   private
 
-  def is_owner?
+  def owner?
     @user == record.author || @user.try(:admin?)
   end
 end
