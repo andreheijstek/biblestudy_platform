@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Chapters
+# Handling the typical CRUD actions
 class Admin::ChaptersController < Admin::ApplicationController
   before_action :set_biblebook
   before_action :set_chapter, only: %i[show edit update destroy]
@@ -12,13 +14,7 @@ class Admin::ChaptersController < Admin::ApplicationController
 
   def create
     @chapter = @biblebook.chapters.build(chapter_params)
-    if @chapter.save
-      flash[:notice] = t(:item_created, item: Chapter.model_name.human)
-      redirect_to [:admin, @biblebook, @chapter]
-    else
-      flash.now[:alert] = t(:item_not_created, item: Chapter.model_name.human)
-      render 'new'
-    end
+    save_chapter
   end
 
   def edit; end
@@ -41,8 +37,20 @@ class Admin::ChaptersController < Admin::ApplicationController
 
   private
 
+  def save_chapter
+    if @chapter.save
+      flash[:notice] = t(:item_created, item: Chapter.model_name.human)
+      redirect_to [:admin, @biblebook, @chapter]
+    else
+      flash.now[:alert] = t(:item_not_created, item: Chapter.model_name.human)
+      render 'new'
+    end
+  end
+
   def chapter_params
-    params.require(:chapter).permit(:chapter_number, :description, :nr_of_verses)
+    params.require(:chapter).permit(:chapter_number,
+                                    :description,
+                                    :nr_of_verses)
   end
 
   def set_biblebook

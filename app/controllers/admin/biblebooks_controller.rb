@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Biblebooks
+# Handling the typical CRUD actions
 class Admin::BiblebooksController < Admin::ApplicationController
   before_action :set_biblebook, only: %i[show edit update destroy]
 
@@ -28,7 +30,7 @@ class Admin::BiblebooksController < Admin::ApplicationController
 
   def update
     if @biblebook.update(biblebook_params)
-      flash[:notice] = t(:item_updated, item: Biblebook.model_name.human) # t(:biblebook_updated)
+      flash[:notice] = t(:item_updated, item: Biblebook.model_name.human)
       redirect_to [:admin, @biblebook]
     else
       flash.now[:alert] = t(:item_not_updated, item: Biblebook.model_name.human)

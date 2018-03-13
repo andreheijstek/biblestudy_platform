@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Controller for Users
+# Handling the typical CRUD actions
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
@@ -28,6 +30,12 @@ class Admin::UsersController < Admin::ApplicationController
 
   def update
     params[:user].delete(:password) if params[:user][:password].blank?
+    update_user
+  end
+
+  private
+
+  def update_user
     if @user.update(user_params)
       flash[:notice] = t('activerecord.attributes.user.messages.updated')
       redirect_to admin_users_path
@@ -36,8 +44,6 @@ class Admin::UsersController < Admin::ApplicationController
       render 'edit'
     end
   end
-
-  private
 
   def user_params
     params.require(:user).permit(:email, :password, :admin, :username)
