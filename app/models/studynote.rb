@@ -12,6 +12,7 @@
 #  author_id  :integer
 #
 
+# Models a Studynote, the main Object for this application
 class Studynote < ActiveRecord::Base
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
   accepts_nested_attributes_for :pericopes,

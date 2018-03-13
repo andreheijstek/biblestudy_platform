@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: roles
@@ -11,6 +12,7 @@
 #  studynote_id :integer
 #
 
+# Models a Role for a User
 class Role < ActiveRecord::Base
   belongs_to :user
   belongs_to :studynote

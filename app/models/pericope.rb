@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pericopes
@@ -19,6 +20,9 @@
 #  ending_verse_id     :integer
 #
 
+# Models a Pericope, e.g. Gen 1:2-3:4
+# Offers a method to reformat an abbreviated Pericope
+# into a fully articulated one
 class Pericope < ActiveRecord::Base
   belongs_to :studynote
   belongs_to :biblebook
@@ -32,9 +36,7 @@ class Pericope < ActiveRecord::Base
     new_name = biblebook_name.dup
     unless whole_book?
       new_name += starting_chapter
-      unless whole_chapter?
-        new_name += add_verses
-      end
+      new_name += add_verses unless whole_chapter?
     end
     self.name = new_name
   end

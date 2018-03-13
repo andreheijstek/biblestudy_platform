@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+#
 # == Schema Information
 #
 # Table name: biblebooks
@@ -13,6 +15,8 @@
 #  bible_verse_id :integer
 #
 
+# Models one Biblebook
+# Has some utitlity methods to help validate biblebooks
 class Biblebook < ActiveRecord::Base
   validates :name, presence: true
 
@@ -23,7 +27,7 @@ class Biblebook < ActiveRecord::Base
   default_scope { order('booksequence ASC') }
 
   def chapter_valid?(chapter)
-    chapter > 0 && chapter <= nr_of_chapters
+    chapter.positive? && chapter <= nr_of_chapters
   end
 
   def nr_of_chapters

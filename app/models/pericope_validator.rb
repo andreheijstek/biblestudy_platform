@@ -66,6 +66,10 @@ class PericopeValidator < ActiveModel::Validator
   def find_by_like(name)
     biblebooks = Biblebook.where('name LIKE (?)',
                                  "%#{name.slice(0, 5)}%")
+    check_found_biblebooks(biblebooks, name)
+  end
+
+  def check_found_biblebooks(biblebooks, name)
     if biblebooks.empty?
       @record.errors.add :name, I18n.t('unknown_biblebook')
       @biblebook = nil
@@ -80,7 +84,8 @@ class PericopeValidator < ActiveModel::Validator
   def ambiguous_string(book_name, biblebooks)
     book_list = []
     biblebooks.each { |book| book_list << book.name }
-    "#{I18n.t('ambiguous_abbreviation')}: '#{book_name}' kan #{book_list.join(', ')} zijn"
+    "#{I18n.t('ambiguous_abbreviation')}: '#{book_name}' \
+      kan #{book_list.join(', ')} zijn"
   end
 
   def update_record
