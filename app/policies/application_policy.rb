@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Overall Policy class defining who is authorized to CRUD items
+# (typically overruled in subclasses)
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -40,6 +42,8 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  # (typically overruled in subclasses)
+  # Overall Policy class defining who is authorized to CRUD items
   class Scope
     attr_reader :user, :scope
 

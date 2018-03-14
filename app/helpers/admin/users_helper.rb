@@ -2,5 +2,9 @@
 
 # Generated users helper
 # No real content yet
-module Admin::UsersHelper
+module Admin
+  # Generated users helper
+  # No real content yet
+  module UsersHelper
+  end
 end

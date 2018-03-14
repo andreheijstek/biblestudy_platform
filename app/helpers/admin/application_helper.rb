@@ -2,5 +2,9 @@
 
 # Generated application helper
 # No real content yet
-module Admin::ApplicationHelper
+module Admin
+  # Generated application helper
+  # No real content yet
+  module ApplicationHelper
+  end
 end
