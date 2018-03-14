@@ -24,6 +24,7 @@ feature 'Users can delete studynotes' do
     visit studynotes_path
 
     click_link 'Jona'
-    expect(page).not_to have_link t(:delete_item, item: Studynote.model_name.human)
+    expect(page).not_to have_link t(:delete_item,
+                                    item: Studynote.model_name.human)
   end
 end

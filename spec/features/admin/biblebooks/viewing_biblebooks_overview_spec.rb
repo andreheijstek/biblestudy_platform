@@ -8,8 +8,8 @@ feature 'Users can view an overview of all biblebooks' do
   end
 
   scenario 'sorted by the given order' do
-    biblebook1 = create(:biblebook, name: 'Bijbelboek1', booksequence: 1)
-    biblebook2 = create(:biblebook, name: 'Bijbelboek2', booksequence: 2)
+    create(:biblebook, name: 'Bijbelboek1', booksequence: 1)
+    create(:biblebook, name: 'Bijbelboek2', booksequence: 2)
     visit admin_biblebooks_path
 
     should_see 'Bijbelboek1'

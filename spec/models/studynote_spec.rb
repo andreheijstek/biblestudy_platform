@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: studynotes
@@ -10,8 +11,6 @@
 #  title      :string
 #  author_id  :integer
 #
-
-
 require 'rails_helper'
 
 describe 'Studynote', type: :model do
@@ -30,8 +29,9 @@ describe 'Studynote', type: :model do
   end
 
   it 'should create a studynote with associated pericope' do
-    sn = Studynote.create(title: 'title', note: 'note',
-                       pericopes_attributes: [{ name: 'Gen 1:2-3:4' }])
+    sn = Studynote.create(title: 'title',
+                          note: 'note',
+                          pericopes_attributes: [{ name: 'Gen 1:2-3:4' }])
     expect(sn).to be_valid
     expect(sn.pericopes[0].biblebook_name).to eq('Genesis')
   end

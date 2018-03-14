@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pericopes
@@ -19,14 +20,16 @@
 #  ending_verse_id     :integer
 #
 
-# The caller should create the correct biblebook before calling Pericope_xxx_Factory
+# The caller should create the correct biblebook before calling
+# Pericope_xxx_Factory
 
 FactoryBot.define do
   factory :pericope, class: Pericope do
     name 'Jona 1:1 - 1:10'
     trait :jona do
       biblebook do
-        Biblebook.find_by(name: 'Jona') || FactoryBot.create(:biblebook, name: 'Jona')
+        Biblebook.find_by(name: 'Jona') ||
+          FactoryBot.create(:biblebook, name: 'Jona')
       end
     end
   end

@@ -29,6 +29,7 @@ gem 'annotate'
 gem 'bootstrap-sass'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem 'cocoon'
 gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
@@ -38,14 +39,12 @@ gem 'rubocop'
 gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'webdrivers'
-gem "cocoon"
 
 gem 'pg'
 # gem 'tilt'
 gem 'haml'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'launchy'
   gem 'orderly'
@@ -60,13 +59,16 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background.
+  # Read more: https://github.com/rails/spring
   gem 'i18n-tasks'
   gem 'rails-erd'
   gem 'spring'
   # gem 'i18n-debug'
-  gem 'yard' # used to document code with comments about return types and parameters before each method
-  gem "erb2haml", :group => :development
+  gem 'erb2haml', group: :development
+  gem 'yard' # used to document code with comments about return types and parameters
+             # before each method
 end
 
 group :test do

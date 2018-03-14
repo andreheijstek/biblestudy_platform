@@ -17,7 +17,8 @@ feature 'Users can create new studynotes and associate them to pericopes' do
   end
 
   scenario 'showing who did the update' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+            with: 'Jona 1:1 - 1:10'
 
     submit_form
 
@@ -28,7 +29,8 @@ feature 'Users can create new studynotes and associate them to pericopes' do
   end
 
   scenario 'to a single pericopes with valid attributes' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+            with: 'Jona 1:1 - 1:10'
 
     submit_form
 
@@ -88,13 +90,14 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     ]
     examples.each do |example|
       it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
-        fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: (example[:inputs]).to_s
+        fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+                with: (example[:inputs]).to_s
 
         submit_form
 
         should_see t(:item_created, item: Studynote.model_name.human)
         within('#studynote') do
-          should_see (example[:expected]).to_s
+          should_see(example[:expected]).to_s
         end
       end
     end
@@ -135,7 +138,8 @@ feature 'Users can not create new studynotes and associate them to pericopes' do
   end
 
   scenario 'when providing out of sequence chapters and verses' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 3:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+            with: 'Jona 3:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
     submit_form
@@ -156,7 +160,8 @@ feature 'Users can not create new studynotes and associate them to pericopes' do
 
     fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jo 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona of Job of Johannes?'
+    fill_in t('simple_form.labels.studynote.note'),
+            with: 'Jona of Job of Johannes?'
 
     submit_form
 

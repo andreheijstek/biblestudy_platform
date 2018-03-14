@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Users can delete pericopes' do
-  let(:user) {create(:user)}
+  let(:user) { create(:user) }
   let(:studynote) do
     create(:studynote,
            pericope: 'Jona 1:1-5',
@@ -27,4 +28,3 @@ feature 'Users can delete pericopes' do
     should_not_see 'pericoop 2'
   end
 end
-

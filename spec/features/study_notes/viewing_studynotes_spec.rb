@@ -13,7 +13,8 @@ feature 'Users can view studynotes' do
   end
 
   scenario 'with a single pericope with valid attributes' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+            with: 'Jona 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
@@ -26,7 +27,8 @@ feature 'Users can view studynotes' do
   end
 
   scenario 'with multiple pericopes with valid attributes' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1 - 1:10'
+    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
+            with: 'Jona 1:1 - 1:10'
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 

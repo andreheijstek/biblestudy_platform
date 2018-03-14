@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pericope_as_ranges
@@ -51,8 +53,11 @@ describe PericopeAsRange, type: :model do
   end
 
   it 'should be able to identify if a verse is within a range' do
-    pericope = @starting_verse .. @ending_verse
-    verse = create(:bible_verse, biblebook: @genesis, chapter_nr: 1, verse_nr: 3)
+    pericope = @starting_verse..@ending_verse
+    verse = create(:bible_verse,
+                   biblebook: @genesis,
+                   chapter_nr: 1,
+                   verse_nr: 3)
     expect pericope.include?(verse)
   end
 
@@ -62,4 +67,3 @@ describe PericopeAsRange, type: :model do
     expect(verse1).to eq(@starting_verse)
   end
 end
-

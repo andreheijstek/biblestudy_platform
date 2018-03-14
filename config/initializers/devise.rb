@@ -34,16 +34,17 @@ Devise.setup do |config|
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
-  # session. If you need permissions, you should implement that in a before filter.
+  # session. If you need permissions, you should implement that in a before
+  # filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication.
-  # Each entry given should be a request method and it will automatically be passed
-  # to the find_for_authentication method and considered in your model lookup. For
-  # instance, if you set :request_keys to [:subdomain], :subdomain will be used on
-  # authentication.
+  # Each entry given should be a request method and it will automatically be
+  # passed to the find_for_authentication method and considered in your model
+  # lookup. For instance, if you set :request_keys to [:subdomain], :subdomain
+  # will be used on authentication.
   # The same considerations mentioned for authentication_keys also apply to
   # request_keys.
   # config.request_keys = []
@@ -60,15 +61,16 @@ Devise.setup do |config|
   config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
-  # It can be set to an array that will enable params authentication only for the
-  # given strategies, for example, `config.params_authenticatable = [:database]`
+  # It can be set to an array that will enable params authentication only for
+  # the given strategies, for example, `config.params_authenticatable = [:database]`
   # will enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]`
-  # will enable it only for database authentication. The supported strategies are:
+  # will enable it only for database authentication. The supported strategies
+  # are:
   # :database      = Support basic authentication with authentication key +
   # password
   # config.http_authenticatable = false
@@ -274,8 +276,9 @@ Devise.setup do |config|
   # end
 
   # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
-  # is mountable, there are some extra configurations to be taken into account.
+  # When using Devise inside an engine, let's call it `MyEngine`, and this
+  # engine is mountable, there are some extra configurations to be taken into
+  # account.
   # The following options are available, assuming the engine is mounted as:
   #
   #     mount MyEngine, at: '/my_engine'

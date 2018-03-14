@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePericopeAsRanges < ActiveRecord::Migration[5.1]
   def change
     create_table :pericope_as_ranges do |t|
