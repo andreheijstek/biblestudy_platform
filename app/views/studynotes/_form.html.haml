@@ -1,6 +1,6 @@
 = simple_form_for studynote, wrapper: :vertical_input_group, validate: true do |f|
   #pericopes
-    = f.simple_fields_for :pericopes do |pericope|
+    = f.simple_fields_for :pericopes, wrapper: :vertical_input_group do |pericope|
       = render 'pericope_fields', f: pericope
     .links
       = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs'
