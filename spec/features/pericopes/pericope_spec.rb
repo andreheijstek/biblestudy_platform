@@ -22,7 +22,7 @@ feature 'Users can delete pericopes' do
     click_on 'Voeg nog een pericoop toe'
     should_see 'pericoop 2'
     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-    within all('.input-group')[1] do
+    within all('.input-group-btn')[1] do
       click_link 'delete_pericope'
     end
     should_not_see 'pericoop 2'

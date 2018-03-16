@@ -1,4 +1,4 @@
-= simple_form_for studynote, validate: true do |f|
+= simple_form_for studynote, wrapper: :vertical_input_group, validate: true do |f|
   #pericopes
     = f.simple_fields_for :pericopes do |pericope|
       = render 'pericope_fields', f: pericope
