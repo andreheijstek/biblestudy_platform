@@ -4,33 +4,99 @@ require 'rails_helper'
 
 feature 'Users can view an overview of all studynotes' do
   let(:user) { create(:user) }
-  let!(:book_jona) { create(:biblebook, name: 'Jona', testament: 'oud', booksequence: 34) }
-  let!(:book_maleachi) { create(:biblebook, name: 'Maleachi', testament: 'oud', booksequence: 45) }
-  let!(:book_mattheus) { create(:biblebook, name: 'Mattheus', testament: 'nieuw', booksequence: 51) }
-  let!(:book_openbaringen) { create(:biblebook, name: 'Openbaringen', testament: 'nieuw', booksequence: 66) }
-  let!(:book_handelingen) { create(:biblebook, name: 'Handelingen', testament: 'nieuw', booksequence: 53) }
 
-  let!(:study_jona) { create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user) }
-  let!(:pericope_jona) { create(:pericope, name: 'Jona 1:1 - 1:10', biblebook_id: book_jona.id, studynote_id: study_jona.id) }
+  let!(:book_jona) do
+    create(:biblebook,
+           name: 'Jona',
+           testament: 'oud',
+           booksequence: 34)
+  end
+  let!(:book_maleachi) do
+    create(:biblebook,
+           name: 'Maleachi',
+           testament: 'oud',
+           booksequence: 45)
+  end
+  let!(:book_mattheus) do
+    create(:biblebook,
+           name: 'Mattheus',
+           testament: 'nieuw',
+           booksequence: 51)
+  end
+  let!(:book_openbaringen) do
+    create(:biblebook,
+           name: 'Openbaringen',
+           testament: 'nieuw',
+           booksequence: 66)
+  end
+  let!(:book_handelingen) do
+    create(:biblebook,
+           name: 'Handelingen',
+           testament: 'nieuw',
+           booksequence: 53)
+  end
 
-  let!(:study_hand1) { create(:studynote, title: 'Handelingen later', note: 'Handelingen ook.', author: user) }
-  let!(:pericope_hand1) { create(:pericope, name: 'Handelingen 1:2 - 1:10', biblebook_id: book_handelingen.id, studynote_id: study_hand1.id) }
+  let!(:study_jona) do
+    create(:studynote,
+           title: 'Jona',
+           note: 'Jona is bijzonder.',
+           author: user)
+  end
+  let!(:pericope_jona) do
+    create(:pericope,
+           name: 'Jona 1:1 - 1:10',
+           biblebook_id: book_jona.id,
+           studynote_id: study_jona.id)
+  end
 
-  let!(:study_hand2) { create(:studynote, title: 'Handelingen eerst', note: 'Handelingen ook.', author: user) }
-  let!(:pericope_hand2) { create(:pericope, name: 'Handelingen 1:1 - 1:10', biblebook_id: book_handelingen.id, studynote_id: study_hand2.id) }
+  let!(:study_hand1) do
+    create(:studynote,
+           title: 'Handelingen later',
+           note: 'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand1) do
+    create(:pericope,
+           name: 'Handelingen 1:2 - 1:10',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand1.id)
+  end
 
-  let!(:study_hand3) { create(:studynote, title: 'Handelingen alles', note: 'Handelingen ook.', author: user) }
-  let!(:pericope_hand3) { create(:pericope, name: 'Handelingen', biblebook_id: book_handelingen.id, studynote_id: study_hand3.id) }
+  let!(:study_hand2) do
+    create(:studynote,
+           title: 'Handelingen eerst',
+           note: 'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand2) do
+    create(:pericope,
+           name: 'Handelingen 1:1 - 1:10',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand2.id)
+  end
+
+  let!(:study_hand3) do
+    create(:studynote,
+           title: 'Handelingen alles',
+           note: 'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand3) do
+    create(:pericope,
+           name: 'Handelingen',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand3.id)
+  end
 
   before do
     visit pericopes_path
   end
 
-  scenario 'Ordered by testament' do
+  scenario 'ordered by testament' do
     expect('Oude Testament').to appear_before('Nieuwe Testament')
   end
 
-  scenario 'Grouped by biblebook' do
+  scenario 'grouped by biblebook' do
     page.click_on('Oude Testament')
     should_see 'Jona'
     # should_see 'Maleachi'
@@ -40,12 +106,12 @@ feature 'Users can view an overview of all studynotes' do
     should_see 'Openbaringen'
   end
 
-  scenario 'Showing the number of studynotes per testament' do
+  scenario 'showing the number of studynotes per testament' do
     should_see 'Oude Testament (1 bijbelstudie)'
     should_see 'Nieuwe Testament (3 bijbelstudies)'
   end
 
-  scenario 'Showing the number of studynotes per biblebook' do
+  scenario 'showing the number of studynotes per biblebook' do
     page.click_on('Oude Testament')
     should_see 'Jona (1)'
 
@@ -53,7 +119,7 @@ feature 'Users can view an overview of all studynotes' do
     should_see 'Handelingen (3)'
   end
 
-  scenario 'Containing studynotes' do
+  scenario 'containing studynotes' do
     page.click_on('Oude Testament')
     page.click_on('Jona')
     should_see 'Jona is bijzonder'

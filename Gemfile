@@ -56,19 +56,18 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console'
-
-  # Spring speeds up development by keeping your application running in the
-  # background.
-  # Read more: https://github.com/rails/spring
+  gem 'erb2haml'
   gem 'i18n-tasks'
   gem 'rails-erd'
-  gem 'spring'
+  # Spring speeds up development by keeping your application running in the
+  # background.
+  # Read more: https://github.com/rails/spring  gem 'spring'
   # gem 'i18n-debug'
-  gem 'erb2haml', group: :development
-  gem 'yard' # used to document code with comments about return types and parameters
-             # before each method
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console'
+  # yard is used to document code with comments about return types and
+  # parameters before each method
+  gem 'yard'
 end
 
 group :test do
