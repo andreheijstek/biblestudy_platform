@@ -19,14 +19,18 @@ feature 'Admins can view a list of all users' do
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).find('td', id: 'signin_count')).to have_content('1')
+    expect(find('tr', text: user).
+      find('td', id: 'signin_count')).
+      to have_content('1')
 
     logout(user)
     login_as(user)
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).find('td', id: 'signin_count')).to have_content('2')
+    expect(find('tr', text: user).
+      find('td', id: 'signin_count')).
+      to have_content('2')
   end
 
   scenario '#studies is shown correctly' do
@@ -34,16 +38,26 @@ feature 'Admins can view a list of all users' do
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).find('td', id: 'studynote count')).to have_content('0')
+    expect(find('tr', text: user).
+      find('td', id: 'studynote count')).
+      to have_content('0')
 
     login_as(user)
     b1 = create(:biblebook, name: 'Jona')
-    s1 = create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user)
-    create(:pericope, name: 'Jona 1:1 - 1:10', biblebook_id: b1.id, studynote_id: s1.id)
+    s1 = create(:studynote,
+                title: 'Jona',
+                note: 'Jona is bijzonder.',
+                author: user)
+    create(:pericope,
+           name: 'Jona 1:1 - 1:10',
+           biblebook_id: b1.id,
+           studynote_id: s1.id)
 
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).find('td', id: 'studynote count')).to have_content('1')
+    expect(find('tr', text: user).
+      find('td', id: 'studynote count')).
+      to have_content('1')
   end
 end

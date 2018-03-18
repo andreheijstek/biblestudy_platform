@@ -88,9 +88,9 @@ describe PericopeString do
   it 'should parse verses where the pericope is just a single chapter' do
     ps = PericopeString.new('Genesis 1')
     expect(ps.starting_chapter).to eq(1)
-    expect(ps.starting_verse).to   eq(0)  # or set to 1?
+    expect(ps.starting_verse).to   eq(0)
     expect(ps.ending_chapter).to   eq(1)
-    expect(ps.ending_verse).to     eq(0)  # or look up the number of verses in this chapter and enter the last one here?
+    expect(ps.ending_verse).to     eq(0)
     expect(ps.errors[0]).to be_nil
   end
 

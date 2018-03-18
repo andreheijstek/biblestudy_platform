@@ -65,7 +65,7 @@ describe Pericope, type: :model do
     expect(pericope.biblebook_name).to        eq('Genesis')
   end
 
-  it 'name must contain a valid pericopes string, where the ending chapter is not required' do
+  it 'name must contain a valid pericopes string, ending chapter is not required' do
     pericope = Pericope.create(name: 'Genesis 1:2 - 3')
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to      eq(2)

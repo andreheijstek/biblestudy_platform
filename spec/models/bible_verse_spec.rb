@@ -63,7 +63,6 @@ describe BibleVerse, type: :model do
   it 'can compare bibleverses within the same chapter' do
     verse1 = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 1)
     verse2 = BibleVerse.new(biblebook: @genesis, chapter_nr: 1, verse_nr: 5)
-    expect(verse1 == verse1).to be_truthy
     expect(verse1 > verse2).to be_falsey
     expect(verse1 < verse2).to be_truthy
   end
