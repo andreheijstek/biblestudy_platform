@@ -35,7 +35,6 @@ gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'pundit'
-gem 'rubocop'
 gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'webdrivers'
@@ -64,6 +63,8 @@ group :development do
   # Read more: https://github.com/rails/spring  gem 'spring'
   # gem 'i18n-debug'
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'web-console'
   # yard is used to document code with comments about return types and
   # parameters before each method

@@ -16,53 +16,6 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
   end
 
-  scenario 'showing who did the update' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-            with: 'Jona 1:1 - 1:10'
-
-    submit_form
-
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see "#{t('author')} #{user.username}"
-    end
-  end
-
-  scenario 'to a single pericopes with valid attributes' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-            with: 'Jona 1:1 - 1:10'
-
-    submit_form
-
-    should_see 'Jona 1:1 - 10'
-  end
-
-  scenario 'to a single pericopes containing one complete chapter' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1'
-
-    submit_form
-
-    should_see 'Jona 1'
-    should_not_see 'Jona 1:0'
-  end
-
-  scenario 'to a single pericopes containing one complete biblebook' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona'
-
-    submit_form
-
-    should_see 'Jona'
-    should_not_see 'Jona 0'
-  end
-
-  scenario 'to a single pericope with just one single verse' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jona 1:1'
-
-    submit_form
-
-    should_see 'Jona 1:1'
-  end
-
   context 'abbreviated biblebooks' do
     before do
       create(:biblebook, name: 'Genesis',      abbreviation: 'Gen')

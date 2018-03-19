@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-feature 'Admins can view a list of all users' do
+describe 'Admins can view a list of all users' do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: 'Jansen', email: 'jan.jansen@tour.fr') }
 
-  scenario 'all users are in the list' do
+  it 'all users are in the list' do
     login_as(user)
     login_as(admin)
     visit '/'
@@ -14,33 +14,33 @@ feature 'Admins can view a list of all users' do
     should_see 'jan.jansen'
   end
 
-  scenario '#logins are shown correctly' do
+  it '#logins are shown correctly' do
     login_as(user)
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).
-      find('td', id: 'signin_count')).
-      to have_content('1')
+    expect(find('tr', text: user)
+      .find('td', id: 'signin_count'))
+      .to have_content('1')
 
     logout(user)
     login_as(user)
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).
-      find('td', id: 'signin_count')).
-      to have_content('2')
+    expect(find('tr', text: user)
+      .find('td', id: 'signin_count'))
+      .to have_content('2')
   end
 
-  scenario '#studies is shown correctly' do
+  it '#studies is shown correctly' do
     login_as(user)
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).
-      find('td', id: 'studynote count')).
-      to have_content('0')
+    expect(find('tr', text: user)
+      .find('td', id: 'studynote count'))
+      .to have_content('0')
 
     login_as(user)
     b1 = create(:biblebook, name: 'Jona')
@@ -56,8 +56,8 @@ feature 'Admins can view a list of all users' do
     login_as(admin)
     visit '/'
     click_link 'Admin'
-    expect(find('tr', text: user).
-      find('td', id: 'studynote count')).
-      to have_content('1')
+    expect(find('tr', text: user)
+      .find('td', id: 'studynote count'))
+      .to have_content('1')
   end
 end

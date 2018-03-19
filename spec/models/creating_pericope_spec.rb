@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can create pericopes' do
+describe 'Users can create pericopes' do
   let(:user) { create(:user) }
 
   before do
@@ -22,6 +22,7 @@ feature 'Users can create pericopes' do
 
   it 'creates a studynote and pericope with valid and abbreviated attributes' do
     pericope = Pericope.create(name: 'Gen 3:4-5:6')
+    expect(pericope.biblebook.name).to eq('Genesis')
     expect(pericope).to be_valid
   end
 end
