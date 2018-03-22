@@ -21,6 +21,12 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
+require 'capybara'
+require 'capybara/dsl'
+require 'capybara/rspec'
+require 'selenium-webdriver'
+require 'site_prism'
+
 SimpleCov.start
 
 RSpec.configure do |config|

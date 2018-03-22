@@ -45,6 +45,7 @@ gem 'haml'
 
 group :development, :test do
   gem 'byebug'
+  gem 'geckodriver-helper'
   gem 'launchy'
   gem 'orderly'
   gem 'pry-byebug'
@@ -74,9 +75,11 @@ end
 group :test do
   gem 'capybara'
   gem 'cucumber'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
+  gem 'site_prism'
 end
 
 group :production do

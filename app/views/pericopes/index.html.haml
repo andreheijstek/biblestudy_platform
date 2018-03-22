@@ -3,7 +3,7 @@
     %h1
       = t('activerecord.models.studynote', count: 2)
     %ul.actions
-      = link_to t(:new_studynote), new_studynote_path, class: "new"
+      = link_to t(:new_studynote), new_studynote_path, class: 'new', id: 'new_studynote'
   #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
     .panel.panel-default
       #ot.panel-heading{:role => "tab"}

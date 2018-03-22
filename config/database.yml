@@ -16,3 +16,6 @@ test:
   <<: *default
   database: biblestudy_platform_test
 
+cucumber:
+  <<: *default
+  database: biblestudy_platform_test
