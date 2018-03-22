@@ -10,10 +10,15 @@ describe Admin::ApplicationController, type: :controller do
     allow(controller).to receive(:current_user).and_return(user)
   end
 
-  context 'non-admin users' do
-    it 'are not able to access the index action' do
+  context 'when non-admin users' do
+    before do
       get :index, params: {}
+    end
+    it 'access the index action they are redirected' do
       expect(response).to redirect_to '/'
+    end
+
+    it 'access the index action they get an error message' do
       expect(flash[:alert]).to eq 'You must be an admin to do that.'
     end
   end

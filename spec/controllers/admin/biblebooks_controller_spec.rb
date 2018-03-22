@@ -24,9 +24,13 @@ describe Admin::BiblebooksController, type: :controller do
     allow(controller).to receive(:current_user).and_return(user)
   end
 
-  it 'handles a missing biblebook correctly' do
+  it 'redirects on a missing biblebook' do
     get :show, params: { id: 'not-here' }
     expect(response).to redirect_to(admin_biblebooks_path)
+  end
+
+  it 'presents an error message on a missing biblebook' do
+    get :show, params: { id: 'not-here' }
     message = t(:biblebook_not_found)
     expect(flash[:alert]).to eq message
   end
