@@ -16,7 +16,7 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
   end
 
-  context 'abbreviated biblebooks' do
+  context 'with abbreviated biblebooks' do
     before do
       create(:biblebook, name: 'Genesis',      abbreviation: 'Gen')
       create(:biblebook, name: 'Exodus',       abbreviation: 'Ex')
@@ -54,74 +54,5 @@ feature 'Users can create new studynotes and associate them to pericopes' do
         end
       end
     end
-  end
-
-  scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
-    wait_for_ajax
-    click_on 'Voeg nog een pericoop toe'
-    wait_for_ajax
-    should_see 'pericoop 2'
-    wait_for_ajax
-    # click_on 'Voeg nog een pericoop toe'
-    # should_see 'pericoop 2'
-    # save_and_open_page
-    fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-
-    submit_form
-
-    should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3'
-  end
-end
-
-feature 'Users can not create new studynotes and associate them to pericopes' do
-  let(:user) { create(:user) }
-
-  before do
-    create(:biblebook, name: 'Jona')
-    login_as(user)
-    visit studynotes_path
-    click_link t(:new_studynote)
-  end
-
-  scenario 'except when providing no attributes' do
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('activerecord.models.messages.blank')
-  end
-
-  scenario 'except when providing out of sequence chapters and verses' do
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-            with: 'Jona 3:1 - 1:10'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('starting_greater_than_ending')
-  end
-
-  scenario 'except when providing just the title' do
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    submit_form
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see t('activerecord.models.messages.blank')
-  end
-
-  scenario 'except when providing an incorrect biblebook' do
-    create(:biblebook, name: 'Job')
-    create(:biblebook, name: 'Johannes')
-
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: 'Jo 1:1 - 1:10'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'),
-            with: 'Jona of Job of Johannes?'
-
-    submit_form
-
-    should_see t(:item_not_created, item: Studynote.model_name.human)
-    should_see "#{t('ambiguous_abbreviation')}: 'Jo' kan "
-    should_see 'Jona'
-    should_see 'Job'
-    should_see 'Johannes'
   end
 end

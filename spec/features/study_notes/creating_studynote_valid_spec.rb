@@ -14,22 +14,15 @@ feature 'Users can create new studynotes and associate them to pericopes' do
 
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-            with: 'Jona 1:1 - 1:10'
-
-    submit_form
   end
 
-  scenario 'showing who created' do
-    within('#studynote') do
-      should_see "#{t('author')} #{user.username}"
-    end
+  scenario 'to multiple pericopes with valid attributes', js: true do
+    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
+    click_on 'Voeg nog een pericoop toe'
+    # fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+    #
+    # submit_form
+    #
+    # should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3'
   end
-
-  scenario 'confirming creation' do
-    should_see t('item_created', item: Studynote.model_name.human)
-  end
-
-  # TODO: Add test for showing who made the update
 end

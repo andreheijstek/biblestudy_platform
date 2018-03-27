@@ -10,13 +10,13 @@ feature 'Users can view studynotes' do
     login_as(user)
     visit studynotes_path
     click_on t(:new_studynote)
+    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
   end
 
   scenario 'with a single pericope with valid attributes' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1",
             with: 'Jona 1:1 - 1:10'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
     submit_form
 
@@ -29,8 +29,6 @@ feature 'Users can view studynotes' do
   scenario 'with multiple pericopes with valid attributes' do
     fill_in "#{t('simple_form.labels.pericopes.name')} 1",
             with: 'Jona 1:1 - 1:10'
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
 
     submit_form
 

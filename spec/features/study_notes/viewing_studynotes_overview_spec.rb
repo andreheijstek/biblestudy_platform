@@ -3,30 +3,92 @@
 require 'rails_helper'
 
 describe 'Users can view an overview of all studynotes' do
-  # let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
+  let!(:book_jona) do
+    create(:biblebook,
+           name:         'Jona',
+           testament:    'oud',
+           booksequence: 34)
+  end
+  let!(:book_maleachi) do
+    create(:biblebook,
+           name:         'Maleachi',
+           testament:    'oud',
+           booksequence: 45)
+  end
+  let!(:book_mattheus) do
+    create(:biblebook,
+           name:         'Mattheus',
+           testament:    'nieuw',
+           booksequence: 51)
+  end
+  let!(:book_openbaringen) do
+    create(:biblebook,
+           name:         'Openbaringen',
+           testament:    'nieuw',
+           booksequence: 66)
+  end
+  let!(:book_handelingen) do
+    create(:biblebook,
+           name:         'Handelingen',
+           testament:    'nieuw',
+           booksequence: 53)
+  end
+
+  let!(:study_jona) do
+    create(:studynote,
+           title:  'Jona',
+           note:   'Jona is bijzonder.',
+           author: user)
+  end
+  let!(:pericope_jona) do
+    create(:pericope,
+           name:         'Jona 1:1 - 1:10',
+           biblebook_id: book_jona.id,
+           studynote_id: study_jona.id)
+  end
+
+  let!(:study_hand1) do
+    create(:studynote,
+           title:  'Handelingen later',
+           note:   'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand1) do
+    create(:pericope,
+           name:         'Handelingen 1:2 - 1:10',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand1.id)
+  end
+
+  let!(:study_hand2) do
+    create(:studynote,
+           title:  'Handelingen eerst',
+           note:   'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand2) do
+    create(:pericope,
+           name:         'Handelingen 1:1 - 1:10',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand2.id)
+  end
+
+  let!(:study_hand3) do
+    create(:studynote,
+           title:  'Handelingen alles',
+           note:   'Handelingen ook.',
+           author: user)
+  end
+  let!(:pericope_hand3) do
+    create(:pericope,
+           name:         'Handelingen',
+           biblebook_id: book_handelingen.id,
+           studynote_id: study_hand3.id)
+  end
 
   before do
-    @user              = create(:user)
-
-    @book_jona         = create(:biblebook, name: 'Jona', testament: 'oud', booksequence: 34)
-    @book_maleachi     = create(:biblebook, name: 'Maleachi', testament: 'oud', booksequence: 45)
-    @book_mattheus     = create(:biblebook, name: 'Mattheus', testament: 'nieuw', booksequence: 51)
-    @book_openbaringen = create(:biblebook, name: 'Openbaringen', testament: 'nieuw', booksequence: 66)
-    @book_handelingen  = create(:biblebook, name: 'Handelingen', testament: 'nieuw', booksequence: 53)
-
-    @study_jona        = create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: @user)
-    @pericope_jona     = create(:pericope, name: 'Jona 1:1 - 1:10', biblebook_id: @book_jona.id, studynote_id: @study_jona.id)
-
-    @study_hand1       = create(:studynote, title: 'Handelingen later', note: 'Handelingen ook.', author: @user)
-    @pericope_hand     = create(:pericope, name: 'Handelingen 1:2 - 1:10', biblebook_id: @book_handelingen.id, studynote_id: @study_hand1.id)
-
-    @study_hand2       = create(:studynote, title: 'Handelingen eerst', note: 'Handelingen ook.', author: @user)
-    @pericope_hand2    = create(:pericope, name: 'Handelingen 1:1 - 1:10', biblebook_id: @book_handelingen.id, studynote_id: @study_hand2.id)
-
-    @study_hand3       = create(:studynote, title: 'Handelingen alles', note: 'Handelingen ook.', author: @user)
-    @pericope_hand3    = create(:pericope, name: 'Handelingen', biblebook_id: @book_handelingen.id, studynote_id: @study_hand3.id)
-
     visit pericopes_path
   end
 

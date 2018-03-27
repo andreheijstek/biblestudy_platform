@@ -9,3 +9,14 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/FeatureMethods:
+  Exclude:
+    - 'spec/features/**/*'
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/**/*'

@@ -10,7 +10,6 @@ end
 When("I look at the overview") do
   @overview_page = StudynoteOverview.new
   @overview_page.load
-  save_and_open_page
 end
 
 Then("{string} should be shown before {string}") do |before, after|

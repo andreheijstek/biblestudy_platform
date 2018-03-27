@@ -2,33 +2,27 @@
 
 require 'rails_helper'
 
-feature 'Users can delete pericopes' do
+feature 'Users can add multiple pericopes to a studynote' do
   let(:user) { create(:user) }
-  # let(:studynote) do
-  #   create(:studynote,
-  #          pericope: 'Jona 1:1-5',
-  #          title: 'Jona met 1 pericoop',
-  #          note: 'zomaar iets')
-  # end
 
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
     visit studynotes_path
+
     click_link t(:new_studynote)
 
     fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
     fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
   end
 
-  scenario 'it should be possible to delete a pericope', js: true do
+  scenario 'to multiple pericopes with valid attributes', js: true do
+    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
     click_on 'Voeg nog een pericoop toe'
-    wait_for_ajax
-    should_see 'pericoop 2'
     fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-    within all('.input-group-btn')[1] do
-      click_link 'delete_pericope'
-    end
-    should_not_see 'pericoop 2'
+
+    submit_form
+
+    should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3'
   end
 end
