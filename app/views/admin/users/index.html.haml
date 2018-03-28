@@ -10,7 +10,7 @@
       %th #logins
       %th last login date
       %th #studies
-    - @users.each do |user|
+    - users.each do |user|
       %tr
         %td#username= link_to user, [:admin, user]
         %td#signin_count= user.sign_in_count
