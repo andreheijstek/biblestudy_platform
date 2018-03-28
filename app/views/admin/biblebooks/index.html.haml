@@ -4,7 +4,7 @@
     %ul.actions
       %li= link_to t(:new_biblebook), new_admin_biblebook_path, class: 'new'
   #biblebooks
-    - @biblebook.each do |biblebook|
+    - biblebook.each do |biblebook|
       %h2
         = link_to "#{biblebook.booksequence} - #{biblebook.name} - #{biblebook.testament}", |
           [:admin, biblebook]                                                               |

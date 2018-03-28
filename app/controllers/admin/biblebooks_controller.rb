@@ -9,29 +9,42 @@ module Admin
     attr_reader :biblebook
 
     def index
-      @biblebook = Biblebook.all
+      biblebook = Biblebook.all
+      locals biblebook: biblebook
     end
 
     def show; end
 
     def new
       biblebook = Biblebook.new
-      locals(:new, { biblebook: biblebook } )
+      locals :new,  biblebook: biblebook
     end
 
     def create
-      @biblebook = Biblebook.new(biblebook_params)
-      save_biblebook
+      biblebook = Biblebook.new(biblebook_params)
+      save_biblebook(biblebook)
     end
 
     def edit; end
 
     def update
       name = Biblebook.model_name.human
-      if @biblebook.update(biblebook_params)
+      update_biblebook(name)
+    end
+
+    def destroy
+      biblebook.destroy
+      flash[:notice] = t(:biblebook_deleted)
+      redirect_to admin_biblebooks_path
+    end
+
+    private
+
+    def update_biblebook(name)
+      if biblebook.update(biblebook_params)
         flash[:notice] = t(:item_updated,
                            item: name)
-        redirect_to [:admin, @biblebook]
+        redirect_to [:admin, biblebook]
       else
         flash.now[:alert] = t(:item_not_updated,
                               item: name)
@@ -39,25 +52,16 @@ module Admin
       end
     end
 
-    def destroy
-      @biblebook.destroy
-      flash[:notice] = t(:biblebook_deleted)
-      redirect_to admin_biblebooks_path
-    end
-
-    private
-    def save_biblebook
+    def save_biblebook(biblebook)
       name = Biblebook.model_name.human
-      if @biblebook.save
+      if biblebook.save
         flash[:notice] = t(:item_created,
                            item: name)
-        redirect_to [:admin, @biblebook]
+        redirect_to [:admin, biblebook]
       else
         flash.now[:alert] = t(:item_not_created,
                               item: name)
-        # render 'new'
-        # render new, locals: { biblebook: biblebook }
-        locals(:new, { biblebook: biblebook } )
+        locals :new, biblebook: biblebook
 
       end
     end
