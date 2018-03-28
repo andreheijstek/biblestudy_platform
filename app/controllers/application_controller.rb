@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
+  def locals(values)
+    render locals: values
+  end
+
   private
 
   def not_authorized

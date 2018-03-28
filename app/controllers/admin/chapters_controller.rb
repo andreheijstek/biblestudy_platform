@@ -21,11 +21,12 @@ module Admin
     def edit; end
 
     def update
+      name = Chapter.model_name.human
       if @chapter.update(chapter_params)
-        flash[:notice] = t(:item_updated, item: Chapter.model_name.human)
+        flash[:notice] = t(:item_updated, item: name)
         redirect_to [:admin, @biblebook, @chapter]
       else
-        flash.now[:alert] = t(:item_not_updated, item: Chapter.model_name.human)
+        flash.now[:alert] = t(:item_not_updated, item: name)
         render 'edit'
       end
     end
@@ -39,11 +40,12 @@ module Admin
     private
 
     def save_chapter
+      name = Chapter.model_name.human
       if @chapter.save
-        flash[:notice] = t(:item_created, item: Chapter.model_name.human)
+        flash[:notice] = t(:item_created, item: name)
         redirect_to [:admin, @biblebook, @chapter]
       else
-        flash.now[:alert] = t(:item_not_created, item: Chapter.model_name.human)
+        flash.now[:alert] = t(:item_not_created, item: name)
         render 'new'
       end
     end

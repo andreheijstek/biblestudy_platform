@@ -6,22 +6,23 @@ class PericopesController < ApplicationController
   # skip_after_action :verify_authorized, only: [:new]
 
   def index
-    @ot = Biblebook.where(testament: 'oud').select('name')
-    @nt = Biblebook.where(testament: 'nieuw').select('name')
+    ot = Biblebook.where(testament: 'oud').select('name')
+    nt = Biblebook.where(testament: 'nieuw').select('name')
 
-    @biblebook_counts = Pericope.group(:biblebook_name)
-                                .count
-    @testament_counts = Pericope.joins(:biblebook)
-                                .group('biblebooks.testament')
-                                .count
+    biblebook_counts = Pericope.group(:biblebook_name)
+                         .count
+    testament_counts = Pericope.joins(:biblebook)
+                         .group('biblebooks.testament')
+                         .count
+    locals ot: ot, nt: nt, biblebook_counts: biblebook_counts, testament_counts: testament_counts
   end
 
   def new
-    @index = params[:index].to_i
+    index = params[:index].to_i
     puts "In pericopes_controller, index = #{index}"
-    @studynote = Studynote.new
-    @studynote.pericopes.build
-    render layout: false
+    studynote = Studynote.new
+    studynote.pericopes.build
+    locals studynote: studynote, index: index
   end
 
   def show
@@ -29,11 +30,9 @@ class PericopesController < ApplicationController
     authorize pericope, :show?
   end
 
-  def edit
-    puts 'In de edit message'
+  def edit;
   end
 
-  def destroy
-    puts 'In de destroy message'
+  def destroy;
   end
 end

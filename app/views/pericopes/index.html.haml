@@ -9,14 +9,14 @@
       #ot.panel-heading{:role => "tab"}
         %h4.panel-title
           %a.collapsed{"aria-controls" => "collapse1", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
-            - ot_counts = @testament_counts["oud"] || 0
+            - ot_counts = testament_counts["oud"] || 0
             %h2= "#{t('old_testament')}  (#{t("studynote", :count => ot_counts)})"
       #collapse1{"aria-labelledby" => "ot", :class => "panel-collapse #{ot_counts > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
         / nested accordion
-        - @ot.each_with_index do |book, index|
+        - ot.each_with_index do |book, index|
           - book_href = "\#bookot#{index}"
           - book_control = "bookot#{index}"
-          - study_count = @biblebook_counts[book.name] || 0
+          - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
             #ot.panel-heading{:role => "tab"}
               %h4.panel-title
@@ -38,14 +38,14 @@
       #nt.panel-heading{:role => "tab"}
         %h4.panel-title
           %a.collapsed{"aria-controls" => "collapse2", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
-            - nt_counts = @testament_counts["nieuw"] || 0
+            - nt_counts = testament_counts["nieuw"] || 0
             %h2= "#{t('new_testament')} (#{t("studynote", :count => nt_counts)})"
       #collapse2{"aria-labelledby" => "nt", :class => "panel-collapse #{nt_counts > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
         / nested accordion
-        - @nt.each_with_index do |book, index|
+        - nt.each_with_index do |book, index|
           - book_href = "\#booknt#{index}"
           - book_control = "booknt#{index}"
-          - study_count = @biblebook_counts[book.name] || 0
+          - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
             #nt.panel-heading{:role => "tab"}
               %h4.panel-title

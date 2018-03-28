@@ -18,29 +18,14 @@ module Admin
 
     def create
       @biblebook = Biblebook.new(biblebook_params)
-      if @biblebook.save
-        flash[:notice] = t(:item_created,
-                           item: Biblebook.model_name.human)
-        redirect_to [:admin, @biblebook]
-      else
-        flash.now[:alert] = t(:item_not_created,
-                              item: Biblebook.model_name.human)
-        render 'new'
-      end
+      save_biblebook
     end
 
     def edit; end
 
     def update
-      if @biblebook.update(biblebook_params)
-        flash[:notice] = t(:item_updated,
-                           item: Biblebook.model_name.human)
-        redirect_to [:admin, @biblebook]
-      else
-        flash.now[:alert] = t(:item_not_updated,
-                              item: Biblebook.model_name.human)
-        render 'edit'
-      end
+      name = Biblebook.model_name.human
+      update_biblebook(name)
     end
 
     def destroy
@@ -50,6 +35,30 @@ module Admin
     end
 
     private
+    def update_biblebook(name)
+      if @biblebook.update(biblebook_params)
+        flash[:notice] = t(:item_updated,
+                           item: name)
+        redirect_to [:admin, @biblebook]
+      else
+        flash.now[:alert] = t(:item_not_updated,
+                              item: name)
+        render 'edit'
+      end
+    end
+
+    def save_biblebook
+      name = Biblebook.model_name.human
+      if @biblebook.save
+        flash[:notice] = t(:item_created,
+                           item: name)
+        redirect_to [:admin, @biblebook]
+      else
+        flash.now[:alert] = t(:item_not_created,
+                              item: name)
+        render 'new'
+      end
+    end
 
     def biblebook_params
       params.require(:biblebook).permit(:name, :booksequence, :testament)

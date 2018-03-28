@@ -30,7 +30,8 @@ module Admin
     def edit; end
 
     def update
-      params[:user].delete(:password) if params[:user][:password].blank?
+      user = params[:user]
+      user.delete(:password) if user[:password].blank?
       update_user
     end
 
