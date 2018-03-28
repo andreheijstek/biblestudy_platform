@@ -14,7 +14,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
-RSpec/FeatureMethods:
+Capybara/FeatureMethods:
   Exclude:
     - 'spec/features/**/*'
 RSpec/DescribeClass:

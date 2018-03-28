@@ -7,24 +7,31 @@ module Admin
     before_action :set_biblebook
     before_action :set_chapter, only: %i[show edit update destroy]
 
-    def show; end
+    attr_reader :chapter, :biblebook
+
+    def show
+      locals biblebook: biblebook, chapter: chapter
+    end
 
     def new
-      @chapter = @biblebook.chapters.build
+      chapter = biblebook.chapters.build
+      locals chapter: chapter
     end
 
     def create
-      @chapter = @biblebook.chapters.build(chapter_params)
-      save_chapter
+      chapter = biblebook.chapters.build(chapter_params)
+      save_chapter(chapter)
     end
 
-    def edit; end
+    def edit
+      locals biblebook: biblebook, chapter: chapter
+    end
 
     def update
       name = Chapter.model_name.human
-      if @chapter.update(chapter_params)
+      if chapter.update(chapter_params)
         flash[:notice] = t(:item_updated, item: name)
-        redirect_to [:admin, @biblebook, @chapter]
+        redirect_to [:admin, biblebook, chapter]
       else
         flash.now[:alert] = t(:item_not_updated, item: name)
         render 'edit'
@@ -32,21 +39,21 @@ module Admin
     end
 
     def destroy
-      @chapter.destroy
+      chapter.destroy
       flash[:notice] = t(:item_deleted, item: Chapter.model_name.human)
-      redirect_to [:admin, @biblebook]
+      redirect_to [:admin, biblebook]
     end
 
     private
 
-    def save_chapter
+    def save_chapter(chapter)
       name = Chapter.model_name.human
-      if @chapter.save
+      if chapter.save
         flash[:notice] = t(:item_created, item: name)
-        redirect_to [:admin, @biblebook, @chapter]
+        redirect_to [:admin, biblebook, chapter]
       else
         flash.now[:alert] = t(:item_not_created, item: name)
-        render 'new'
+        locals :new, biblebook: biblebook, chapter: chapter
       end
     end
 
@@ -61,7 +68,7 @@ module Admin
     end
 
     def set_chapter
-      @chapter = @biblebook.chapters.find(params[:id])
+      @chapter = biblebook.chapters.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = t(:chapter_not_found)
       redirect_to admin_biblebook_chapters_path
