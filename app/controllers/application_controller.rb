@@ -25,8 +25,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 
-  def locals(values)
-    render locals: values
+  # These groups are equivalent:
+  #
+  #   render action: :new, locals: { item: x }
+  #   render :new, locals: { item: x }
+  #   locals :new, item: x
+  #
+  #   render locals: { item: x }
+  #   locals item: x
+  #
+  def locals(action = nil, hash)
+    render action: action, locals: hash
   end
 
   private

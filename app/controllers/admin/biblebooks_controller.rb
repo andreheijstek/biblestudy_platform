@@ -6,6 +6,8 @@ module Admin
   class BiblebooksController < Admin::ApplicationController
     before_action :set_biblebook, only: %i[show edit update destroy]
 
+    attr_reader :biblebook
+
     def index
       @biblebook = Biblebook.all
     end
@@ -13,7 +15,8 @@ module Admin
     def show; end
 
     def new
-      @biblebook = Biblebook.new
+      biblebook = Biblebook.new
+      locals(:new, { biblebook: biblebook } )
     end
 
     def create
@@ -25,17 +28,6 @@ module Admin
 
     def update
       name = Biblebook.model_name.human
-      update_biblebook(name)
-    end
-
-    def destroy
-      @biblebook.destroy
-      flash[:notice] = t(:biblebook_deleted)
-      redirect_to admin_biblebooks_path
-    end
-
-    private
-    def update_biblebook(name)
       if @biblebook.update(biblebook_params)
         flash[:notice] = t(:item_updated,
                            item: name)
@@ -47,6 +39,13 @@ module Admin
       end
     end
 
+    def destroy
+      @biblebook.destroy
+      flash[:notice] = t(:biblebook_deleted)
+      redirect_to admin_biblebooks_path
+    end
+
+    private
     def save_biblebook
       name = Biblebook.model_name.human
       if @biblebook.save
@@ -56,7 +55,10 @@ module Admin
       else
         flash.now[:alert] = t(:item_not_created,
                               item: name)
-        render 'new'
+        # render 'new'
+        # render new, locals: { biblebook: biblebook }
+        locals(:new, { biblebook: biblebook } )
+
       end
     end
 
