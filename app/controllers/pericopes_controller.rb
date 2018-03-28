@@ -9,12 +9,17 @@ class PericopesController < ApplicationController
     ot = Biblebook.where(testament: 'oud').select('name')
     nt = Biblebook.where(testament: 'nieuw').select('name')
 
-    biblebook_counts = Pericope.group(:biblebook_name)
-                         .count
-    testament_counts = Pericope.joins(:biblebook)
-                         .group('biblebooks.testament')
-                         .count
-    locals ot: ot, nt: nt, biblebook_counts: biblebook_counts, testament_counts: testament_counts
+    biblebook_counts = Pericope
+                       .group(:biblebook_name)
+                       .count
+    testament_counts = Pericope
+                       .joins(:biblebook)
+                       .group('biblebooks.testament')
+                       .count
+    locals ot:               ot,
+           nt:               nt,
+           biblebook_counts: biblebook_counts,
+           testament_counts: testament_counts
   end
 
   def new
@@ -30,9 +35,7 @@ class PericopesController < ApplicationController
     authorize pericope, :show?
   end
 
-  def edit;
-  end
+  def edit; end
 
-  def destroy;
-  end
+  def destroy; end
 end

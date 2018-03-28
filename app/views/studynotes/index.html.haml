@@ -6,7 +6,7 @@
       = link_to t(:new_studynote), new_studynote_path, class: "new"
   #studynotes
     %table#studynotes
-      - @studynote.each do |studynote|
+      - studynote.each do |studynote|
         %tr
           %td= link_to studynote.title, studynote
           %td
