@@ -18,4 +18,10 @@ class Chapter < ActiveRecord::Base
   belongs_to :biblebook
 
   validates :chapter_number, presence: true
+
+  # A chapter is valid if it exists in the biblebook,
+  # so it must be positive and less than the number of chapters
+  def chapter_valid?(chapter)
+    chapter.positive? && chapter <= biblebook.nr_of_chapters
+  end
 end

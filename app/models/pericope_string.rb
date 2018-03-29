@@ -14,6 +14,9 @@ class PericopeString
     @starting_verse   = 0
     @ending_verse     = 0
 
+    # TODO: Refactor, this is a data clump
+    # It could become a struct, or a hash, so it becomes 1 variable iso 4
+
     @errors = []
 
     parse

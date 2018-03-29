@@ -12,7 +12,7 @@
 class PericopeValidator < ActiveModel::Validator
   def validate(record)
     @record = record
-    @name = record.name
+    @name   = record.name
     if empty_record?
       @record.errors.add :name, I18n.t('name_not_empty')
       return
@@ -46,10 +46,10 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def find_biblebook
-    biblebook_name = @parsed_pericope.biblebook_name
-    @biblebook = find_by_full_name(biblebook_name) ||
-                 find_by_abbreviation(biblebook_name) ||
-                 find_by_like(biblebook_name)
+    biblebook_name                  = @parsed_pericope.biblebook_name
+    @biblebook                      = find_by_full_name(biblebook_name) ||
+                                      find_by_abbreviation(biblebook_name) ||
+                                      find_by_like(biblebook_name)
 
     @parsed_pericope.biblebook_name = @biblebook.name unless @biblebook.nil?
     @biblebook
@@ -70,11 +70,12 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def check_found_biblebooks(biblebooks, name)
+    errors = @record.errors
     if biblebooks.empty?
-      @record.errors.add :name, I18n.t('unknown_biblebook')
+      errors.add :name, I18n.t('unknown_biblebook')
       @biblebook = nil
     elsif biblebooks.length > 1
-      @record.errors.add :name, ambiguous_string(name, biblebooks)
+      errors.add :name, ambiguous_string(name, biblebooks)
       @biblebook = nil
     else
       @biblebook = biblebooks[0]
@@ -89,17 +90,17 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def update_record
-    @record.tap do |r|
-      r.biblebook_id = @biblebook.id
-      r.biblebook_name = @biblebook.name
-      r.name = @name
+    @record.tap do |record|
+      record.biblebook_id   = @biblebook.id
+      record.biblebook_name = @biblebook.name
+      record.name           = @name
 
-      r.starting_chapter_nr = @parsed_pericope.starting_chapter
-      r.starting_verse = @parsed_pericope.starting_verse
-      r.ending_chapter_nr = @parsed_pericope.ending_chapter
-      r.ending_verse = @parsed_pericope.ending_verse
+      record.starting_chapter_nr = @parsed_pericope.starting_chapter
+      record.starting_verse      = @parsed_pericope.starting_verse
+      record.ending_chapter_nr   = @parsed_pericope.ending_chapter
+      record.ending_verse        = @parsed_pericope.ending_verse
 
-      r.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
+      record.sequence = @record.starting_chapter_nr * 1000 + @record.starting_verse
     end
   end
 end

@@ -44,10 +44,14 @@ class BibleVerse < ApplicationRecord
   end
 
   def <=>(other)
-    return 0 if (chapter_nr == other.chapter_nr) && (verse_nr == other.verse_nr)
-    return verse_nr <=> other.verse_nr if chapter_nr == other.chapter_nr
+    same_chapter = chapter_nr == other.chapter_nr
+    same_verse   = verse_nr == other.verse_nr
+
+    return 0 if same_chapter && same_verse
+    return verse_nr <=> other.verse_nr if same_chapter
     chapter_nr <=> other.chapter_nr
   end
+
   #
   # 1:2 <=> 1:2 = 0
   # 1:2 <=> 1:3 = -1
@@ -60,14 +64,15 @@ class BibleVerse < ApplicationRecord
   # expressie geevalueerd worden.
 
   def next
+    klass = self.class
     if verse_nr == nr_of_verses
-      self.class.new(biblebook: biblebook,
-                     chapter_nr: chapter_nr + 1,
-                     verse_nr: 1)
+      klass.new(biblebook:  biblebook,
+                chapter_nr: chapter_nr + 1,
+                verse_nr:   1)
     else
-      self.class.new(biblebook: biblebook,
-                     chapter_nr: chapter_nr,
-                     verse_nr: verse_nr + 1)
+      klass.new(biblebook:  biblebook,
+                chapter_nr: chapter_nr,
+                verse_nr:   verse_nr + 1)
     end
   end
 
@@ -80,8 +85,11 @@ class BibleVerse < ApplicationRecord
   # So my custom validator do have to check what the standard validators for
   # presence do as well.
   def input_safe?
-    !biblebook.nil? && !chapter_nr.nil? && chapter_nr.positive? &&
-      !verse_nr.nil? && verse_nr.positive?
+    !biblebook.nil? &&
+      !chapter_nr.nil? &&
+      chapter_nr.positive? &&
+      !verse_nr.nil? &&
+      verse_nr.positive?
   end
 
   def nr_of_chapters

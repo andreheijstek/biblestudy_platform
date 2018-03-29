@@ -19,8 +19,8 @@ require 'rails_helper'
 describe 'Biblebook' do
   before do
     @genesis = create(:biblebook, name: 'Genesis')
-    create(:chapter, biblebook_id: @genesis.id)
-    create(:chapter, biblebook_id: @genesis.id)
+    create(:chapter, biblebook_id: @genesis.id, nrofverses: 5)
+    create(:chapter, biblebook_id: @genesis.id, nrofverses: 8)
   end
 
   it 'should know how many chapters it has' do
@@ -28,6 +28,7 @@ describe 'Biblebook' do
   end
 
   it 'should accept chapters within range' do
-    expect(@genesis.chapter_valid?(1)).to eq(true)
+    # expect(@genesis.chapter_valid?(1)).to eq(true)
+    expect(@genesis.chapters[1].chapter_valid?(1)).to eq(true)
   end
 end
