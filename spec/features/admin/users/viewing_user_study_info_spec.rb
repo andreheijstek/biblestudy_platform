@@ -6,17 +6,17 @@ describe 'Admins can view a list of all users' do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: 'Jansen', email: 'jan.jansen@tour.fr') }
 
-  context '#studies is shown correctly' do
+  context 'when I am logged in as user' do
     before do
       create(:biblebook, name: 'Jona')
       login_as(user)
     end
 
-    it 'when there are no studies' do
+    it 'shows zero when there are no studies' do
       expect_nr_of_studies(0)
     end
 
-    it 'when there is one study' do
+    it 'shows one when there is one study' do
       create(:studynote,
              title:  'Jona',
              note:   'Jona is bijzonder.',

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'PericopeValidator' do
+describe PericopeValidator do
   let!(:gen) { create(:biblebook, name: 'Genesis', abbreviation: 'Gen') }
 
   it 'accepts a pericope of one verse' do

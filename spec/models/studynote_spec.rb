@@ -32,10 +32,10 @@ describe 'Studynote', type: :model do
   end
 
   it 'rejects a studynote with without a title' do
-    expect(Studynote.create(note: 'note')).to_not be_valid
+    expect(Studynote.create(note: 'note')).not_to be_valid
   end
 
   it 'rejects a studynote with without a note' do
-    expect(Studynote.create(title: 'title')).to_not be_valid
+    expect(Studynote.create(title: 'title')).not_to be_valid
   end
 end
