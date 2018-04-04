@@ -56,6 +56,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (10.0.1)
     capybara (2.18.0)
       addressable
@@ -75,6 +78,8 @@ GEM
       client_side_validations (>= 9.3.2, < 12)
       simple_form (~> 3.5)
     cocoon (1.2.11)
+    code_analyzer (0.4.8)
+      sexp_processor
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -251,6 +256,14 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_best_practices (1.19.1)
+      activesupport
+      code_analyzer (>= 0.4.8)
+      erubis
+      i18n
+      json
+      require_all (~> 1.5.0)
+      ruby-progressbar
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.1.5)
@@ -267,6 +280,7 @@ GEM
     rb-readline (0.5.5)
     rdoc (6.0.3)
     regexp_parser (0.4.11)
+    require_all (1.5.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -381,6 +395,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootstrap-sass
+  bundler-audit
   byebug
   capybara
   client_side_validations
@@ -414,6 +429,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-erd
   rails_12factor
+  rails_best_practices
   rb-readline
   rspec-rails
   rubocop

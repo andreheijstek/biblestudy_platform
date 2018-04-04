@@ -10,7 +10,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-books = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
+['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
  'Richteren', 'Ruth', '1 Samuël', '2 Samuël', '1 Koningen', '2 Koningen',
  '1 Kronieken', '2 Kronieken', 'Ezra', 'Nehemia', 'Esther', 'Job', 'Psalmen',
  'Spreuken', 'Prediker', 'Hooglied', 'Jesaja', 'Jeremia', 'Klaagliederen',
@@ -21,9 +21,7 @@ books = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
  '1 Tessalonicenzen', '2 Tessalonicenzen', '1 Timotheüs', '2 Timotheüs',
  'Titus', 'Filemon', 'Hebreeën', 'Jakobus', '1 Petrus', '2 Petrus',
  '1 Johannes', '2 Johannes', '3 Johannes', 'Judas', 'Openbaring']
-index = 0
-while index < books.size
-  name = books[index]
+  .each_with_index do |name, index|
   unless Biblebook.exists?(name: name)
     if index < 39
       Biblebook.create!(name: name, booksequence: index, testament: 'oud')
@@ -31,7 +29,6 @@ while index < books.size
       Biblebook.create!(name: name, booksequence: index, testament: 'nieuw')
     end
   end
-  index += 1
 end
 
 books = [
@@ -143,14 +140,10 @@ books = [
 books.each do |book|
   puts book[:name]
   id = Biblebook.find_by(name: book[:name]).id
-  index = 0
-  array = (1..book[:chapters])
-  while index < array.length
-    chapter = array[index]
+  (1..book[:chapters]).each_with_index do |chapter, index|
     unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
       Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
     end
-    index += 1
   end
 
   bbook = Biblebook.find_by(name: book[:name])

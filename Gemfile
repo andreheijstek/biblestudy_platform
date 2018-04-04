@@ -56,11 +56,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bundler-audit'
   gem 'erb2haml'
   gem 'fasterer'
   gem 'i18n-tasks'
   gem 'overcommit'
   gem 'rails-erd'
+  gem 'rails_best_practices'
   # Spring speeds up development by keeping your application running in the
   # background.
   # Read more: https://github.com/rails/spring  gem 'spring'
