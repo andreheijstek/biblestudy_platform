@@ -57,6 +57,7 @@ end
 
 group :development do
   gem 'erb2haml'
+  gem 'fasterer'
   gem 'i18n-tasks'
   gem 'overcommit'
   gem 'rails-erd'

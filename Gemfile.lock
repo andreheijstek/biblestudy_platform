@@ -83,6 +83,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
     cucumber (3.1.0)
@@ -131,6 +132,9 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    fasterer (0.4.1)
+      colorize (~> 0.7)
+      ruby_parser (~> 3.11.0)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
@@ -390,6 +394,7 @@ DEPENDENCIES
   devise-i18n
   erb2haml
   factory_bot_rails
+  fasterer
   font-awesome-rails
   geckodriver-helper
   haml
