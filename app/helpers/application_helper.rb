@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 # Most generic helper class
-# Implements title method to give each webpage an appropriate title
-# and a filter for admin methods
 module ApplicationHelper
+  # Implements title method to give each webpage an appropriate title
   def title(*parts)
     return if parts.empty?
     content_for :title do
@@ -11,7 +10,10 @@ module ApplicationHelper
     end
   end
 
-  def admins_only
-    yield if current_user.try(:admin?)
+  def timeago(time, options = {})
+    options[:class] ||= 'timeago'
+    return unless time
+    content_tag(:time, time.to_s,
+                options.merge(datetime: time.getutc.iso8601))
   end
 end

@@ -24,6 +24,9 @@ class Studynote < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User'
 
+  delegate :username, to: :author, prefix: true
+  delegate :email, to: :author, prefix: true
+
   validates :note,  presence: true
   validates :title, presence: true
 end

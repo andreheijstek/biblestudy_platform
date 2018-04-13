@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.timeago.js
+//= require time_ago.js
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require bootstrap-sprockets

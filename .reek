@@ -15,3 +15,6 @@
 "app/mailers":
   InstanceVariableAssumption:
     enabled: false
+"app/helpers":
+  FeatureEnvy:
+    enabled: false
