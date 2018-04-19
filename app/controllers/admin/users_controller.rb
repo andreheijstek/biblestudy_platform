@@ -23,7 +23,8 @@ module Admin
     end
 
     def create
-      user = User.new(user_params)
+      user       = User.new(user_params)
+      user.admin = params[:user][:admin] if current_user.admin?
       save_user(user)
     end
 
@@ -50,7 +51,8 @@ module Admin
     end
 
     def update_user
-      if user.update(user_params)
+      if @user.update(user_params)
+        set_admin
         flash[:notice] = t('activerecord.attributes.user.messages.updated')
         redirect_to admin_users_path
       else
@@ -60,8 +62,14 @@ module Admin
       end
     end
 
+    def set_admin
+      return unless current_user.admin?
+      @user.admin = params[:user][:admin]
+      @user.save
+    end
+
     def user_params
-      params.require(:user).permit(:email, :password, :admin, :username)
+      params.require(:user).permit(:email, :password, :username)
     end
 
     def set_user

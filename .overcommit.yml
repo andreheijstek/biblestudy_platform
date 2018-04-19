@@ -41,3 +41,7 @@ PreCommit:
 
   Reek:
     enabled: true
+
+PrePush:
+  Brakeman:
+    enabled: true

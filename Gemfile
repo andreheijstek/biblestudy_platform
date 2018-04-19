@@ -44,6 +44,7 @@ gem 'pg'
 gem 'haml'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'byebug'
   gem 'geckodriver-helper'
   gem 'launchy'
