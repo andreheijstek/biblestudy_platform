@@ -42,6 +42,9 @@ PreCommit:
   Reek:
     enabled: true
 
+  RailsSchemaUpToDate:
+    enabled: true
+
 PrePush:
   Brakeman:
     enabled: true
