@@ -15,8 +15,6 @@
 #  starting_chapter_nr :integer
 #  biblebook_name      :string
 #  sequence            :integer
-#  starting_verse_id   :integer
-#  ending_verse_id     :integer
 #
 
 # Models a Pericope, e.g. Gen 1:2-3:4

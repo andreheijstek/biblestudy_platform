@@ -43,7 +43,7 @@ PreCommit:
     enabled: true
 
   RailsSchemaUpToDate:
-    enabled: true
+    enabled: false
 
 PrePush:
   Brakeman:

@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223162059) do
+ActiveRecord::Schema.define(version: 20170114115435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "bible_verses", force: :cascade do |t|
-    t.bigint "biblebook_id"
-    t.integer "chapter_nr"
-    t.integer "verse_nr"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["biblebook_id"], name: "index_bible_verses_on_biblebook_id"
-  end
 
   create_table "biblebooks", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -31,7 +22,6 @@ ActiveRecord::Schema.define(version: 20171223162059) do
     t.integer "booksequence"
     t.string "testament"
     t.string "abbreviation"
-    t.bigint "bible_verse_id"
   end
 
   create_table "chapters", id: :serial, force: :cascade do |t|
@@ -42,16 +32,6 @@ ActiveRecord::Schema.define(version: 20171223162059) do
     t.datetime "updated_at", null: false
     t.integer "nrofverses"
     t.index ["biblebook_id"], name: "index_chapters_on_biblebook_id"
-  end
-
-  create_table "pericope_as_ranges", force: :cascade do |t|
-    t.string "name"
-    t.bigint "starting_verse_id"
-    t.bigint "ending_verse_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ending_verse_id"], name: "index_pericope_as_ranges_on_ending_verse_id"
-    t.index ["starting_verse_id"], name: "index_pericope_as_ranges_on_starting_verse_id"
   end
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
@@ -66,8 +46,6 @@ ActiveRecord::Schema.define(version: 20171223162059) do
     t.integer "starting_chapter_nr"
     t.string "biblebook_name"
     t.integer "sequence"
-    t.integer "starting_verse_id"
-    t.integer "ending_verse_id"
     t.index ["biblebook_id"], name: "index_pericopes_on_biblebook_id"
     t.index ["studynote_id"], name: "index_pericopes_on_studynote_id"
   end
@@ -75,9 +53,9 @@ ActiveRecord::Schema.define(version: 20171223162059) do
   create_table "roles", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "role"
+    t.integer "studynote_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "studynote_id"
     t.index ["studynote_id"], name: "index_roles_on_studynote_id"
     t.index ["user_id"], name: "index_roles_on_user_id"
   end
@@ -110,13 +88,20 @@ ActiveRecord::Schema.define(version: 20171223162059) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bible_verses", "biblebooks"
+  create_table "verses", id: :serial, force: :cascade do |t|
+    t.integer "verse_number"
+    t.string "verse_text"
+    t.integer "chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_verses_on_chapter_id"
+  end
+
   add_foreign_key "chapters", "biblebooks"
-  add_foreign_key "pericope_as_ranges", "bible_verses", column: "ending_verse_id"
-  add_foreign_key "pericope_as_ranges", "bible_verses", column: "starting_verse_id"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"
   add_foreign_key "roles", "studynotes"
   add_foreign_key "roles", "users"
   add_foreign_key "studynotes", "users", column: "author_id"
+  add_foreign_key "verses", "chapters"
 end
