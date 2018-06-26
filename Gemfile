@@ -85,7 +85,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
-  gem 'site_prism'
+  # gem 'site_prism'
 end
 
 group :production do
