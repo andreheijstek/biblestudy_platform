@@ -11,24 +11,24 @@ feature 'Users can delete pericopes' do
   #          note: 'zomaar iets')
   # end
 
-  before do
-    create(:biblebook, name: 'Jona')
-    login_as(user)
-    visit studynotes_path
-    click_link t(:new_studynote)
-
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-  end
-
-  scenario 'it should be possible to delete a pericope', js: true do
-    click_on 'Voeg nog een pericoop toe'
-    wait_for_ajax
-    should_see 'pericoop 2'
-    fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
-    within all('.input-group-btn')[1] do
-      click_link 'delete_pericope'
-    end
-    should_not_see 'pericoop 2'
-  end
+  # before do
+  #   create(:biblebook, name: 'Jona')
+  #   login_as(user)
+  #   visit studynotes_path
+  #   click_link t(:new_studynote)
+  #
+  #   fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+  #   fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+  # end
+  #
+  # scenario 'it should be possible to delete a pericope', js: true do
+  #   click_on 'Voeg nog een pericoop toe'
+  #   wait_for_ajax
+  #   should_see 'pericoop 2'
+  #   fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+  #   within all('.input-group-btn')[1] do
+  #     click_link 'delete_pericope'
+  #   end
+  #   should_not_see 'pericoop 2'
+  # end
 end

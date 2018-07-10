@@ -4,17 +4,17 @@ require 'rails_helper'
 
 feature 'Users can add multiple pericopes to a studynote' do
   let(:user) { create(:user) }
-
-  before do
-    create(:biblebook, name: 'Jona')
-    login_as(user)
-    visit studynotes_path
-
-    click_link t(:new_studynote)
-
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-  end
+  #
+  # before do
+  #   create(:biblebook, name: 'Jona')
+  #   login_as(user)
+  #   visit studynotes_path
+  #
+  #   click_link t(:new_studynote)
+  #
+  #   fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+  #   fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+  # end
 
   scenario 'to multiple pericopes with valid attributes', js: true do
     # fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
