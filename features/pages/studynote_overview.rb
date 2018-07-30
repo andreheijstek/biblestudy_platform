@@ -1,3 +1,5 @@
+# Eerste poging tot een page object met SitePrism, als basis voor Cucumber tests
+
 class StudynoteOverview < SitePrism::Page
   set_url 'http://localhost:3000'
 
@@ -6,5 +8,5 @@ class StudynoteOverview < SitePrism::Page
   element :accordion, "iets"
   element :testament_header, "iets"
   element :biblebook_header, "iets"
-  element :pericoop, "iets"
+  element :perikoop, "iets"
 end

@@ -17,9 +17,9 @@ feature 'Users can add multiple pericopes to a studynote' do
   # end
 
   scenario 'to multiple pericopes with valid attributes', js: true do
-    # fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
-    # click_on 'Voeg nog een pericoop toe'
-    # fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+    # fill_in 'perikoop 1', with: 'Jona 1:1 - 1:10'
+    # click_on 'Voeg nog een perickoop toe'
+    # fill_in 'perikoop 2', with: 'Jona 2:20 - 3:3'
     #
     # submit_form
     #

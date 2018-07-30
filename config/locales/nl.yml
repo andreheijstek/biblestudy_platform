@@ -9,8 +9,8 @@ nl:
         one: bijbelboek
         other: bijbelboeken
       pericope:
-        one: pericoop
-        other: pericopen
+        one: perikoop
+        other: perikopen
       chapter:
         one: hoofdstuk
         other: hoofdstukken
@@ -47,7 +47,7 @@ nl:
         description: beschrijving
         nrofverses: aantal verzen
       pericopes:
-        name: pericoop
+        name: perikoop
         starting_verse: eerste vers
         ending_verse: laatste vers
       studynote:
@@ -84,7 +84,7 @@ nl:
   not_allowed: dit is niet toegestaan
   name_not_empty: naam mag niet leeg zijn
 
-  invalid_pericope: onjuiste pericoop
+  invalid_pericope: onjuiste perikoop
   unknown_biblebook: onjuist/onbekend bijbelboek
   starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
   starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
@@ -109,9 +109,9 @@ nl:
 
   old_testament: Oude Testament
   new_testament: Nieuwe Testament
-  add_pericope: "Voeg nog een pericoop toe"
-  remove_pericope: "verwijder pericoop"
-  sure_to_delete_pericope: "Weet u zeker dat u deze pericoop wilt verwijderen?"
+  add_pericope: "Voeg nog een perikoop toe"
+  remove_pericope: "verwijder perikoop"
+  sure_to_delete_pericope: "Weet u zeker dat u deze perikoop wilt verwijderen?"
 
 
 

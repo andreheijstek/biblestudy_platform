@@ -7,4 +7,4 @@ $ ->
     console.log("in cocoon:after-insert")
     num = $("#pericopes div.nested-fields").length
     console.log(num )
-    added_item.find('.control-label').html('pericoop '+ num)
+    added_item.find('.control-label').html('perikoop '+ num)

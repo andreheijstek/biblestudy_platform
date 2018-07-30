@@ -18,14 +18,14 @@ feature 'Users can create new studynotes and associate them to pericopes' do
   end
 
   scenario 'to multiple pericopes with valid attributes', js: true do
-    fill_in 'pericoop 1', with: 'Jona 1:1 - 1:10'
+    fill_in 'perikoop 1', with: 'Jona 1:1 - 1:10'
     # button = find_by_id('add_pericope')
     # p button
     # result = button.click
-    click_on 'Voeg nog een pericoop toe'
+    click_on 'Voeg nog een perikoop toe'
     # sleep(100)
     save_and_open_page
-    fill_in 'pericoop 2', with: 'Jona 2:20 - 3:3'
+    fill_in 'perikoop 2', with: 'Jona 2:20 - 3:3'
 
     submit_form
 
