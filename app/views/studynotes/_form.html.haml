@@ -5,5 +5,7 @@
     .links
       = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs', id: 'add_pericope'
   = f.input :title
+  %input#x{:name => "content", :type => "hidden"}/
+  %trix-editor{:input => "x"}
   = f.input :note, :input_html => { :rows => 20 }
   = f.button :submit, class: "btn-primary"
