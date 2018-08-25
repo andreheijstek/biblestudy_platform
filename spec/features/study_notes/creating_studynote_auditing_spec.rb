@@ -8,28 +8,24 @@ feature 'Users can create new studynotes and associate them to pericopes', js: t
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
-    visit studynotes_path
 
-    click_link t(:new_studynote)
-
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    # fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-    find('trix-editor').click.set('Jona is bijzonder.')
-
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-            with: 'Jona 1:1 - 1:10'
-
-    click_button 'bijbelstudie toevoegen'
+    NewStudynotesPage.new.tap do |nsp|
+      nsp.load
+      nsp.title_field.set('Titel')
+      nsp.studynote_field.set('Jona is bijzonder.')
+      nsp.pericope1_field.set('Jona 1:1 - 1:10')
+      nsp.commit_button.click
+    end
     submit_form
   end
 
   scenario 'showing who created', :focus do
-    # within('#studynote') do
+    within('#studynote') do
       should_see "#{t('author')} #{user.username}"
-    # end
+    end
   end
 
-  # scenario 'confirming creation' do
-  #   should_see t('item_created', item: Studynote.model_name.human)
-  # end
+  scenario 'confirming creation', :focus do
+    should_see t('item_created', item: Studynote.model_name.human)
+  end
 end
