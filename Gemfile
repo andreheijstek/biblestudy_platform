@@ -37,6 +37,7 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'simple_form'
 gem 'sorted-activerecord'
+gem 'trix-rails', require: 'trix'
 gem 'webdrivers'
 
 gem 'pg'
@@ -46,6 +47,7 @@ gem 'haml'
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
+  gem 'connection_pool'
   gem 'geckodriver-helper'
   gem 'launchy'
   gem 'orderly'
@@ -87,7 +89,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
-  # gem 'site_prism'
+  gem 'site_prism'
 end
 
 group :production do

@@ -15,7 +15,7 @@
 
 FactoryBot.define do
   factory :chapter do
-    chapter_number '0'
-    description 'Example description'
+    chapter_number { '0' }
+    description { 'Example description' }
   end
 end
