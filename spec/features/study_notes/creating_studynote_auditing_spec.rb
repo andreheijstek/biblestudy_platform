@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can create new studynotes and associate them to pericopes', js: true do
+feature 'When studynotes are created, there is also an audit trail', js: true do
   let(:user) { create(:user) }
 
   before do
@@ -19,13 +19,13 @@ feature 'Users can create new studynotes and associate them to pericopes', js: t
     submit_form
   end
 
-  scenario 'showing who created', :focus do
+  scenario 'showing the author', :focus do
     within('#studynote') do
       should_see "#{t('author')} #{user.username}"
     end
   end
 
-  scenario 'confirming creation', :focus do
+  scenario 'showing creation date', :focus do
     should_see t('item_created', item: Studynote.model_name.human)
   end
 end
