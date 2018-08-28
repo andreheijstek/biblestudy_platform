@@ -3,7 +3,8 @@
   #studynote
     - title(@studynote.note, t('activerecord.models.studynote', count: 2))
     %header
-      %h1= studynote.title
+      #title
+        %h1= studynote.title
       %ul.actions
         - if policy(studynote).update?
           %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(studynote), class: "edit"
@@ -16,16 +17,20 @@
       %p
       #pericope
         = studynote.pericopes.collect(&:name).join(' | ')
-      %p= simple_format studynote.note
+      #studynote
+        %p= simple_format studynote.note
     %table#attributes
       %tr
         %th
           = t('author')
-        %td= studynote.author_username
+        %td
+          #author
+            = studynote.author_username
       %tr
         %th
           = t('created')
         %td
-          = timeago(studynote.created_at)
+          #created_at
+            = timeago(studynote.created_at)
           -#= t('ago')
     = link_to t(:new_studynote), new_studynote_path, class: "new"

@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'When studynotes are created, there is also an audit trail', js: true do
   let(:user) { create(:user) }
 
-  before do
+  scenario 'showing the author' do
     create(:biblebook, name: 'Jona')
     login_as(user)
 
@@ -17,15 +17,7 @@ feature 'When studynotes are created, there is also an audit trail', js: true do
       nsp.commit_button.click
     end
     submit_form
-  end
 
-  scenario 'showing the author', :focus do
-    within('#studynote') do
-      should_see "#{t('author')} #{user.username}"
-    end
-  end
-
-  scenario 'showing creation date', :focus do
-    should_see t('item_created', item: Studynote.model_name.human)
+    expect(StudynoteShowPage.new.author_field.text).to eq(user.username)
   end
 end
