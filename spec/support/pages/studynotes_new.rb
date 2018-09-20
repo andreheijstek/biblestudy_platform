@@ -1,10 +1,17 @@
+# frozen_string_literal: true
 # Page object for the studynotes/new page
+class PericopeFieldSection < SitePrism::Section
+  element :pericope_field, '.form-control'
+end
 
+# Page object for the studynotes/new page
 class NewStudynotesPage < SitePrism::Page
   set_url '/studynotes/new'
 
-  element :pericope1_field, 'input[name="studynote[pericopes_attributes][0][name]"]'
-  element :title_field, 'input[name="studynote[title]"]'
+  sections :pericope, PericopeFieldSection, 'div#pericopes'
+
+  element :add_pericope_button, '#add_pericope'
+  element :title_field, '#studynote_title'
   element :studynote_field, 'trix-editor'
-  element :commit_button, 'input[name="commit"]'
+  element :submit_button, '#submit_form'
 end

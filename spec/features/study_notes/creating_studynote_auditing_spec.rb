@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'When studynotes are created, there is also an audit trail', js: true do
+feature 'When studynotes are created, there is an audit trail', js: true do
   let(:user) { create(:user) }
 
   scenario 'showing the author' do
@@ -14,7 +14,7 @@ feature 'When studynotes are created, there is also an audit trail', js: true do
       nsp.title_field.set('Titel')
       nsp.studynote_field.set('Jona is bijzonder.')
       nsp.pericope1_field.set('Jona 1:1 - 1:10')
-      nsp.commit_button.click
+      nsp.submit_button.click
     end
     submit_form
 
