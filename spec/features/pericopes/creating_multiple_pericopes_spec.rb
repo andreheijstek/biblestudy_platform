@@ -19,7 +19,7 @@ feature 'Users can add multiple pericopes to a studynote', :focus do
       nsp.add_pericope_button.click
       save_and_open_page
 
-      # binding.pry
+      binding.pry
       nsp.pericope[1].pericope_field.set('Jona 2:20 - 3:3')
       nsp.submit_button.click
     end
