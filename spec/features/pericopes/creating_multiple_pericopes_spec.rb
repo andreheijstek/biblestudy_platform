@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can add multiple pericopes to a studynote' do
+feature 'Users can add multiple pericopes to a studynote', focus: true do
   let(:user) { create(:user) }
 
     scenario 'to multiple pericopes with valid attributes', js: true do
