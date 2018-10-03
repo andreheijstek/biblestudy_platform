@@ -2,31 +2,31 @@
 
 require 'rails_helper'
 
-feature 'Users can not create new studynotes' do
+feature 'Users can not create new studynotes', js: true, focus: true do
   let(:user) { create(:user) }
 
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
-    visit studynotes_path
-    click_link t(:new_studynote)
+
+    @nsp = NewStudynotesPage.new
+    @nsp.load
   end
 
   scenario 'when providing no attributes' do
-    submit_form
+    @nsp.submit_button.click
     should_see t('activerecord.models.messages.blank')
   end
 
   context 'with incorrect data' do
     before do
-      fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
+      @nsp.title_field.set 'Titel'
     end
 
     scenario 'except when providing out of sequence chapters and verses' do
-      fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-              with: 'Jona 3:1 - 1:10'
-      fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
-      submit_form
+      @nsp.pericopes[0].pericope_field.set 'Jona 3:1 - 1:10'
+      @nsp.studynote_field.set 'Jona is bijzonder.'
+      @nsp.submit_button.click
       should_see t('starting_greater_than_ending')
     end
 
@@ -39,12 +39,10 @@ feature 'Users can not create new studynotes' do
       create(:biblebook, name: 'Job')
       create(:biblebook, name: 'Johannes')
 
-      fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-              with: 'Jo 1:1 - 1:10'
-      fill_in t('simple_form.labels.studynote.note'),
-              with: 'Jona of Job of Johannes?'
+      @nsp.pericopes[0].pericope_field.set 'Jo 1:1 - 1:10'
+      @nsp.studynote_field.set 'Jona of Job of Johannes?'
 
-      submit_form
+      @nsp.submit_button.click
 
       should_see "#{t('ambiguous_abbreviation')}: 'Jo' kan "
       should_see 'Jona'
