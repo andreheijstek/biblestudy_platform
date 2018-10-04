@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 # Page object for the pericopes within the studynotes/new page
 class PericopeSection < SitePrism::Section
-  # element :pericope_field, '.form-control'
   element :delete_pericope_button, 'iets'
-  element :add_pericope_button, '#add_pericope'
 end
 
 # Page object for the studynotes/new page
@@ -11,7 +9,8 @@ class NewStudynotesPage < SitePrism::Page
   set_url '/studynotes/new'
 
   elements :pericopes, '.form-control'
-  sections :pericopesection, PericopeSection, 'div#pericopes'
+  # sections :pericopesection, PericopeSection, 'div#pericopes'
+  element :add_pericope_button, '#add_pericope'
 
   element :title_field, '#studynote_title'
   element :studynote_field, 'trix-editor'
