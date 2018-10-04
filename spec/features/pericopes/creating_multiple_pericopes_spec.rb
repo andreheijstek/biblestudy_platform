@@ -14,9 +14,9 @@ feature 'Users can add multiple pericopes to a studynote', focus: true do
     nsp.load
     nsp.title_field.set('Titel')
     nsp.studynote_field.set('Jona is bijzonder.')
-    nsp.pericopesection[0].add_pericope_button.click
+    nsp.add_pericope_button.click
     nsp.pericopes[0].set('Jona 1:1 - 1:10')
-    nsp.pericopesection[0].add_pericope_button.click
+    nsp.add_pericope_button.click
 
     nsp.pericopes[1].set('Jona 2:20 - 3:3')
     nsp.submit_button.click
