@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can not create new studynotes', js: true, focus: true do
+feature 'Users can not create new studynotes', js: true do
   let(:user) { create(:user) }
 
   before do
