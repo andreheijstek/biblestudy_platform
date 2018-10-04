@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can not create new studynotes', js: true do
+feature 'Users can not create new studynotes', js: true, focus: true do
   let(:user) { create(:user) }
 
   before do
@@ -24,7 +24,7 @@ feature 'Users can not create new studynotes', js: true do
     end
 
     scenario 'except when providing out of sequence chapters and verses' do
-      @nsp.pericopes[0].pericope_field.set 'Jona 3:1 - 1:10'
+      @nsp.pericopes[0].set 'Jona 3:1 - 1:10'
       @nsp.studynote_field.set 'Jona is bijzonder.'
       @nsp.submit_button.click
       should_see t('starting_greater_than_ending')
@@ -39,7 +39,7 @@ feature 'Users can not create new studynotes', js: true do
       create(:biblebook, name: 'Job')
       create(:biblebook, name: 'Johannes')
 
-      @nsp.pericopes[0].pericope_field.set 'Jo 1:1 - 1:10'
+      @nsp.pericopes[0].set 'Jo 1:1 - 1:10'
       @nsp.studynote_field.set 'Jona of Job of Johannes?'
 
       @nsp.submit_button.click
