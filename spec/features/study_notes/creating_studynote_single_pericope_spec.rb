@@ -2,23 +2,22 @@
 
 require 'rails_helper'
 
-describe 'Users can create new studynotes and associate them to pericopes' do
+describe 'Users can create new studynotes and associate them to pericopes', js: true do
   let(:user) { create(:user) }
 
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
-    visit studynotes_path
 
-    click_link t(:new_studynote)
+    @nsp = NewStudynotesPage.new
+    @nsp.load
 
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+    @nsp.title_field.set 'Titel'
+    @nsp.studynote_field.set 'Jona is bijzonder.'
   end
 
   it 'to a single pericopes with valid attributes' do
     fill_and_submit('Jona 1:1 - 1:10')
-
     should_see 'Jona 1:1 - 10'
   end
 
@@ -43,7 +42,9 @@ describe 'Users can create new studynotes and associate them to pericopes' do
   end
 
   def fill_and_submit(pericope)
-    fill_in "#{t('simple_form.labels.pericopes.name')} 1", with: pericope
+    @nsp.pericopes[0].set pericope
+    # @nsp.submit_button.click
+
     submit_form
   end
 end

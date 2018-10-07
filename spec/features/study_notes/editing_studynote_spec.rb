@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can edit existing studynotes' do
+feature 'Users can edit existing studynotes', js: true do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
@@ -17,19 +17,19 @@ feature 'Users can edit existing studynotes' do
   end
 
   scenario 'with valid attributes' do
-    fill_in t('simple_form.labels.studynote.note'),
-            with: 'Jona is heel bijzonder.'
-
-    submit_form
+    new_text = 'Jona is heel bijzonder.'
+    nsp = NewStudynotesPage.new
+    nsp.studynote_field.set(new_text)
+    nsp.submit_button.click
 
     should_see t(:item_updated, item: Studynote.model_name.human)
-    should_see 'Jona is heel bijzonder.'
+    should_see new_text
   end
 
-  scenario 'when providing invalid attributes' do
-    fill_in t('simple_form.labels.studynote.note'), with: ''
-
-    submit_form
+  scenario 'except when providing invalid attributes' do
+    nsp = NewStudynotesPage.new
+    nsp.studynote_field.native.clear # enter an empty string into the field
+    nsp.submit_button.click
 
     should_see t(:item_not_updated, item: Studynote.model_name.human)
   end
