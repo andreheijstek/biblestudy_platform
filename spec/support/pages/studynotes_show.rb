@@ -6,7 +6,7 @@ class StudynoteShowPage < SitePrism::Page
 
   element :title_field, '#title'
   element :pericope_field, '#pericope'
-  element :studynote_field, '#studynote'
+  element :studynote_field, '#studynote_note'
   element :author_field, '#author'
   element :datetime_field, '#created_at'
 

@@ -17,7 +17,7 @@
       %p
       #pericope
         = studynote.pericopes.collect(&:name).join(' | ')
-      #studynote
+      #studynote_note
         %p= simple_format studynote.note
     %table#attributes
       %tr
