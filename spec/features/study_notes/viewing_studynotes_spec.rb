@@ -2,6 +2,14 @@
 
 require 'rails_helper'
 
+def check_results
+  should_see t('item_created', item: Studynote.model_name.human)
+  within('#attributes') do
+    should_see t('author')
+    should_see user.username
+  end
+end
+
 feature 'Users can view studynotes', js: true do
   let(:user) { create(:user) }
 
@@ -18,11 +26,7 @@ feature 'Users can view studynotes', js: true do
   scenario 'with a single pericope with valid attributes' do
     @nsp.submit_button.click
 
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#attributes') do
-      should_see t('author')
-      should_see user.username
-    end
+    check_results
   end
 
   scenario 'with multiple pericopes with valid attributes' do
@@ -31,10 +35,6 @@ feature 'Users can view studynotes', js: true do
     @nsp.studynote_field.set('Jona is bijzonder.')
     @nsp.submit_button.click
 
-    should_see t('item_created', item: Studynote.model_name.human)
-    within('#studynote') do
-      should_see t('author')
-      should_see user.username
-    end
+    check_results
   end
 end
