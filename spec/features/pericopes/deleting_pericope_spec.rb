@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can delete pericopes' do
+feature 'Users can delete pericopes', js: true do
   let(:user) { create(:user) }
   let(:studynote) do
     create(:studynote,
@@ -14,21 +14,19 @@ feature 'Users can delete pericopes' do
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
-    visit studynotes_path
-    click_link t(:new_studynote)
 
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+    @nsp = NewStudynotesPage.new
+    @nsp.load
+    @nsp.title_field.set('Titel')
+    @nsp.studynote_field.set('Jona is bijzonder.')
   end
 
-  scenario 'it should be possible to delete a pericope', js: true do
-    click_on 'Voeg nog een perikoop toe'
-    wait_for_ajax
-    should_see 'perikoop 2'
-    fill_in 'perikoop 2', with: 'Jona 2:20 - 3:3'
-    within all('.input-group-btn')[1] do
-      click_link 'delete_pericope'
-    end
+  scenario 'it should be possible to delete a pericope' do
+    @nsp.pericopes[0].set('Jona 1:1 - 1:10')
+    @nsp.add_pericope_button.click
+    @nsp.pericopes[1].set('Jona 2:20 - 3:3')
+
+    @nsp.remove_pericope_button[0].click
     should_not_see 'perikoop 2'
   end
 end

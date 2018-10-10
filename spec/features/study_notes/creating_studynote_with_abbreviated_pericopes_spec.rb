@@ -2,18 +2,16 @@
 
 require 'rails_helper'
 
-feature 'Users can create new studynotes and associate them to pericopes' do
+feature 'Users can create new studynotes and associate them to pericopes', js: true do
   let(:user) { create(:user) }
 
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
-    visit studynotes_path
 
-    click_link t(:new_studynote)
-
-    fill_in t('simple_form.labels.studynote.title'), with: 'Titel'
-    fill_in t('simple_form.labels.studynote.note'), with: 'Jona is bijzonder.'
+    @nsp = NewStudynotesPage.new
+    @nsp.load
+    @nsp.title_field.set('Titel')
   end
 
   context 'with abbreviated biblebooks' do
@@ -43,8 +41,8 @@ feature 'Users can create new studynotes and associate them to pericopes' do
     ]
     examples.each do |example|
       it "should add a studynote with a correctly abbreviated biblebook #{example[:inputs]} as #{example[:expected]}" do
-        fill_in "#{t('simple_form.labels.pericopes.name')} 1",
-                with: (example[:inputs]).to_s
+        @nsp.pericopes[0].set((example[:inputs]).to_s)
+        @nsp.studynote_field.set('study')
 
         submit_form
 

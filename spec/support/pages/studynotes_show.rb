@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 # Page object for the studynotes/show page
 
-class StudynoteShowPage < SitePrism::Page
-  set_url '/studynotes/show{/studynote}'
+class ShowStudynotePage < SitePrism::Page
+  set_url "/studynotes{/studynote}"
 
   element :title_field, '#title'
   element :pericope_field, '#pericope'

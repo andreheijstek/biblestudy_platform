@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'When studynotes are created, there is an audit trail', js: true, focus: true do
+feature 'When studynotes are created, there is an audit trail', js: true do
   let(:user) { create(:user) }
 
   scenario 'showing the author' do
@@ -18,6 +18,7 @@ feature 'When studynotes are created, there is an audit trail', js: true, focus:
     end
     submit_form
 
-    expect(StudynoteShowPage.new.author_field.text).to eq(user.username)
+    should_see t('item_created', item: Studynote.model_name.human)
+    expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
   end
 end

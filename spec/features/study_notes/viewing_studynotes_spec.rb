@@ -4,10 +4,7 @@ require 'rails_helper'
 
 def check_results
   should_see t('item_created', item: Studynote.model_name.human)
-  within('#attributes') do
-    should_see t('author')
-    should_see user.username
-  end
+  expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
 end
 
 feature 'Users can view studynotes', js: true do

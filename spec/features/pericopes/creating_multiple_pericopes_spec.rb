@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-feature 'Users can add multiple pericopes to a studynote', focus: true do
+feature 'Users can add multiple pericopes to a studynote', js: true do
   let(:user) { create(:user) }
 
-  scenario 'to multiple pericopes with valid attributes', js: true do
+  scenario 'to multiple pericopes with valid attributes' do
 
     create(:biblebook, name: 'Jona')
     login_as(user)
@@ -21,6 +21,6 @@ feature 'Users can add multiple pericopes to a studynote', focus: true do
     nsp.pericopes[1].set('Jona 2:20 - 3:3')
     nsp.submit_button.click
 
-    expect(StudynoteShowPage.new.pericope_field.text).to eq('Jona 1:1 - 10 | Jona 2:20 - 3:3')
+    expect(ShowStudynotePage.new.pericope_field.text).to eq('Jona 1:1 - 10 | Jona 2:20 - 3:3')
   end
 end

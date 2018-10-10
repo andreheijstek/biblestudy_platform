@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can delete studynotes' do
+feature 'Users can delete studynotes', js: true do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
@@ -10,21 +10,30 @@ feature 'Users can delete studynotes' do
 
   scenario 'successfully' do
     login_as(user)
-    visit studynotes_path
 
+    visit studynotes_path
     click_link 'Jona'
-    click_link t(:delete_item, item: Studynote.model_name.human)
+
+    # I would like to use the pageobject here, but can't get the URL expansion to work
+    # ssp = StudynoteShowPage.new
+    # ssp.load(studynote: @s1)
+
+    accept_confirm do
+      click_link t(:delete_item, item: Studynote.model_name.human)
+    end
+
     should_see t('activerecord.messages.deleted', model: 'bijbelstudie')
-    expect(page.current_url).to eq pericopes_url
+    expect(page.current_path).to eq pericopes_path
     expect(page).to have_no_content 'Jona'
   end
 
   scenario 'unless they do not have permission' do
     login_as(otheruser)
-    visit studynotes_path
 
+    visit studynotes_path
     click_link 'Jona'
-    expect(page).not_to have_link t(:delete_item,
-                                    item: Studynote.model_name.human)
+
+    ssp = ShowStudynotePage.new
+    expect(ssp).not_to have_remove_button
   end
 end

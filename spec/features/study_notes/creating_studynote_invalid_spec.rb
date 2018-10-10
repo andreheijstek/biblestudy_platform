@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Users can not create new studynotes', js: true, focus: true do
+feature 'Users can not create new studynotes', js: true do
   let(:user) { create(:user) }
 
   before do
@@ -25,13 +25,13 @@ feature 'Users can not create new studynotes', js: true, focus: true do
 
     scenario 'except when providing out of sequence chapters and verses' do
       @nsp.pericopes[0].set 'Jona 3:1 - 1:10'
-      @nsp.studynote_field.set 'Jona is bijzonder.'
+      @nsp.studynote_field.set 'Studie'
       @nsp.submit_button.click
       should_see t('starting_greater_than_ending')
     end
 
     scenario 'when providing just the title' do
-      submit_form
+      @nsp.studynote_field.set 'Studie'
       should_see t('activerecord.models.messages.blank')
     end
 
@@ -40,7 +40,7 @@ feature 'Users can not create new studynotes', js: true, focus: true do
       create(:biblebook, name: 'Johannes')
 
       @nsp.pericopes[0].set 'Jo 1:1 - 1:10'
-      @nsp.studynote_field.set 'Jona of Job of Johannes?'
+      @nsp.studynote_field.set 'Studie'
 
       @nsp.submit_button.click
 
