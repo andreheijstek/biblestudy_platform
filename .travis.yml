@@ -28,5 +28,5 @@ notifications:
     - andre.heijstek@gmail.com
 
 addons:
-  - postgresql: "9.5.4"
-  - firefox: "50.0"
+  - postgresql: "10.1"
+  - firefox: "62.0"
