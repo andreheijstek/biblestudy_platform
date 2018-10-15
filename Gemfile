@@ -56,6 +56,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem 'site_prism'
 end
 
 group :development do
@@ -89,7 +90,6 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
-  gem 'site_prism'
 end
 
 group :production do
