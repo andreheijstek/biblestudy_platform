@@ -16,7 +16,6 @@ feature 'When studynotes are created, there is an audit trail', js: true do
       nsp.pericopes[0].set('Jona 1:1 - 1:10')
       nsp.submit_button.click
     end
-    submit_form
 
     should_see t('item_created', item: Studynote.model_name.human)
     expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
