@@ -1,5 +1,6 @@
 language: ruby
 rvm: 2.5.1
+sudo: false
 
 before_script:
   - psql -c 'create database biblestudy_platform_test;' -U postgres
