@@ -28,6 +28,7 @@ notifications:
   email:
     - andre.heijstek@gmail.com
 
-addons:
+# Commented, firefox is default present in Travis. You only need this if you want a specific version of Firefox
+#addons:
 #  - postgresql: "9.5.4"
-  - firefox: latest
+#  - firefox: latest

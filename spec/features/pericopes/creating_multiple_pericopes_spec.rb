@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Users can add multiple pericopes to a studynote', js: true do
   let(:user) { create(:user) }
 
-  scenario 'to multiple pericopes with valid attributes' do
+  scenario 'with valid attributes' do
 
     create(:biblebook, name: 'Jona')
     login_as(user)
