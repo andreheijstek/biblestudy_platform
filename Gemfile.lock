@@ -303,6 +303,8 @@ GEM
     rdoc (6.0.4)
     regexp_parser (1.2.0)
     regexp_property_values (0.3.4)
+    reject_deeply_nested (0.4.0)
+      activesupport
     require_all (2.0.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -460,6 +462,7 @@ DEPENDENCIES
   rails_12factor
   rails_best_practices
   rb-readline
+  reject_deeply_nested
   rspec-rails
   rubocop
   rubocop-rspec
@@ -480,4 +483,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.6
+   1.17.1

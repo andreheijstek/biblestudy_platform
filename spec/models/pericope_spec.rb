@@ -38,7 +38,6 @@ describe Pericope, type: :model do
 
   it 'is not valid without a name' do
     expect(Pericope.create(name: '')).not_to be_valid
-    expect(Pericope.create(name: nil)).not_to be_valid
   end
 
   it 'name must contain a valid pericopes string, and can include spaces' do

@@ -160,8 +160,9 @@ unless User.exists?(email: 'viewer@biblestudy.com')
   User.create!(email: 'viewer@biblestudy.com', password: 'bsp4ever')
 end
 
-pericopes = Pericope.all
-pericopes.each do |p|
-  p.biblebook_name = p.biblebook_name if p.biblebook_name.nil?
-  p.save
-end
+# TODO Dit ziet er zo onzinnig uit dat ik er eerst maar eens commentaar van heb gemaakt
+# pericopes = Pericope.all
+# pericopes.each do |p|
+#   p.biblebook_name = p.biblebook_name if p.biblebook_name.nil?
+#   p.save
+# end

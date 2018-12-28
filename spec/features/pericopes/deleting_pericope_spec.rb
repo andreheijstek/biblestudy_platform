@@ -26,7 +26,8 @@ feature 'Users can delete pericopes', js: true do
     @nsp.add_pericope_button.click
     @nsp.pericopes[1].set('Jona 2:20 - 3:3')
 
-    @nsp.remove_pericope_button[0].click
+    @nsp.remove_pericope_button[1].click
+
     should_not_see 'perikoop 2'
   end
 end

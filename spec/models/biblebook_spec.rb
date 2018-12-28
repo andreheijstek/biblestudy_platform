@@ -15,7 +15,7 @@
 require 'rails_helper'
 
 describe Biblebook do
-  let(:genesis) { create(:biblebook, name: 'Genesis') }
+  let(:genesis) { create(:biblebook, name: 'Genesis', abbreviation: 'Gen') }
 
   before do
     # @genesis = create(:biblebook, name: 'Genesis')
@@ -28,6 +28,28 @@ describe Biblebook do
   end
 
   it 'accepts chapters within range' do
-    expect(genesis.chapters[1].chapter_valid?(1)).to eq(true)
+    expect(genesis.chapter_valid?(1)).to eq(true)
+  end
+
+  it 'can find which book match a bookname when the full name is given' do
+    expect(Biblebook.possible_book_names('Genesis')). to eq(['Genesis'])
+  end
+
+  it 'can find which book match a bookname when the official abbreviation is given' do
+    expect(Biblebook.possible_book_names('Gen')). to eq(['Genesis'])
+  end
+
+  it 'can find which book match a bookname when a decent abbreviation is given' do
+    expect(Biblebook.possible_book_names('Genes')). to eq(['Genesis'])
+  end
+
+  it 'can find which books match a bookname when a wide abbreviation is given' do
+    create(:biblebook, name: 'Job')
+    create(:biblebook, name: 'Johannes')
+    create(:biblebook, name: 'Jona')
+
+    books = Biblebook.possible_book_names('Jo')
+
+    expect(books). to eq(['Job', 'Johannes', 'Jona'])
   end
 end

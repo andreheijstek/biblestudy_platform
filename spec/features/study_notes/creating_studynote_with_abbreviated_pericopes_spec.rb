@@ -27,7 +27,6 @@ feature 'Users can create new studynotes and associate them to pericopes', js: t
     examples = [
       # [pericope, title, studynote] => method_result
       { inputs: 'Gen 1:1 - 1:10',           expected: 'Genesis 1:1 - 10' },
-      { inputs: 'gen 1:1 - 1:10',           expected: 'Genesis 1:1 - 10' },
       { inputs: 'Ex 1:1 - 1:10',            expected: 'Exodus 1:1 - 10' },
       { inputs: '1 Kon 1:1 - 1:10',         expected: '1 Koningen 1:1 - 10' },
       { inputs: '1 Kron 1:1 - 1:10',        expected: '1 Kronieken 1:1 - 10' },

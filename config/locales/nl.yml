@@ -88,7 +88,7 @@ nl:
   unknown_biblebook: onjuist/onbekend bijbelboek
   starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
   starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
-  ambiguous_abbreviation: de afkorting is niet duidelijk genoeg
+  ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
   new_biblebook: Nieuw bijbelboek
 
   signed_in_as: "ingelogd als:"
@@ -112,6 +112,7 @@ nl:
   add_pericope: "Voeg nog een perikoop toe"
   remove_pericope: "verwijder perikoop"
   sure_to_delete_pericope: "Weet u zeker dat u deze perikoop wilt verwijderen?"
+  verse_chapter_disorder: "de volgorde van hoofdstukken en verzen is niet in orde"
 
 
 

@@ -102,14 +102,4 @@ describe PericopeString do
     expect(ps.ending_verse).to     eq(0)
     expect(ps.errors[0]).to be_nil
   end
-
-  it 'recognizes that verses are out of order' do
-    ps = described_class.new('Genesis 1:4-1:2')
-    expect(ps.errors[0]).to eq(I18n.t('starting_verse_chapter_mismatch'))
-  end
-
-  it 'recognizes that chapters are out of order' do
-    ps = described_class.new('Genesis 2:4-1:2')
-    expect(ps.errors[0]).to eq(I18n.t('starting_greater_than_ending'))
-  end
 end

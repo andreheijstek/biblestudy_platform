@@ -25,6 +25,8 @@ class PericopesController < ApplicationController
   def new
     index = params[:index].to_i
     puts "In pericopes_controller, index = #{index}"
+    # TODO Ik zie deze tekst nooit langskomen, dus volgens mij wordt deze
+    # code nooit uitgevoerd. Is er wel een pericopecontroller nodig?
     studynote = Studynote.new
     studynote.pericopes.build
     locals studynote: studynote, index: index

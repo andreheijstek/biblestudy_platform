@@ -63,7 +63,9 @@ class StudynotesController < ApplicationController
 
   def save_studynote(studynote)
     name = Studynote.model_name.human
-    if studynote.save
+    if studynote.save && !studynote.pericopes.empty?
+      # TODO, the second condiotion is a hack, needed because the standard rails validation does not work
+      # on nested attributes.
       flash[:notice] = t(:item_created, item: name)
       redirect_to studynote
     else

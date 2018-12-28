@@ -15,9 +15,12 @@
 # Models a Studynote, the main Object for this application
 class Studynote < ActiveRecord::Base
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
+  # accepts_nested_attributes_for :pericopes,
+  #                               allow_destroy: true,
+  #                               reject_if: :all_blank
   accepts_nested_attributes_for :pericopes,
                                 allow_destroy: true,
-                                reject_if: :all_blank
+                                reject_if: RejectDeeplyNested.blank?
 
   has_many :biblebooks, through: :pericopes
   has_many :roles, dependent: :delete_all
