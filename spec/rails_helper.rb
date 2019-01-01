@@ -54,4 +54,7 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers, type: :feature
   config.after(type: :feature) { Warden.test_reset! }
   config.include WaitForAjax, type: :feature
+
+  # Capybara.app_host = 'http://biblestudy-platform.herokuapp.com'
+  Capybara.default_driver = :selenium_headless
 end

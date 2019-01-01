@@ -12,6 +12,9 @@ feature 'Users can add multiple pericopes to a studynote', js: true do
 
     nsp = NewStudynotesPage.new
     nsp.load
+    puts '********************************************'
+    puts nsp.url
+    puts '********************************************'
     nsp.title_field.set('Titel')
     nsp.studynote_field.set('Jona is bijzonder.')
     nsp.add_pericope_button.click

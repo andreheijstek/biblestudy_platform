@@ -86,6 +86,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
