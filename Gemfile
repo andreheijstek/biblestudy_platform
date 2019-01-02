@@ -38,6 +38,7 @@ gem 'pundit'
 gem 'reject_deeply_nested'
 gem 'simple_form'
 gem 'sorted-activerecord'
+# Rich text editor
 gem 'trix-rails', require: 'trix'
 gem 'webdrivers'
 
@@ -57,6 +58,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  # Page objects
   gem 'site_prism'
 end
 
