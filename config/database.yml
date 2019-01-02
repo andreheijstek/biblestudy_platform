@@ -20,4 +20,9 @@ cucumber:
   <<: *default
   database: biblestudy_platform_test
 
+production:
+  <<: *default
+  database: biblestudy_platform_production
+
+
 
