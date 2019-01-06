@@ -46,44 +46,24 @@ class Biblebook < ActiveRecord::Base
   # - empty if not found
   # - one element if one found
   # - multiple elements if multiple found
-  # :reek:NilCheck - no idea how I can fix that here
+  # :reek:DuplicateMethodCall - don't know how to solve that right now
   def self.possible_book_names(name)
-    biblebook = find_by_full_name(name) ||
-    find_by_abbreviation(name) ||
-    find_names_by_like(name)
-
-    if biblebook.nil?
-      return []
-    elsif biblebook.class == Biblebook
-      return [biblebook.name]
-    else
-      return biblebook
+    biblebook = find_by_full_name(name)
+    if empty_biblebook?(biblebook)
+      biblebook = find_by_abbreviation(name)
+      if empty_biblebook?(biblebook)
+        biblebook = find_names_by_like(name)
+      end
     end
+
+    biblebook.map(&:name).uniq
   end
 
-  private
+  scope :find_by_full_name, -> (name) { where(name: name) }
+  scope :find_by_abbreviation, -> (abbreviation) { where(abbreviation: abbreviation) }
+  scope :find_names_by_like, -> (name) { where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%")) }
 
-  def self.find_by_full_name(name)
-    Biblebook.find_by(name: name)
+  def self.empty_biblebook?(biblebook)
+    biblebook.empty?
   end
-
-  def self.find_by_abbreviation(name)
-    Biblebook.find_by(abbreviation: name)
-  end
-
-  def self.find_by_like(name)
-    # Biblebook.where('name LIKE (?)', "%#{name.slice(0, 5)}%")
-    books = Biblebook.arel_table
-    Biblebook.where(books[:name].matches("%#{name.slice(0, 5)}%"))
-  end
-
-  def self.get_booknames(books)
-    books.map {|book| book.name}
-  end
-
-  def self.find_names_by_like(name)
-    books = find_by_like(name)
-    get_booknames(books)
-  end
-
 end

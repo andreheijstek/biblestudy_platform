@@ -22,7 +22,7 @@ class PericopeValidator < ActiveModel::Validator
       parsed_pericope     = parse_pericope(given_pericope_name)
       validate_pericope_order(parsed_pericope.starting_v, parsed_pericope.ending_v)
       full_biblebook_name = validate_biblebook_name(parsed_pericope.biblebook_name)
-      biblebook           = Biblebook.find_by_full_name(full_biblebook_name)
+      biblebook           = Biblebook.find_by_full_name(full_biblebook_name)[0]
       update_record(parsed_pericope, biblebook) unless biblebook.nil?
     end
   end
