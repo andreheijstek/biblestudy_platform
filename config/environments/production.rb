@@ -98,4 +98,6 @@ Rails.application.configure do
     authentication: :plain
   }
   config.action_mailer.default_url_options = { host: host }
+
+  GOOGLE_ANALYTICS_TRACKING_ID = 'UA-132209861-1'
 end
