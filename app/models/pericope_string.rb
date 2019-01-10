@@ -39,7 +39,6 @@ class PericopeString
   end
 
   # Parses a string and pulls out chapters and verses
-  # @params [String] @pericope_string - a raw pericope_string, like 'Gen 1:1-5'
   # Sets all object attributes
   def parse_chapters_and_verses
     parse_starting_chapter
@@ -48,7 +47,6 @@ class PericopeString
   end
 
   # Parses a string and pulls out the biblebook
-  # @params [String] @pericope_string - a raw pericope_string, like 'Gen 1:1-5'
   # Sets the @biblebook_name attribute
   # e.g. 1 Samuel or Samuel
   def parse_biblebook

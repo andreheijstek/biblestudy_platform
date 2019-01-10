@@ -33,25 +33,28 @@ class Biblebook < ActiveRecord::Base
 
   # A chapter is valid if it exists in the biblebook,
   # so it must be positive and less than the number of chapters
+  # @param [Integer] chapter number
+  # @return [Boolean]
   def chapter_valid?(chapter)
     chapter <= nr_of_chapters
   end
 
   # Returns the name of a Biblebook if it can be found by any kind of name
+  # @param [String]
   # - complete name, e.g. Genesis
   # - official abbreviation, e.g. gen
   # - fitting abbreviation, e.g. Gene
 
-  # The method always returns an Array
+  # @return [Array]
   # - empty if not found
   # - one element if one found
   # - multiple elements if multiple found
   # :reek:DuplicateMethodCall - don't know how to solve that right now
   def self.possible_book_names(name)
     biblebook = find_by_full_name(name)
-    if empty_biblebook?(biblebook)
+    unless exists?(biblebook)
       biblebook = find_by_abbreviation(name)
-      if empty_biblebook?(biblebook)
+      unless exists?(biblebook)
         biblebook = find_names_by_like(name)
       end
     end
@@ -63,7 +66,10 @@ class Biblebook < ActiveRecord::Base
   scope :find_by_abbreviation, -> (abbreviation) { where(abbreviation: abbreviation) }
   scope :find_names_by_like, -> (name) { where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%")) }
 
-  def self.empty_biblebook?(biblebook)
-    biblebook.empty?
+  # Tells if a biblebook exists with this name
+  # @param [String] biblebook name
+  # @return [Boolean]
+  def self.exists?(biblebook)
+    !biblebook.empty?
   end
 end
