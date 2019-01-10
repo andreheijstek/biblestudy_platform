@@ -275,3 +275,5 @@ FATAL:  database "biblestudy_platform_development" does not exist
 2017-10-31 12:36:45.115 CET [46291] FATAL:  connection to client lost
 2017-10-31 14:56:34.439 CET [47911] LOG:  could not send data to client: Broken pipe
 2017-10-31 14:56:34.441 CET [47911] FATAL:  connection to client lost
+2019-01-09 17:52:11.971 CET [12819] FATAL:  lock file "postmaster.pid" already exists
+2019-01-09 17:52:11.971 CET [12819] HINT:  Is another postmaster (PID 12810) running in data directory "/usr/local/var/postgres"?
