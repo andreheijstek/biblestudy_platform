@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -78,6 +78,8 @@ group :development do
   # gem 'i18n-debug'
   # Access an IRB console on exactly().timesception pages or
   # by using <%= console %> in views
+  # Reek checks ruby code for errors
+  gem 'reek'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'web-console'
