@@ -109,10 +109,10 @@ nl:
 
   old_testament: Oude Testament
   new_testament: Nieuwe Testament
-  add_pericope: "Voeg nog een perikoop toe"
-  remove_pericope: "verwijder perikoop"
-  sure_to_delete_pericope: "Weet u zeker dat u deze perikoop wilt verwijderen?"
-  verse_chapter_disorder: "de volgorde van hoofdstukken en verzen is niet in orde"
+  add_pericope: perikoop toevoegen
+  remove_pericope: verwijder perikoop
+  sure_to_delete_pericope: Weet u zeker dat u deze perikoop wilt verwijderen?
+  verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
 
 
 
