@@ -13,6 +13,9 @@
     = csrf_meta_tags
     / Google Analytics
     = render :partial => 'shared/google_analytics'
+    = javascript_tag do
+      I18n.defaultLocale = "#{I18n.default_locale}"
+      I18n.locale = "#{I18n.locale}"
   %body
     .container
       %header

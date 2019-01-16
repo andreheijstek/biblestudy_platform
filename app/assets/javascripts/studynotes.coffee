@@ -6,6 +6,11 @@
 # t(pericope) the counting of pericopes fail
 $ ->
   $("#pericopes").on "cocoon:after-insert", (event, added_item) ->
-    console.log("in cocoon:after-insert")
-    num = $("#pericopes div.nested-fields").length
+    num = $("#pericopes div.nested-fields:visible").length
     added_item.find('.control-label').html('bijbelgedeelte '+ num)
+  $("#pericopes").on "cocoon:before-remove", (event, added_item) ->
+    num = $("#pericopes div.nested-fields:visible").length
+    if (num == 1)
+      alert(I18n.t('at_least_one_pericope'))
+      event.preventDefault()
+
