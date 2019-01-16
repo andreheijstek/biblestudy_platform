@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
 
+  # Creates a nice user string to be displayed
   def to_s
     "#{email} (#{admin? ? 'Admin' : 'User'})"
   end

@@ -19,6 +19,7 @@ class Chapter < ActiveRecord::Base
 
   validates :chapter_number, presence: true
 
+  # Spaceship to help Comparable methods
   def <=> (other)
     self.chapter_number <=> other.chapter_number
   end

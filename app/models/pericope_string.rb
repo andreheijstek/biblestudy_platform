@@ -9,8 +9,8 @@ class PericopeString
               :ending_verse, :errors, :pericope_string, :biblebook_name,
               :starting_v, :ending_v
 
-  def initialize(given_pericope_string)
-    @pericope_string = StringScanner.new given_pericope_string
+  def initialize(given_pericope)
+    @pericope_string = StringScanner.new given_pericope
 
     @starting_v = Verse.new(0, 0)
     @ending_v   = Verse.new(0, 0)

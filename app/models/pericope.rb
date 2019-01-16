@@ -28,6 +28,7 @@ class Pericope < ActiveRecord::Base
   validates_with PericopeValidator
   after_validation :reformat_name
 
+  # Updates the Pericope.name to a nicely formatted name
   def reformat_name
     return unless errors.empty?
     new_name = biblebook_name.dup

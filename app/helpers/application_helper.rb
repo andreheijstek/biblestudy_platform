@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Most generic helper class
+# Most generic helper module
 module ApplicationHelper
   # Implements title method to give each webpage an appropriate title
   def title(*parts)
@@ -10,6 +10,9 @@ module ApplicationHelper
     end
   end
 
+  # Formatter to return nicely displayed time ago message
+  # :reek:FeatureEnvy - strange to get that message, here, this is especially a helper module for these kind
+  # of methods
   def timeago(time, options = {})
     options[:class] ||= 'timeago'
     return unless time
