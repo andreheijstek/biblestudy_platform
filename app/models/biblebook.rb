@@ -63,8 +63,8 @@ class Biblebook < ActiveRecord::Base
   end
 
   scope :find_by_full_name, -> (name) { where(name: name) }
-  scope :find_by_abbreviation, -> (abbreviation) { where(abbreviation: abbreviation) }
-  scope :find_names_by_like, -> (name) { where(Biblebook.arel_table[:name].downcase.matches("%#{name.slice(0, 5)}%").downcase) }
+  scope :find_by_abbreviation, -> (abbreviation) { where(Biblebook.arel_table[:abbreviation].matches(abbreviation)) }
+  scope :find_names_by_like, -> (name) { where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%")) }
 
   # Tells if a biblebook exists with this name
   # @param [String] biblebook name
