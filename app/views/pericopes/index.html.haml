@@ -5,8 +5,8 @@
     %ul.actions
       = link_to t(:new_studynote), new_studynote_path, class: 'new', id: 'new_studynote'
 
-  - oud = testament_counts['oud']
-  - nieuw = testament_counts['nieuw']
+  - oud = testament_counts['oud'] || 0
+  - nieuw = testament_counts['nieuw'] || 0
 
   - title = t('old_testament')
   = render partial: 'testament', locals: { testament_count: oud, ot: ot, biblebook_counts: biblebook_counts, title: title }

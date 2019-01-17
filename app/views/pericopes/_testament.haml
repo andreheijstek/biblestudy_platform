@@ -2,7 +2,7 @@
   #ot.panel-heading{:role => "tab"}
     = render :partial => 'testament_header', locals: { count: testament_count, title: title }
 
-  #collapse1{"aria-labelledby" => "ot", :class => "panel-collapse #{testament_count > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
+  #collapse1{"aria-labelledby" => "ot", :class => "panel-collapse #{testament_count.positive? ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
     - ot.each_with_index do |book, index|
       - book_href = "\#bookot#{index}"
       - book_control = "bookot#{index}"
