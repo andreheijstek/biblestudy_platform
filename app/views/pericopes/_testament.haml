@@ -1,0 +1,10 @@
+.panel.panel-default
+  #ot.panel-heading{:role => "tab"}
+    = render :partial => 'testament_header', locals: { count: testament_count, title: title }
+
+  #collapse1{"aria-labelledby" => "ot", :class => "panel-collapse #{testament_count > 0 ? 'collapse.show' : 'collapse'}", :role => "tabpanel"}
+    - ot.each_with_index do |book, index|
+      - book_href = "\#bookot#{index}"
+      - book_control = "bookot#{index}"
+      - study_count = biblebook_counts[book.name] || 0
+      = render :partial => 'nested_accordion', locals: { book: book, study_count: study_count, testament: 'ot' }

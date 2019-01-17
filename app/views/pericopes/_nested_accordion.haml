@@ -1,0 +1,5 @@
+.panel.panel-default
+  #ot.panel-heading{:role => "tab"}
+    = render :partial => 'book_header', locals: { book: book, study_count: study_count, testament: testament }
+  %div{:id => "#{book.name}"}
+    = render :partial => 'pericope_table', locals: { book: book }

@@ -37,7 +37,9 @@ class PericopesController < ApplicationController
     authorize pericope, :show?
   end
 
-  def edit; end
+  def edit;
+  end
 
-  def destroy; end
+  def destroy;
+  end
 end
