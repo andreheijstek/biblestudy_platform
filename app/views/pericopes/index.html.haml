@@ -22,17 +22,7 @@
               %h4.panel-title
                 %a.collapsed{"data-parent" => "#nt", "data-toggle" => "collapse", :href => "#{book.name}"}
                   \#{"#{book.name} (#{study_count})"}
-            %div{:id => "#{book.name}"}
-              %table{:id => "#{book.name}"}
-                %tr
-                  %th= t('activerecord.models.pericope', count: 1)
-                  %th= t('author')
-                  %th= Studynote.human_attribute_name(:title)
-                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
-                  %tr
-                    %td= study.name
-                    %td= study.studynote.author.username
-                    %td= link_to study.studynote.title, study.studynote
+            = render :partial => 'book_table_ot', locals: { book: book }
         / end nested accordion
     .panel.panel-default
       #nt.panel-heading{:role => "tab"}
@@ -51,15 +41,4 @@
               %h4.panel-title
                 %a.collapsed{"data-parent" => "#ot", "data-toggle" => "collapse", :href => "#{book.name}"}
                   \#{"#{book.name} (#{study_count})"}
-            %div{:id => "#{book.name}"}
-              %table{:id => "#{book.name}"}
-                %tr
-                  %th= t('activerecord.models.pericope', count: 1)
-                  %th= t('author')
-                  %th= Studynote.human_attribute_name(:title)
-                - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
-                  %tr
-                    %td= study.name
-                    %td= study.studynote.author.username
-                    %td= link_to study.studynote.title, study.studynote
-        / end nested accordion
+            = render partial: 'book_table_nt', locals: { book: book }
