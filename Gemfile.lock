@@ -515,6 +515,7 @@ DEPENDENCIES
   simplecov
   site_prism
   sorted-activerecord
+  sprockets-rails
   trix-rails
   uglifier
   web-console
