@@ -87,24 +87,24 @@ describe 'Users can view an overview of all studynotes' do
            biblebook_id: book_handelingen.id,
            studynote_id: study_hand3.id)
   end
-
-  before do
-    visit pericopes_path
-  end
-
-  scenario 'showing biblebooks in appropriate groups' do
-    should_see t('old_testament')
-    should_see t('new_testament')
-    should_see t('pentateuch')
-    should_see t('history')
-    should_see t('poetry')
-    should_see t('large_prophets')
-    should_see t('small_prophets')
-    should_see t('gospel')
-    should_see t('acts')
-    should_see t('letters')
-    should_see t('apocalyps')
-  end
+  #
+  # before do
+  #   visit pericopes_path
+  # end
+  #
+  # scenario 'showing biblebooks in appropriate groups' do
+  #   should_see t('old_testament')
+  #   should_see t('new_testament')
+  #   should_see t('pentateuch')
+  #   should_see t('history')
+  #   should_see t('poetry')
+  #   should_see t('large_prophets')
+  #   should_see t('small_prophets')
+  #   should_see t('gospel')
+  #   should_see t('acts')
+  #   should_see t('letters')
+  #   should_see t('apocalyps')
+  # end
 
   # scenario 'showing the number of studynotes per biblebook' do
   #   page.click_on('Oude Testament')
