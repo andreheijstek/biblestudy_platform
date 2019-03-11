@@ -23,6 +23,7 @@ class Biblebook < ActiveRecord::Base
   has_many :chapters, dependent: :delete_all
   has_many :pericopes
   has_many :studynotes, through: :pericopes
+  has_one :biblebook_category
 
   default_scope { order('booksequence ASC') }
   scope :find_by_full_name, -> (name) { where(name: name) }

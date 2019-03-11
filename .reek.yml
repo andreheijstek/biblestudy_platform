@@ -33,3 +33,4 @@ directories:
     UncommunicativeVariableName:
       enabled: false
 
+#TODO db configs should not be necessary, but the db exclude does not work, so this is a temporary fix

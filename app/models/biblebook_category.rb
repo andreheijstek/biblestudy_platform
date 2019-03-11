@@ -10,4 +10,5 @@
 #
 
 class BiblebookCategory < ApplicationRecord
+  belongs_to :biblebook
 end
