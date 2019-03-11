@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_01_14_115435) do
+ActiveRecord::Schema.define(version: 2019_03_11_083954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "biblebook_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "biblebooks", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -22,6 +29,17 @@ ActiveRecord::Schema.define(version: 2017_01_14_115435) do
     t.integer "booksequence"
     t.string "testament"
     t.string "abbreviation"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_biblebooks_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.text "name"
+    t.bigint "biblebook_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order"
+    t.index ["biblebook_id"], name: "index_categories_on_biblebook_id"
   end
 
   create_table "chapters", id: :serial, force: :cascade do |t|
@@ -97,6 +115,8 @@ ActiveRecord::Schema.define(version: 2017_01_14_115435) do
     t.index ["chapter_id"], name: "index_verses_on_chapter_id"
   end
 
+  add_foreign_key "biblebooks", "categories"
+  add_foreign_key "categories", "biblebooks"
   add_foreign_key "chapters", "biblebooks"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"
