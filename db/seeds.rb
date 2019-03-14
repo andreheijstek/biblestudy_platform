@@ -124,6 +124,8 @@ books.each do |book|
   end
 end
 
+# Add categories to books
+# 
 unless User.exists?(email: 'admin@biblestudy.com')
   User.create!(email: 'admin@biblestudy.com', password: 'bsp4ever', admin: true)
 end
