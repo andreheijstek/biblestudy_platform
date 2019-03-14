@@ -10,7 +10,6 @@
 #  booksequence :integer
 #  testament    :string
 #  abbreviation :string
-#  category_id  :bigint(8)
 #
 
 require 'rails_helper'

@@ -10,7 +10,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
+biblebooks = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
  'Richteren', 'Ruth', '1 Samuël', '2 Samuël', '1 Koningen', '2 Koningen',
  '1 Kronieken', '2 Kronieken', 'Ezra', 'Nehemia', 'Esther', 'Job', 'Psalmen',
  'Spreuken', 'Prediker', 'Hooglied', 'Jesaja', 'Jeremia', 'Klaagliederen',
@@ -21,7 +21,8 @@
  '1 Tessalonicenzen', '2 Tessalonicenzen', '1 Timotheüs', '2 Timotheüs',
  'Titus', 'Filemon', 'Hebreeën', 'Jakobus', '1 Petrus', '2 Petrus',
  '1 Johannes', '2 Johannes', '3 Johannes', 'Judas', 'Openbaring']
-  .each_with_index do |name, index|
+
+biblebooks.each_with_index do |name, index|
   unless Biblebook.exists?(name: name)
     if index < 39
       Biblebook.create!(name: name, booksequence: index, testament: 'oud')
@@ -159,10 +160,3 @@ end
 unless User.exists?(email: 'viewer@biblestudy.com')
   User.create!(email: 'viewer@biblestudy.com', password: 'bsp4ever')
 end
-
-# TODO Dit ziet er zo onzinnig uit dat ik er eerst maar eens commentaar van heb gemaakt
-# pericopes = Pericope.all
-# pericopes.each do |p|
-#   p.biblebook_name = p.biblebook_name if p.biblebook_name.nil?
-#   p.save
-# end

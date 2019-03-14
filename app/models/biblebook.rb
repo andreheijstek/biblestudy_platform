@@ -12,7 +12,6 @@
 #  booksequence :integer
 #  testament    :string
 #  abbreviation :string
-#  category_id  :bigint(8)
 #
 
 # Models one Biblebook
