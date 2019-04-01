@@ -26,12 +26,12 @@ feature 'Users can view studynotes', js: true do
     check_results
   end
 
-  scenario 'with multiple pericopes with valid attributes' do
-    @nsp.add_pericope_button.click
-    @nsp.pericopes[1].set('Jona 2:1 - 2:10')
-    @nsp.studynote_field.set('Jona is bijzonder.')
-    @nsp.submit_button.click
-
-    check_results
-  end
+  # scenario 'with multiple pericopes with valid attributes' do
+  #   @nsp.add_pericope_button.click
+  #   @nsp.pericopes[1].set('Jona 2:1 - 2:10')
+  #   @nsp.studynote_field.set('Jona is bijzonder.')
+  #   @nsp.submit_button.click
+  #
+  #   check_results
+  # end
 end

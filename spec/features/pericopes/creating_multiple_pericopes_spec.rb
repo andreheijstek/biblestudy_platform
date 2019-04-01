@@ -1,3 +1,4 @@
+=begin
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -24,3 +25,4 @@ feature 'Users can add multiple pericopes to a studynote', js: true do
     expect(ShowStudynotePage.new.pericope_field.text).to eq('Jona 1:1 - 10 | Jona 2:20 - 3:3')
   end
 end
+=end
