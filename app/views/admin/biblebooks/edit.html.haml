@@ -1,4 +1,3 @@
-%body
-  %header
-    %h1= t(:edit_item, item: Biblebook.model_name.human)
-  = render "form", biblebook: @biblebook
+%header
+  %h1= t(:edit_item, item: Biblebook.model_name.human)
+= render "form", biblebook: @biblebook

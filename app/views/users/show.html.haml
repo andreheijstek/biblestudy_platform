@@ -1,32 +1,30 @@
-%body
-  %h1 Dit hoort nergens zichtbaar te worden!
-  #studynote
-    - title(@studynote.note, t('activerecord.models.studynote', count: 2))
-    %header
-      %h1= @studynote.title
-      %ul.actions
-        - if policy(@studynote).update?
-          %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(@studynote), class: "edit"
-        - if policy(@studynote).destroy?
-          %li= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote), |
-              method: :delete,                                                                       |
-              data: { confirm: t(:sure_to_delete_studynote) },                                       |
-              class: "delete"                                                                        |
-    %header
-      %p
-        - @studynote.pericopes.each do |pericope|
-          = pericope.name
-      %p= simple_format @studynote.note
-    %table#attributes
-      %tr
-        %th
-          = t('author')
-          \:
-        %td= @studynote.author_email
-      %tr
-        %th
-          = t('created')
-          \:
-        %td
-          = time_ago_in_words(@studynote.created_at)
-          = t('ago')
+#studynote
+  - title(@studynote.note, t('activerecord.models.studynote', count: 2))
+  %header
+    %h1= @studynote.title
+    %ul.actions
+      - if policy(@studynote).update?
+        %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(@studynote), class: "edit"
+      - if policy(@studynote).destroy?
+        %li= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(@studynote), |
+            method: :delete,                                                                       |
+            data: { confirm: t(:sure_to_delete_studynote) },                                       |
+            class: "delete"                                                                        |
+  %header
+    %p
+      - @studynote.pericopes.each do |pericope|
+        = pericope.name
+    %p= simple_format @studynote.note
+  %table#attributes
+    %tr
+      %th
+        = t('author')
+        \:
+      %td= @studynote.author_email
+    %tr
+      %th
+        = t('created')
+        \:
+      %td
+        = time_ago_in_words(@studynote.created_at)
+        = t('ago')

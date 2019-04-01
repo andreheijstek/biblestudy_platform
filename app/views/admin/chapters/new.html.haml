@@ -1,5 +1,4 @@
-%body
-  %header
-    %h1
-      = "#{t(:add_chapter)} in #{@biblebook.name}"
-  = render "form", biblebook: @biblebook, chapter: chapter
+%header
+  %h1
+    = "#{t(:add_chapter)} in #{@biblebook.name}"
+= render "form", biblebook: @biblebook, chapter: chapter

@@ -1,5 +1,5 @@
 %div{:id => "#{book.name}"}
-  %table{:id => "#{book.name}"}
+  %table{:id => "#{book.name}_table"}
     %tr
       %th= t('activerecord.models.pericope', count: 1)
       %th= t('author')
@@ -9,4 +9,3 @@
         %td= study.name
         %td= study.studynote.author.username
         %td= link_to study.studynote.title, study.studynote
-        / end nested accordion

@@ -10,8 +10,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = ['pentateuch', 'history', 'poetry', 'large_prophets',
-              'small_prophets', 'gospel', 'acts', 'letters', 'apocalyps']
+categories = %w(pentateuch history poetry large_prophets small_prophets gospel acts letters apocalyps)
 categories.each_with_index do |category, index|
   BiblebookCategory.create!(name: category, order: index)
 end
@@ -124,8 +123,6 @@ books.each do |book|
   end
 end
 
-# Add categories to books
-# 
 unless User.exists?(email: 'admin@biblestudy.com')
   User.create!(email: 'admin@biblestudy.com', password: 'bsp4ever', admin: true)
 end

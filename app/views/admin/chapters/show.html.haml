@@ -1,15 +1,14 @@
-%body
-  #chapter
-    %header
-      %h1= biblebook.name
-      %ul.actions
-        %li
-          = link_to t(:delete_item, item: Chapter.model_name.human), [:admin, biblebook, chapter], |
-            method: :delete,                                                                         |
-            data: { confirm: t(:sure_to_delete, item: Chapter.model_name.human) },                   |
-            class: "delete"                                                                          |
-        %li= link_to t(:edit_item, item: Chapter.model_name.human), edit_admin_biblebook_chapter_path(biblebook, chapter), class: "edit"
-    %header
-      %h2= "#{t('activerecord.models.chapter', count: 1).capitalize} #{chapter.chapter_number}"
-    = simple_format(chapter.description)
-    = chapter.nrofverses
+#chapter
+  %header
+    %h1= biblebook.name
+    %ul.actions
+      %li
+        = link_to t(:delete_item, item: Chapter.model_name.human), [:admin, biblebook, chapter], |
+          method: :delete,                                                                         |
+          data: { confirm: t(:sure_to_delete, item: Chapter.model_name.human) },                   |
+          class: "delete"                                                                          |
+      %li= link_to t(:edit_item, item: Chapter.model_name.human), edit_admin_biblebook_chapter_path(biblebook, chapter), class: "edit"
+  %header
+    %h2= "#{t('activerecord.models.chapter', count: 1).capitalize} #{chapter.chapter_number}"
+  = simple_format(chapter.description)
+  = chapter.nrofverses

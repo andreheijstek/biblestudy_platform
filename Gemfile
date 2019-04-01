@@ -44,15 +44,13 @@ gem 'sprockets-rails'
 gem 'trix-rails', require: 'trix'
 gem 'webdrivers'
 
-gem 'pg'
-# gem 'tilt'
 gem 'haml'
+gem 'pg'
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
   gem 'connection_pool'
-  gem 'geckodriver-helper'
   gem 'launchy'
   gem 'orderly'
   gem 'pry-byebug'
@@ -93,7 +91,6 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-selenium'
-  gem 'chromedriver-helper'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'

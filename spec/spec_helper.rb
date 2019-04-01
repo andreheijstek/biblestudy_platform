@@ -24,8 +24,7 @@ require 'simplecov'
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara/rspec'
-require 'selenium-webdriver'
-# require 'site_prism'
+require 'webdrivers'
 
 SimpleCov.start
 
