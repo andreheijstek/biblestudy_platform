@@ -1,53 +1,82 @@
-# This file is a template, and might need editing before it works on your project.
-# Official language image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/ruby/tags/
-image: "ruby:2.6.2"
+image: ruby:2.6.2
 
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
-services:
-  - redis:latest
-  - postgres:latest
-
-variables:
-  POSTGRES_DB: biblestudy_platform
-
-# Cache gems in between builds
 cache:
   paths:
-    - vendor/ruby
+    - vendor/bundle
+    - node_modules
 
-# This is a basic example for a gem or script which doesn't use
-# services such as redis or postgres
+services:
+  - postgres:10.1
+
+variables:
+  BUNDLE_PATH: vendor/bundle
+  DISABLE_SPRING: 1
+  DB_HOST: postgres
+
 before_script:
-  - ruby -v                                   # Print out ruby version for debugging
-  # Uncomment next line if your rails app needs a JS runtime:
-  # - apt-get update -q && apt-get install nodejs -yqq
-  - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
+  # Install node and some other deps
+  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  - apt-get update -yq
+  - apt-get install -y apt-transport-https build-essential cmake nodejs python-software-properties software-properties-common unzip
+  
+  # Install yarn
+  - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+  - apt-get update -yq
+  - apt-get install -y yarn
 
-# Optional - Delete if not using `rubocop`
-rubocop:
-  script:
-  - rubocop
+  # Project setup
+  - bundle check || bundle install --jobs $(nproc)
+  - yarn install
 
-rspec:
-  script:
-  - rspec spec
+  - cp config/database.yml.ci config/database.yml
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:schema:load RAILS_ENV=test
+  - bundle exec webpack
 
-rails:
-  variables:
-    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
-  script:
-  - rails db:migrate
-  - rails db:seed
-  - rails test
+stages:
+  - test
+  - lint
+  - deploy
 
-# This deploy job uses a simple deploy flow to Heroku, other providers, e.g. AWS Elastic Beanstalk
-# are supported too: https://github.com/travis-ci/dpl
-deploy:
-  type: deploy
-  environment: production
+Tests:
+  stage: test
   script:
-  - gem install dpl
-  - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_PRODUCTION_KEY
+    - bundle exec rails test -d
+
+System Tests:
+  stage: test
+  script:
+    - ./bin/setup_chrome
+    - bundle exec rails test:system
+
+Pronto:
+  stage: lint
+  allow_failure: true
+  except:
+    - master
+  script:
+    - bundle exec pronto run -f gitlab -c origin/master
+
+Deploy Production:
+  stage: deploy
+  retry: 2
+  only:
+    - master
+  script:
+    - ./bin/setup_heroku
+    - dpl --provider=heroku --app=awesome-app --api-key=$HEROKU_API_KEY
+    - heroku run rake db:migrate --exit-code --app awesome-app
+    - heroku run rake statics:seed --exit-code --app awesome-app
+
+Deploy Staging:
+  stage: deploy
+  allow_failure: true
+  retry: 2
+  except:
+    - master
+  script:
+    - ./bin/setup_heroku
+    - dpl --provider=heroku --app=awesome-app-staging --api-key=$HEROKU_API_KEY
+    - heroku run rake db:migrate --exit-code --app awesome-app-staging
+    - heroku run rake statics:seed --exit-code --app awesome-app-staging
