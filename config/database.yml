@@ -1,36 +1,25 @@
-#default: &default
-#  adapter: postgresql
-#  encoding: unicode
-#  pool: 5
-#  timeout: 5000
-#
-#development:
-#  <<: *default
-#  database: biblestudy_platform_development
-#
-## Warning: The database defined as "test" will be erased and
-## re-generated from your development database when you run "rake".
-## Do not set this db to the same as development or production.
-#
-#test:
-#  <<: *default
-#  database: biblestudy_platform_test
-#
-#cucumber:
-#  <<: *default
-#  database: biblestudy_platform_test
-#
-#production:
-#  <<: *default
-#  database: biblestudy_platform_production
-
-
-
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postgres
-  host: <%= ENV['DB_HOST'] %>
   pool: 5
-  database: ci_db
+  timeout: 5000
+
+development:
+  <<: *default
+  database: biblestudy_platform_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+
+test:
+  <<: *default
+  database: biblestudy_platform_test
+
+cucumber:
+  <<: *default
+  database: biblestudy_platform_test
+
+production:
+  <<: *default
+  database: biblestudy_platform_production
