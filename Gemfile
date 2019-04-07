@@ -43,7 +43,6 @@ gem 'sprockets-rails'
 # Rich text editor
 gem 'trix-rails', require: 'trix'
 gem 'webdrivers'
-gem 'webpack'
 
 gem 'haml'
 gem 'pg'
