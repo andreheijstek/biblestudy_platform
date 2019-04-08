@@ -66,8 +66,8 @@ Deploy Production:
   script:
     - ./bin/setup_heroku
     - dpl --provider=heroku --app=gl-bsp --api-key=$HEROKU_API_KEY
-    - heroku run rake db:migrate --exit-code --app gl-bsp
-    - heroku run rake statics:seed --exit-code --app gl-bsp
+#    - heroku run rake db:migrate --exit-code --app gl-bsp
+#    - heroku run rake statics:seed --exit-code --app gl-bsp
 
 Deploy Staging:
   stage: deploy
