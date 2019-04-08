@@ -49,6 +49,7 @@ System Tests:
   script:
     - ./bin/setup_chrome
     - bundle exec rails test:system
+    - bundle exec rspec
 
 Pronto:
   stage: lint

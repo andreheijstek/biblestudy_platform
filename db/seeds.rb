@@ -108,20 +108,20 @@ books = [
   { name: 'Openbaring', abbreviation: 'Op', chapters: 22, verses: [20, 29, 22, 11, 14, 17, 17, 13, 21, 11, 19, 18, 18, 20, 8, 21, 18, 24, 21, 15, 27, 21] }
 ]
 
-books.each do |book|
-  puts book[:name]
-  id = Biblebook.find_by(name: book[:name]).id
-  (1..book[:chapters]).each_with_index do |chapter, index|
-    unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
-      Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
-    end
-  end
-
-  bbook = Biblebook.find_by(name: book[:name])
-  if bbook.abbreviation.nil?
-    bbook.update_attribute(:abbreviation, book[:abbreviation])
-  end
-end
+# books.each do |book|
+#   puts book[:name]
+#   id = Biblebook.find_by(name: book[:name]).id
+#   (1..book[:chapters]).each_with_index do |chapter, index|
+#     unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
+#       Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
+#     end
+#   end
+#
+#   bbook = Biblebook.find_by(name: book[:name])
+#   if bbook.abbreviation.nil?
+#     bbook.update_attribute(:abbreviation, book[:abbreviation])
+#   end
+# end
 
 unless User.exists?(email: 'admin@biblestudy.com')
   User.create!(email: 'admin@biblestudy.com', password: 'bsp4ever', admin: true)
