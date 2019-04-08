@@ -66,9 +66,9 @@ Deploy Production:
     - master
   script:
     - ./bin/setup_heroku
-    - dpl --provider=heroku --app=gl-bsp --api-key=$HEROKU_API_KEY
-#    - heroku run rake db:migrate --exit-code --app gl-bsp
-#    - heroku run rake statics:seed --exit-code --app gl-bsp
+    - dpl --provider=heroku --app=biblestudy-platform --api-key=$HEROKU_API_KEY
+#    - heroku run rake db:migrate --exit-code --app biblestudy-platform
+#    - heroku run rake statics:seed --exit-code --app biblestudy-platform
 
 Deploy Staging:
   stage: deploy
@@ -78,6 +78,6 @@ Deploy Staging:
     - master
   script:
     - ./bin/setup_heroku
-    - dpl --provider=heroku --app=gl-bsp-staging --api-key=$HEROKU_API_KEY
-    - heroku run rake db:migrate --exit-code --app gl-bsp-staging
-    - heroku run rake statics:seed --exit-code --app gl-bsp-staging
+    - dpl --provider=heroku --app=biblestudy-platform-staging --api-key=$HEROKU_API_KEY
+    - heroku run rake db:migrate --exit-code --app biblestudy-platform-staging
+    - heroku run rake statics:seed --exit-code --app biblestudy-platform-staging
