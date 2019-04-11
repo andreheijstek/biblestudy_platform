@@ -3,7 +3,7 @@ image: ruby:2.6.2
 cache:
   paths:
     - vendor/bundle
-    - node_modules
+#    - node_modules
 
 services:
   - postgres:10.1
@@ -15,19 +15,19 @@ variables:
 
 before_script:
   # Install node and some other deps
-  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
-  - apt-get update -yq
-  - apt-get install -y apt-transport-https build-essential cmake nodejs software-properties-common software-properties-common unzip
+  #  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  #  - apt-get update -yq
+  #  - apt-get install -y apt-transport-https build-essential cmake nodejs software-properties-common software-properties-common unzip
   
   # Install yarn
-  - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-  - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-  - apt-get update -yq
-  - apt-get install -y yarn
+  #  - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  #  - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+  #  - apt-get update -yq
+  #  - apt-get install -y yarn
 
   # Project setup
-  - bundle check || bundle install --jobs $(nproc)
-  - yarn install
+  #  - bundle check || bundle install --jobs $(nproc)
+  #  - yarn install
 
   - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test

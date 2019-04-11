@@ -81,6 +81,7 @@ group :development do
   # Reek checks ruby code for errors
   gem 'reek'
   gem 'rubocop'
+  gem 'rubocop-performance'
   gem 'rubocop-rspec'
   gem 'web-console'
   # yard is used to document code with comments about return types and
