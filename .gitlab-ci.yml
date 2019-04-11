@@ -32,7 +32,6 @@ before_script:
   - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:schema:load RAILS_ENV=test
-#  - bundle exec webpack
 
 stages:
   - test
@@ -59,6 +58,22 @@ Pronto:
   script:
     - bundle exec pronto run -f gitlab -c origin/master
 
+Reek:
+  stage: lint
+  allow_failure: true
+  except:
+    - master
+  script:
+    - bundle exec reek run -f gitlab -c origin/master
+
+Rubocop:
+  stage: lint
+  allow_failure: true
+  except:
+    - master
+  script:
+    - bundle exec rubocop run -f gitlab -c origin/master
+
 Deploy Production:
   stage: deploy
   retry: 2
@@ -67,8 +82,6 @@ Deploy Production:
   script:
     - ./bin/setup_heroku
     - dpl --provider=heroku --app=biblestudy-platform --api-key=$HEROKU_API_KEY
-#    - heroku run rake db:migrate --exit-code --app biblestudy-platform
-#    - heroku run rake statics:seed --exit-code --app biblestudy-platform
 
 Deploy Staging:
   stage: deploy
