@@ -45,16 +45,19 @@ System Tests:
 Pronto:
   stage: lint
   script:
+    - bundle install
     - bundle exec pronto run -f gitlab -c origin/master
 
 Reek:
   stage: lint
   script:
+    - bundle install
     - bundle exec reek run -f gitlab -c origin/master
 
 Rubocop:
   stage: lint
   script:
+    - bundle install
     - bundle exec rubocop run -f gitlab -c origin/master
 
 Deploy Production:
