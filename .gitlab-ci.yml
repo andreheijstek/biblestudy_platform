@@ -26,7 +26,7 @@ before_script:
   #  - apt-get install -y yarn
 
   # Project setup
-  #  - bundle check || bundle install --jobs $(nproc)
+  - bundle check || bundle install --jobs $(nproc)
   #  - yarn install
 
   - cp config/database.yml.ci config/database.yml
