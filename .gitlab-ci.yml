@@ -44,25 +44,16 @@ System Tests:
 
 Pronto:
   stage: lint
-  allow_failure: true
-  except:
-    - master
   script:
     - bundle exec pronto run -f gitlab -c origin/master
 
 Reek:
   stage: lint
-  allow_failure: true
-  except:
-    - master
   script:
     - bundle exec reek run -f gitlab -c origin/master
 
 Rubocop:
   stage: lint
-  allow_failure: true
-  except:
-    - master
   script:
     - bundle exec rubocop run -f gitlab -c origin/master
 
