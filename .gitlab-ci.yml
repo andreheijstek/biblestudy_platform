@@ -1,15 +1,14 @@
 image: ruby:2.6.2
 
-cache:
-  paths:
-    - vendor/bundle
-#    - node_modules
+#cache:
+#  paths:
+#    - vendor/bundle
 
 services:
   - postgres:10.1
 
 variables:
-  BUNDLE_PATH: vendor/bundle
+  #  BUNDLE_PATH: vendor/bundle
   DISABLE_SPRING: 1
   DB_HOST: postgres
 
@@ -19,15 +18,8 @@ before_script:
   - apt-get update -yq
   - apt-get install -y apt-transport-https build-essential cmake nodejs software-properties-common software-properties-common unzip
   
-  # Install yarn
-  #  - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-  #  - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-  #  - apt-get update -yq
-  #  - apt-get install -y yarn
-
   # Project setup
   - bundle check || bundle install --jobs $(nproc)
-  #  - yarn install
 
   - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test
