@@ -46,13 +46,13 @@ Reek:
   stage: lint
   script:
     - bundle install
-    - bundle exec reek run -f gitlab -c origin/master
+    - bundle exec reek
 
 Rubocop:
   stage: lint
   script:
     - bundle install
-    - bundle exec rubocop run -f gitlab -c origin/master
+    - bundle exec rubocop
 
 Deploy Production:
   stage: deploy
