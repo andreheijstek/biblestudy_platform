@@ -1,4 +1,6 @@
-require: rubocop-rspec, rubocop-performance
+require:
+  - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   Include:

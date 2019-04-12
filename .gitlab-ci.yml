@@ -42,12 +42,6 @@ System Tests:
     - bundle exec rails test:system
     - bundle exec rspec
 
-Pronto:
-  stage: lint
-  script:
-    - bundle install
-    - bundle exec pronto run -f gitlab -c origin/master
-
 Reek:
   stage: lint
   script:
