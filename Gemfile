@@ -41,7 +41,7 @@ gem 'pundit'
 gem 'reject_deeply_nested'
 gem 'simple_form'
 gem 'sorted-activerecord'
-gem 'sprockets-rails'
+gem 'sprockets-rails', '2.3.3'
 # Rich text editor
 gem 'trix-rails', require: 'trix'
 gem 'webdrivers'
