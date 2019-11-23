@@ -98,8 +98,13 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara.register_driver :chrome do |app|
+    options = Selenium::WebDriver::Chrome::Options.new(
+    args: %w[headless no-sandbox]
+    )
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end
+
+  Capybara.javascript_driver = :chrome
 end
 
