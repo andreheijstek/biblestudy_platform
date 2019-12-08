@@ -1,8 +1,8 @@
 image: ruby:2.6.2
 
-#cache:
-#  paths:
-#    - vendor/bundle
+cache:
+  paths:
+    - vendor
 
 services:
   - postgres:10.1
@@ -26,8 +26,8 @@ before_script:
   - bundle exec rails db:schema:load RAILS_ENV=test
 
 stages:
-  - test
   - lint
+  - test
   - deploy
 
 Tests:
