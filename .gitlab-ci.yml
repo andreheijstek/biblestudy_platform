@@ -38,6 +38,7 @@ Tests:
 System Tests:
   stage: test
   script:
+#    - ./bin/setup_chrome
     - bundle exec rails test:system
     - bundle exec rspec
 
