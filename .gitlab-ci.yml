@@ -26,6 +26,8 @@ before_script:
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:schema:load RAILS_ENV=test
 
+  - ./bin/setup_chrome
+
 stages:
 #  - lint  TODO: temporarily commented, to speed up deployments during debugging
   - test
@@ -39,7 +41,6 @@ Tests:
 System Tests:
   stage: test
   script:
-#    - ./bin/setup_chrome
     - bundle exec rails test:system
     - bundle exec rspec
 
