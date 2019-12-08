@@ -27,7 +27,7 @@ before_script:
   - bundle exec rails db:schema:load RAILS_ENV=test
 
 stages:
-  - lint
+#  - lint  TODO: temporarily commented, to speed up deployments during debugging
   - test
   - deploy
 
