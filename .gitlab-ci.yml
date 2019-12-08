@@ -1,8 +1,9 @@
 image: ruby:2.6.2
 
 cache:
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - vendor
+    - vendor/ruby
 
 services:
   - postgres:10.1
@@ -19,7 +20,7 @@ before_script:
   - apt-get install -y apt-transport-https build-essential cmake nodejs software-properties-common software-properties-common unzip
   
   # Project setup
-  - bundle check || bundle install --jobs $(nproc)
+  - bundle check || bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
 
   - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test
@@ -38,7 +39,7 @@ Tests:
 System Tests:
   stage: test
   script:
-    - ./bin/setup_chrome
+#    - ./bin/setup_chrome
     - bundle exec rails test:system
     - bundle exec rspec
 
