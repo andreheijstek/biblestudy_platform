@@ -21,7 +21,6 @@ before_script:
   
   # Project setup
   - bundle check || bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
-
   - cp config/database.yml.ci config/database.yml
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:schema:load RAILS_ENV=test
