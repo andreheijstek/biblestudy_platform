@@ -1,19 +1,13 @@
 #!/bin/bash
 
-set -xe
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+set -xeo pipefail
 
-# Update packages
-apt-get update -yqqq
+CHROME_VERSION=${1:-59.0.3071.86-1}
 
-# Install Chrome browser
-# apt-get install -y google-chrome-stable # how to ensure this gets to /usr/bin/google-chrome
+curl -sS -L https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
 
-# Install chromedriver
-apt-get install -yqq unzip
-wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
-unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+apt-get update -q
+env DEBIAN_FRONTEND="noninteractive" apt-get install -y google-chrome-stable=$CHROME_VERSION
+rm -rf /var/lib/apt/lists/*
 
-# Install Virtual Display emulator
-apt-get install -y xvfb
