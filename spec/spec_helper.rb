@@ -100,7 +100,7 @@ RSpec.configure do |config|
 
   Capybara.register_driver :chrome do |app|
     options = Selenium::WebDriver::Chrome::Options.new(
-    args: %w[headless no-sandbox disable-dev-shm-usage]
+    args: %w[headless no-sandbox disable-dev-shm-usage enable-features=NetworkService,NetworkServiceInProcess]
     )
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end
