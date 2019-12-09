@@ -20,6 +20,15 @@ nl:
     attributes:
       studynote:
         title: titel
+    errors:
+      models:
+        pericope:
+          attributes:
+            name:
+              ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
+              name_not_empty: naam mag niet leeg zijn
+              unknown_biblebook: onjuist/onbekend bijbelboek
+              verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
 
   item_created: "%{item} is opgeslagen."
   item_not_created: "%{item} is niet opgeslagen."
@@ -82,13 +91,13 @@ nl:
     one: 1 bijbelstudie
     other: "%{count} bijbelstudies"
   not_allowed: dit is niet toegestaan
-  name_not_empty: naam mag niet leeg zijn
+#  name_not_empty: naam mag niet leeg zijn
 
   invalid_pericope: onjuiste bijbelgedeelte
-  unknown_biblebook: onjuist/onbekend bijbelboek
+#  unknown_biblebook: onjuist/onbekend bijbelboek
   starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
   starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
-  ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
+#  ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
   new_biblebook: Nieuw bijbelboek
 
   signed_in_as: "ingelogd als:"
@@ -112,7 +121,7 @@ nl:
   add_pericope: bijbelgedeelte toevoegen
   remove_pericope: verwijder bijbelgedeelte
   sure_to_delete_pericope: Weet u zeker dat u dit bijbelgedeelte wilt verwijderen?
-  verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
+#  verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
   at_least_one_pericope: Er moet minimaal 1 bijbelgedeelte zijn
   pentateuch: pentateuch
   history: geschiedenis

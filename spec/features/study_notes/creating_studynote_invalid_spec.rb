@@ -23,13 +23,13 @@ feature 'Users can not create new studynotes', js: true do
       @nsp.title_field.set 'Titel'
     end
 
-    scenario 'except when providing out of sequence chapters and verses' do
+    scenario 'when providing out of sequence chapters and verses' do
       @nsp.pericopes[0].set 'Jona 3:1 - 1:10'
       @nsp.studynote_field.set 'Studie'
 
       @nsp.submit_button.click
 
-      should_see t('verse_chapter_disorder')
+      should_see t('activerecord.errors.models.pericope.attributes.name.verse_chapter_disorder')
     end
 
     scenario 'when providing just the title' do
@@ -37,12 +37,7 @@ feature 'Users can not create new studynotes', js: true do
 
       @nsp.submit_button.click
 
-      # should_see t('activerecord.models.messages.blank')
-      should_see 'is niet opgeslagen'
-      # TODO The first line (now commented) is how it really should work. But for whatever reason
-      # the nested validation does not work (reject: :all_blank in Studynote.rb). I have already tried
-      # a Gem to solve this but could not get it to work. For now I stop saving these records in the
-      # StudynotesController
+      should_see t('.item_not_created', item: Studynote.model_name.human)
     end
 
     scenario 'when providing an incorrect biblebook' do
@@ -54,7 +49,7 @@ feature 'Users can not create new studynotes', js: true do
 
       @nsp.submit_button.click
 
-      should_see "#{t('ambiguous_abbreviation', given_name: 'Jo', biblebooks: 'Jona, Job, Johannes')}"
+      should_see "#{t('activerecord.errors.models.pericope.attributes.name.ambiguous_abbreviation', given_name: 'Jo', biblebooks: 'Jona, Job, Johannes')}"
     end
   end
 end

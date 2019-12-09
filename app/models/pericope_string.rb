@@ -50,7 +50,6 @@ class PericopeString
   # Sets the @biblebook_name attribute
   # e.g. 1 Samuel or Samuel
   def parse_biblebook
-    # @biblebook_name = to_s(pericope_string.scan(/(\d +\p{Word}+)|\p{Word}+/))
     @biblebook_name = pericope_string.scan(/(\d +\p{Word}+)|\p{Word}+/)
   end
 

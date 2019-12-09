@@ -9,7 +9,7 @@ describe 'Users can create pericopes' do
     create(:biblebook, name: 'Genesis')
   end
 
-  it 'creates a studynote and pericope with valid and full attributes' do
+  it 'with valid and full attributes' do
     pericope = Pericope.create(name: 'Genesis 3:4-5:6')
     expect(pericope).to be_valid
     expect(pericope.name).to eq('Genesis 3:4 - 5:6')
@@ -20,7 +20,7 @@ describe 'Users can create pericopes' do
     expect(pericope.biblebook.name).to eq('Genesis')
   end
 
-  it 'creates a studynote and pericope with valid and abbreviated attributes' do
+  it 'with valid and abbreviated attributes' do
     pericope = Pericope.create(name: 'Gen 3:4-5:6')
     expect(pericope.biblebook.name).to eq('Genesis')
     expect(pericope).to be_valid

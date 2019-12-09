@@ -17,7 +17,7 @@ class PericopeValidator < ActiveModel::Validator
     @record             = record
     given_pericope_name = record.name
     if given_pericope_name.empty?
-      @record.errors.add :name, I18n.t('name_not_empty')
+      @record.errors.add :name, :name_not_empty
     else
       parsed_pericope     = parse_pericope(given_pericope_name)
       validate_pericope_order(parsed_pericope.starting_v, parsed_pericope.ending_v)
@@ -38,7 +38,7 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def validate_pericope_order(starting_verse, ending_verse)
-    record.errors.add :name, t('verse_chapter_disorder') if starting_verse > ending_verse
+    record.errors.add :name, :verse_chapter_disorder if starting_verse > ending_verse
   end
 
   def validate_biblebook_name(given_name)
@@ -52,11 +52,11 @@ class PericopeValidator < ActiveModel::Validator
     errors           = record.errors
     nr_of_biblebooks = names.size
     if nr_of_biblebooks.zero?
-      errors.add :name, t('unknown_biblebook')
+      errors.add :name, :unknown_biblebook
     elsif nr_of_biblebooks == 1
       name = names[0]
     elsif nr_of_biblebooks > 1
-      errors.add :name, t('ambiguous_abbreviation', given_name: given_name, biblebooks: names.join(', '))
+      errors.add :name, :ambiguous_abbreviation, { given_name: given_name, biblebooks: names.join(', ') }
     end
     name
   end
