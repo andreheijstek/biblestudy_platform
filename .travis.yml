@@ -23,6 +23,9 @@ before_install:
 #- tar -xzf geckodriver-v0.19.0-linux64.tar.gz -C geckodriver
 #- export PATH=$PATH:$PWD/geckodriver
 
+services:
+  - postgresql
+  
 deploy:
   provider: heroku
   api_key:
