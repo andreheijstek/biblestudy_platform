@@ -4,7 +4,6 @@ sudo: false
 
 addons:
   chrome: stable
-  chromium-chromedriver
 
 before_script:
   - psql -c 'create database biblestudy_platform_test;' -U postgres
