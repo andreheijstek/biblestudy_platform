@@ -17,7 +17,7 @@ services:
 deploy:
   provider: heroku
   api_key:
-    secure: JabysBpOx94E9ekafMSL3i8N+z8Q2D/QRfCmqqAbmDvtQH6rskCa5bZzxs7BwLbmzDORzsL19015NCBXNeLEc9QDZMtPwi35WJBfZVx1rwDMOm/m9jM87vw9IUy+KZniI4XM/KMjIF3bMXIeFLJ0AKBGrlsCnDkI4uHDRWidqZgHnpcUbGf+OZgxIoTOoCjgriEgxXQWYTKfC884FmbMa9KdKJXHU/97vLQtih/kERo/4hefn42W/qwWGy1cB6mdveSCOsXO/8ue4BAT1GYTdjatZyhcZvHblDVelyhGQpSxFx0LVqWpvbynPDhhFhSlX0RRztrXjXXHhGlqzzihI00CQJhn+qV/dp6jLNd+QjfKWSplu+MCXj0wgRkvKFIkDDe74tT4rM3j+qX6meHfFXLKSYIykzX3LXZ3HK7e46f8JrO80vac1iYiiDv0OOpKdv0Lux7AKXVKi4jX7Vic5P3eT7kPgeuFPLbhuWZBt0AEvybDUSDBX0ujB6HFhvyB2lHGZKimfH9NL/78c3/9e+9vWpVhj7yRQ+W8fQElIWrFuSltz9gu4rc2nmiSWnkuhcwz8e8DbvhLA1eyotWbCuJliQyQLOkiGMUykkRWizWPpwbY0HwsllKZkD+wEKRi0AbkMJG8TiE2BeK22v/7F5KkCTHbyAj+SsIEPlCUpoY=
+    secure: af8e9a52-82fc-4627-9ece-d6c6d36b0986
   app: biblestudy-platform
   on:
     repo: andreheijstek/biblestudy_platform
