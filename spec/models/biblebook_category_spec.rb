@@ -14,5 +14,5 @@ require 'rails_helper'
 
 # TODO: implemeneteren of verwijderen
 RSpec.describe BiblebookCategory, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
 end
