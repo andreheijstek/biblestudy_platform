@@ -1,41 +1,26 @@
 language: ruby
 rvm: 2.6.2
 sudo: false
-
 addons:
   chrome: stable
-
 before_script:
-  - psql -c 'create database biblestudy_platform_test;' -U postgres
-  - gem install bundler
-
+- psql -c 'create database biblestudy_platform_test;' -U postgres
+- gem install bundler
 script: bundle exec rspec
-
 before_install:
-- # start your web application and listen on `localhost`
-- "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
+- "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
+  --remote-debugging-port=9222 http://localhost &"
 - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
-
-
-  #- export DISPLAY=:99.0
-#- sh -e /etc/init.d/xvfb start
 - gem update bundler
-#- wget https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux64.tar.gz
-#- mkdir geckodriver
-#- tar -xzf geckodriver-v0.19.0-linux64.tar.gz -C geckodriver
-#- export PATH=$PATH:$PWD/geckodriver
-
 services:
-  - postgresql
-
+- postgresql
 deploy:
   provider: heroku
   api_key:
-    secure: wbSc7RTKvrRkobm2Bg41e4dnTpwct/pwQlWtQxizXtEj3hOXAUpy8eOWGdhAG8Q6Pvve4EKuinFK2pG0bzsTTWzEeI9khqvTITVbDQkAqMJeMMJHGqEse5MxmhaBT3lFDxFdiDQCklnuQp/S0pv2WSdqRWO53IE6gDldEBC0RHmulpb9o+UKAH+Ukb+pCBTeP5VzFfUAsRVYb253Ky81bLs09GDYep82m6hRX1bCcExP5tZCUwvRd9lMGfXxCmfmfIUyRiMUbiAvaZPcTM3ktecBJNo6Gngqfk/YDBmbnXWUJN7A4WvKlBnh+2Op9GSNpZW+dLGGcGHt1uEo2YhOZk2emoPEIOnYeX0JLjXdMJ4Kc/mkKuUH1NfuV/Wxl/la+/PLuVso53SbkbU72wpkV7yxiyVG5ixncr1W9pZWhnvoaiZp6ikLt9n6JjkYRWku/eY1mlqpScOU70CnqWi/s6+PjCeJGAYGdADU6OZ8GvwWu74LqUZ8yKIkpNJAiJlk4h3s94cwc23MvfdbaIwTrHwT5nbN9mqqF/TSZpP6W4zzwEy6Nb4P309OHKkbIhRbJEa4dwXHGghCKMvQqjgTy9VnOS6lBgp8/mIox3lzs2242jUiioKB5WPCdXLD2toFVAIax1MowXdar2ZUbdC38/uOD36iW+Ve5OD9kQYN1pM=
-  app: biblestudy-platform
+    secure: XBJdB0xf0MtdHMmqSSsRg25B1aOwsgSVUtS5h1wIkInd+yBaB9+nxE3jQYbefQ6cznFYODwgDvsOiqSv4ULkOLz+BWej+19PCijw7qOrPcwbCdSyzEgmTq9gWKk+6+N+EocD+QmzsNFk2szGSzmlhPVYxS95kNITQ+N514vvWPd4CyoBzpuDpmvHpTzX7ZNmaKVdj+xyYbiXmsGCIRTfYjl0tV+VU/LlajqZvcDo60EkHDL+AQcGQy1KI0rcQlXLiY4II8DYN2A2AnsHPvnubFzqjWev8Z41PpV/Mt6niY3R9Syf7e0Kmq8jTF4PvD/8P57MOnYxXWtBA9XEwAfWudGwnKW2IhRDKc72z7tUvhX6hDXDvM+DUeoo1nfj3tCGBfg4UiqcHBU+eI5yo2dBZSgoGPc9iD89/QGDjlaKPVaFsUGPyA7wo3GojTW4bcal/9+8I5hgFWHxRLbdsvLFoib2QOu6sm4yq1sKd6pDX0f0Ugok+seVCs0UgFg52Jo86wif6+GqiPgUx9A7SFF15MOlVsCn31J57zxWLrIy8nsKOzVRYuGPqLo1T51MQt9aFuEN5KiiGLTOwKYVavb/qvBv1RubAJzD+Lw3onUn7JUuvhkFE0aLiQsAasDIrxv+HqT442YciHx03LNJrQJLhOHgDUfyia2OF1km2ij/tJA=
+  app: salty-headland-55387
   on:
     repo: andreheijstek/biblestudy_platform
-
 notifications:
   email:
-    - andre.heijstek@gmail.com
+  - andre.heijstek@gmail.com
