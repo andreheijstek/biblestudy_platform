@@ -1,5 +1,6 @@
 language: ruby
-rvm: 2.6.2
+#rvm: 2.6.2 - is not needed, travis also uses the .ruby-version - so this removes a duplication
+cache: bundler
 sudo: false
 addons:
   chrome: stable
