@@ -1,5 +1,4 @@
 language: ruby
-#rvm: 2.6.2 - is not needed, travis also uses the .ruby-version - so this removes a duplication
 cache: bundler
 sudo: false
 addons:
@@ -18,8 +17,8 @@ services:
 deploy:
   provider: heroku
   api_key:
-    secure: XBJdB0xf0MtdHMmqSSsRg25B1aOwsgSVUtS5h1wIkInd+yBaB9+nxE3jQYbefQ6cznFYODwgDvsOiqSv4ULkOLz+BWej+19PCijw7qOrPcwbCdSyzEgmTq9gWKk+6+N+EocD+QmzsNFk2szGSzmlhPVYxS95kNITQ+N514vvWPd4CyoBzpuDpmvHpTzX7ZNmaKVdj+xyYbiXmsGCIRTfYjl0tV+VU/LlajqZvcDo60EkHDL+AQcGQy1KI0rcQlXLiY4II8DYN2A2AnsHPvnubFzqjWev8Z41PpV/Mt6niY3R9Syf7e0Kmq8jTF4PvD/8P57MOnYxXWtBA9XEwAfWudGwnKW2IhRDKc72z7tUvhX6hDXDvM+DUeoo1nfj3tCGBfg4UiqcHBU+eI5yo2dBZSgoGPc9iD89/QGDjlaKPVaFsUGPyA7wo3GojTW4bcal/9+8I5hgFWHxRLbdsvLFoib2QOu6sm4yq1sKd6pDX0f0Ugok+seVCs0UgFg52Jo86wif6+GqiPgUx9A7SFF15MOlVsCn31J57zxWLrIy8nsKOzVRYuGPqLo1T51MQt9aFuEN5KiiGLTOwKYVavb/qvBv1RubAJzD+Lw3onUn7JUuvhkFE0aLiQsAasDIrxv+HqT442YciHx03LNJrQJLhOHgDUfyia2OF1km2ij/tJA=
-  app: salty-headland-55387
+    secure: JabysBpOx94E9ekafMSL3i8N+z8Q2D/QRfCmqqAbmDvtQH6rskCa5bZzxs7BwLbmzDORzsL19015NCBXNeLEc9QDZMtPwi35WJBfZVx1rwDMOm/m9jM87vw9IUy+KZniI4XM/KMjIF3bMXIeFLJ0AKBGrlsCnDkI4uHDRWidqZgHnpcUbGf+OZgxIoTOoCjgriEgxXQWYTKfC884FmbMa9KdKJXHU/97vLQtih/kERo/4hefn42W/qwWGy1cB6mdveSCOsXO/8ue4BAT1GYTdjatZyhcZvHblDVelyhGQpSxFx0LVqWpvbynPDhhFhSlX0RRztrXjXXHhGlqzzihI00CQJhn+qV/dp6jLNd+QjfKWSplu+MCXj0wgRkvKFIkDDe74tT4rM3j+qX6meHfFXLKSYIykzX3LXZ3HK7e46f8JrO80vac1iYiiDv0OOpKdv0Lux7AKXVKi4jX7Vic5P3eT7kPgeuFPLbhuWZBt0AEvybDUSDBX0ujB6HFhvyB2lHGZKimfH9NL/78c3/9e+9vWpVhj7yRQ+W8fQElIWrFuSltz9gu4rc2nmiSWnkuhcwz8e8DbvhLA1eyotWbCuJliQyQLOkiGMUykkRWizWPpwbY0HwsllKZkD+wEKRi0AbkMJG8TiE2BeK22v/7F5KkCTHbyAj+SsIEPlCUpoY=
+  app: biblestudy-platform
   on:
     repo: andreheijstek/biblestudy_platform
 notifications:
