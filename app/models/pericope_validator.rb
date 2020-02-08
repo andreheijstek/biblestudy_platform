@@ -56,7 +56,7 @@ class PericopeValidator < ActiveModel::Validator
     elsif nr_of_biblebooks == 1
       name = names[0]
     elsif nr_of_biblebooks > 1
-      errors.add :name, :ambiguous_abbreviation, { given_name: given_name, biblebooks: names.join(', ') }
+      errors.add :name, :ambiguous_abbreviation, { given_name: given_name, biblebooks: names.to_sentence }
     end
     name
   end

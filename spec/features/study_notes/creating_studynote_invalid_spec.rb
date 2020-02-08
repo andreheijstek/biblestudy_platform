@@ -49,7 +49,7 @@ feature 'Users can not create new studynotes', js: true do
 
       @nsp.submit_button.click
 
-      should_see "#{t('activerecord.errors.models.pericope.attributes.name.ambiguous_abbreviation', given_name: 'Jo', biblebooks: 'Jona, Job, Johannes')}"
+      should_see "#{t('activerecord.errors.models.pericope.attributes.name.ambiguous_abbreviation', given_name: 'Jo', biblebooks: ['Jona', 'Job', 'Johannes'].to_sentence)}"
     end
   end
 end
