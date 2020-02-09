@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+#:reek:UncommunicativeMethodName: very deliberately short
+#:reek:UtilityFunction: yes it is!
 def t(string, options = {})
   I18n.t(string, options)
 end

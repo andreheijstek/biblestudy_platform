@@ -3,10 +3,6 @@ require:
   - rubocop-performance
 
 AllCops:
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
-    - '**/Gemfile'
   Exclude:
     - 'db/**/*'
     - 'config/**/*'

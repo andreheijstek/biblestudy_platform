@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# spec/support/wait_for_ajax.rb
+# Helpers for Ajax tests
 module WaitForAjax
   def wait_for_ajax
     Timeout.timeout(Capybara.default_max_wait_time) do
