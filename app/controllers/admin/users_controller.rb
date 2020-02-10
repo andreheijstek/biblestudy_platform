@@ -3,35 +3,44 @@
 module Admin
   # Controller for Users
   # Handling the typical CRUD actions
+  #
+  #:reek:InstanceVariableAssumption - should be no problem here. Default Rails
+  # behaviour, and covered by :set_user before_action
   class UsersController < Admin::ApplicationController
     before_action :set_user, only: %i[show edit update destroy]
 
     attr_reader :user
 
+    # Gets all users, sorted by email
     def index
       users = User.order(:email)
       locals users: users
     end
 
+    # Gets the data to show an existing User
     def show
       locals user: user
     end
 
+    # Creates a new User
     def new
       user = User.new
       locals user: user
     end
 
+    # Creates and saves a new User
     def create
       user       = User.new(user_params)
       user.admin = params[:user][:admin] if current_user.admin?
       save_user(user)
     end
 
+    # Edits an existing User
     def edit
       locals user: user
     end
 
+    # Updates an existing User
     def update
       user = params[:user]
       user.delete(:password) if user[:password].blank?
@@ -64,6 +73,7 @@ module Admin
 
     def set_admin
       return unless current_user.admin?
+
       @user.admin = params[:user][:admin]
       @user.save
     end

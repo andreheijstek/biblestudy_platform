@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: ApplicationRecord
+  Class: BiblebookCategory
   
     &mdash; Documentation by YARD 0.9.24
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "ApplicationRecord";
+  pathId = "BiblebookCategory";
   relpath = '';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="_index.html">Index (A)</a> &raquo;
+    <a href="_index.html">Index (B)</a> &raquo;
     
     
-    <span class="title">ApplicationRecord</span>
+    <span class="title">BiblebookCategory</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: ApplicationRecord
+      <div id="content"><h1>Class: BiblebookCategory
   
   
   
@@ -69,14 +69,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">ActiveRecord::Base</span>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">ActiveRecord::Base</li>
           
-            <li class="next">ApplicationRecord</li>
+            <li class="next"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></li>
+          
+            <li class="next">BiblebookCategory</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,7 +98,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>app/models/application_record.rb</dd>
+    <dd>app/models/biblebook_category.rb</dd>
   </dl>
   
 </div>
@@ -104,7 +106,17 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Generated class</p>
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: biblebook_categories</p>
+
+<pre class="code ruby"><code class="ruby">id           :bigint(8)        not null, primary key
+name         :string
+order        :integer
+created_at   :datetime         not null
+updated_at   :datetime         not null
+biblebook_id :bigint(8)
+</code></pre>
 
 
   </div>
@@ -112,9 +124,6 @@
 <div class="tags">
   
 
-</div><div id="subclasses">
-  <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="BiblebookCategory.html" title="BiblebookCategory (class)">BiblebookCategory</a></span></p>
 </div>
 
 
@@ -123,7 +132,12 @@
 
 
 
-
+  
+  
+  
+  
+  
+  
   
 
 </div>

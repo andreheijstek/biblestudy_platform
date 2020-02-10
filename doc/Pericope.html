@@ -6,15 +6,15 @@
 <title>
   Class: Pericope
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Pericope";
   relpath = '';
 </script>
@@ -144,7 +144,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates the Pericope.name to a nicely formatted name.</p>
+</div></span>
   
 </li>
 
@@ -168,13 +170,23 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates the Pericope.name to a nicely formatted name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-31
 32
 33
 34
@@ -182,10 +194,11 @@
 36
 37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reformat_name'>reformat_name</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -206,9 +219,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 10 22:25:41 2019 by
+  Generated on Sun Feb  9 20:25:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.5).
 </div>
 
     </div>

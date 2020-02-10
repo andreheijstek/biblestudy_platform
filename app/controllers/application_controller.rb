@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  # Sets the locale so the right language is displayed
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -20,6 +21,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Sets permissions
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
@@ -34,9 +36,11 @@ class ApplicationController < ActionController::Base
   #   render locals: { item: x }
   #   locals item: x
   #
+  # rubocop: disable Style/OptionalArguments
   def locals(action = nil, hash)
     render action: action, locals: hash
   end
+  # rubocop: enable Style/OptionalArguments
 
   private
 

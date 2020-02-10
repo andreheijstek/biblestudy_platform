@@ -25,22 +25,34 @@ class Biblebook < ActiveRecord::Base
   has_one :biblebook_category
 
   default_scope { order('booksequence ASC') }
-  scope :find_by_full_name, -> (name) { where(name: name) }
-  scope :find_by_abbreviation, -> (abbreviation) { where(Biblebook.arel_table[:abbreviation].matches(abbreviation)) }
-  scope :find_names_by_like, -> (name) { where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%")) }
+  scope :find_by_full_name, lambda { |name|
+    where(name: name)
+  }
+  scope :find_by_abbreviation, lambda { |abbreviation|
+    where(Biblebook
+          .arel_table[:abbreviation]
+          .matches(abbreviation))
+  }
+  scope :find_names_by_like, lambda { |name|
+    where(Biblebook
+          .arel_table[:name]
+          .matches("%#{name.slice(0, 5)}%"))
+  }
 
   # Returns the number of chapters in this biblebook
   # #return [Integer]
   def nr_of_chapters
     Chapter.where(biblebook_id: id).count
   end
+
   alias size nr_of_chapters
 
   # A chapter is valid if it exists in the biblebook,
   # so it must be positive and less than the number of chapters
   # @param [Integer] chapter number
   # @return [Boolean]
-  # :reek:FeatureEnvy - seen from a caller, this is the place where the method belongs
+  # :reek:FeatureEnvy - seen from a caller, this is the place
+  # where the method belongs
   def chapter_valid?(chapter)
     chapter.positive? && chapter <= nr_of_chapters
   end
@@ -60,18 +72,14 @@ class Biblebook < ActiveRecord::Base
     biblebook = find_by_full_name(name)
     unless exists?(biblebook)
       biblebook = find_by_abbreviation(name)
-      unless exists?(biblebook)
-        biblebook = find_names_by_like(name)
-      end
+      biblebook = find_names_by_like(name) unless exists?(biblebook)
     end
 
     biblebook.map(&:name).uniq
   end
 
-  private
-
   # Tells if this biblebook exists
-  # @param [Biblebook]
+  # @param biblebook [Biblebook]
   # @return [Boolean]
   def self.exists?(biblebook)
     !biblebook.empty?

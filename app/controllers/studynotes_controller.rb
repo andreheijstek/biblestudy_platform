@@ -8,15 +8,18 @@ class StudynotesController < ApplicationController
 
   attr_reader :studynote
 
+  # Gets all Studynotes to be shown
   def index
     studynote = Studynote.all.order(:title)
     locals studynote: studynote
   end
 
+  # Gets data to show one Studynote
   def show
     locals studynote: studynote
   end
 
+  # Creates a new Studynote
   def new
     index     = params[:index].to_i
     studynote = Studynote.new
@@ -25,22 +28,26 @@ class StudynotesController < ApplicationController
     locals studynote: studynote, index: index
   end
 
+  # Creates and saves a new Studynote
   def create
     studynote        = Studynote.new(studynote_params)
     studynote.author = current_user
     save_studynote(studynote)
   end
 
+  # Edits an existing Studynote
   def edit
     authorize studynote, :update?
     locals studynote: studynote
   end
 
+  # Updates an existing Studynote
   def update
     authorize studynote, :update?
     update_studynote
   end
 
+  # Delets an existing Studynote
   def destroy
     authorize studynote, :destroy?
     studynote.destroy
@@ -64,8 +71,8 @@ class StudynotesController < ApplicationController
   def save_studynote(studynote)
     name = Studynote.model_name.human
     if studynote.save && !studynote.pericopes.empty?
-      # TODO, the second condiotion is a hack, needed because the standard rails validation does not work
-      # on nested attributes.
+      # TODO, the second condiotion is a hack, needed because the
+      # standard rails validation does not work on nested attributes.
       flash[:notice] = t(:item_created, item: name)
       redirect_to studynote
     else

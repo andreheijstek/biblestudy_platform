@@ -6,15 +6,15 @@
 <title>
   Class: Biblebook
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Biblebook";
   relpath = '';
 </script>
@@ -104,7 +104,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Models one Biblebook Has some utitlity methods to help validate biblebooks</p>
+<p>Models one Biblebook Has utitlity methods to help validate biblebooks</p>
 
 
   </div>
@@ -126,30 +126,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#exists%3F-class_method" title="exists? (class method)">.<strong>exists?</strong>(biblebook)  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Tells if a biblebook exists with this name.</p>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -203,7 +179,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A chapter is valid if it exists in the biblebook, so it must be positive and less than the number of chapters.</p>
+<p>A chapter is valid if it exists in the biblebook, so it must be positive and less than the number of chapters :reek:FeatureEnvy - seen from a caller, this is the place where the method belongs.</p>
 </div></span>
   
 </li>
@@ -228,7 +204,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of chapters in this biblebook #return [Integer].</p>
+</div></span>
   
 </li>
 
@@ -244,81 +222,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="exists?-class_method">
-  
-    .<strong>exists?</strong>(biblebook)  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Tells if a biblebook exists with this name</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>biblebook</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>name</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-72
-73
-74</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 72</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='rparen'>)</span>
-  <span class='op'>!</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="possible_book_names-class_method">
+  <h3 class="signature first" id="possible_book_names-class_method">
   
     .<strong>possible_book_names</strong>(name)  &#x21d2; <tt>Array</tt> 
   
@@ -363,20 +267,20 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
 59
 60
 61
 62
-63</pre>
+63
+64
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_possible_book_names'>possible_book_names</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='id identifier rubyid_find_by_full_name'>find_by_full_name</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -412,7 +316,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A chapter is valid if it exists in the biblebook, so it must be positive and less than the number of chapters</p>
+<p>A chapter is valid if it exists in the biblebook, so it must be positive and less than the number of chapters :reek:FeatureEnvy - seen from a caller, this is the place where the method belongs</p>
 
 
   </div>
@@ -459,15 +363,15 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_chapter_valid?'>chapter_valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_chapter'>chapter</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_chapter'>chapter</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_nr_of_chapters'>nr_of_chapters</span>
+  <span class='id identifier rubyid_chapter'>chapter</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_chapter'>chapter</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_nr_of_chapters'>nr_of_chapters</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -487,18 +391,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of chapters in this biblebook #return [Integer]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-28
-29
-30</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nr_of_chapters'>nr_of_chapters</span>
   <span class='const'><span class='object_link'><a href="Chapter.html" title="Chapter (class)">Chapter</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>biblebook_id:</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
@@ -513,9 +428,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 10 22:25:41 2019 by
+  Generated on Sun Feb  9 20:25:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.5).
 </div>
 
     </div>

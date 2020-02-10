@@ -9,24 +9,29 @@ module Admin
 
     attr_reader :chapter, :biblebook
 
+    # Gets the data to show one Chapter
     def show
       locals biblebook: biblebook, chapter: chapter
     end
 
+    # Creates a new Chapter
     def new
       chapter = biblebook.chapters.build
       locals chapter: chapter
     end
 
+    # Creates and saves a new Chapter within a Biblebook
     def create
       chapter = biblebook.chapters.build(chapter_params)
       save_chapter(chapter)
     end
 
+    # Edits an existing Chapter
     def edit
       locals biblebook: biblebook, chapter: chapter
     end
 
+    # Updates an existing Chapter
     def update
       name = Chapter.model_name.human
       if chapter.update(chapter_params)
@@ -38,6 +43,7 @@ module Admin
       end
     end
 
+    # Deletes an existing Chapter
     def destroy
       chapter.destroy
       flash[:notice] = t(:item_deleted, item: Chapter.model_name.human)

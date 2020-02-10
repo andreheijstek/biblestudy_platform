@@ -9,23 +9,32 @@
 # - chapters withing valid range of biblebook
 # - verses within valid range of chapter
 #
-# :reek:InstanceVariableAssumption, can't be fixed here, as I can't have an initializer
+# :reek:InstanceVariableAssumption, can't be fixed here,
+# as I can't have an initializer
 # :reek:NilCheck: maybe solve later with null object
 # :reek:TooManyStatements: as well
 class PericopeValidator < ActiveModel::Validator
+  # Validate method, as required by Rails, see class comment
+  # rubocop: disable Metrics/AbcSize
+  # rubocop: disable Metrics/MethodLength
   def validate(record)
     @record             = record
     given_pericope_name = record.name
     if given_pericope_name.empty?
       @record.errors.add :name, :name_not_empty
     else
-      parsed_pericope     = parse_pericope(given_pericope_name)
-      validate_pericope_order(parsed_pericope.starting_v, parsed_pericope.ending_v)
-      full_biblebook_name = validate_biblebook_name(parsed_pericope.biblebook_name)
+      parsed_pericope = parse_pericope(given_pericope_name)
+      validate_pericope_order(parsed_pericope.starting_v,
+                              parsed_pericope.ending_v)
+      full_biblebook_name = validate_biblebook_name(parsed_pericope
+                                                    .biblebook_name)
       biblebook           = Biblebook.find_by_full_name(full_biblebook_name)[0]
       update_record(parsed_pericope, biblebook) unless biblebook.nil?
     end
   end
+
+  # rubocop: enable Metrics/MethodLength
+  # rubocop: enable Metrics/AbcSize
 
   private
 
@@ -38,7 +47,9 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def validate_pericope_order(starting_verse, ending_verse)
-    record.errors.add :name, :verse_chapter_disorder if starting_verse > ending_verse
+    return if starting_verse <= ending_verse
+
+    record.errors.add :name, :verse_chapter_disorder
   end
 
   def validate_biblebook_name(given_name)
@@ -47,6 +58,8 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   #:reek:TooManyStatements: no idea how to solve
+  #:reek:FeatureEnvy: same issue
+  # rubocop:disable Metrics/MethodLength
   def handle_multiple_names(names, given_name)
     name             = ''
     errors           = record.errors
@@ -56,13 +69,17 @@ class PericopeValidator < ActiveModel::Validator
     elsif nr_of_biblebooks == 1
       name = names[0]
     elsif nr_of_biblebooks > 1
-      errors.add :name, :ambiguous_abbreviation, { given_name: given_name, biblebooks: names.to_sentence }
+      errors.add :name, :ambiguous_abbreviation,
+                 given_name: given_name, biblebooks: names.to_sentence
     end
     name
   end
 
+  # rubocop:enable Metrics/MethodLength
+
   #:reek:FeatureEnvy: don't know how to solve
   #:reek:TooManyStatements: no idea how to solve
+  # rubocop:disable Metrics/MethodLength
   def update_record(pericope, biblebook)
     # Met een null object voor Biblebook, kan ik hier de attributen van het
     # null object lezen, en dus id op 0 zetten, name op ''
@@ -80,7 +97,10 @@ class PericopeValidator < ActiveModel::Validator
       record.ending_chapter_nr   = pericope.ending_chapter
       record.ending_verse        = pericope.ending_verse
 
-      record.sequence = record.starting_chapter_nr * 1000 + record.starting_verse
+      record.sequence = (record.starting_chapter_nr * 1000) +
+                        record.starting_verse
     end
   end
+
+  # rubocop:enable Metrics/MethodLength
 end

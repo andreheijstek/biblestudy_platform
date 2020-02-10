@@ -6,15 +6,15 @@
 <title>
   Module: ApplicationHelper
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "ApplicationHelper";
   relpath = '';
 </script>
@@ -86,7 +86,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Most generic helper class</p>
+<p>Most generic helper module</p>
 
 
   </div>
@@ -126,7 +126,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Formatter to return nicely displayed time ago message :reek:FeatureEnvy - strange to get that message, here, this is especially a helper module for these kind of methods.</p>
+</div></span>
   
 </li>
 
@@ -173,21 +175,32 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formatter to return nicely displayed time ago message :reek:FeatureEnvy - strange to get that message, here, this is especially a helper module for these kind of methods</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-13
-14
-15
 16
 17
-18</pre>
+18
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/helpers/application_helper.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'app/helpers/application_helper.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeago'>timeago</span><span class='lparen'>(</span><span class='id identifier rubyid_time'>time</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>timeago</span><span class='tstring_end'>&#39;</span></span>
@@ -252,9 +265,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 10 22:25:41 2019 by
+  Generated on Sun Feb  9 20:25:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.5).
 </div>
 
     </div>

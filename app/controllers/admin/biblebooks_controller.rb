@@ -8,30 +8,37 @@ module Admin
 
     attr_reader :biblebook
 
+    # Gets all biblebooks to be used in views
     def index
       biblebook = Biblebook.all
       locals biblebook: biblebook
     end
 
+    # Default show - no code needed
     def show; end
 
+    # Creates a new Biblebook
     def new
       biblebook = Biblebook.new
       locals :new,  biblebook: biblebook
     end
 
+    # Creates and saves a new Biblebook
     def create
       biblebook = Biblebook.new(biblebook_params)
       save_biblebook(biblebook)
     end
 
+    # Default edit - no code needed
     def edit; end
 
+    # Updates existing Biblebook
     def update
       name = Biblebook.model_name.human
       update_biblebook(name)
     end
 
+    # Deletes existing Biblebook
     def destroy
       biblebook.destroy
       flash[:notice] = t(:biblebook_deleted)

@@ -6,15 +6,15 @@
 <title>
   Class: PericopeString
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "PericopeString";
   relpath = '';
 </script>
@@ -394,7 +394,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(given_pericope_string)  &#x21d2; PericopeString </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(given_pericope)  &#x21d2; PericopeString </a>
     
 
     
@@ -426,7 +426,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(given_pericope_string)  &#x21d2; <tt><span class='object_link'><a href="" title="PericopeString (class)">PericopeString</a></span></tt> 
+    #<strong>initialize</strong>(given_pericope)  &#x21d2; <tt><span class='object_link'><a href="" title="PericopeString (class)">PericopeString</a></span></tt> 
   
 
   
@@ -435,7 +435,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of PericopeString</p>
+<p>Returns a new instance of PericopeString.</p>
 
 
   </div>
@@ -470,8 +470,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'app/models/pericope_string.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_given_pericope_string'>given_pericope_string</span><span class='rparen'>)</span>
-  <span class='ivar'>@pericope_string</span> <span class='op'>=</span> <span class='const'>StringScanner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_given_pericope_string'>given_pericope_string</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_given_pericope'>given_pericope</span><span class='rparen'>)</span>
+  <span class='ivar'>@pericope_string</span> <span class='op'>=</span> <span class='const'>StringScanner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_given_pericope'>given_pericope</span>
 
   <span class='ivar'>@starting_v</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Verse.html" title="Verse (class)">Verse</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Verse.html#initialize-instance_method" title="Verse#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='ivar'>@ending_v</span>   <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Verse.html" title="Verse (class)">Verse</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Verse.html#initialize-instance_method" title="Verse#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -511,7 +511,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute biblebook_name</p>
+<p>Returns the value of attribute biblebook_name.</p>
 
 
   </div>
@@ -554,7 +554,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute ending_chapter</p>
+<p>Returns the value of attribute ending_chapter.</p>
 
 
   </div>
@@ -597,7 +597,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute ending_v</p>
+<p>Returns the value of attribute ending_v.</p>
 
 
   </div>
@@ -640,7 +640,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute ending_verse</p>
+<p>Returns the value of attribute ending_verse.</p>
 
 
   </div>
@@ -683,7 +683,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute errors</p>
+<p>Returns the value of attribute errors.</p>
 
 
   </div>
@@ -726,7 +726,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute pericope_string</p>
+<p>Returns the value of attribute pericope_string.</p>
 
 
   </div>
@@ -769,7 +769,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute starting_chapter</p>
+<p>Returns the value of attribute starting_chapter.</p>
 
 
   </div>
@@ -812,7 +812,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute starting_v</p>
+<p>Returns the value of attribute starting_v.</p>
 
 
   </div>
@@ -855,7 +855,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute starting_verse</p>
+<p>Returns the value of attribute starting_verse.</p>
 
 
   </div>
@@ -890,9 +890,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 10 22:25:41 2019 by
+  Generated on Sun Feb  9 20:25:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.5).
 </div>
 
     </div>

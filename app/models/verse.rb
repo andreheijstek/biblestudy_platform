@@ -4,22 +4,18 @@
 class Verse
   include Comparable
 
-  attr_reader :chapter, :verse
+  #:reek:Attribute - conflicts with Rubocop check
+  attr_accessor :chapter, :verse
 
+  # Initialises a new Verse, like 1:2
+  # To be used in Ranges, like 1:2 - 3:4
   def initialize(chapter, verse)
     @chapter = chapter
     @verse = verse
   end
 
-  def chapter=(chapter)
-    @chapter = chapter
-  end
-
-  def verse=(verse)
-    @verse = verse
-  end
-
-  def <=> (other)
-    [self.chapter, self.verse] <=> [other.chapter, other.verse]
+  # Spaceship to compare Verses
+  def <=>(other)
+    [chapter, verse] <=> [other.chapter, other.verse]
   end
 end
