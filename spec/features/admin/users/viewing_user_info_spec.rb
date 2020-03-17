@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-# TODO: Move to cucumber, this is not a unit test
 describe 'Admins can view a list of all users' do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: 'Jansen', email: 'jan.jansen@tour.fr') }

@@ -36,14 +36,15 @@ gem 'font-awesome-rails'
 gem 'haml'
 gem 'high_voltage'
 gem 'i18n-js'
+gem 'parslet'
 gem 'pg'
 gem 'pundit'
 gem 'reject_deeply_nested'
 gem 'simple_form'
 gem 'sorted-activerecord'
 gem 'sprockets-rails', '2.3.3'
-# Rich text editor
-gem 'trix-rails', require: 'trix'
+gem 'titleize'
+gem 'trix-rails', require: 'trix' # Rich text editor
 gem 'webdrivers'
 gem 'webpack'
 

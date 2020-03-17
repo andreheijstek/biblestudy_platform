@@ -7,10 +7,18 @@
 #  id             :integer          not null, primary key
 #  chapter_number :integer
 #  description    :string
-#  biblebook_id   :integer
+#  nrofverses     :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  nrofverses     :integer
+#  biblebook_id   :integer
+#
+# Indexes
+#
+#  index_chapters_on_biblebook_id  (biblebook_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (biblebook_id => biblebooks.id)
 #
 
 # Models a Chapter within a Biblebook
@@ -20,7 +28,7 @@ class Chapter < ActiveRecord::Base
   validates :chapter_number, presence: true
 
   # Spaceship to help Comparable methods
-  def <=> (other)
-    self.chapter_number <=> other.chapter_number
+  def <=>(other)
+    chapter_number <=> other.chapter_number
   end
 end

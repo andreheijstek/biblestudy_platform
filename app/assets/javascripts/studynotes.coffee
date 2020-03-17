@@ -11,6 +11,6 @@ $ ->
   $("#pericopes").on "cocoon:before-remove", (event, added_item) ->
     num = $("#pericopes div.nested-fields:visible").length
     if (num == 1)
-      alert(I18n.t('at_least_one_pericope'))
+      alert(I18n.t(errors.message.at_least_one_pericope))
       event.preventDefault()
 

@@ -62,7 +62,6 @@ class Biblebook < ActiveRecord::Base
   # - complete name, e.g. Genesis
   # - official abbreviation, e.g. gen
   # - fitting abbreviation, e.g. Gene
-
   # @return [Array]
   # - empty if not found
   # - one element if one found
@@ -84,4 +83,23 @@ class Biblebook < ActiveRecord::Base
   def self.exists?(biblebook)
     !biblebook.empty?
   end
+
+  # :reek:TooManyStatements - to be refactored
+  # rubocop:disable Metrics/MethodLength
+  def self.validate_name(given_name, errors)
+    names            = possible_book_names(given_name)
+    name             = ''
+    nr_of_biblebooks = names.size
+
+    if nr_of_biblebooks.zero?
+      errors.add :biblebook_name, :unknown_biblebook
+    elsif nr_of_biblebooks == 1
+      name = names[0]
+    elsif nr_of_biblebooks > 1
+      errors.add :biblebook_name, :ambiguous_abbreviation,
+                 given_name: given_name, biblebooks: names.to_sentence
+    end
+    [name, errors]
+  end
+  # rubocop:enable Metrics/MethodLength
 end

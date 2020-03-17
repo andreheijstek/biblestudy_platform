@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-# TODO: Move to Cucumber
 feature "Admins can change a user's details" do
   let(:admin_user) { create(:user, :admin) }
   let(:user)       { create(:user) }

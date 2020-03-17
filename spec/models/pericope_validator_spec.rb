@@ -9,7 +9,6 @@ describe PericopeValidator do
     create(:biblebook, name: 'Ezra', abbreviation: 'ezr')
   end
 
-
   it 'accepts a pericope of one verse' do
     pericope = Pericope.create(name: 'gen 1:1')
     expect(pericope).to be_valid
@@ -22,6 +21,7 @@ describe PericopeValidator do
 
   it 'detects ambiguous biblebooks' do
     pericope = Pericope.create(name: 'ez 1:1')
-    expect(pericope.errors.messages[:name].first).to include('niet duidelijk')
+    expect(pericope.errors.messages[:biblebook_name].first)
+      .to include('niet duidelijk')
   end
 end

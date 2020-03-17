@@ -16,6 +16,7 @@ RSpec.configure do |config|
         uncommitted transaction data setup over the spec's database connection.
       MSG
     end
+
     DatabaseCleaner.clean_with(:truncation)
   end
 
@@ -26,6 +27,7 @@ RSpec.configure do |config|
   config.before(:each, type: :feature) do
     # :rack_test driver's Rack app under test shares database connection
     # with the specs, so continue to use transaction strategy for speed.
+    # noinspection RubyLocalVariableNamingConvention
     driver_shares_db_connection_with_specs =
       Capybara.current_driver == :rack_test
 
@@ -38,6 +40,7 @@ RSpec.configure do |config|
   end
 
   config.before do
+    # noinspection RubyArgCount
     DatabaseCleaner.start
   end
 

@@ -27,12 +27,12 @@ describe('Kitchen Sink', function(){
     // By default Cypress also automatically
     // clears the Local Storage and Cookies
     // before each test.
-  })
+  });
 
   it('cy.should - assert that <title> is correct', function(){
 
     // https://on.cypress.io/api/visit
-    cy.visit('https://example.cypress.io')
+    cy.visit('https://example.cypress.io');
 
     // **** Making Assertions ****
     //
@@ -48,12 +48,12 @@ describe('Kitchen Sink', function(){
     cy.title().should('include', 'Kitchen Sink')
     //   ↲               ↲            ↲
     // subject        chainer      value
-  })
+  });
 
   context('Querying', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/querying')
-    })
+    });
 
     // **** Querying DOM Elements ****
     //
@@ -65,15 +65,15 @@ describe('Kitchen Sink', function(){
 
       // https://on.cypress.io/api/get
       // We can get DOM elements by id
-      cy.get('#query-btn').should('contain', 'Button')
+      cy.get('#query-btn').should('contain', 'Button');
 
       // We can get DOM elements by class
-      cy.get('.query-btn').should('contain', 'Button')
+      cy.get('.query-btn').should('contain', 'Button');
 
       cy.get('#querying .well>button:first').should('contain', 'Button')
       //              ↲
       // we can CSS selectors just like jQuery
-    })
+    });
 
     it('cy.contains() - query DOM elements with matching content', function(){
 
@@ -101,7 +101,7 @@ describe('Kitchen Sink', function(){
         // but the <button> itself
         .get('.query-button')
           .contains('Save Form').should('have.class', 'btn')
-    })
+    });
 
     it('cy.within() - query DOM elements within a specific element', function(){
 
@@ -111,25 +111,25 @@ describe('Kitchen Sink', function(){
           .get('input:first').should('have.attr', 'placeholder', 'Email')
           .get('input:last').should('have.attr', 'placeholder', 'Password')
       })
-    })
+    });
 
     it('cy.root() - query the root DOM element', function(){
 
       // https://on.cypress.io/api/root
       // By default, root is the document
-      cy.root().should('match', 'html')
+      cy.root().should('match', 'html');
 
       cy.get('.query-ul').within(function(){
         // In this within, the root is now the ul DOM element
         cy.root().should('have.class', 'query-ul')
       })
     })
-  })
+  });
 
   context('Traversal', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/traversal')
-    })
+    });
 
     // **** Traversing DOM Elements ****
     //
@@ -141,73 +141,73 @@ describe('Kitchen Sink', function(){
 
       // https://on.cypress.io/api/children
       cy.get('.traversal-breadcrumb').children('.active').should('contain', 'Data')
-    })
+    });
 
     it('cy.closest() - get closest ancestor DOM element', function(){
 
       // https://on.cypress.io/api/closest
       cy.get('.traversal-badge').closest('ul').should('have.class', 'list-group')
-    })
+    });
 
     it('cy.eq() - get a DOM element at a specific index', function(){
 
       // https://on.cypress.io/api/eq
       cy.get('.traversal-list>li').eq(1).should('contain', 'siamese')
-    })
+    });
 
     it('cy.filter() - get DOM elements that match the selector', function(){
 
       // https://on.cypress.io/api/filter
       cy.get('.traversal-nav>li').filter('.active').should('contain', 'About')
-    })
+    });
 
     it('cy.find() - get descendant DOM elements of the selector', function(){
 
       // https://on.cypress.io/api/find
       cy.get('.traversal-pagination').find('li').find('a').should('have.length', 7)
-    })
+    });
 
     it('cy.first() - get first DOM element', function(){
 
       // https://on.cypress.io/api/first
       cy.get('.traversal-table td').first().should('contain', '1')
-    })
+    });
 
     it('cy.last() - get last DOM element', function(){
 
       // https://on.cypress.io/api/last
       cy.get('.traversal-buttons .btn').last().should('contain', 'Submit')
-    })
+    });
 
     it('cy.next() - get next sibling DOM element', function(){
 
       // https://on.cypress.io/api/next
       cy.get('.traversal-ul').contains('apples').next().should('contain', 'oranges')
-    })
+    });
 
     it('cy.not() - remove DOM elements from set of DOM elements', function(){
 
       // https://on.cypress.io/api/not
       cy.get('.traversal-disabled .btn').not('[disabled]').should('not.contain', 'Disabled')
-    })
+    });
 
     it('cy.parents() - get parents DOM element from set of DOM elements', function(){
 
       // https://on.cypress.io/api/parents
       cy.get('.traversal-cite').parents().should('match', 'blockquote')
-    })
+    });
 
     it('cy.siblings() - get all sibling DOM elements from set of DOM elements', function(){
 
       // https://on.cypress.io/api/siblings
       cy.get('.traversal-pills .active').siblings().should('have.length', 2)
     })
-  })
+  });
 
   context('Actions', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/actions')
-    })
+    });
 
     // **** Actions ****
     //
@@ -251,7 +251,7 @@ describe('Kitchen Sink', function(){
         // like whether the input is visible or disabled
         .type('disabled error checking', {force: true})
           .should('have.value', 'disabled error checking')
-    })
+    });
 
     it('cy.focus() - focus on a DOM element', function(){
 
@@ -260,7 +260,7 @@ describe('Kitchen Sink', function(){
         .get('.action-focus').focus()
         .should('have.class', 'focus')
           .prev().should('have.attr', 'style', 'color: orange;')
-    })
+    });
 
     it('cy.blur() - blur off a DOM element', function(){
 
@@ -269,7 +269,7 @@ describe('Kitchen Sink', function(){
         .get('.action-blur').type('I\'m about to blur').blur()
         .should('have.class', 'error')
           .prev().should('have.attr', 'style', 'color: red;')
-    })
+    });
 
 
     it('cy.clear() - clears the value of an input or textarea element', function(){
@@ -280,7 +280,7 @@ describe('Kitchen Sink', function(){
           .should('have.value', 'We are going to clear this text')
         .clear()
           .should('have.value', '')
-    })
+    });
 
     it('cy.submit() - submit a form', function(){
 
@@ -290,12 +290,12 @@ describe('Kitchen Sink', function(){
           .find('[type="text"]').type('HALFOFF')
         .get('.action-form').submit()
           .next().should('contain', 'Your form has been submitted!')
-    })
+    });
 
     it('cy.click() - click on a DOM element', function(){
 
       // https://on.cypress.io/api/click
-      cy.get('.action-btn').click()
+      cy.get('.action-btn').click();
 
       // **** Click Position ****
       //
@@ -303,19 +303,19 @@ describe('Kitchen Sink', function(){
       // that controls where the click occurs
       //
       // clicking in the center of the element is the default
-      cy.get('#action-canvas').click()
+      cy.get('#action-canvas').click();
 
       // click the top left corner of the element
-      cy.get('#action-canvas').click('topLeft')
+      cy.get('#action-canvas').click('topLeft');
 
       // click the top right corner of the element
-      cy.get('#action-canvas').click('topRight')
+      cy.get('#action-canvas').click('topRight');
 
       // click the bottom left corner of the element
-      cy.get('#action-canvas').click('bottomLeft')
+      cy.get('#action-canvas').click('bottomLeft');
 
       // click the bottom right corner of the element
-      cy.get('#action-canvas').click('bottomRight')
+      cy.get('#action-canvas').click('bottomRight');
 
       // **** Click Coordinate ****
       //
@@ -331,7 +331,7 @@ describe('Kitchen Sink', function(){
           .click(100, 185)
           .click(125, 190)
           .click(150, 185)
-          .click(170, 165)
+          .click(170, 165);
 
       // **** Click Options ****
       //
@@ -340,13 +340,13 @@ describe('Kitchen Sink', function(){
       // click multiple elements by passing multiple: true
       // otherwise an error will be thrown if multiple
       // elements are the subject of cy.click
-      cy.get('.action-labels>.label').click({multiple: true})
+      cy.get('.action-labels>.label').click({multiple: true});
 
       // Ignore error checking prior to clicking
       // like whether the element is visible, clickable or disabled
       // this button below is covered by another element.
       cy.get('.action-opacity>.btn').click({force: true})
-    })
+    });
 
     it('cy.dblclick() - double click on a DOM element', function(){
 
@@ -357,7 +357,7 @@ describe('Kitchen Sink', function(){
       cy
         .get('.action-div').dblclick().should('not.be.visible')
         .get('.action-input-hidden').should('be.visible')
-    })
+    });
 
     it('cy.check() - check a checkbox or radio element', function(){
 
@@ -397,7 +397,7 @@ describe('Kitchen Sink', function(){
           .check({force: true}).should('be.checked')
 
         .get('.action-radios [type="radio"]').check('radio3', {force: true}).should('be.checked')
-    })
+    });
 
 
     it('cy.uncheck() - uncheck a checkbox element', function(){
@@ -440,30 +440,30 @@ describe('Kitchen Sink', function(){
       // this checkbox below is disabled.
         .get('.action-check [disabled]')
           .uncheck({force: true}).should('not.be.checked')
-    })
+    });
 
     it('cy.select() - select an option in a <select> element', function(){
 
       // https://on.cypress.io/api/select
 
       // Select the option with matching text content
-      cy.get('.action-select').select('apples')
+      cy.get('.action-select').select('apples');
 
       // Select the option with matching value
-      cy.get('.action-select').select('fr-bananas')
+      cy.get('.action-select').select('fr-bananas');
 
       // Select the options with matching text content
-      cy.get('.action-select-multiple').select(['apples', 'oranges', 'bananas'])
+      cy.get('.action-select-multiple').select(['apples', 'oranges', 'bananas']);
 
       // Select the options with matching values
       cy.get('.action-select-multiple').select(['fr-apples', 'fr-oranges', 'fr-bananas'])
     })
-  })
+  });
 
   context('Window', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/window')
-    })
+    });
 
     // **** Window ****
     //
@@ -474,25 +474,25 @@ describe('Kitchen Sink', function(){
 
       // https://on.cypress.io/api/window
       cy.window().should('have.property', 'top')
-    })
+    });
 
     it('cy.document() - get the document object', function(){
 
       // https://on.cypress.io/api/document
       cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
-    })
+    });
 
     it('cy.title() - get the title', function(){
 
       // https://on.cypress.io/api/title
       cy.title().should('include', 'Kitchen Sink')
     })
-  })
+  });
 
   context('Viewport', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/viewport')
-    })
+    });
 
     // **** Viewport ****
     //
@@ -503,19 +503,19 @@ describe('Kitchen Sink', function(){
     it('cy.viewport() - set the viewport size and dimension', function(){
 
       cy
-        .get('#navbar').should('be.visible')
+        .get('#navbar').should('be.visible');
 
       // https://on.cypress.io/api/viewport
-      cy.viewport(320, 480)
+      cy.viewport(320, 480);
 
       // the navbar should have collapse since our screen is smaller
       cy
         .get('#navbar').should('not.be.visible')
         .get('.navbar-toggle').should('be.visible').click()
-        .get('.nav').find('a').should('be.visible')
+        .get('.nav').find('a').should('be.visible');
 
       // lets see what our app looks like on a super large screen
-      cy.viewport(2999, 2999)
+      cy.viewport(2999, 2999);
 
       // **** Viewport Presets ****
       //
@@ -545,7 +545,7 @@ describe('Kitchen Sink', function(){
         .viewport('iphone-4')
         .wait(200)
         .viewport('iphone-3')
-        .wait(200)
+        .wait(200);
 
       // **** Viewport Orientation ****
       //
@@ -561,12 +561,12 @@ describe('Kitchen Sink', function(){
       // The viewport will be reset back to the default dimensions
       // in between tests (the  default is set in cypress.json)
     })
-  })
+  });
 
   context('Location', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/location')
-    })
+    });
 
     // **** Location ****
     //
@@ -577,30 +577,30 @@ describe('Kitchen Sink', function(){
 
       // https://on.cypress.io/api/hash
       cy.hash().should('be.empty')
-    })
+    });
 
     it('cy.location() - get window.location', function(){
 
       // https://on.cypress.io/api/location
       cy.location().then(function(location){
-        expect(location.hash).to.be.empty
-        expect(location.href).to.eq('https://example.cypress.io/commands/location')
-        expect(location.host).to.eq('example.cypress.io')
-        expect(location.hostname).to.eq('example.cypress.io')
-        expect(location.origin).to.eq('https://example.cypress.io')
-        expect(location.pathname).to.eq('/commands/location')
-        expect(location.port).to.eq('')
-        expect(location.protocol).to.eq('https:')
+        expect(location.hash).to.be.empty;
+        expect(location.href).to.eq('https://example.cypress.io/commands/location');
+        expect(location.host).to.eq('example.cypress.io');
+        expect(location.hostname).to.eq('example.cypress.io');
+        expect(location.origin).to.eq('https://example.cypress.io');
+        expect(location.pathname).to.eq('/commands/location');
+        expect(location.port).to.eq('');
+        expect(location.protocol).to.eq('https:');
         expect(location.search).to.be.empty
       })
-    })
+    });
 
     it('cy.url() - get the current URL', function(){
 
       // https://on.cypress.io/api/url
       cy.url().should('eq', 'https://example.cypress.io/commands/location')
     })
-  })
+  });
 
   context('Navigation', function(){
     beforeEach(function(){
@@ -608,7 +608,7 @@ describe('Kitchen Sink', function(){
         .visit('https://example.cypress.io')
         .get('.navbar-nav').contains('Commands').click()
         .get('.dropdown-menu').contains('Navigation').click()
-    })
+    });
 
     // **** Navigation ****
     //
@@ -617,32 +617,32 @@ describe('Kitchen Sink', function(){
 
     it('cy.go() - go back or forward in the browser\'s history', function(){
 
-      cy.location().its('pathname').should('include', 'navigation')
+      cy.location().its('pathname').should('include', 'navigation');
 
       // https://on.cypress.io/api/go
-      cy.go('back')
-      cy.location().its('pathname').should('not.include', 'navigation')
+      cy.go('back');
+      cy.location().its('pathname').should('not.include', 'navigation');
 
-      cy.go('forward')
-      cy.location().its('pathname').should('include', 'navigation')
+      cy.go('forward');
+      cy.location().its('pathname').should('include', 'navigation');
 
       // equivalent to clicking back
-      cy.go(-1)
-      cy.location().its('pathname').should('not.include', 'navigation')
+      cy.go(-1);
+      cy.location().its('pathname').should('not.include', 'navigation');
 
       // equivalent to clicking forward
-      cy.go(1)
+      cy.go(1);
       cy.location().its('pathname').should('include', 'navigation')
 
-    })
+    });
 
     it('cy.reload() - reload the page', function(){
       // https://on.cypress.io/api/reload
-      cy.reload()
+      cy.reload();
 
       // reload the page without using the cache
       cy.reload(true)
-    })
+    });
 
     it('cy.visit() - visit a remote url', function(){
 
@@ -660,12 +660,12 @@ describe('Kitchen Sink', function(){
         }
       })
     })
-  })
+  });
 
   context('Assertions', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/assertions')
-    })
+    });
     // **** Assertions ****
     //
     describe('Implicit Assertions', function(){
@@ -676,7 +676,7 @@ describe('Kitchen Sink', function(){
         cy
           .get('.assertion-table')
             .find('tbody tr:last').should('have.class', 'success')
-      })
+      });
 
       it('cy.and - chain multiple assertions together', function(){
 
@@ -688,14 +688,14 @@ describe('Kitchen Sink', function(){
             .and('include', 'cypress.io')
       })
 
-    })
+    });
 
     describe('Explicit Assertions', function(){
 
       it('expect - make an assertion about a specified subject', function(){
 
         // We can use Chai's BDD style assertions
-        expect(true).to.be.true
+        expect(true).to.be.true;
 
         // Pass a function to should that can have any number
         // of explicit assertions within it.
@@ -706,14 +706,14 @@ describe('Kitchen Sink', function(){
             var texts = $p.map(function(i, el){
               // https://on.cypress.io/api/cypress-jquery
               return Cypress.$(el).text()
-            })
+            });
 
             // jquery map returns jquery object
             // and .get() convert this to simple array
-            var texts = texts.get()
+            var texts = texts.get();
 
             // array should have length of 3
-            expect(texts).to.have.length(3)
+            expect(texts).to.have.length(3);
 
             // set this specific subject
             expect(texts).to.deep.eq([
@@ -724,12 +724,12 @@ describe('Kitchen Sink', function(){
         })
       })
     })
-  })
+  });
 
   context('Misc', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/misc')
-    })
+    });
 
     it('cy.end() - end the command chain', function(){
 
@@ -746,7 +746,7 @@ describe('Kitchen Sink', function(){
             // queries the entire table again
             .contains("Charles").click()
         })
-    })
+    });
 
     it('cy.exec() - execute a system command', function(){
 
@@ -764,7 +764,7 @@ describe('Kitchen Sink', function(){
 
         .exec('pwd')
           .its('code').should('eq', 0)
-    })
+    });
 
     it('cy.focused() - get the DOM element that has focus', function(){
 
@@ -775,13 +775,13 @@ describe('Kitchen Sink', function(){
 
         .get('.misc-form').find('#description').click()
         .focused().should('have.id', 'description')
-    })
+    });
 
     it("cy.screenshot() - take a screenshot", function(){
 
       // https://on.cypress.io/api/screenshot
       cy.screenshot("my-image")
-    })
+    });
 
     it('cy.wrap() - wrap an object', function(){
 
@@ -792,12 +792,12 @@ describe('Kitchen Sink', function(){
           .and('include', 'bar')
     })
 
-  })
+  });
 
   context('Connectors', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/connectors')
-    })
+    });
 
     // **** Connectors ****
     //
@@ -813,7 +813,7 @@ describe('Kitchen Sink', function(){
         .each(function($el, index, $list){
           console.log($el, index, $list)
         })
-    })
+    });
 
     it('cy.its() - get properties on the current subject', function(){
 
@@ -823,7 +823,7 @@ describe('Kitchen Sink', function(){
         // calls the 'length' property returning that value
           .its('length')
             .should('be.gt', 2)
-    })
+    });
 
     it('cy.invoke() - invoke a function on the current subject', function(){
 
@@ -837,36 +837,36 @@ describe('Kitchen Sink', function(){
         // call the jquery method 'show' on the 'div.container'
         .invoke('show')
           .should('be.visible')
-    })
+    });
 
     it('cy.spread() - spread an array as individual arguments to a callback function', function(){
 
       // https://on.cypress.io/api/spread
-      var arr = ['foo', 'bar', 'baz']
+      var arr = ['foo', 'bar', 'baz'];
 
       cy.wrap(arr).spread(function(foo, bar, baz){
-        expect(foo).to.eq('foo')
-        expect(bar).to.eq('bar')
+        expect(foo).to.eq('foo');
+        expect(bar).to.eq('bar');
         expect(baz).to.eq('baz')
       })
-    })
+    });
 
     it('cy.then() - invoke a callback function with the current subject', function(){
 
       // https://on.cypress.io/api/then
       cy.get('.connectors-list>li').then(function($lis){
-        expect($lis).to.have.length(3)
-        expect($lis.eq(0)).to.contain('Walk the dog')
-        expect($lis.eq(1)).to.contain('Feed the cat')
+        expect($lis).to.have.length(3);
+        expect($lis.eq(0)).to.contain('Walk the dog');
+        expect($lis.eq(1)).to.contain('Feed the cat');
         expect($lis.eq(2)).to.contain('Write JavaScript')
       })
     })
-  })
+  });
 
   context('Aliasing', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/aliasing')
-    })
+    });
 
     // **** Aliasing ****
     //
@@ -894,12 +894,12 @@ describe('Kitchen Sink', function(){
           .should('have.class', 'btn-success')
           .and('contain', 'Changed')
     })
-  })
+  });
 
   context('Waiting', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/waiting')
-    })
+    });
     // **** Waiting ****
     //
     // Wait for a specific amount of ms before
@@ -923,12 +923,12 @@ describe('Kitchen Sink', function(){
     // Waiting for a specific resource to resolve
     // is covered within the cy.route() test below
     //
-  })
+  });
 
   context('Network Requests', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/network-requests')
-    })
+    });
 
     // **** Network Requests ****
     //
@@ -940,21 +940,21 @@ describe('Kitchen Sink', function(){
       cy.server().then(function(server){
         // the default options on server
         // you can override any of these options
-        expect(server.delay).to.eq(0)
-        expect(server.method).to.eq('GET')
-        expect(server.status).to.eq(200)
-        expect(server.headers).to.be.null
-        expect(server.response).to.be.null
-        expect(server.onRequest).to.be.undefined
-        expect(server.onResponse).to.be.undefined
-        expect(server.onAbort).to.be.undefined
+        expect(server.delay).to.eq(0);
+        expect(server.method).to.eq('GET');
+        expect(server.status).to.eq(200);
+        expect(server.headers).to.be.null;
+        expect(server.response).to.be.null;
+        expect(server.onRequest).to.be.undefined;
+        expect(server.onResponse).to.be.undefined;
+        expect(server.onAbort).to.be.undefined;
 
         // These options control the server behavior
         // affecting all requests
-        expect(server.enable).to.be.true              // pass false to disable existing route stubs
-        expect(server.force404).to.be.false           // forces requests that don't match your routes to 404
+        expect(server.enable).to.be.true;              // pass false to disable existing route stubs
+        expect(server.force404).to.be.false;           // forces requests that don't match your routes to 404
         expect(server.whitelist).to.be.a('function')  // whitelists requests from ever being logged or stubbed
-      })
+      });
 
       cy
         .server({
@@ -967,23 +967,23 @@ describe('Kitchen Sink', function(){
         // any route commands will now inherit the above options
         // from the server. anything we pass specifically
         // to route will override the defaults though.
-    })
+    });
 
     it('cy.request() - make an XHR request', function(){
 
       // https://on.cypress.io/api/request
       cy
         .request('https://jsonplaceholder.typicode.com/comments').then(function(response){
-          expect(response.status).to.eq(200)
-          expect(response.body).to.have.length(500)
-          expect(response).to.have.property('headers')
+          expect(response.status).to.eq(200);
+          expect(response.body).to.have.length(500);
+          expect(response).to.have.property('headers');
           expect(response).to.have.property('duration')
         })
-    })
+    });
 
     it('cy.route() - route responses to matching requests', function(){
 
-      cy.server()
+      cy.server();
 
       // **** GET comments route ****
       //
@@ -1001,7 +1001,7 @@ describe('Kitchen Sink', function(){
         // continuing to the next command
         //
         // https://on.cypress.io/api/wait
-        .wait('@getComment').its('status').should('eq', 200)
+        .wait('@getComment').its('status').should('eq', 200);
 
       // **** POST comment route ****
       //
@@ -1016,14 +1016,14 @@ describe('Kitchen Sink', function(){
 
         // get the route
         .get('@postComment').then(function(xhr){
-          expect(xhr.requestBody).to.include('email')
-          expect(xhr.requestHeaders).to.have.property('Content-Type')
+          expect(xhr.requestBody).to.include('email');
+          expect(xhr.requestHeaders).to.have.property('Content-Type');
           expect(xhr.responseBody).to.have.property('name', 'Using POST in cy.route()')
-        })
+        });
 
       // **** Stubbed PUT comment route ****
       //
-      message = 'whoa, this comment doesn\'t exist'
+      message = 'whoa, this comment doesn\'t exist';
 
       cy
         .route({
@@ -1043,12 +1043,12 @@ describe('Kitchen Sink', function(){
         // our 404 statusCode logic in scripts.js executed
         .get('.network-put-comment').should('contain', message)
     })
-  })
+  });
 
   context('Files', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/files')
-    })
+    });
     // **** Files ****
     //
     // Use files to represent data
@@ -1060,7 +1060,7 @@ describe('Kitchen Sink', function(){
       // connect a response with a fixture file
       // located in fixtures folder.
 
-      cy.server()
+      cy.server();
 
       // https://on.cypress.io/api/fixture
       cy
@@ -1074,7 +1074,7 @@ describe('Kitchen Sink', function(){
 
         .wait('@getComment').its('responseBody')
           .should('have.property', 'name')
-            .and('include', 'Using fixtures to represent data')
+            .and('include', 'Using fixtures to represent data');
 
       // you can also just write the fixture in the route
       cy
@@ -1086,7 +1086,7 @@ describe('Kitchen Sink', function(){
 
         .wait('@getComment').its('responseBody')
           .should('have.property', 'name')
-            .and('include', 'Using fixtures to represent data')
+            .and('include', 'Using fixtures to represent data');
 
       // or write fx to represent fixture
       // by default it assumes it's .json
@@ -1100,7 +1100,7 @@ describe('Kitchen Sink', function(){
         .wait('@getComment').its('responseBody')
           .should('have.property', 'name')
             .and('include', 'Using fixtures to represent data')
-    })
+    });
 
     it('cy.readFile() - read a files contents', function(){
 
@@ -1114,7 +1114,7 @@ describe('Kitchen Sink', function(){
           expect(html).to.include('<!DOCTYPE html>')
         })
 
-    })
+    });
 
     it('cy.writeFile() - write to a file', function(){
 
@@ -1132,7 +1132,7 @@ describe('Kitchen Sink', function(){
         })
         .fixture('users').then(function(users){
           expect(users[0].name).to.exist
-        })
+        });
 
       cy
         // JavaScript arrays and objects are stringified and formatted into text.
@@ -1143,12 +1143,12 @@ describe('Kitchen Sink', function(){
 
     })
 
-  })
+  });
 
   context('Local Storage', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/commands/local-storage')
-    })
+    });
     // **** Local Storage ****
     //
     // Although local storage is automatically cleared
@@ -1162,60 +1162,60 @@ describe('Kitchen Sink', function(){
       // https://on.cypress.io/api/clearlocalstorage
       cy
         .get(".ls-btn").click().then(function(){
-          expect(localStorage.getItem('prop1')).to.eq('red')
-          expect(localStorage.getItem('prop2')).to.eq('blue')
+          expect(localStorage.getItem('prop1')).to.eq('red');
+          expect(localStorage.getItem('prop2')).to.eq('blue');
           expect(localStorage.getItem('prop3')).to.eq('magenta')
         })
 
         // clearLocalStorage() returns the localStorage object
         .clearLocalStorage().then(function(ls){
-          expect(ls.getItem('prop1')).to.be.null
-          expect(ls.getItem('prop2')).to.be.null
+          expect(ls.getItem('prop1')).to.be.null;
+          expect(ls.getItem('prop2')).to.be.null;
           expect(ls.getItem('prop3')).to.be.null
-        })
+        });
 
       // **** Clear key matching string in Local Storage ****
       //
       cy
         .get(".ls-btn").click().then(function(){
-          expect(localStorage.getItem('prop1')).to.eq('red')
-          expect(localStorage.getItem('prop2')).to.eq('blue')
+          expect(localStorage.getItem('prop1')).to.eq('red');
+          expect(localStorage.getItem('prop2')).to.eq('blue');
           expect(localStorage.getItem('prop3')).to.eq('magenta')
         })
 
         .clearLocalStorage('prop1').then(function(ls){
-          expect(ls.getItem('prop1')).to.be.null
-          expect(ls.getItem('prop2')).to.eq('blue')
+          expect(ls.getItem('prop1')).to.be.null;
+          expect(ls.getItem('prop2')).to.eq('blue');
           expect(ls.getItem('prop3')).to.eq('magenta')
-        })
+        });
 
       // **** Clear key's matching regex in Local Storage ****
       //
       cy
         .get(".ls-btn").click().then(function(){
-          expect(localStorage.getItem('prop1')).to.eq('red')
-          expect(localStorage.getItem('prop2')).to.eq('blue')
+          expect(localStorage.getItem('prop1')).to.eq('red');
+          expect(localStorage.getItem('prop2')).to.eq('blue');
           expect(localStorage.getItem('prop3')).to.eq('magenta')
         })
 
         .clearLocalStorage(/prop1|2/).then(function(ls){
-          expect(ls.getItem('prop1')).to.be.null
-          expect(ls.getItem('prop2')).to.be.null
+          expect(ls.getItem('prop1')).to.be.null;
+          expect(ls.getItem('prop2')).to.be.null;
           expect(ls.getItem('prop3')).to.eq('magenta')
         })
     })
-  })
+  });
 
   context('Cookies', function(){
     beforeEach(function(){
-      Cypress.Cookies.debug(true)
+      Cypress.Cookies.debug(true);
 
       cy.visit('https://example.cypress.io/commands/cookies')
 
       // clear cookies again after visiting to remove
       // any 3rd party cookies picked up such as cloudflare
       .clearCookies()
-    })
+    });
 
     it('cy.getCookie() - get a browser cookie', function(){
 
@@ -1227,7 +1227,7 @@ describe('Kitchen Sink', function(){
 
         // getCookie() returns a cookie object
         .getCookie('token').should('have.property', 'value', '123ABC')
-    })
+    });
 
     it('cy.getCookies() - get browser cookies', function(){
 
@@ -1243,14 +1243,14 @@ describe('Kitchen Sink', function(){
         .getCookies().should('have.length', 1).then( function(cookies) {
 
           // each cookie has these properties
-          expect(cookies[0]).to.have.property('name', 'token')
-          expect(cookies[0]).to.have.property('value', '123ABC')
-          expect(cookies[0]).to.have.property('httpOnly', false)
-          expect(cookies[0]).to.have.property('secure', false)
-          expect(cookies[0]).to.have.property('domain')
+          expect(cookies[0]).to.have.property('name', 'token');
+          expect(cookies[0]).to.have.property('value', '123ABC');
+          expect(cookies[0]).to.have.property('httpOnly', false);
+          expect(cookies[0]).to.have.property('secure', false);
+          expect(cookies[0]).to.have.property('domain');
           expect(cookies[0]).to.have.property('path')
         })
-    })
+    });
 
     it('cy.setCookie() - set a browser cookie', function(){
 
@@ -1264,7 +1264,7 @@ describe('Kitchen Sink', function(){
 
         // getCookie() returns a cookie object
         .getCookie('foo').should('have.property', 'value', 'bar')
-    })
+    });
 
     it('cy.clearCookie() - clear a browser cookie', function(){
 
@@ -1282,7 +1282,7 @@ describe('Kitchen Sink', function(){
         .clearCookie('token').should('be.null')
 
         .getCookie('token').should('be.null')
-    })
+    });
 
     it('cy.clearCookies() - clear browser cookies', function(){
 
@@ -1303,12 +1303,12 @@ describe('Kitchen Sink', function(){
         .getCookies().should('be.empty')
     })
 
-  })
+  });
 
   context('Utilities', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/utilities')
-    })
+    });
 
     // **** Utilities ****
     //
@@ -1322,36 +1322,36 @@ describe('Kitchen Sink', function(){
         // use the _.chain, _.pluck, _.first, and _.value functions
         // https://on.cypress.io/api/cypress-underscore
         .request('https://jsonplaceholder.typicode.com/users').then(function(response){
-          var _ = Cypress._
-          var ids = _.chain(response.body).pluck('id').first(3).value()
+          var _ = Cypress._;
+          var ids = _.chain(response.body).pluck('id').first(3).value();
 
           expect(ids).to.deep.eq([1, 2, 3])
         })
-    })
+    });
 
     it('Cypress.$(selector) - call a jQuery method', function(){
 
       // https://on.cypress.io/api/cypress-jquery
-      var $li = Cypress.$('.utility-jquery li:first')
+      var $li = Cypress.$('.utility-jquery li:first');
 
       cy
         .wrap($li)
           .should('not.have.class', 'active')
         .click()
           .should('have.class', 'active')
-    })
+    });
 
 
     it('Cypress.moment() - format or parse dates using a moment method', function(){
 
       // use moment's format function
       // https://on.cypress.io/api/cypress-moment
-      var time = Cypress.moment().utc('2014-04-25T19:38:53.196Z').format('h:mm A')
+      var time = Cypress.moment().utc('2014-04-25T19:38:53.196Z').format('h:mm A');
 
       cy
         .get('.utility-moment').contains('3:38 PM')
           .should('have.class', 'badge')
-    })
+    });
 
     it('Cypress.Blob.method() - blob utilties and base64 string conversion', function(){
 
@@ -1361,7 +1361,7 @@ describe('Kitchen Sink', function(){
       return Cypress.Blob.imgSrcToDataURL('https://example.cypress.io/assets/img/javascript-logo.png', undefined, 'anonymous')
       .then(function(dataUrl){
         // create an <img> element and set its src to the dataUrl
-        var img = Cypress.$('<img />', {src: dataUrl})
+        var img = Cypress.$('<img />', {src: dataUrl});
 
         // need to explicitly return cy here since we are initially returning
         // the Cypress.Blog.imgSrcToDataURL promise to our test
@@ -1372,19 +1372,19 @@ describe('Kitchen Sink', function(){
           })
           .get('.utility-blob img').click().should('have.attr', 'src', dataUrl)
       })
-    })
+    });
 
     it('new Cypress.Promise(function) - instantiate a bluebird promise', function(){
 
       // https://on.cypress.io/api/cypress-promise
-      var waited = false
+      var waited = false;
 
       function waitOneSecond(){
         // return a promise that resolves after 1 second
         return new Cypress.Promise(function(resolve, reject){
           setTimeout(function(){
             // set waited to true
-            waited = true
+            waited = true;
 
             // resolve with 'foo' string
             resolve('foo')
@@ -1397,19 +1397,19 @@ describe('Kitchen Sink', function(){
           // return a promise to cy.then() that
           // is awaited until it resolves
           return waitOneSecond().then(function(str){
-            expect(str).to.eq('foo')
+            expect(str).to.eq('foo');
             expect(waited).to.be.true
           })
         })
     })
 
-  })
+  });
 
 
   context('Cypress.config()', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/cypress-api/config')
-    })
+    });
 
     // **** Config ****
     //
@@ -1417,37 +1417,37 @@ describe('Kitchen Sink', function(){
     it('Cypress.config() - get and set configuration options', function(){
 
       // https://on.cypress.io/api/config
-      var myConfig = Cypress.config()
+      var myConfig = Cypress.config();
 
-      expect(myConfig).to.have.property('animationDistanceThreshold', 5)
-      expect(myConfig).to.have.property('baseUrl', null)
-      expect(myConfig).to.have.property('defaultCommandTimeout', 4000)
-      expect(myConfig).to.have.property('requestTimeout', 5000)
-      expect(myConfig).to.have.property('responseTimeout', 20000)
-      expect(myConfig).to.have.property('viewportHeight', 660)
-      expect(myConfig).to.have.property('viewportWidth', 1000)
-      expect(myConfig).to.have.property('pageLoadTimeout', 30000)
-      expect(myConfig).to.have.property('waitForAnimations', true)
+      expect(myConfig).to.have.property('animationDistanceThreshold', 5);
+      expect(myConfig).to.have.property('baseUrl', null);
+      expect(myConfig).to.have.property('defaultCommandTimeout', 4000);
+      expect(myConfig).to.have.property('requestTimeout', 5000);
+      expect(myConfig).to.have.property('responseTimeout', 20000);
+      expect(myConfig).to.have.property('viewportHeight', 660);
+      expect(myConfig).to.have.property('viewportWidth', 1000);
+      expect(myConfig).to.have.property('pageLoadTimeout', 30000);
+      expect(myConfig).to.have.property('waitForAnimations', true);
 
       // *** get a single configuration option **
-      expect(Cypress.config('pageLoadTimeout')).to.eq(30000)
+      expect(Cypress.config('pageLoadTimeout')).to.eq(30000);
 
       // *** set a single configuration option **
       //
       // this will change the config for the rest of your tests!
       //
-      Cypress.config('pageLoadTimeout', 20000)
+      Cypress.config('pageLoadTimeout', 20000);
 
-      expect(Cypress.config('pageLoadTimeout')).to.eq(20000)
+      expect(Cypress.config('pageLoadTimeout')).to.eq(20000);
 
       Cypress.config('pageLoadTimeout', 30000)
     })
-  })
+  });
 
   context('Cypress.env()', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/cypress-api/env')
-    })
+    });
 
     // **** Env ****
     //
@@ -1462,25 +1462,25 @@ describe('Kitchen Sink', function(){
       Cypress.env({
         host: 'veronica.dev.local',
         api_server: 'http://localhost:8888/api/v1/'
-      })
+      });
 
       // get environment variable
-      expect(Cypress.env('host')).to.eq('veronica.dev.local')
+      expect(Cypress.env('host')).to.eq('veronica.dev.local');
 
       // set environment variable
-      Cypress.env('api_server', 'http://localhost:8888/api/v2/')
-      expect(Cypress.env('api_server')).to.eq('http://localhost:8888/api/v2/')
+      Cypress.env('api_server', 'http://localhost:8888/api/v2/');
+      expect(Cypress.env('api_server')).to.eq('http://localhost:8888/api/v2/');
 
       // get all environment variable
-      expect(Cypress.env()).to.have.property('host', 'veronica.dev.local')
+      expect(Cypress.env()).to.have.property('host', 'veronica.dev.local');
       expect(Cypress.env()).to.have.property('api_server', 'http://localhost:8888/api/v2/')
     })
-  })
+  });
 
   context('Cypress.Cookies', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/cypress-api/cookies')
-    })
+    });
 
     // **** Cookies ****
     //
@@ -1490,27 +1490,27 @@ describe('Kitchen Sink', function(){
 
     it('Cypress.Cookies.debug() - enable or disable debugging', function(){
 
-      Cypress.Cookies.debug(true)
+      Cypress.Cookies.debug(true);
 
       // Cypress will now log in the console when
       // cookies are set or cleared
+      cy.setCookie('fakeCookie', '123ABC');
+      cy.clearCookie('fakeCookie');
+      cy.setCookie('fakeCookie', '123ABC');
+      cy.clearCookie('fakeCookie');
       cy.setCookie('fakeCookie', '123ABC')
-      cy.clearCookie('fakeCookie')
-      cy.setCookie('fakeCookie', '123ABC')
-      cy.clearCookie('fakeCookie')
-      cy.setCookie('fakeCookie', '123ABC')
-    })
+    });
 
     it('Cypress.Cookies.preserveOnce() - preserve cookies by key', function(){
 
       // normally cookies are reset after each test
-      cy.getCookie('fakeCookie').should('not.be.ok')
+      cy.getCookie('fakeCookie').should('not.be.ok');
 
       // preserving a cookie will not clear it when
       // the next test starts
-      cy.setCookie('lastCookie', '789XYZ')
+      cy.setCookie('lastCookie', '789XYZ');
       Cypress.Cookies.preserveOnce('lastCookie')
-    })
+    });
 
     it('Cypress.Cookies.defaults() - set defaults for all cookies', function(){
 
@@ -1520,12 +1520,12 @@ describe('Kitchen Sink', function(){
         whitelist: 'session_id'
       })
     })
-  })
+  });
 
   context('Cypress.Dom', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/cypress-api/dom')
-    })
+    });
 
     // **** Dom ****
     //
@@ -1535,19 +1535,19 @@ describe('Kitchen Sink', function(){
 
     it('Cypress.Dom.isHidden() - determine if a DOM element is hidden', function(){
 
-      var hiddenP = Cypress.$('.dom-p p.hidden').get(0)
-      var visibleP = Cypress.$('.dom-p p.visible').get(0)
+      var hiddenP = Cypress.$('.dom-p p.hidden').get(0);
+      var visibleP = Cypress.$('.dom-p p.visible').get(0);
 
       // our first paragraph has css class 'hidden'
-      expect(Cypress.Dom.isHidden(hiddenP)).to.be.true
+      expect(Cypress.Dom.isHidden(hiddenP)).to.be.true;
       expect(Cypress.Dom.isHidden(visibleP)).to.be.false
     })
-  })
+  });
 
   context('Cypress.Server', function(){
     beforeEach(function(){
       cy.visit('https://example.cypress.io/cypress-api/server')
-    })
+    });
 
     // **** Server ****
     //
@@ -1566,4 +1566,4 @@ describe('Kitchen Sink', function(){
       })
     })
   })
-})
+});

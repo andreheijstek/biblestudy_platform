@@ -6,8 +6,9 @@
 # - starting chapter < ending_chapter
 # - starting_verse < ending_verse
 # - contains existing biblebook
-# - chapters withing valid range of biblebook
-# - verses within valid range of chapter
+# TODO: - chapters withing valid range of biblebook
+# TODO: - verses within valid range of chapter
+# TODO: - give better error messages and show these in views, iso not saved
 #
 # :reek:InstanceVariableAssumption, can't be fixed here,
 # as I can't have an initializer
@@ -15,92 +16,117 @@
 # :reek:TooManyStatements: as well
 class PericopeValidator < ActiveModel::Validator
   # Validate method, as required by Rails, see class comment
-  # rubocop: disable Metrics/AbcSize
-  # rubocop: disable Metrics/MethodLength
-  def validate(record)
-    @record             = record
-    given_pericope_name = record.name
-    if given_pericope_name.empty?
-      @record.errors.add :name, :name_not_empty
-    else
-      parsed_pericope = parse_pericope(given_pericope_name)
-      validate_pericope_order(parsed_pericope.starting_v,
-                              parsed_pericope.ending_v)
-      full_biblebook_name = validate_biblebook_name(parsed_pericope
-                                                    .biblebook_name)
-      biblebook           = Biblebook.find_by_full_name(full_biblebook_name)[0]
-      update_record(parsed_pericope, biblebook) unless biblebook.nil?
-    end
-  end
+  attr_accessor :record, :tree
+  attr_reader :parsed_pericope
+  private :record, :parsed_pericope, :tree
 
-  # rubocop: enable Metrics/MethodLength
-  # rubocop: enable Metrics/AbcSize
+  def validate(record)
+    @record = record
+    parse_and_set_attributes
+    return if record.name.empty?
+
+    validate_pericope_order
+    biblebook_name = record.biblebook_name
+    return unless biblebook_given?(biblebook_name)
+
+    biblebook = get_biblebook(biblebook_name)
+    update_record(biblebook) unless biblebook.nil?
+  end
 
   private
 
-  attr_reader :record
-
-  def parse_pericope(pericope_name)
-    parsed_pericope = PericopeString.new(pericope_name)
-    parsed_pericope.errors&.each { |error| @record.errors.add :name, error }
-    parsed_pericope
+  def get_biblebook(biblebook_name)
+    name, @errors = Biblebook.validate_name(biblebook_name, record.errors)
+    Biblebook.find_by_full_name(name)[0]
   end
 
-  def validate_pericope_order(starting_verse, ending_verse)
-    return if starting_verse <= ending_verse
+  def biblebook_given?(biblebook_name)
+    # if biblebook_name.nil? || biblebook_name.empty?
+    if biblebook_name.blank?
+      record.errors.add :biblebook_name, :name_not_empty
+      return false
+    end
+    true
+  end
 
-    record.errors.add :name, :verse_chapter_disorder
+  def parse_and_set_attributes
+    parse_name
+    set_attributes
+  end
+
+  # Parses the 'name' attribute (something like 'Gen 1:2-3') into the
+  # constituent parts of a Pericope
+  def parse_name
+    name = record.name
+    return if name.empty?
+
+    @tree = PericopeParser.new.parse(name)
+  end
+
+  def set_attributes
+    return if record.name.empty?
+
+    record.populate_basic_attributes(tree)
+    add_missing_data
+    record.populate_compound_attributes
+  end
+
+  def add_missing_data
+    if single_verse?
+      set_ending_to_starting
+    elsif multiple_verse_one_chapter?
+      set_ending_chapter_to_starting_chapter
+    end
+  end
+
+  def set_ending_chapter_to_starting_chapter
+    record.ending_chapter_nr = record.starting_chapter_nr
+  end
+
+  def set_ending_to_starting
+    set_ending_chapter_to_starting_chapter
+    record.ending_verse = record.starting_verse
+  end
+
+  def single_verse?
+    record.ending_chapter_nr.zero? && record.ending_verse.zero?
+  end
+
+  def multiple_verse_one_chapter?
+    end_chap = record.ending_chapter_nr
+    (record.ending_verse > record.starting_verse) &&
+      ((end_chap == record.starting_chapter_nr) ||
+      end_chap.zero?)
+  end
+
+  def validate_pericope_order
+    short_pericope = record.whole_book? \
+      || record.whole_chapter? \
+      || record.single_verse?
+    return if short_pericope
+    return if record.starting_bibleverse <= record.ending_bibleverse
+
+    record.errors.add :base, :verse_chapter_disorder
   end
 
   def validate_biblebook_name(given_name)
-    names = Biblebook.possible_book_names(given_name)
-    handle_multiple_names(names, given_name)
-  end
-
-  #:reek:TooManyStatements: no idea how to solve
-  #:reek:FeatureEnvy: same issue
-  # rubocop:disable Metrics/MethodLength
-  def handle_multiple_names(names, given_name)
-    name             = ''
-    errors           = record.errors
-    nr_of_biblebooks = names.size
-    if nr_of_biblebooks.zero?
-      errors.add :name, :unknown_biblebook
-    elsif nr_of_biblebooks == 1
-      name = names[0]
-    elsif nr_of_biblebooks > 1
-      errors.add :name, :ambiguous_abbreviation,
-                 given_name: given_name, biblebooks: names.to_sentence
-    end
+    name, @errors = Biblebook.validate_name(given_name, record.errors)
     name
   end
 
-  # rubocop:enable Metrics/MethodLength
-
   #:reek:FeatureEnvy: don't know how to solve
-  #:reek:TooManyStatements: no idea how to solve
-  # rubocop:disable Metrics/MethodLength
-  def update_record(pericope, biblebook)
+  def update_record(biblebook)
     # Met een null object voor Biblebook, kan ik hier de attributen van het
     # null object lezen, en dus id op 0 zetten, name op ''
     # Ik heb dan ook een null object voor parsed pericope nodig, die alle
     # chapters/verses op 0 zet (en misschien wel meteen het biblebook)
     # De gebruikende modules gaan dat biblebook/pericope toch niet gebruiken
     # want er zijn errors en dus slaan ze al eerder af.
-    @record.tap do |record|
+    record.tap do |record|
       record.biblebook_id   = biblebook.id
       record.biblebook_name = biblebook.name
-      record.name           = pericope.pericope_string
-
-      record.starting_chapter_nr = pericope.starting_chapter
-      record.starting_verse      = pericope.starting_verse
-      record.ending_chapter_nr   = pericope.ending_chapter
-      record.ending_verse        = pericope.ending_verse
-
-      record.sequence = (record.starting_chapter_nr * 1000) +
-                        record.starting_verse
+      record.sequence       = (record.starting_chapter_nr * 1000) +
+                              record.starting_verse
     end
   end
-
-  # rubocop:enable Metrics/MethodLength
 end

@@ -6,10 +6,18 @@
 #
 #  id         :integer          not null, primary key
 #  note       :text
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  title      :string
 #  author_id  :integer
+#
+# Indexes
+#
+#  index_studynotes_on_author_id  (author_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (author_id => users.id)
 #
 
 # Models a Studynote, the main Object for this application

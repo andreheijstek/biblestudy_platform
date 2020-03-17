@@ -16,7 +16,7 @@ nl:
       new:
         resend_confirmation_instructions: Verstuur bevestiging-instructies opnieuw
       send_instructions: Je ontvangt via e-mail instructies hoe je je account kan bevestigen.
-      send_paranoid_instructions: Als we je e-mailadres terugvinden in onze database, zal je binnen enkele ogenblikken een e-mail ontvangen met instructies hoe je je account kan bevestigen.
+      send_paranoid_instructions: Als je e-mailadres biji ons bekend is, zal je binnen enkele ogenblikken een e-mail ontvangen met instructies hoe je je account kan bevestigen.
     failure:
       already_authenticated: Je bent reeds aangemeld.
       inactive: Je account is nog niet geactiveerd.
@@ -25,8 +25,8 @@ nl:
       locked: Je account is vergrendeld.
       not_found_in_database: Ongeldig e-mail of wachtwoord.
       timeout: Je sessie is verlopen, meld je opnieuw aan om door te gaan.
-      unauthenticated: Je dient je aan te melden of in te schrijven om door te gaan.
-      unconfirmed: Je dient eerst je account te bevestigen.
+      unauthenticated: Meld je eerst even aan om door te gaan.
+      unconfirmed: Bevestig eerst je account nog even.
     mailer:
       confirmation_instructions:
         action: Bevestig mijn account

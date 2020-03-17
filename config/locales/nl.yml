@@ -17,19 +17,29 @@ nl:
       user:
         one: gebruiker
         other: gebruikers
-    attributes:
-      studynote:
-        title: titel
-    errors:
-      models:
-        pericope:
-          attributes:
-            name:
-              ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
-              name_not_empty: naam mag niet leeg zijn
-              unknown_biblebook: onjuist/onbekend bijbelboek
-              verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
-#TODO: add all error messages here
+#    attributes:
+#      studynote:
+#        title: titel
+
+  errors:
+    messages:
+#     biblebook:
+      biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
+#     chapter:
+      chapter_not_found: hoofdstuk bestaat niet
+      chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
+      starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
+#     pericope:
+      ambiguous_abbreviation: "de afkorting is niet duidelijk genoeg: %{given_name} kan %{biblebooks} zijn"
+      name_empty: naam mag niet leeg zijn
+      unknown_biblebook: onjuist/onbekend bijbelboek
+      verse_chapter_disorder: de volgorde van hoofdstukken en verzen is niet in orde
+      invalid_pericope: onjuiste bijbelgedeelte
+      at_least_one_pericope: Er moet minimaal 1 bijbelgedeelte zijn
+#     studynote:
+      studynote_not_found: bijbelstudie niet gevonden
+#     verse:
+      starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
 
   item_created: "%{item} is opgeslagen."
   item_not_created: "%{item} is niet opgeslagen."
@@ -37,12 +47,7 @@ nl:
   item_not_updated: "%{item} is niet bijgewerkt"
   delete_item: "%{item} verwijderen"
   edit_item: "%{item} wijzigen"
-
   item_deleted: "%{item} verwijderd"
-
-  biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
-  studynote_not_found: bijbelstudie niet gevonden
-  chapter_not_found: hoofdstuk bestaat niet
 
   biblestudy_platform: Bijbelstudie platform
 
@@ -53,6 +58,7 @@ nl:
         booksequence: volgorde
         testament: testament
       chapter:
+#        add_chapter: Voeg hoofdstuk toe
         chapter_number: hoofdstuk
         description: beschrijving
         nrofverses: aantal verzen
@@ -70,8 +76,6 @@ nl:
   update_biblebook: Bijbelboek wijzigen
 
   add_chapter: Voeg hoofdstuk toe
-
-  chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
 
   new_studynote: Nieuwe bijbelstudie
 
@@ -93,9 +97,6 @@ nl:
     other: "%{count} bijbelstudies"
   not_allowed: dit is niet toegestaan
 
-  invalid_pericope: onjuiste bijbelgedeelte
-  starting_greater_than_ending: beginhoofdstuk mag niet groter zijn dan eindhoofdstuk
-  starting_verse_chapter_mismatch: beginvers mag niet groter zijn dan eindvers binnen hetzelfde hoofdstuk
   new_biblebook: Nieuw bijbelboek
 
   signed_in_as: "ingelogd als:"
@@ -119,7 +120,6 @@ nl:
   add_pericope: bijbelgedeelte toevoegen
   remove_pericope: verwijder bijbelgedeelte
   sure_to_delete_pericope: Weet u zeker dat u dit bijbelgedeelte wilt verwijderen?
-  at_least_one_pericope: Er moet minimaal 1 bijbelgedeelte zijn
   pentateuch: pentateuch
   history: geschiedenis
   poetry: poëzie, wijsheid

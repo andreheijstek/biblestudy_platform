@@ -8,6 +8,16 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/**/*'
+    - 'lib/**/*'
+
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Layout/HashAlignment:
+  Enabled: false
 
 Metrics/BlockLength:
   Exclude:

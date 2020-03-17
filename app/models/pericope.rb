@@ -5,22 +5,33 @@
 # Table name: pericopes
 #
 #  id                  :integer          not null, primary key
-#  studynote_id        :integer
-#  starting_verse      :integer
+#  biblebook_name      :string
+#  ending_chapter_nr   :integer
 #  ending_verse        :integer
-#  biblebook_id        :integer
+#  name                :string
+#  sequence            :integer
+#  starting_chapter_nr :integer
+#  starting_verse      :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  name                :string
-#  ending_chapter_nr   :integer
-#  starting_chapter_nr :integer
-#  biblebook_name      :string
-#  sequence            :integer
+#  biblebook_id        :integer
+#  studynote_id        :integer
+#
+# Indexes
+#
+#  index_pericopes_on_biblebook_id  (biblebook_id)
+#  index_pericopes_on_studynote_id  (studynote_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (biblebook_id => biblebooks.id)
+#  fk_rails_...  (studynote_id => studynotes.id)
 #
 
 # Models a Pericope, e.g. Gen 1:2-3:4
 # Offers a method to reformat an abbreviated Pericope
 # into a fully articulated one
+# :reek:TooManyInstanceVariables - refactor later
 class Pericope < ActiveRecord::Base
   belongs_to :studynote
   belongs_to :biblebook
@@ -28,6 +39,10 @@ class Pericope < ActiveRecord::Base
   validates :name, presence: true
   validates_with PericopeValidator
   after_validation :reformat_name
+
+  attr_accessor :biblebook_name, :starting_bibleverse, :ending_bibleverse,
+                :starting_chapter_nr, :starting_verse,
+                :ending_chapter_nr, :ending_verse
 
   # Updates the Pericope.name to a nicely formatted name
   def reformat_name
@@ -39,20 +54,6 @@ class Pericope < ActiveRecord::Base
       new_name += add_verses unless whole_chapter?
     end
     self.name = new_name
-  end
-
-  private
-
-  # Verses are added to a Pericope
-  # @return [String]
-  def add_verses
-    if multiple_chapters?
-      full_pericope
-    elsif multiple_verses?
-      same_chapter
-    elsif one_verse?
-      one_verse
-    end
   end
 
   # Detects if the Pericope is a whole chapter, like Genesis 1
@@ -69,10 +70,47 @@ class Pericope < ActiveRecord::Base
 
   # Detects if a Pericope is a single verse, like Genesis 1:1 - 1:1
   # @return [Boolean]
-  # TODO: is dit wel correct? Genesis 1:1 - 2:1 is geen one_verse,
-  # maar zou wel True geven
   def one_verse?
-    ending_verse == starting_verse
+    same_chapter? && same_verse?
+  end
+
+  alias single_verse? one_verse?
+
+  def populate_basic_attributes(tree)
+    @biblebook_name      = tree[:biblebook].to_s.strip
+    @starting_chapter_nr = tree[:starting_chapter].to_i
+    @starting_verse      = tree[:starting_verse].to_i
+    @ending_chapter_nr   = tree[:ending_chapter].to_i
+    @ending_verse        = tree[:ending_verse].to_i
+  end
+
+  def populate_compound_attributes
+    @starting_bibleverse = Bibleverse.new({ chapter: starting_chapter_nr,
+                                            verse:   starting_verse })
+    @ending_bibleverse   = Bibleverse.new({ chapter: ending_chapter_nr,
+                                            verse:   ending_verse })
+  end
+
+  private
+
+  def same_verse?
+    ending_bibleverse == starting_bibleverse
+  end
+
+  def same_chapter?
+    starting_chapter_nr == ending_chapter_nr
+  end
+
+  # Verses are added to a Pericope
+  # @return [String]
+  def add_verses
+    if multiple_chapters?
+      full_pericope
+    elsif multiple_verses?
+      same_chapter
+    elsif one_verse?
+      one_verse
+    end
   end
 
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
