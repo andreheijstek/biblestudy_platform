@@ -21,6 +21,7 @@ deploy:
   app: biblestudy-platform
   on:
     repo: andreheijstek/biblestudy_platform
+  skip_cleanup: true
 notifications:
   email:
   - andre.heijstek@gmail.com
