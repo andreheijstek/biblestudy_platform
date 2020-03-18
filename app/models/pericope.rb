@@ -76,7 +76,7 @@ class Pericope < ActiveRecord::Base
 
   alias single_verse? one_verse?
 
-  def populate_basic_attributes(tree)
+  def basic_attributes=(tree)
     @biblebook_name      = tree[:biblebook].to_s.strip
     @starting_chapter_nr = tree[:starting_chapter].to_i
     @starting_verse      = tree[:starting_verse].to_i

@@ -66,7 +66,7 @@ class PericopeValidator < ActiveModel::Validator
   def set_attributes
     return if record.name.empty?
 
-    record.populate_basic_attributes(tree)
+    record.basic_attributes = tree
     add_missing_data
     record.populate_compound_attributes
   end
