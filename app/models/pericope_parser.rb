@@ -9,7 +9,7 @@ require 'parslet'
 #
 # It is able to handle partial pericopes like 'Genesis', 'Genesis 1', etc.
 class PericopeParser < Parslet::Parser
-  rule(:string) { match(/(?u)\w/).repeat(1) >> space? }
+  rule(:string) { match(/[[:word:]]/).repeat(1) >> space? }
 
   rule(:space) { match('\s').repeat(1) }
   rule(:space?) { space.maybe }

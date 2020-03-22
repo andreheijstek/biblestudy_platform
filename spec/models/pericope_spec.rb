@@ -32,37 +32,29 @@ require 'rails_helper'
 
 describe Pericope, type: :model do
   let!(:genesis) { create(:biblebook, name: 'Genesis') }
-  let(:korinthiers) { create(:biblebook, name: '1 Korintiërs') }
+  # rubocop:disable RSpec/LetSetup
+  let!(:korinthiers) { create(:biblebook, name: '1 Korintiërs') }
+  # rubocop:enable RSpec/LetSetup
 
-  # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength, Style/AsciiComments
-  it 'is valid with valid attributes' do
+  it 'is valid with ascii biblebooks' do
     expect(described_class.create(name: 'Genesis 1:1 - 1:10')).to be_valid
-    # expect(described_class.create(name: '1 Korintiërs 1:1 - 1:10'))
-    # .to be_valid
+  end
+
+  it 'is valid with UTF-8 biblebooks' do
+    expect(described_class.create(name: '1 Korintiërs 1:1 - 1:10')).to be_valid
   end
 
   it 'is valid with abbreviated biblebook' do
     expect(described_class.create(name: 'Gen 1:1 - 1:10')).to be_valid
-    # expect(described_class.create(name: '1 Kor 1:1 - 1:10')).to be_valid
   end
 
   it 'is not valid without a name' do
     expect(described_class.create(name: '')).not_to be_valid
   end
 
-  it 'name  contains a valid pericope string, and can include spaces' do
+  # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+  it 'name contains a valid pericope string, and can include spaces' do
     pericope = described_class.create(name: 'Genesis 1:2 - 3:4')
-    # pericope.save  # trigger the validation and after_validation
-    expect(pericope.starting_chapter_nr).to eq(1)
-    expect(pericope.starting_verse).to eq(2)
-    expect(pericope.ending_chapter_nr).to eq(3)
-    expect(pericope.ending_verse).to eq(4)
-    expect(pericope.biblebook_id).to eq(genesis.id)
-    expect(pericope.biblebook_name).to eq('Genesis')
-  end
-
-  it 'name  contains a valid pericope string, and may be without spaces' do
-    pericope = described_class.create(name: 'Genesis 1:2-3:4')
     expect(pericope.starting_chapter_nr).to eq(1)
     expect(pericope.starting_verse).to eq(2)
     expect(pericope.ending_chapter_nr).to eq(3)
@@ -111,7 +103,7 @@ describe Pericope, type: :model do
     pericope = described_class.create(name: 'Genesis 1:2 - 3:4')
     expect(pericope.biblebook.name).to eq('Genesis')
   end
-  # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength, Style/AsciiComments
+  # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
 
   # TODO: add similar tests for starting/ending chapter/verse
 end

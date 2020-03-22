@@ -41,7 +41,6 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def biblebook_given?(biblebook_name)
-    # if biblebook_name.nil? || biblebook_name.empty?
     if biblebook_name.blank?
       record.errors.add :biblebook_name, :name_not_empty
       return false
@@ -68,23 +67,19 @@ class PericopeValidator < ActiveModel::Validator
 
     record.basic_attributes = tree
     add_missing_data
-    record.populate_compound_attributes
+    record.populate_bibleverses
   end
 
   def add_missing_data
     if single_verse?
       set_ending_to_starting
     elsif multiple_verse_one_chapter?
-      set_ending_chapter_to_starting_chapter
+      record.ending_chapter_nr = record.starting_chapter_nr
     end
   end
 
-  def set_ending_chapter_to_starting_chapter
-    record.ending_chapter_nr = record.starting_chapter_nr
-  end
-
   def set_ending_to_starting
-    set_ending_chapter_to_starting_chapter
+    record.ending_chapter_nr = record.starting_chapter_nr
     record.ending_verse = record.starting_verse
   end
 
@@ -116,12 +111,6 @@ class PericopeValidator < ActiveModel::Validator
 
   #:reek:FeatureEnvy: don't know how to solve
   def update_record(biblebook)
-    # Met een null object voor Biblebook, kan ik hier de attributen van het
-    # null object lezen, en dus id op 0 zetten, name op ''
-    # Ik heb dan ook een null object voor parsed pericope nodig, die alle
-    # chapters/verses op 0 zet (en misschien wel meteen het biblebook)
-    # De gebruikende modules gaan dat biblebook/pericope toch niet gebruiken
-    # want er zijn errors en dus slaan ze al eerder af.
     record.tap do |record|
       record.biblebook_id   = biblebook.id
       record.biblebook_name = biblebook.name

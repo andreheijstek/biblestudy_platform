@@ -84,7 +84,7 @@ class Pericope < ActiveRecord::Base
     @ending_verse        = tree[:ending_verse].to_i
   end
 
-  def populate_compound_attributes
+  def populate_bibleverses
     @starting_bibleverse = Bibleverse.new({ chapter: starting_chapter_nr,
                                             verse:   starting_verse })
     @ending_bibleverse   = Bibleverse.new({ chapter: ending_chapter_nr,
