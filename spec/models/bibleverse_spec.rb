@@ -13,5 +13,10 @@
 require 'rails_helper'
 
 RSpec.describe Bibleverse, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:starting) { build(:bibleverse, chapter: 1, verse: 1) }
+  let(:ending) { build(:bibleverse, chapter: 2, verse: 2) }
+
+  it 'compares verses' do
+    expect(ending > starting).to be(true)
+  end
 end
