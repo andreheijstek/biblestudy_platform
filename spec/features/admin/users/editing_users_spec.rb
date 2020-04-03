@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature "Admins can change a user's details" do
   let(:admin_user) { create(:user, :admin) }
   let(:user)       { create(:user) }

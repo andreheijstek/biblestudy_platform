@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can edit existing biblebooks' do
   before do
     login_as(create(:user, :admin))

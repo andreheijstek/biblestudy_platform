@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 describe StudynotePolicy do
   context 'with permissions' do
     subject { described_class.new(user, studynote) }

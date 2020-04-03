@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe 'Users can create pericopes' do
+describe Pericope do
   let(:user) { create(:user) }
 
   before do
@@ -10,7 +8,7 @@ describe 'Users can create pericopes' do
   end
 
   it 'with valid and full attributes' do
-    pericope = Pericope.create(name: 'Genesis 3:4-5:6')
+    pericope = described_class.create(name: 'Genesis 3:4-5:6')
     expect(pericope).to be_valid
     expect(pericope.name).to eq('Genesis 3:4 - 5:6')
     expect(pericope.starting_chapter_nr).to be(3)
@@ -21,7 +19,7 @@ describe 'Users can create pericopes' do
   end
 
   it 'with valid and abbreviated attributes' do
-    pericope = Pericope.create(name: 'Gen 3:4-5:6')
+    pericope = described_class.create(name: 'Gen 3:4-5:6')
     expect(pericope.biblebook.name).to eq('Genesis')
     expect(pericope).to be_valid
   end

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-feature 'Users can create new studynotes and associate them to pericopes', js: true do
+feature 'Users can create new studynotes with pericopes', js: true do
   let(:user) { create(:user) }
 
   before do
@@ -16,7 +14,7 @@ feature 'Users can create new studynotes and associate them to pericopes', js: t
       n.pericopes[0].set('Jona 1:1 - 1:10')
       n.add_pericope_button.click
       n.title_field.set('Titel') # inserted here to slightly delay execution,
-                                 # otherwise the pericope won't be filled correctly
+      # otherwise the pericope won't be filled correctly
       n.pericopes[1].set('Jona 2:20 - 3:3')
       n.studynote_field.set('Jona is bijzonder.')
       n.submit_button.click

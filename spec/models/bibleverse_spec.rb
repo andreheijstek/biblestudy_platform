@@ -10,8 +10,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require 'rails_helper'
-
 RSpec.describe Bibleverse, type: :model do
   let(:starting) { build(:bibleverse, chapter: 1, verse: 1) }
   let(:ending) { build(:bibleverse, chapter: 2, verse: 2) }

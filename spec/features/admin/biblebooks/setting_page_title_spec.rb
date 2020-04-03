@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Page title is set according to the page content' do
   before do
     login_as(create(:user, :admin))

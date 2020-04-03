@@ -13,8 +13,6 @@
 #  abbreviation :string
 #
 
-require 'rails_helper'
-
 describe Biblebook do
   let(:genesis) { create(:biblebook, name: 'Genesis', abbreviation: 'Gen') }
 

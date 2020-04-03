@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Admins can create new chapters within biblebooks' do
   before do
     login_as(create(:user, :admin))

@@ -5,8 +5,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 
-include FactoryBot::Syntax::Methods
-
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'spec_helper'
 require 'pundit/rspec'
@@ -25,14 +23,16 @@ require 'selenium/webdriver'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-Dir[Rails.root.join('spec/page_objects/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec/page_objects/**/*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+
   # Remove this line if you"re not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path               = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
@@ -54,10 +54,16 @@ RSpec.configure do |config|
 
   Capybara.register_driver :headless_chrome do |app|
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu no-sandbox disable-dev-shm-usage) })
+      chromeOptions:
+      { args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage] }
+    )
 
-    Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
+    Capybara::Selenium::Driver.new app,
+                                   browser:              :chrome,
+                                   desired_capabilities: capabilities
   end
+
+  Capybara.server = :puma, { Silent: true }
 
   config.include Warden::Test::Helpers, type: :feature
   config.after(type: :feature) { Warden.test_reset! }

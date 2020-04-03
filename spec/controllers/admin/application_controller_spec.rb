@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe Admin::ApplicationController, type: :controller do
+describe Admin::ApplicationController do
   let(:user) { create(:user) }
 
   before do
@@ -14,6 +12,7 @@ describe Admin::ApplicationController, type: :controller do
     before do
       get :index, params: {}
     end
+
     it 'access the index action they are redirected' do
       expect(response).to redirect_to '/'
     end

@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe 'Users can create new studynotes and associate them to a single pericope', js: true do
+describe 'Users can create new studynotes with a single pericope', js: true do
   let(:user) { create(:user) }
+  let(:nsp) { NewStudynotesPage.new }
 
   before do
     create(:biblebook, name: 'Jona')
     login_as(user)
 
-    @nsp = NewStudynotesPage.new
-    @nsp.load
+    nsp.load
   end
 
   it 'with valid attributes' do
@@ -39,9 +37,9 @@ describe 'Users can create new studynotes and associate them to a single pericop
   end
 
   def fill_and_submit(pericope)
-    @nsp.pericopes[0].set pericope
-    @nsp.title_field.set 'Titel'
-    @nsp.studynote_field.set 'Jona is bijzonder.'
-    @nsp.submit_button.click
+    nsp.pericopes[0].set pericope
+    nsp.title_field.set 'Titel'
+    nsp.studynote_field.set 'Jona is bijzonder.'
+    nsp.submit_button.click
   end
 end

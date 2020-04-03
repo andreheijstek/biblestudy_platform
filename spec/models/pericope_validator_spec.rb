@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 describe PericopeValidator do
   before do
     create(:biblebook, name: 'Genesis', abbreviation: 'gen')

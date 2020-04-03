@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can delete chapters' do
   let(:biblebook) { create(:biblebook) }
   let(:chapter)   { create(:chapter, biblebook: biblebook) }

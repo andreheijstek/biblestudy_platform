@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'When studynotes are created, there is an audit trail', js: true do
   let(:user) { create(:user) }
 

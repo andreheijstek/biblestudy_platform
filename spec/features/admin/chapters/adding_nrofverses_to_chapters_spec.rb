@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Admins can add the number of verses to a chapter' do
   before do
     login_as(create(:user, :admin))

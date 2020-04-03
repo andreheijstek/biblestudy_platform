@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can not create new studynotes', js: true do
   let(:user) { create(:user) }
   let(:nsp) { NewStudynotesPage.new }

@@ -14,9 +14,7 @@
 #  bible_verse_id :integer
 #
 
-require 'rails_helper'
-
-describe Admin::BiblebooksController, type: :controller do
+describe Admin::BiblebooksController do
   let(:user) { create(:user, :admin) }
 
   before do

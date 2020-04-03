@@ -21,9 +21,7 @@
 #  username               :string
 #
 
-require 'rails_helper'
-
-#TODO: Commented, faalde in test en ik snap nog niet waardom
+# TODO: Commented, faalde in test en ik snap nog niet waardom
 # RSpec.describe UsersController, type: :controller do
 #   describe 'GET #index' do
 #     it 'returns http success' do

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can delete studynotes', js: true do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
 
-  let!(:s1) { create(:studynote, title: 'Jona', author: user) }
+  before do
+    create(:studynote, title: 'Jona', author: user)
+  end
 
   scenario 'successfully' do
     login_as(user)
@@ -14,7 +14,8 @@ feature 'Users can delete studynotes', js: true do
     visit studynotes_path
     click_link 'Jona'
 
-    # I would like to use the pageobject here, but can't get the URL expansion to work
+    # I would like to use the pageobject here,
+    # but can't get the URL expansion to work
     # ssp = StudynoteShowPage.new
     # ssp.load(studynote: @s1)
 
@@ -23,7 +24,7 @@ feature 'Users can delete studynotes', js: true do
     end
 
     should_see t('activerecord.messages.deleted', model: 'bijbelstudie')
-    expect(page.current_path).to eq pericopes_path
+    expect(page).to have_current_path pericopes_path
     expect(page).to have_no_content 'Jona'
   end
 

@@ -19,8 +19,6 @@
 #
 #  fk_rails_...  (author_id => users.id)
 #
-require 'rails_helper'
-
 describe Studynote, type: :model do
   before do
     create(:biblebook, name: 'Genesis', abbreviation: 'Gen')
@@ -31,7 +29,6 @@ describe Studynote, type: :model do
     # TODO: Why is this valid? There should be at least one pericope?
   end
 
-  # rubocop:disable RSpec/MultipleExpectations
   it 'creates a studynote with associated pericope' do
     sn = described_class.create(title: 'title',
                           note: 'note',
@@ -39,7 +36,6 @@ describe Studynote, type: :model do
     expect(sn).to be_valid
     expect(sn.pericopes[0].biblebook_name).to eq('Genesis')
   end
-  # rubocop:enable RSpec/MultipleExpectations
 
   it 'rejects a studynote with without a title' do
     expect(described_class.create(note: 'note')).not_to be_valid

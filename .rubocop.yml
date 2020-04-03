@@ -29,3 +29,9 @@ Capybara/FeatureMethods:
 RSpec/DescribeClass:
   Exclude:
     - 'spec/features/**/*'
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/**/*'
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/**/*'

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 describe 'Admins can view a list of all users' do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: 'Jansen', email: 'jan.jansen@tour.fr') }

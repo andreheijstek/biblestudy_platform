@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can edit existing studynotes', js: true do
   let(:user)      { create(:user) }
   let(:otheruser) { create(:user) }
+  let(:nsp) { NewStudynotesPage.new }
 
   before do
     create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: user)
@@ -13,22 +12,20 @@ feature 'Users can edit existing studynotes', js: true do
     visit studynotes_path
     click_link 'Jona'
     click_link t(:edit_item, item: Studynote.model_name.human)
-
-    @nsp = NewStudynotesPage.new
   end
 
   scenario 'with valid attributes' do
     new_text = 'Jona is heel bijzonder.'
-    @nsp.studynote_field.set(new_text)
-    @nsp.submit_button.click
+    nsp.studynote_field.set(new_text)
+    nsp.submit_button.click
 
     should_see t(:item_updated, item: Studynote.model_name.human)
     should_see new_text
   end
 
   scenario 'except when providing invalid attributes' do
-    @nsp.studynote_field.native.clear # enter an empty string into the field
-    @nsp.submit_button.click
+    nsp.studynote_field.native.clear # enter an empty string into the field
+    nsp.submit_button.click
 
     should_see t(:item_not_updated, item: Studynote.model_name.human)
   end

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can sign in' do
   let!(:user) { create(:user) }
 

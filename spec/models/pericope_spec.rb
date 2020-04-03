@@ -28,13 +28,12 @@
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
 
-require 'rails_helper'
-
 describe Pericope, type: :model do
   let!(:genesis) { create(:biblebook, name: 'Genesis') }
-  # rubocop:disable RSpec/LetSetup
-  let!(:korinthiers) { create(:biblebook, name: '1 Korintiërs') }
-  # rubocop:enable RSpec/LetSetup
+
+  before do
+    create(:biblebook, name: '1 Korintiërs')
+  end
 
   it 'is valid with ascii biblebooks' do
     expect(described_class.create(name: 'Genesis 1:1 - 1:10')).to be_valid
@@ -52,7 +51,6 @@ describe Pericope, type: :model do
     expect(described_class.create(name: '')).not_to be_valid
   end
 
-  # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
   it 'name contains a valid pericope string, and can include spaces' do
     pericope = described_class.create(name: 'Genesis 1:2 - 3:4')
     expect(pericope.starting_chapter_nr).to eq(1)
@@ -103,7 +101,5 @@ describe Pericope, type: :model do
     pericope = described_class.create(name: 'Genesis 1:2 - 3:4')
     expect(pericope.biblebook.name).to eq('Genesis')
   end
-  # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
-
   # TODO: add similar tests for starting/ending chapter/verse
 end

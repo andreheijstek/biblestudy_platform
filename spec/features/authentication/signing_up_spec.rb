@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 feature 'Users can sign up' do
   scenario 'when providing valid details' do
     ensure_on '/'
