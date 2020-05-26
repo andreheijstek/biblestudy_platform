@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_213302) do
     t.string "abbreviation"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.text "name"
-    t.bigint "biblebook_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "order"
-    t.index ["biblebook_id"], name: "index_categories_on_biblebook_id"
-  end
-
   create_table "chapters", id: :serial, force: :cascade do |t|
     t.integer "chapter_number"
     t.string "description"
@@ -54,8 +45,8 @@ ActiveRecord::Schema.define(version: 2019_03_13_213302) do
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
     t.integer "studynote_id"
-    t.integer "starting_verse"
-    t.integer "ending_verse"
+    t.integer "starting_bibleverse"
+    t.integer "ending_bibleverse"
     t.integer "biblebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -106,17 +97,16 @@ ActiveRecord::Schema.define(version: 2019_03_13_213302) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "verses", force: :cascade do |t|
+  create_table "verses", id: :serial, force: :cascade do |t|
     t.integer "verse_number"
     t.string "verse_text"
-    t.bigint "chapter_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "chapter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_verses_on_chapter_id"
   end
 
   add_foreign_key "biblebook_categories", "biblebooks"
-  add_foreign_key "categories", "biblebooks"
   add_foreign_key "chapters", "biblebooks"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"

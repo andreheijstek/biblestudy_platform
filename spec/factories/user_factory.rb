@@ -5,7 +5,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  admin                  :boolean          default("false")
+#  admin                  :boolean          default(FALSE)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
@@ -15,7 +15,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null

@@ -88,3 +88,6 @@ tmp/
 pg_upgrade_internal.log
 pg_upgrade_server.log
 pg_upgrade_utility.log
+
+# database dumps
+**.dump.*
