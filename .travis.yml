@@ -8,7 +8,7 @@ before_script:
 - gem install bundler
 script:
 - bundle exec rspec
-- undercover --compare master
+- undercover --compare main
 before_install:
 - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
   --remote-debugging-port=9222 http://localhost &"
