@@ -60,7 +60,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rb-readline'
   gem 'rspec-rails'
-  gem 'simplecov', require: false
+  gem 'simplecov'
+  gem 'simplecov-lcov'
   # Page objects
   gem 'site_prism'
 end

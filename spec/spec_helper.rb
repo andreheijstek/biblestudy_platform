@@ -21,12 +21,17 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
+require 'simplecov-lcov'
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara/rspec'
 require 'webdrivers'
 
-SimpleCov.start
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
+SimpleCov.start do
+  add_filter(%r{^/spec}) # For RSpec
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -100,7 +105,7 @@ RSpec.configure do |config|
 
   Capybara.register_driver :chrome do |app|
     options = Selenium::WebDriver::Chrome::Options.new(
-    args: %w[headless no-sandbox disable-dev-shm-usage enable-features=NetworkService,NetworkServiceInProcess]
+      args: %w[headless no-sandbox disable-dev-shm-usage enable-features=NetworkService,NetworkServiceInProcess]
     )
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end

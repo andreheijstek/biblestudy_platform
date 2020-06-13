@@ -6,11 +6,14 @@ addons:
 before_script:
 - psql -c 'create database biblestudy_platform_test;' -U postgres
 - gem install bundler
-script: bundle exec rspec
+script:
+- bundle exec rspec
+- undercover --compare master
 before_install:
 - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
   --remote-debugging-port=9222 http://localhost &"
 - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+- gem install bundler undercover
 - gem update bundler
 services:
 - postgresql

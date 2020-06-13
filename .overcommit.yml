@@ -51,3 +51,7 @@ PreCommit:
 PrePush:
   Brakeman:
     enabled: true
+  Undercover:
+    enabled: true
+    required: true
+    command: ['undercover', '--compare', 'main']
