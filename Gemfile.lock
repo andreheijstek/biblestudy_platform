@@ -520,6 +520,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   simplecov
+  simplecov-html
   simplecov-lcov
   site_prism
   sorted-activerecord

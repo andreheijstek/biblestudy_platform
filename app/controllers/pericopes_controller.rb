@@ -23,21 +23,6 @@ class PericopesController < ApplicationController
   end
   # rubocop:enable Metrics/MethodLength
 
-  # Creates a new Pericope
-  def new
-    index = params[:index].to_i
-    studynote = Studynote.new
-    studynote.pericopes.build
-    locals studynote: studynote, index: index
-  end
-
-  # Gets data to show all Pericopes
-  def show
-    pericope = Pericope.find(params[:id])
-    authorize pericope, :show?
-  end
-
-  # Default edit - no code needed
   def edit; end
 
   # Default destroy - no code needed

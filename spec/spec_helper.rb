@@ -28,7 +28,9 @@ require 'capybara/rspec'
 require 'webdrivers'
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter
+                      .new([SimpleCov::Formatter::LcovFormatter,
+                            SimpleCov::Formatter::HTMLFormatter])
 SimpleCov.start do
   add_filter(%r{^/spec}) # For RSpec
 end

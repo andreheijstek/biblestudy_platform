@@ -27,7 +27,6 @@ class PericopeValidator < ActiveModel::Validator
 
     validate_pericope_order
     biblebook_name = record.biblebook_name
-    return unless biblebook_given?(biblebook_name)
 
     biblebook = get_biblebook(biblebook_name)
     update_record(biblebook) unless biblebook.nil?
@@ -38,14 +37,6 @@ class PericopeValidator < ActiveModel::Validator
   def get_biblebook(biblebook_name)
     name, @errors = Biblebook.validate_name(biblebook_name, record.errors)
     Biblebook.find_by_full_name(name)[0]
-  end
-
-  def biblebook_given?(biblebook_name)
-    if biblebook_name.blank?
-      record.errors.add :biblebook_name, :name_not_empty
-      return false
-    end
-    true
   end
 
   def parse_and_set_attributes

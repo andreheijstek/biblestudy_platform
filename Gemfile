@@ -61,6 +61,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'simplecov-html'
   gem 'simplecov-lcov'
   # Page objects
   gem 'site_prism'

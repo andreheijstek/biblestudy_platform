@@ -23,6 +23,8 @@
 
 # Models a Chapter within a Biblebook
 class Chapter < ActiveRecord::Base
+  include Comparable
+
   belongs_to :biblebook
 
   validates :chapter_number, presence: true
