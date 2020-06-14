@@ -5,7 +5,6 @@ addons:
   chrome: stable
 before_script:
 - psql -c 'create database biblestudy_platform_test;' -U postgres
-- gem install bundler
 script:
 - bundle exec rspec
 - undercover --compare main
