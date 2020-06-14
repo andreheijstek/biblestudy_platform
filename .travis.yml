@@ -26,7 +26,7 @@ deploy:
     repo: andreheijstek/biblestudy_platform
     branches:
       only:
-        - main
+        - main:master
   skip_cleanup: true
 notifications:
   email:
