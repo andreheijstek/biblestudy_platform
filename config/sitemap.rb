@@ -24,4 +24,10 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+  add '/pages/about'
+  add '/users/sign_in'
+  add '/users/sign_up'
+  Studynote.find_each do |content|
+    add content_path(content), lastmod: content.updated_at
+  end
 end
