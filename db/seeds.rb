@@ -10,11 +10,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = %w(pentateuch history poetry large_prophets small_prophets gospel acts letters apocalyps)
-categories.each_with_index do |category, index|
-  BiblebookCategory.create!(name: category, order: index)
-end
-
 biblebooks = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
  'Richteren', 'Ruth', '1 Samuël', '2 Samuël', '1 Koningen', '2 Koningen',
  '1 Kronieken', '2 Kronieken', 'Ezra', 'Nehemia', 'Esther', 'Job', 'Psalmen',
