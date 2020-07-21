@@ -2,7 +2,7 @@
   - title(@studynote.note, t('activerecord.models.studynote', count: 2))
   %header
     #title
-      %h1= studynote.title
+      %title= studynote.title
     %ul.actions
       - if policy(studynote).update?
         %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(studynote), class: "edit"

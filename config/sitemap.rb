@@ -28,6 +28,6 @@ SitemapGenerator::Sitemap.create do
   add '/users/sign_in'
   add '/users/sign_up'
   Studynote.find_each do |content|
-    add content_path(content), lastmod: content.updated_at
+    add content_path(content), lastmod: content.updated_at, changefreq: 'daily'
   end
 end
