@@ -16,10 +16,6 @@
 #
 #  index_chapters_on_biblebook_id  (biblebook_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (biblebook_id => biblebooks.id)
-#
 
 # Models a Chapter within a Biblebook
 class Chapter < ActiveRecord::Base
