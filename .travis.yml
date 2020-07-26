@@ -14,6 +14,7 @@ before_install:
 - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
 - gem install bundler undercover
 - gem update bundler
+- bundle update
 services:
 - postgresql
 deploy:
