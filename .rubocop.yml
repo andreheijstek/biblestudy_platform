@@ -10,6 +10,9 @@ AllCops:
     - 'bin/**/*'
     - 'lib/**/*'
 
+Rubocop.flags:
+  --disable-pending-cops
+
 Style/HashEachMethods:
   Enabled: true
 Style/HashTransformKeys:
