@@ -24,6 +24,7 @@
 #
 # Foreign Keys
 #
+#  fk_rails_...  (biblebook_id => biblebooks.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
 

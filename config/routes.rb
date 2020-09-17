@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :studynotes
+  resources :studynotes do
+    resources :comments
+  end
   resources :pericopes, except: [:create, :update]
 
   get 'profile', to: 'users#show'
