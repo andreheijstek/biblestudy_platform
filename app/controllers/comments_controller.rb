@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment = @studynote.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Comment has been created."
-      redirect_to [@studynote, @comment]
+      redirect_to @studynote
     else
       flash.now[:alert] = "Comment has not been created."
       render "new"
