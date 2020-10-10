@@ -18,6 +18,8 @@ describe 'Users can comment studynotes', js: true do
 
   it 'when logged in' do
     ssp.add_comment_button.click
+    ncp.load
+    save_and_open_page
     ncp.comment_field[0].set 'commentaar hupsefluts'
     ncp.comment_button.click
 
