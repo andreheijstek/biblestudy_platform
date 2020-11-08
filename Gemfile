@@ -76,14 +76,8 @@ group :development do
   gem 'fasterer'
   gem 'i18n-tasks'
   gem 'overcommit'
-  gem 'rails-erd'
   gem 'rails_best_practices'
-  # Spring speeds up development by keeping your application running in the
-  # background.
-  # Read more: https://github.com/rails/spring  gem 'spring'
-  # gem 'i18n-debug'
-  # Access an IRB console on exactly().timesception pages or
-  # by using <%= console %> in views
+  gem 'rails-erd'
   # Reek checks ruby code for errors
   gem 'reek'
   gem 'rubocop'

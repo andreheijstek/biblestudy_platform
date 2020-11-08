@@ -37,7 +37,6 @@ feature 'Users can create new studynotes with pericopes', js: true do
       { inputs: '2 Kor 1:1 - 1:10',         expected: '2 Korintiërs 1:1 - 10' }
     ]
     examples.each do |example|
-      # rubocop:disable Layout/LineLength
       it "adds a studynote with abbreviated book #{example[:inputs]} as #{example[:expected]}" do
         nsp.pericopes[0].set((example[:inputs]).to_s)
         nsp.studynote_field.set('study')
@@ -49,7 +48,6 @@ feature 'Users can create new studynotes with pericopes', js: true do
           should_see(example[:expected]).to_s
         end
       end
-      # rubocop:enable Layout/LineLength
     end
   end
 end

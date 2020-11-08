@@ -16,6 +16,10 @@
 #
 #  index_chapters_on_biblebook_id  (biblebook_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (biblebook_id => biblebooks.id)
+#
 
 FactoryBot.define do
   factory :chapter do

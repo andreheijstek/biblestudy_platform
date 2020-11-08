@@ -4,13 +4,19 @@
 #
 # Table name: biblebooks
 #
-#  id           :integer          not null, primary key
-#  name         :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  booksequence :integer
-#  testament    :string
-#  abbreviation :string
+#  id                    :integer          not null, primary key
+#  abbreviation          :string
+#  booksequence          :integer
+#  name                  :string
+#  testament             :string
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  bible_verse_id        :bigint
+#  biblebook_category_id :bigint
+#
+# Indexes
+#
+#  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
 #
 
 describe Biblebook do
@@ -55,7 +61,7 @@ describe Biblebook do
 
     books = described_class.possible_book_names('Jo')
 
-    expect(books). to eq(%w[Job Johannes Jona])
+    expect(books).to eq(%w[Job Johannes Jona])
   end
 
   it 'finds books by full name' do

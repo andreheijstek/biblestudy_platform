@@ -2,32 +2,34 @@
 
 require 'rails_helper'
 
-feature 'Users can only see the appropriate links' do
+# rubocop:disable RSpec/DescribeClass
+describe 'Users can only see the appropriate links' do
   let(:user)  { create(:user) }
   let(:admin) { create(:user, :admin) }
 
-  context 'anonymous users' do
-    scenario 'cannot see the Admin link' do
+  context 'with anonymous users' do
+    it 'cannot see the Admin link' do
       visit '/'
       expect(page).not_to have_link 'Admin'
     end
   end
 
-  context 'regular users' do
+  context 'with regular users' do
     before { login_as(user) }
 
-    scenario 'cannot see the Admin link' do
+    it 'cannot see the Admin link' do
       visit '/'
       expect(page).not_to have_link 'Admin'
     end
   end
 
-  context 'admin users' do
+  context 'with admin users' do
     before { login_as(admin) }
 
-    scenario 'can see the Admin link' do
+    it 'can see the Admin link' do
       visit '/'
       expect(page).to have_link 'Admin'
     end
   end
 end
+# rubocop:enable RSpec/DescribeClass

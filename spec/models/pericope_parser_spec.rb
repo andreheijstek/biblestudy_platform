@@ -60,7 +60,6 @@ describe PericopeParser do
     expect(tree[:starting_verse].to_i).to eq(1)
   end
 
-  # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
   it 'parses a full Pericope' do
     tree = parser.pericope.parse('Genesis 1:2 - 3:4')
     expect(tree[:biblebook].to_s.strip).to eq('Genesis')
@@ -90,7 +89,6 @@ describe PericopeParser do
     expect(tree[:starting_chapter].to_i).to eq(1)
     expect(tree[:ending_chapter].to_i).to eq(3)
   end
-  # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
 
   it 'parses a Pericope with unicode characters' do
     tree = parser.pericope.parse('1 Korinthiërs')

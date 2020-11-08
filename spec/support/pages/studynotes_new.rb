@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Page object for the studynotes/new page
 class NewStudynotesPage < SitePrism::Page
   set_url '/studynotes/new'
