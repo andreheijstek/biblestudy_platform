@@ -10,7 +10,12 @@ class ShowStudynotePage < SitePrism::Page
   element :author_field, '#author'
   element :datetime_field, '#created_at'
 
+  element :add_comment_button, '#new_comment'
+
+  elements :comments, 'ul#comment li'
+
   element :update_button, '.edit'
   element :remove_button, '.delete'
   element :new_button, '.new'
 end
+

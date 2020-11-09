@@ -4,19 +4,13 @@
 #
 # Table name: biblebooks
 #
-#  id                    :integer          not null, primary key
-#  abbreviation          :string
-#  booksequence          :integer
-#  name                  :string
-#  testament             :string
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  bible_verse_id        :bigint
-#  biblebook_category_id :bigint
-#
-# Indexes
-#
-#  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
+#  id           :integer          not null, primary key
+#  abbreviation :string
+#  booksequence :integer
+#  name         :string
+#  testament    :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 describe Biblebook do

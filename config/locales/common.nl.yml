@@ -226,3 +226,5 @@ nl:
         header:
           one: "%{model} niet opgeslagen: 1 fout gevonden"
           other: "%{model} niet opgeslagen: %{count} fouten gevonden"
+  comment: "reactie"
+  new_comment: "Reageer"

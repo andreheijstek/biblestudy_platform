@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database
-# with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside
-# the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+puts 'Start'
 biblebooks = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozua',
  'Richteren', 'Ruth', '1 Samuël', '2 Samuël', '1 Koningen', '2 Koningen',
  '1 Kronieken', '2 Kronieken', 'Ezra', 'Nehemia', 'Esther', 'Job', 'Psalmen',
@@ -22,8 +13,9 @@ biblebooks = ['Genesis', 'Exodus', 'Leviticus', 'Numeri', 'Deuteronomium', 'Jozu
  'Titus', 'Filemon', 'Hebreeën', 'Jakobus', '1 Petrus', '2 Petrus',
  '1 Johannes', '2 Johannes', '3 Johannes', 'Judas', 'Openbaring']
 
+
 biblebooks.each_with_index do |name, index|
-  unless Biblebook.exists?(name: name)
+  unless Biblebook.where(name: name).exists?
     if index < 39
       Biblebook.create!(name: name, booksequence: index, testament: 'oud')
     else
@@ -103,20 +95,20 @@ books = [
   { name: 'Openbaring', abbreviation: 'Op', chapters: 22, verses: [20, 29, 22, 11, 14, 17, 17, 13, 21, 11, 19, 18, 18, 20, 8, 21, 18, 24, 21, 15, 27, 21] }
 ]
 
-# books.each do |book|
-#   puts book[:name]
-#   id = Biblebook.find_by(name: book[:name]).id
-#   (1..book[:chapters]).each_with_index do |chapter, index|
-#     unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
-#       Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
-#     end
-#   end
-#
-#   bbook = Biblebook.find_by(name: book[:name])
-#   if bbook.abbreviation.nil?
-#     bbook.update_attribute(:abbreviation, book[:abbreviation])
-#   end
-# end
+books.each do |book|
+  puts book[:name]
+  id = Biblebook.find_by(name: book[:name]).id
+  (1..book[:chapters]).each_with_index do |chapter, index|
+    unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
+      Chapter.create!(chapter_number: chapter, description: '', nrofverses: book[:verses][index], biblebook_id: id)
+    end
+  end
+
+  bbook = Biblebook.find_by(name: book[:name])
+  if bbook.abbreviation.nil?
+    bbook.update_attribute(:abbreviation, book[:abbreviation])
+  end
+end
 
 unless User.exists?(email: 'admin@biblestudy.com')
   User.create!(email: 'admin@biblestudy.com', password: 'bsp4ever', admin: true)

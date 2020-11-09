@@ -11,6 +11,9 @@ AllCops:
     - 'lib/**/*'
     - 'tmp'
 
+Rubocop.flags:
+  --disable-pending-cops
+
 Style/HashEachMethods:
   Enabled: true
 Style/HashTransformKeys:

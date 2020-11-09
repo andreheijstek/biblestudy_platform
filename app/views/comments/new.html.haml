@@ -1,0 +1,6 @@
+%header
+  %h1
+    = t(:new_comment)
+    %p
+      %small= @studynote.title
+= render "form", studynote: @studynote, comment: @comment
