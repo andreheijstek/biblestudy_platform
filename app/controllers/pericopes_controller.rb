@@ -12,6 +12,11 @@ class PericopesController < ApplicationController
     biblebook_counts = Pericope
                        .group(:biblebook_name)
                        .count
+    puts ('-') * 50
+    puts biblebook_counts['Genesis']
+    p Pericope.all
+    p Studynote.all
+    puts ('-') * 50
     testament_counts = Pericope
                        .joins(:biblebook)
                        .group('biblebooks.testament')

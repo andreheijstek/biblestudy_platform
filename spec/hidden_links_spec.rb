@@ -1,6 +1,6 @@
 # Commented
 # TODO: move to page object model
-# 
+#
 # # frozen_string_literal: true
 #
 # require 'rails_helper'

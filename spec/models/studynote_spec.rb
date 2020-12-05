@@ -45,3 +45,4 @@ describe Studynote, type: :model do
     expect(described_class.create(title: 'title')).not_to be_valid
   end
 end
+

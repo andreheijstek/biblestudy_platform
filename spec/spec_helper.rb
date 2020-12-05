@@ -99,6 +99,11 @@ RSpec.configure do |config|
 
   config.expose_dsl_globally = true
 
+  # set the persistence file path, which is needed to use
+  # - only-failures or
+  # - next-failure
+  config.example_status_persistence_file_path = "spec/examples.txt"
+
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
