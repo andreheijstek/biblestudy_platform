@@ -6,12 +6,12 @@
 #
 #  id                  :integer          not null, primary key
 #  biblebook_name      :string
-#  ending_bibleverse   :integer
 #  ending_chapter_nr   :integer
+#  ending_verse_nr     :integer
 #  name                :string
 #  sequence            :integer
-#  starting_bibleverse :integer
 #  starting_chapter_nr :integer
+#  starting_verse_nr   :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  biblebook_id        :integer
@@ -41,8 +41,8 @@ class Pericope < ActiveRecord::Base
   after_validation :reformat_name
 
   attr_accessor :biblebook_name, :starting_bibleverse, :ending_bibleverse,
-                :starting_chapter_nr, :starting_verse,
-                :ending_chapter_nr, :ending_verse
+                :starting_chapter_nr, :starting_verse_nr,
+                :ending_chapter_nr, :ending_verse_nr
 
   # Updates the Pericope.name to a nicely formatted name
   def reformat_name
@@ -59,7 +59,7 @@ class Pericope < ActiveRecord::Base
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
   def whole_chapter?
-    starting_verse.zero?
+    starting_verse_nr.zero?
   end
 
   # Detects if the Pericope is a whole book, like Genesis
@@ -79,16 +79,16 @@ class Pericope < ActiveRecord::Base
   def basic_attributes=(tree)
     @biblebook_name      = tree[:biblebook].to_s.strip
     @starting_chapter_nr = tree[:starting_chapter].to_i
-    @starting_verse      = tree[:starting_verse].to_i
+    @starting_verse_nr   = tree[:starting_verse_nr].to_i
     @ending_chapter_nr   = tree[:ending_chapter].to_i
-    @ending_verse        = tree[:ending_verse].to_i
+    @ending_verse_nr     = tree[:ending_verse_nr].to_i
   end
 
   def populate_bibleverses
     @starting_bibleverse = Bibleverse.new({ chapter: starting_chapter_nr,
-                                            verse:   starting_verse })
+                                            verse:   starting_verse_nr })
     @ending_bibleverse   = Bibleverse.new({ chapter: ending_chapter_nr,
-                                            verse:   ending_verse })
+                                            verse:   ending_verse_nr })
   end
 
   private
@@ -116,7 +116,7 @@ class Pericope < ActiveRecord::Base
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
   # @return [Boolean]
   def multiple_verses?
-    ending_verse > starting_verse
+    ending_verse_nr > starting_verse_nr
   end
 
   # Detects if a Pericope spans multiple chapters, like Genesis 1:1 - 3:1
@@ -134,18 +134,18 @@ class Pericope < ActiveRecord::Base
   # Formats the full Pericope
   # @return [String]
   def full_pericope
-    ":#{starting_verse} - #{ending_chapter_nr}:#{ending_verse}"
+    ":#{starting_verse_nr} - #{ending_chapter_nr}:#{ending_verse_nr}"
   end
 
   # Formats the string, if the Pericope spans just a single chapter
   # e.g. Genesis 1:1 - 1:2 -> Genesis 1:1 - 2
   def same_chapter
-    ":#{starting_verse} - #{ending_verse}"
+    ":#{starting_verse_nr} - #{ending_verse_nr}"
   end
 
   # Formats the string if it spans just one verse
   # E.g. Genesis 1:1 - 1:1 -> Genesis 1:1
   def one_verse
-    ":#{starting_verse}"
+    ":#{starting_verse_nr}"
   end
 end

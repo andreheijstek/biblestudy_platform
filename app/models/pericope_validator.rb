@@ -6,7 +6,7 @@
 # - starting chapter < ending_chapter
 # - starting_verse < ending_verse
 # - contains existing biblebook
-# TODO: - chapters withing valid range of biblebook
+# TODO: - chapters within valid range of biblebook
 # TODO: - verses within valid range of chapter
 # TODO: - give better error messages and show these in views, iso not saved
 #
@@ -71,16 +71,16 @@ class PericopeValidator < ActiveModel::Validator
 
   def set_ending_to_starting
     record.ending_chapter_nr = record.starting_chapter_nr
-    record.ending_verse = record.starting_verse
+    record.ending_verse_nr = record.starting_verse_nr
   end
 
   def single_verse?
-    record.ending_chapter_nr.zero? && record.ending_verse.zero?
+    record.ending_chapter_nr.zero? && record.ending_verse_nr.zero?
   end
 
   def multiple_verse_one_chapter?
     end_chap = record.ending_chapter_nr
-    (record.ending_verse > record.starting_verse) &&
+    (record.ending_verse_nr > record.starting_verse_nr) &&
       ((end_chap == record.starting_chapter_nr) ||
       end_chap.zero?)
   end
@@ -106,7 +106,7 @@ class PericopeValidator < ActiveModel::Validator
       record.biblebook_id   = biblebook.id
       record.biblebook_name = biblebook.name
       record.sequence       = (record.starting_chapter_nr * 1000) +
-                              record.starting_verse
+                              record.starting_verse_nr
     end
   end
 end

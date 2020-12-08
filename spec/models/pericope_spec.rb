@@ -6,12 +6,12 @@
 #
 #  id                  :integer          not null, primary key
 #  biblebook_name      :string
-#  ending_bibleverse   :integer
 #  ending_chapter_nr   :integer
+#  ending_verse_nr     :integer
 #  name                :string
 #  sequence            :integer
-#  starting_bibleverse :integer
 #  starting_chapter_nr :integer
+#  starting_verse_nr   :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  biblebook_id        :integer
@@ -54,9 +54,9 @@ describe Pericope, type: :model do
   it 'name contains a valid pericope string, and can include spaces' do
     pericope = described_class.create(name: 'Genesis 1:2 - 3:4')
     expect(pericope.starting_chapter_nr).to eq(1)
-    expect(pericope.starting_verse).to eq(2)
+    expect(pericope.starting_verse_nr).to eq(2)
     expect(pericope.ending_chapter_nr).to eq(3)
-    expect(pericope.ending_verse).to eq(4)
+    expect(pericope.ending_verse_nr).to eq(4)
     expect(pericope.biblebook_id).to eq(genesis.id)
     expect(pericope.biblebook_name).to eq('Genesis')
   end
@@ -64,9 +64,9 @@ describe Pericope, type: :model do
   it 'name  contains a valid pericope string, ending chapter is not required' do
     pericope = described_class.create(name: 'Genesis 1:2 - 3')
     expect(pericope.starting_chapter_nr).to eq(1)
-    expect(pericope.starting_verse).to eq(2)
+    expect(pericope.starting_verse_nr).to eq(2)
     expect(pericope.ending_chapter_nr).to eq(1)
-    expect(pericope.ending_verse).to eq(3)
+    expect(pericope.ending_verse_nr).to eq(3)
     expect(pericope.biblebook_id).to eq(genesis.id)
     expect(pericope.biblebook_name).to eq('Genesis')
   end
@@ -74,9 +74,9 @@ describe Pericope, type: :model do
   it 'verse may contain a biblebook abbreviation' do
     pericope = described_class.create(name: 'Gen 1:2 - 3')
     expect(pericope.starting_chapter_nr).to eq(1)
-    expect(pericope.starting_verse).to eq(2)
+    expect(pericope.starting_verse_nr).to eq(2)
     expect(pericope.ending_chapter_nr).to eq(1)
-    expect(pericope.ending_verse).to eq(3)
+    expect(pericope.ending_verse_nr).to eq(3)
     expect(pericope.biblebook_name).to eq('Genesis')
   end
 

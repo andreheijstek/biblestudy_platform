@@ -36,14 +36,14 @@ class PericopeParser < Parslet::Parser
     biblebook.as(:biblebook) >> \
       chapter.as(:starting_chapter) >> \
       colon >> \
-      verse.as(:starting_verse)
+      verse.as(:starting_verse_nr)
   end
   rule(:full_pericope) do
     biblebook.as(:biblebook) \
       >> chapter.as(:starting_chapter) >> colon \
-      >> verse.as(:starting_verse) >> dash \
+      >> verse.as(:starting_verse_nr) >> dash \
       >> chapter.as(:ending_chapter) >> colon \
-      >> verse.as(:ending_verse)
+      >> verse.as(:ending_verse_nr)
   end
   rule(:multiple_chapters) do
     biblebook.as(:biblebook) \
@@ -53,8 +53,8 @@ class PericopeParser < Parslet::Parser
   rule(:multiple_verses_in_single_chapter) do
     biblebook.as(:biblebook) \
       >> chapter.as(:starting_chapter) >> colon \
-      >> verse.as(:starting_verse) >> dash \
-      >> verse.as(:ending_verse)
+      >> verse.as(:starting_verse_nr) >> dash \
+      >> verse.as(:ending_verse_nr)
   end
 
   rule(:pericope) do

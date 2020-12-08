@@ -6,12 +6,12 @@
 #
 #  id                  :integer          not null, primary key
 #  biblebook_name      :string
-#  ending_bibleverse   :integer
 #  ending_chapter_nr   :integer
+#  ending_verse_nr     :integer
 #  name                :string
 #  sequence            :integer
-#  starting_bibleverse :integer
 #  starting_chapter_nr :integer
+#  starting_verse_nr   :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  biblebook_id        :integer
