@@ -9,9 +9,7 @@ describe Admin::ApplicationController do
   end
 
   context 'when non-admin users' do
-    before do
-      get :index, params: {}
-    end
+    before { get :index, params: {} }
 
     it 'access the index action they are redirected' do
       expect(response).to redirect_to '/'

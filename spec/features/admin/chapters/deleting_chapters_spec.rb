@@ -2,7 +2,7 @@
 
 feature 'Users can delete chapters' do
   let(:biblebook) { create(:biblebook) }
-  let(:chapter)   { create(:chapter, biblebook: biblebook) }
+  let(:chapter) { create(:chapter, biblebook: biblebook) }
 
   before do
     login_as(create(:user, :admin))

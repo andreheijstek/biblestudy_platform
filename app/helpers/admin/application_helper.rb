@@ -5,6 +5,5 @@
 module Admin
   # Generated application helper
   # No real content yet
-  module ApplicationHelper
-  end
+  module ApplicationHelper; end
 end

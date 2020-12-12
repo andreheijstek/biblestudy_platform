@@ -64,9 +64,9 @@ module Admin
     end
 
     def chapter_params
-      params.require(:chapter).permit(:chapter_number,
-                                      :description,
-                                      :nr_of_verses)
+      params
+        .require(:chapter)
+        .permit(:chapter_number, :description, :nr_of_verses)
     end
 
     def set_biblebook

@@ -19,9 +19,7 @@ feature 'Users can not create new studynotes', js: true do
   end
 
   context 'with incorrect data' do
-    before do
-      nsp.title_field.set 'Titel'
-    end
+    before { nsp.title_field.set 'Titel' }
 
     scenario 'when providing out of sequence chapters and verses' do
       nsp.pericopes[0].set 'Jona 3:1 - 1:10'

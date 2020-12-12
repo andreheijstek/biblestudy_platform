@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Users can edit existing studynotes', js: true do
-  let(:user)      { create(:user) }
+  let(:user) { create(:user) }
   let(:otheruser) { create(:user) }
   let(:nsp) { NewStudynotesPage.new }
 

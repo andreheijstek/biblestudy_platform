@@ -3,9 +3,7 @@
 describe Pericope do
   let(:user) { create(:user) }
 
-  before do
-    create(:biblebook, name: 'Genesis')
-  end
+  before { create(:biblebook, name: 'Genesis') }
 
   it 'with valid and full attributes' do
     pericope = described_class.create(name: 'Genesis 3:4-5:6')

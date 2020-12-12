@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Users can view an overview of all biblebooks' do
-  before do
-    login_as(create(:user, :admin))
-  end
+  before { login_as(create(:user, :admin)) }
 
   # rubocop:disable RSpec/ExpectActual
   scenario 'sorted by the given order' do

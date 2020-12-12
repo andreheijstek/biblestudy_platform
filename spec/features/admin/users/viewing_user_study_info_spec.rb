@@ -15,10 +15,12 @@ describe 'Admins can view a list of all users' do
     end
 
     it 'shows one when there is one study' do
-      create(:studynote,
-             title:  'Jona',
-             note:   'Jona is bijzonder.',
-             author: user)
+      create(
+        :studynote,
+        title: 'Jona',
+        note: 'Jona is bijzonder.',
+        author: user
+      )
 
       expect_nr_of_studies(1)
     end
@@ -33,7 +35,7 @@ end
 
 def expect_nr_of_studies(count)
   go_to_overview
-  expect(find('tr', text: user)
-           .find('td', id: 'studynote count'))
-    .to have_content(count.to_s)
+  expect(
+    find('tr', text: user).find('td', id: 'studynote count')
+  ).to have_content(count.to_s)
 end

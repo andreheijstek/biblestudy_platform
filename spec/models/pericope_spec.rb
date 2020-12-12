@@ -31,9 +31,7 @@
 describe Pericope, type: :model do
   let!(:genesis) { create(:biblebook, name: 'Genesis') }
 
-  before do
-    create(:biblebook, name: '1 Korintiërs')
-  end
+  before { create(:biblebook, name: '1 Korintiërs') }
 
   it 'is valid with ascii biblebooks' do
     expect(described_class.create(name: 'Genesis 1:1 - 1:10')).to be_valid

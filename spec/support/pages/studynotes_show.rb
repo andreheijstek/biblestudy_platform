@@ -18,4 +18,3 @@ class ShowStudynotePage < SitePrism::Page
   element :remove_button, '.delete'
   element :new_button, '.new'
 end
-

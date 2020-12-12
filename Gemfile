@@ -76,6 +76,7 @@ group :development do
   gem 'fasterer'
   gem 'i18n-tasks'
   gem 'overcommit'
+  gem 'prettier'
   gem 'rails_best_practices'
   gem 'rails-erd'
   # Reek checks ruby code for errors

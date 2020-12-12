@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # feature 'Users can edit their data' do
 #   let!(:user) { create(:user) }
 #
@@ -18,6 +17,5 @@
 #   scenario 'update password' do
 #   end
 # end
-
 # providing wrong current password
 # can't see the profile page when not logged in

@@ -88,25 +88,28 @@
 #             update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
-Rails.application.routes.draw do
-  get 'users/index'
+Rails
+  .application
+  .routes
+  .draw do
+    get 'users/index'
 
-  root 'pericopes#index'
+    root 'pericopes#index'
 
-  namespace :admin do
-    root 'application#index'
-    resources :biblebooks do
-      resources :chapters, except: [:index]
+    namespace :admin do
+      root 'application#index'
+      resources :biblebooks do
+        resources :chapters, except: [:index]
+      end
+      resources :users, except: [:destroy]
     end
-    resources :users, except: [:destroy]
+
+    devise_for :users
+
+    resources :studynotes do
+      resources :comments
+    end
+    resources :pericopes, except: %i[create update]
+
+    get 'profile', to: 'users#show'
   end
-
-  devise_for :users
-
-  resources :studynotes do
-    resources :comments
-  end
-  resources :pericopes, except: [:create, :update]
-
-  get 'profile', to: 'users#show'
-end

@@ -9,7 +9,13 @@ describe 'Users can comment studynotes', js: true do
   before do
     create(:biblebook, name: 'Jona')
     login_as(author)
-    note = create(:studynote, title: 'Jona', note: 'Jona is bijzonder.', author: author)
+    note =
+      create(
+        :studynote,
+        title: 'Jona',
+        note: 'Jona is bijzonder.',
+        author: author
+      )
 
     login_as(commenter)
     ssp.load

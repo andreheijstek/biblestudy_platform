@@ -20,9 +20,7 @@
 #  fk_rails_...  (author_id => users.id)
 #
 describe Studynote, type: :model do
-  before do
-    create(:biblebook, name: 'Genesis', abbreviation: 'Gen')
-  end
+  before { create(:biblebook, name: 'Genesis', abbreviation: 'Gen') }
 
   it 'creates a studynote with valid and full attributes' do
     expect(described_class.create(title: 'title', note: 'note')).to be_valid
@@ -30,9 +28,12 @@ describe Studynote, type: :model do
   end
 
   it 'creates a studynote with associated pericope' do
-    sn = described_class.create(title: 'title',
-                          note: 'note',
-                          pericopes_attributes: [{ name: 'Gen 1:2-3:4' }])
+    sn =
+      described_class.create(
+        title: 'title',
+        note: 'note',
+        pericopes_attributes: [{ name: 'Gen 1:2-3:4' }]
+      )
     expect(sn).to be_valid
     expect(sn.pericopes[0].biblebook_name).to eq('Genesis')
   end
@@ -45,4 +46,3 @@ describe Studynote, type: :model do
     expect(described_class.create(title: 'title')).not_to be_valid
   end
 end
-

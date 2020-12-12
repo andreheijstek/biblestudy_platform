@@ -34,18 +34,15 @@ describe Biblebook do
   end
 
   it 'can find a book when the full name is given' do
-    expect(described_class.possible_book_names('Genesis'))
-      .to eq(['Genesis'])
+    expect(described_class.possible_book_names('Genesis')).to eq(['Genesis'])
   end
 
   it 'can find a book when the official abbreviation is given' do
-    expect(described_class.possible_book_names('Gen'))
-      .to eq(['Genesis'])
+    expect(described_class.possible_book_names('Gen')).to eq(['Genesis'])
   end
 
   it 'can find a book  when a decent abbreviation is given' do
-    expect(described_class.possible_book_names('Genes'))
-      .to eq(['Genesis'])
+    expect(described_class.possible_book_names('Genes')).to eq(['Genesis'])
   end
 
   it 'can find  books when a wide abbreviation is given' do

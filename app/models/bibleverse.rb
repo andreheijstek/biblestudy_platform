@@ -17,7 +17,7 @@ class Bibleverse
 
   def initialize(args)
     @chapter = args[:chapter]
-    @verse   = args[:verse]
+    @verse = args[:verse]
   end
 
   # Spaceship to compare Verses

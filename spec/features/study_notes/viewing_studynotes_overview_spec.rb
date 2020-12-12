@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # describe 'Users can view an overview of all studynotes' do
 #   let!(:user) { create(:user) }
 #

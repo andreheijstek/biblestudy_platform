@@ -81,14 +81,12 @@ class PericopeValidator < ActiveModel::Validator
   def multiple_verse_one_chapter?
     end_chap = record.ending_chapter_nr
     (record.ending_verse_nr > record.starting_verse_nr) &&
-      ((end_chap == record.starting_chapter_nr) ||
-      end_chap.zero?)
+      ((end_chap == record.starting_chapter_nr) || end_chap.zero?)
   end
 
   def validate_pericope_order
-    short_pericope = record.whole_book? \
-      || record.whole_chapter? \
-      || record.single_verse?
+    short_pericope =
+      record.whole_book? || record.whole_chapter? || record.single_verse?
     return if short_pericope
     return if record.starting_bibleverse <= record.ending_bibleverse
 
@@ -103,10 +101,10 @@ class PericopeValidator < ActiveModel::Validator
   #:reek:FeatureEnvy: don't know how to solve
   def update_record(biblebook)
     record.tap do |record|
-      record.biblebook_id   = biblebook.id
+      record.biblebook_id = biblebook.id
       record.biblebook_name = biblebook.name
-      record.sequence       = (record.starting_chapter_nr * 1000) +
-                              record.starting_verse_nr
+      record.sequence =
+        (record.starting_chapter_nr * 1000) + record.starting_verse_nr
     end
   end
 end

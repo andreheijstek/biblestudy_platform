@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Users can delete biblebooks' do
-  before do
-    login_as(create(:user, :admin))
-  end
+  before { login_as(create(:user, :admin)) }
 
   scenario 'successfully' do
     create(:biblebook, name: 'Handelingen')

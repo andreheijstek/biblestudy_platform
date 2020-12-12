@@ -79,6 +79,7 @@ describe PericopeParser do
     expect(tree[:biblebook].to_s.strip).to eq('Genesis')
     expect(tree[:starting_chapter].to_i).to eq(1)
     expect(tree[:starting_verse_nr].to_i).to eq(2)
+
     # expect(tree[:ending_chapter].to_i).to eq(1)
     expect(tree[:ending_verse_nr].to_i).to eq(3)
   end

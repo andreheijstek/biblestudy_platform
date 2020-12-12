@@ -256,6 +256,7 @@ GEM
       ast (~> 2.4.1)
     parslet (2.0.0)
     pg (1.2.3)
+    prettier (1.0.0)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
       middleware
@@ -512,6 +513,7 @@ DEPENDENCIES
   overcommit
   parslet
   pg
+  prettier
   pry-byebug
   puma
   pundit

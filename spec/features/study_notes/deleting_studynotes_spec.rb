@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 feature 'Users can delete studynotes', js: true do
-  let(:user)      { create(:user) }
+  let(:user) { create(:user) }
   let(:otheruser) { create(:user) }
 
-  before do
-    create(:studynote, title: 'Jona', author: user)
-  end
+  before { create(:studynote, title: 'Jona', author: user) }
 
   scenario 'successfully' do
     login_as(user)

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Page title is set according to the page content' do
-  before do
-    login_as(create(:user, :admin))
-  end
+  before { login_as(create(:user, :admin)) }
 
   scenario 'when adding a new biblebook' do
     visit admin_biblebooks_path
@@ -14,9 +12,10 @@ feature 'Page title is set according to the page content' do
 
     submit_form
 
-    title = "#{bookname} - "\
-            "#{Biblebook.model_name.human(count: 2).capitalize} - "\
-            "#{t(:biblestudy_platform)}"
+    title =
+      "#{bookname} - " \
+        "#{Biblebook.model_name.human(count: 2).capitalize} - " \
+        "#{t(:biblestudy_platform)}"
     expect(page).to have_title title
   end
 end

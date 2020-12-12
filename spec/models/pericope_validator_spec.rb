@@ -19,7 +19,8 @@ describe PericopeValidator do
 
   it 'detects ambiguous biblebooks' do
     pericope = Pericope.create(name: 'ez 1:1')
-    expect(pericope.errors.messages[:biblebook_name].first)
-      .to include('niet duidelijk')
+    expect(pericope.errors.messages[:biblebook_name].first).to include(
+      'niet duidelijk'
+    )
   end
 end

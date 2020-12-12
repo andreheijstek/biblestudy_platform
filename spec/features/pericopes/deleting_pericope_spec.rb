@@ -3,10 +3,12 @@
 feature 'Users can delete pericopes', js: true do
   let(:user) { create(:user) }
   let(:studynote) do
-    create(:studynote,
-           pericope: 'Jona 1:1-5',
-           title: 'Jona met 1 perikoop',
-           note: 'zomaar iets')
+    create(
+      :studynote,
+      pericope: 'Jona 1:1-5',
+      title: 'Jona met 1 perikoop',
+      note: 'zomaar iets'
+    )
   end
   let(:nsp) { NewStudynotesPage.new }
 

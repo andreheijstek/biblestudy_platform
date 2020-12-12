@@ -40,9 +40,13 @@ class Pericope < ActiveRecord::Base
   validates_with PericopeValidator
   after_validation :reformat_name
 
-  attr_accessor :biblebook_name, :starting_bibleverse, :ending_bibleverse,
-                :starting_chapter_nr, :starting_verse_nr,
-                :ending_chapter_nr, :ending_verse_nr
+  attr_accessor :biblebook_name,
+                :starting_bibleverse,
+                :ending_bibleverse,
+                :starting_chapter_nr,
+                :starting_verse_nr,
+                :ending_chapter_nr,
+                :ending_verse_nr
 
   # Updates the Pericope.name to a nicely formatted name
   def reformat_name
@@ -77,18 +81,18 @@ class Pericope < ActiveRecord::Base
   alias single_verse? one_verse?
 
   def basic_attributes=(tree)
-    @biblebook_name      = tree[:biblebook].to_s.strip
+    @biblebook_name = tree[:biblebook].to_s.strip
     @starting_chapter_nr = tree[:starting_chapter].to_i
-    @starting_verse_nr   = tree[:starting_verse_nr].to_i
-    @ending_chapter_nr   = tree[:ending_chapter].to_i
-    @ending_verse_nr     = tree[:ending_verse_nr].to_i
+    @starting_verse_nr = tree[:starting_verse_nr].to_i
+    @ending_chapter_nr = tree[:ending_chapter].to_i
+    @ending_verse_nr = tree[:ending_verse_nr].to_i
   end
 
   def populate_bibleverses
-    @starting_bibleverse = Bibleverse.new({ chapter: starting_chapter_nr,
-                                            verse:   starting_verse_nr })
-    @ending_bibleverse   = Bibleverse.new({ chapter: ending_chapter_nr,
-                                            verse:   ending_verse_nr })
+    @starting_bibleverse =
+      Bibleverse.new({ chapter: starting_chapter_nr, verse: starting_verse_nr })
+    @ending_bibleverse =
+      Bibleverse.new({ chapter: ending_chapter_nr, verse: ending_verse_nr })
   end
 
   private

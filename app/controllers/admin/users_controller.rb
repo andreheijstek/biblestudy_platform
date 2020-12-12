@@ -30,7 +30,7 @@ module Admin
 
     # Creates and saves a new User
     def create
-      user       = User.new(user_params)
+      user = User.new(user_params)
       user.admin = params[:user][:admin] if current_user.admin?
       save_user(user)
     end

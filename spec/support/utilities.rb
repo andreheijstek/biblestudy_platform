@@ -39,7 +39,5 @@ end
 
 def within_table_row(position)
   row = find_all('table tr')[position]
-  within(row) do
-    yield
-  end
+  within(row) { yield }
 end

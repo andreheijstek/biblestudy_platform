@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Users can view biblebooks' do
-  before do
-    login_as(create(:user, :admin))
-  end
+  before { login_as(create(:user, :admin)) }
 
   scenario 'with the biblebook details' do
     biblebook = create(:biblebook, name: 'Bijbelboek')

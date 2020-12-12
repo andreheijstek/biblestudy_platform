@@ -22,7 +22,7 @@ class StudynotesController < ApplicationController
 
   # Creates a new Studynote
   def new
-    index     = params[:index].to_i
+    index = params[:index].to_i
     studynote = Studynote.new
     authorize studynote, :create?
     studynote.pericopes.build
@@ -31,7 +31,7 @@ class StudynotesController < ApplicationController
 
   # Creates and saves a new Studynote
   def create
-    studynote        = Studynote.new(studynote_params)
+    studynote = Studynote.new(studynote_params)
     studynote.author = current_user
     save_studynote(studynote)
   end
@@ -83,11 +83,9 @@ class StudynotesController < ApplicationController
   end
 
   def studynote_params
-    params.require(:studynote).permit(:id,
-                                      :title,
-                                      :note,
-                                      pericopes_attributes:
-                                      %i[id name _destroy])
+    params
+      .require(:studynote)
+      .permit(:id, :title, :note, pericopes_attributes: %i[id name _destroy])
   end
 
   def set_studynote

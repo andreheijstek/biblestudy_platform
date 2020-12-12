@@ -23,6 +23,7 @@
 # Models a Studynote, the main Object for this application
 class Studynote < ActiveRecord::Base
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
+
   # accepts_nested_attributes_for :pericopes,
   #                               allow_destroy: true,
   #                               reject_if: :all_blank
@@ -39,6 +40,6 @@ class Studynote < ActiveRecord::Base
   delegate :username, to: :author, prefix: true
   delegate :email, to: :author, prefix: true
 
-  validates :note,  presence: true
+  validates :note, presence: true
   validates :title, presence: true
 end

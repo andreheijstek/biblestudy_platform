@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.bijbelstudie-platform.nl"
+SitemapGenerator::Sitemap.default_host = 'http://www.bijbelstudie-platform.nl'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.

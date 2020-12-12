@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
   def locals(action = nil, hash)
     render action: action, locals: hash
   end
+
   # rubocop: enable Style/OptionalArguments
 
   private
