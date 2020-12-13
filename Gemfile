@@ -1,35 +1,11 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
-
 ruby '2.6.5'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
-
-# Use SCSS for stylesheets
-gem 'sass-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', group: :doc
-
-gem 'annotate'
 gem 'bootstrap-sass'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'cocoon'
+gem 'coffee-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'execjs', require: true
@@ -37,10 +13,15 @@ gem 'font-awesome-rails'
 gem 'haml'
 gem 'high_voltage'
 gem 'i18n-js'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'parslet'
 gem 'pg'
 gem 'pundit'
+gem 'rails'
 gem 'reject_deeply_nested'
+gem 'sass-rails'
+gem 'sdoc', group: :doc
 gem 'simple_form'
 gem 'sitemap_generator'
 gem 'sorted-activerecord'
@@ -48,6 +29,7 @@ gem 'sprockets-rails', '2.3.3'
 gem 'therubyracer'
 gem 'titleize'
 gem 'trix-rails', require: 'trix' # Rich text editor
+gem 'uglifier'
 gem 'webdrivers'
 gem 'webpack'
 
@@ -64,11 +46,11 @@ group :development, :test do
   gem 'simplecov'
   gem 'simplecov-html'
   gem 'simplecov-lcov'
-  # Page objects
   gem 'site_prism'
 end
 
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bundler-audit'
@@ -77,16 +59,13 @@ group :development do
   gem 'i18n-tasks'
   gem 'overcommit'
   gem 'prettier'
-  gem 'rails_best_practices'
   gem 'rails-erd'
-  # Reek checks ruby code for errors
+  gem 'rails_best_practices'
   gem 'reek'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
   gem 'web-console'
-  # yard is used to document code with comments about return types and
-  # parameters before each method
   gem 'yard'
 end
 
@@ -105,3 +84,4 @@ group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
+

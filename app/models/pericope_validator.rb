@@ -56,7 +56,13 @@ class PericopeValidator < ActiveModel::Validator
   def set_attributes
     return if record.name.empty?
 
-    record.basic_attributes = tree
+    # record.basic_attributes = tree
+    record.biblebook_name = tree[:biblebook].to_s.strip
+    record.starting_chapter_nr = tree[:starting_chapter].to_i
+    record.starting_verse_nr = tree[:starting_verse_nr].to_i
+    record.ending_chapter_nr = tree[:ending_chapter].to_i
+    record.ending_verse_nr = tree[:ending_verse_nr].to_i
+
     add_missing_data
     record.populate_bibleverses
   end

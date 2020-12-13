@@ -40,13 +40,8 @@ class Pericope < ActiveRecord::Base
   validates_with PericopeValidator
   after_validation :reformat_name
 
-  attr_accessor :biblebook_name,
-                :starting_bibleverse,
-                :ending_bibleverse,
-                :starting_chapter_nr,
-                :starting_verse_nr,
-                :ending_chapter_nr,
-                :ending_verse_nr
+  attr_accessor :starting_bibleverse,
+                :ending_bibleverse
 
   # Updates the Pericope.name to a nicely formatted name
   def reformat_name

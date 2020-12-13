@@ -48,6 +48,11 @@ PreCommit:
   RailsSchemaUpToDate:
     enabled: false
 
+  Prettier:
+    enabled: true
+    command: ['bundle', 'exec', 'rbprettier', '--write', '**/*.rb']
+
+
 PrePush:
   Brakeman:
     enabled: true

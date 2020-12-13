@@ -4,7 +4,7 @@ feature 'Users can create new studynotes with pericopes', js: true do
   let(:user) { create(:user) }
 
   before do
-    create(:biblebook, name: 'Jona')
+    create(:biblebook, name: 'Jona', testament: 'oud')
     login_as(user)
   end
 
@@ -18,12 +18,13 @@ feature 'Users can create new studynotes with pericopes', js: true do
       n.studynote_field.set('Jona is bijzonder.')
       n.submit_button.click
     end
+    save_and_open_page
 
     should_see 'Jona 1:1 - 10 | Jona 2:20 - 3:3'
 
-    # visit root_path
-    # should_see 'Jona 1:1 - 10'
-    # should_see 'Jona 2:20 - 3:3'
-    # should_see 'Jona is bijzonder.'
+    visit root_path
+    save_and_open_page
+    should_see 'Jona 1:1 - 10'
+    should_see 'Jona 2:20 - 3:3'
   end
 end
