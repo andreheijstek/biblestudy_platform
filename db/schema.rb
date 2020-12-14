@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_191605) do
 
   create_table 'chapters', id: :serial, force: :cascade do |t|
     t.integer 'chapter_number'
-    t.string 'description'
+    t.string 'description' # TODO: can be removed
     t.integer 'biblebook_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_191605) do
             unique: true
   end
 
+  # TODO: can be removed
   create_table 'verses', id: :serial, force: :cascade do |t|
     t.integer 'verse_number'
     t.string 'verse_text'
