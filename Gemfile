@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem 'annotate'
 gem 'bootstrap-sass'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
@@ -50,7 +51,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bundler-audit'
