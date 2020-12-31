@@ -27,7 +27,8 @@
 #  fk_rails_...  (biblebook_id => biblebooks.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
-
+# TODO: like achtige functionaliteit toevoegen
+# 
 # Models a Pericope, e.g. Gen 1:2-3:4
 # Offers a method to reformat an abbreviated Pericope
 # into a fully articulated one

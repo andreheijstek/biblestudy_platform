@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 # already added.
 Rails.application.config.assets.precompile += %w[search.js]
 Rails.application.config.assets.precompile += %w[style.css]
+Rails.application.config.assets.precompile += %w( fontawesome-webfont.eot )
