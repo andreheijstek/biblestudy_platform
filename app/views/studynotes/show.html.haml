@@ -31,15 +31,5 @@
         #created_at
           = timeago(studynote.created_at)
         -#= t('ago')
-  %header#new_comment
-    %h2= t(:comment).capitalize
-    = link_to t(:new_comment), new_studynote_comment_path(@studynote),
-        class: "new"
-    #comment
-      %header
-        %ul.comments
-        - @comments.each do |comment|
-          %li= simple_format(comment.description)
-          = comment.created_at
 
   = link_to t(:new_studynote), new_studynote_path, class: "new"

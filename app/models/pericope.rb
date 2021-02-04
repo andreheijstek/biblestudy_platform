@@ -27,12 +27,6 @@
 #  fk_rails_...  (biblebook_id => biblebooks.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
-# TODO: like achtige functionaliteit toevoegen
-#
-# Models a Pericope, e.g. Gen 1:2-3:4
-# Offers a method to reformat an abbreviated Pericope
-# into a fully articulated one
-# :reek:TooManyInstanceVariables - refactor later
 class Pericope < ActiveRecord::Base
   belongs_to :studynote
   belongs_to :biblebook
