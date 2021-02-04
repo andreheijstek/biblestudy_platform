@@ -11,5 +11,5 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 [ -f /Users/andreheijstek/.travis/travis.sh ] && source /Users/andreheijstek/.travis/travis.sh
 
 export EDITOR="rubymine"
-
+export HEROKU_APP="biblestudy-platform"
 eval "$(rbenv init -)"

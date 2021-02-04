@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby File.read(".ruby-version").strip
 
 gem 'annotate'
 gem 'bootstrap-sass'
