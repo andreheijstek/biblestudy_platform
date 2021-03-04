@@ -13,7 +13,26 @@
 ActiveRecord::Schema.define(version: 2021_02_09_200414) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
+
+  create_table "bible_verses", force: :cascade do |t|
+    t.bigint "biblebook_id"
+    t.integer "chapter_nr"
+    t.integer "verse_nr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["biblebook_id"], name: "index_bible_verses_on_biblebook_id"
+  end
+
+  create_table "biblebook_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "biblebook_id"
+    t.index ["biblebook_id"], name: "index_biblebook_categories_on_biblebook_id"
+  end
 
   create_table "biblebooks", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -22,6 +41,17 @@ ActiveRecord::Schema.define(version: 2021_02_09_200414) do
     t.integer "booksequence"
     t.string "testament"
     t.string "abbreviation"
+    t.bigint "bible_verse_id"
+    t.bigint "biblebook_category_id"
+    t.index ["biblebook_category_id"], name: "index_biblebooks_on_biblebook_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.text "name"
+    t.bigint "biblebook_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["biblebook_id"], name: "index_categories_on_biblebook_id"
   end
 
   create_table "chapters", id: :serial, force: :cascade do |t|
@@ -32,6 +62,24 @@ ActiveRecord::Schema.define(version: 2021_02_09_200414) do
     t.datetime "updated_at", null: false
     t.integer "nrofverses"
     t.index ["biblebook_id"], name: "index_chapters_on_biblebook_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "description"
+    t.bigint "studynote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["studynote_id"], name: "index_comments_on_studynote_id"
+  end
+
+  create_table "pericope_as_ranges", force: :cascade do |t|
+    t.string "name"
+    t.bigint "starting_verse_id"
+    t.bigint "ending_verse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ending_verse_id"], name: "index_pericope_as_ranges_on_ending_verse_id"
+    t.index ["starting_verse_id"], name: "index_pericope_as_ranges_on_starting_verse_id"
   end
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
@@ -97,7 +145,13 @@ ActiveRecord::Schema.define(version: 2021_02_09_200414) do
     t.index ["chapter_id"], name: "index_verses_on_chapter_id"
   end
 
+  add_foreign_key "bible_verses", "biblebooks"
+  add_foreign_key "biblebook_categories", "biblebooks"
+  add_foreign_key "categories", "biblebooks"
   add_foreign_key "chapters", "biblebooks"
+  add_foreign_key "comments", "studynotes"
+  add_foreign_key "pericope_as_ranges", "bible_verses", column: "ending_verse_id"
+  add_foreign_key "pericope_as_ranges", "bible_verses", column: "starting_verse_id"
   add_foreign_key "pericopes", "biblebooks"
   add_foreign_key "pericopes", "studynotes"
   add_foreign_key "roles", "studynotes"
