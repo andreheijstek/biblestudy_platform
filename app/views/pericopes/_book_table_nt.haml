@@ -1,11 +1,11 @@
-%div{:id => "#{book.name}"}
+%div.biblebook{:id => "#{book.name}"}
   %table{:id => "#{book.name}_table"}
     %tr
       %th= t('activerecord.models.pericope', count: 1)
       %th= t('author')
       %th= Studynote.human_attribute_name(:title)
     - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
-      %tr
-        %td= study.name
-        %td= study.studynote.author.username
-        %td= link_to study.studynote.title, study.studynote
+      %tr.studynote
+        %td.pericope= study.name
+        %td.author= study.studynote.author.username
+        %td.title= link_to study.studynote.title, study.studynote

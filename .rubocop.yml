@@ -11,8 +11,8 @@ AllCops:
     - 'lib/**/*'
     - 'tmp'
 
-Rubocop.flags:
-  --disable-pending-cops
+#Rubocop.flags:
+#  --disable-pending-cops
 
 Style/HashEachMethods:
   Enabled: true
@@ -84,7 +84,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
-Capybara/FeatureMethods:
+RSpec/Capybara/FeatureMethods:
   Exclude:
     - 'spec/features/**/*'
 RSpec/DescribeClass:

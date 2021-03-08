@@ -24,9 +24,6 @@
 class Studynote < ActiveRecord::Base
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
 
-  # accepts_nested_attributes_for :pericopes,
-  #                               allow_destroy: true,
-  #                               reject_if: :all_blank
   accepts_nested_attributes_for :pericopes,
                                 allow_destroy: true,
                                 reject_if: RejectDeeplyNested.blank?
