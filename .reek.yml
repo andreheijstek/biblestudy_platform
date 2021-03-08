@@ -29,13 +29,3 @@ directories:
   "app/helpers":
     FeatureEnvy:
       enabled: false
-
-  "db":
-    FeatureEnvy:
-      enabled: false
-    IrresponsibleModule:
-      enabled: false
-    UncommunicativeVariableName:
-      enabled: false
-
-#TODO db configs should not be necessary, but the db exclude path does not work, so this is a temporary fix
