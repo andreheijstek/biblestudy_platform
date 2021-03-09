@@ -11,16 +11,16 @@
         %button.btn.btn-link{'type': 'button', 'data-toggle': 'collapse', 'data-target': '#collapseOt', 'aria-expanded': 'true', 'aria-controls': 'collapseOt'}
           - ot_counts = testament_counts['oud'] || 0
           = "#{t('old_testament')}  (#{t("studynote", count: ot_counts)})"
-        #collapseOt.collapse.show{'aria-labelledby': 'headingOt', 'data-parent': '#mainAccordion'}
+        #collapseOt.collapse.show{'aria-labelledby': 'headingOt', 'data-parent': '#mainAccordion', role: 'tablist'}
           .card-body
         / nested accordion
         - ot.each_with_index do |book, index|
           - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
             - bookname = book.name.parameterize
-            %div.panel-heading{id: "#ot-#{bookname}", :role => 'tab'}
+            %div.panel-heading{id: "#ot-#{bookname}", role: 'tab'}
               %h4.panel-title
-                %a.collapsed{"data-parent": "#ot", "data-toggle": 'collapse', href: "#{book.name}"}
+                %a.collapsed{"data-parent": "#ot", "data-toggle": 'collapse', href: "#{bookname}"}
                   \#{"#{book.name} (#{study_count})"}
             = render :partial => 'book_table_ot', locals: { book: book, bookname: bookname }
           / end nested accordion
@@ -38,9 +38,9 @@
           - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
             - bookname = book.name.parameterize
-            %div.panel-heading{id: "#nt-#{bookname}", :role => 'tab'}
+            %div.panel-heading{id: "#nt-#{bookname}", role: 'tab'}
               %h4.panel-title
-                %a.collapsed{"data-parent": "#nt", "data-toggle": 'collapse', href: "#{book.name}"}
+                %a.collapsed{"data-parent": "#nt", "data-toggle": 'collapse', href: "#{bookname}"}
                   \#{"#{book.name} (#{study_count})"}
             = render :partial => 'book_table_nt', locals: { book: book, bookname: bookname }
         / end nested accordion
