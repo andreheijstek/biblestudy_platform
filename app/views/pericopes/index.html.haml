@@ -17,11 +17,12 @@
         - ot.each_with_index do |book, index|
           - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
-            #ot.panel-heading{:role => 'tab'}
+            - bookname = book.name.parameterize
+            %div.panel-heading{id: "#ot-#{bookname}", :role => 'tab'}
               %h4.panel-title
                 %a.collapsed{"data-parent": "#ot", "data-toggle": 'collapse', href: "#{book.name}"}
                   \#{"#{book.name} (#{study_count})"}
-            = render :partial => 'book_table_ot', locals: { book: book }
+            = render :partial => 'book_table_ot', locals: { book: book, bookname: bookname }
           / end nested accordion
 
   .card
@@ -36,10 +37,11 @@
         - nt.each_with_index do |book, index|
           - study_count = biblebook_counts[book.name] || 0
           .panel.panel-default
-            #nt.panel-heading{:role => 'tab'}
+            - bookname = book.name.parameterize
+            %div.panel-heading{id: "#nt-#{bookname}", :role => 'tab'}
               %h4.panel-title
                 %a.collapsed{"data-parent": "#nt", "data-toggle": 'collapse', href: "#{book.name}"}
                   \#{"#{book.name} (#{study_count})"}
-            = render :partial => 'book_table_nt', locals: { book: book }
+            = render :partial => 'book_table_nt', locals: { book: book, bookname: bookname }
         / end nested accordion
 

@@ -3,7 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{description: 'Bijbeluitleg over allerlei onderwerpen per bijbelvers of perikoop. Lees verder en voeg eventueel je eigen uitleg toe.'}
+    %meta{:description => 'Bijbeluitleg over allerlei onderwerpen per bijbelvers of perikoop. Lees verder en voeg je eigen uitleg toe.'}
+    %meta{:charset => 'UTF-8'}
+    %meta{:content => 'text'}
+
     %title
       - if content_for?(:title)
         = yield(:title)

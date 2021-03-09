@@ -1,5 +1,6 @@
-%div.biblebook{:id => "#{book.name}"}
-  %table{:id => "#{book.name}_table"}
+- bookname = book.name.parameterize
+%div.biblebook{:id => "#{bookname}"}
+  %table{:id => "#{bookname}_table"}
     %tr
       %th= t('activerecord.models.pericope', count: 1)
       %th= t('author')
