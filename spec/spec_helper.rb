@@ -111,6 +111,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 
+  Webdrivers::Chromedriver.required_version = '89.0.4389.23'
+
   Capybara.register_driver :chrome do |app|
     options =
       Selenium::WebDriver::Chrome::Options.new(
