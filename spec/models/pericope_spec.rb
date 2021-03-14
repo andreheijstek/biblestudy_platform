@@ -29,7 +29,8 @@
 #
 
 describe Pericope, type: :model do
-  let!(:genesis) { create(:biblebook, name: 'Genesis') }
+  let!(:genesis) { create(:biblebook_with_chapters, name: 'Genesis') }
+  let!(:chap) { create(:chapter, chapter_number: 1, nrofverses: 1, biblebook_id: genesis)}
 
   before { create(:biblebook, name: '1 Korintiërs') }
 
@@ -85,6 +86,14 @@ describe Pericope, type: :model do
 
   it 'within same chapter ending verse to be greater than starting verse' do
     pericope = described_class.create(name: 'Genesis 4:3 - 4:1')
+    expect(pericope).not_to be_valid
+  end
+
+  it 'validates verses in scope of the chapter' do
+    pericope = described_class.create(name: 'Genesis 1:1')
+    expect(pericope).to be_valid
+
+    pericope = described_class.create(name: 'Genesis 1:2')
     expect(pericope).not_to be_valid
   end
 

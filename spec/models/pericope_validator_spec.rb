@@ -2,9 +2,9 @@
 
 describe PericopeValidator do
   before do
-    create(:biblebook, name: 'Genesis', abbreviation: 'gen')
-    create(:biblebook, name: 'Ezechiel', abbreviation: 'eze')
-    create(:biblebook, name: 'Ezra', abbreviation: 'ezr')
+    create(:biblebook_with_chapters, name: 'Genesis', abbreviation: 'gen')
+    create(:biblebook_with_chapters, name: 'Ezechiel', abbreviation: 'eze')
+    create(:biblebook_with_chapters, name: 'Ezra', abbreviation: 'ezr')
   end
 
   it 'accepts a pericope of one verse' do

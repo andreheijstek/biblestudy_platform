@@ -33,4 +33,8 @@ class Chapter < ActiveRecord::Base
   def <=>(other)
     chapter_number <=> other.chapter_number
   end
+
+  def valid_verse?(verse)
+    verse.positive? && verse <= nrofverses
+  end
 end

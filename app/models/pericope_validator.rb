@@ -104,6 +104,12 @@ class PericopeValidator < ActiveModel::Validator
     name
   end
 
+  def validate_verses_in_range(biblebook)
+    # het vers in de perikoop moet passen in het hoofdstuk
+    # zoek het hoofdstuk op - dat is gemaakt in de seed (of in de testspec)
+    # dus: biblebook.chapter.nrofverses
+  end
+
   #:reek:FeatureEnvy: don't know how to solve
   def update_record(biblebook)
     record.tap do |record|

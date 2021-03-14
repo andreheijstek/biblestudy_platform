@@ -27,4 +27,12 @@ RSpec.describe Chapter, type: :model do
   it 'compares different chapters' do
     expect(late > early).to be(true)
   end
+
+  let(:chap) { build(:chapter, chapter_number: 1, nrofverses: 2) }
+
+  it 'validates if verses are in range' do
+    expect(chap.valid_verse?(2)).to be(true)
+    expect(chap.valid_verse?(0)).to be(false)
+    expect(chap.valid_verse?(3)).to be(false)
+  end
 end
