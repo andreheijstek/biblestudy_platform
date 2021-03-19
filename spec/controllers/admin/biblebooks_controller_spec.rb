@@ -29,7 +29,7 @@ describe Admin::BiblebooksController do
 
   it 'presents an error message on a missing biblebook' do
     get :show, params: { id: 'not-here' }
-    message = t(:biblebook_not_found)
+    message = t('errors.messages.biblebook_not_found')
     expect(flash[:alert]).to eq message
   end
 end

@@ -41,7 +41,7 @@ module Admin
     # Deletes existing Biblebook
     def destroy
       biblebook.destroy
-      flash[:notice] = t(:biblebook_deleted)
+      flash[:notice] = t('errors.messages.biblebook_deleted')
       redirect_to admin_biblebooks_path
     end
 
@@ -75,7 +75,7 @@ module Admin
     def set_biblebook
       @biblebook = Biblebook.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      flash[:alert] = t(:biblebook_not_found)
+      flash[:alert] = t('errors.messages.biblebook_not_found')
       redirect_to admin_biblebooks_path
     end
   end

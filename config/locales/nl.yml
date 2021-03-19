@@ -25,6 +25,7 @@ nl:
     messages:
 #     biblebook:
       biblebook_not_found: Het bijbelboek dat u zocht is niet gevonden.
+      biblebook_deleted: Bijbelboek verwijderd
 #     chapter:
       chapter_not_found: hoofdstuk bestaat niet
       chapter_number_blank: Hoofdstuknummer mag niet leeg zijn
