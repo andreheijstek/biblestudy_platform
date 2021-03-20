@@ -42,6 +42,6 @@
               %h4.panel-title
                 %a.collapsed{"data-parent": "#nt", "data-toggle": 'collapse', href: "#{bookname}"}
                   \#{"#{book.name} (#{study_count})"}
-            = render :partial => 'book_table_nt', locals: { book: book, bookname: bookname }
+            = render :partial => 'book_table_ot', locals: { book: book, bookname: bookname }
         / end nested accordion
 
