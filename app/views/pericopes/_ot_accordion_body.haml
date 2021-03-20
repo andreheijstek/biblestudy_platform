@@ -1,9 +1,0 @@
-#collapse-ot{'aria-labelledby': 'ot', class: "panel-collapse #{ot_counts > 0 ? 'collapse.show' : 'collapse'}", role: 'tabpanel'}
-  - ot.each_with_index do |book, index|
-    - study_count = biblebook_counts[book.name] || 0
-    .panel.panel-default
-      #ot.panel-heading{:role => 'tab'}
-        %h4.panel-title
-          %a.collapsed{'data-parent': '#nt', 'data-toggle': 'collapse', href: "#{book.name}"}
-            \#{"#{book.name} (#{study_count})"}
-      = render partial: 'book_table', locals: { book: book }
