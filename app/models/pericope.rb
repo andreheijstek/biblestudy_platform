@@ -27,6 +27,12 @@
 #  fk_rails_...  (biblebook_id => biblebooks.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
+# TODO: Ik heb nu nog een name als attribuut die een mooi geformatteerde perikoop bevat
+# Volgens mij kan die weg. Er zullen vast meerdere manieren van formatteren zijn
+# en dit bevat altijd maar 1 manier van formatteren.
+# De responsibility van de Pericope is om het object zelf te zijn,
+# formatteren is aan de consumers van de class, views, e.d. en die
+# kunnen hulp krijgen van een PericopeFormatter.
 class Pericope < ActiveRecord::Base
   belongs_to :studynote
   belongs_to :biblebook
@@ -39,15 +45,13 @@ class Pericope < ActiveRecord::Base
                 :ending_bibleverse
 
   # Updates the Pericope.name to a nicely formatted name
+  # TODO: dit is Presentatie logica, behoort dus niet tot de single responsibility
+  # van de Pericope class. Dit moet verhuizen naar een PericopeFormatter.
+  # Die maakt van elke complete Pericope (dus met Biblebook en starting/ending chapter/verse)
+  # een zo kort mogelijke string.
   def reformat_name
     return unless errors.empty?
-
-    new_name = biblebook_name.dup
-    unless whole_book?
-      new_name += starting_chapter
-      new_name += add_verses unless whole_chapter?
-    end
-    self.name = new_name
+    self.name = PericopeFormatter.new(self).format
   end
 
   # Detects if the Pericope is a whole chapter, like Genesis 1
@@ -70,14 +74,6 @@ class Pericope < ActiveRecord::Base
 
   alias single_verse? one_verse?
 
-  def basic_attributes=(tree)
-    @biblebook_name = tree[:biblebook].to_s.strip
-    @starting_chapter_nr = tree[:starting_chapter].to_i
-    @starting_verse_nr = tree[:starting_verse_nr].to_i
-    @ending_chapter_nr = tree[:ending_chapter].to_i
-    @ending_verse_nr = tree[:ending_verse_nr].to_i
-  end
-
   def populate_bibleverses
     @starting_bibleverse =
       Bibleverse.new({ chapter: starting_chapter_nr, verse: starting_verse_nr })
@@ -94,52 +90,5 @@ class Pericope < ActiveRecord::Base
   def same_chapter?
     starting_chapter_nr == ending_chapter_nr
   end
-
-  # Verses are added to a Pericope
-  # @return [String]
-  def add_verses
-    if multiple_chapters?
-      full_pericope
-    elsif multiple_verses?
-      same_chapter
-    elsif one_verse?
-      one_verse
-    end
-  end
-
-  # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
-  # @return [Boolean]
-  def multiple_verses?
-    ending_verse_nr > starting_verse_nr
-  end
-
-  # Detects if a Pericope spans multiple chapters, like Genesis 1:1 - 3:1
-  # @return [Boolean]
-  def multiple_chapters?
-    ending_chapter_nr > starting_chapter_nr
-  end
-
-  # Formats the starting chapter in the string
-  # @return [String]
-  def starting_chapter
-    " #{starting_chapter_nr}"
-  end
-
-  # Formats the full Pericope
-  # @return [String]
-  def full_pericope
-    ":#{starting_verse_nr} - #{ending_chapter_nr}:#{ending_verse_nr}"
-  end
-
-  # Formats the string, if the Pericope spans just a single chapter
-  # e.g. Genesis 1:1 - 1:2 -> Genesis 1:1 - 2
-  def same_chapter
-    ":#{starting_verse_nr} - #{ending_verse_nr}"
-  end
-
-  # Formats the string if it spans just one verse
-  # E.g. Genesis 1:1 - 1:1 -> Genesis 1:1
-  def one_verse
-    ":#{starting_verse_nr}"
-  end
 end
+

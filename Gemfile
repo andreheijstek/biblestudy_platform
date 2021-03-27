@@ -41,6 +41,7 @@ group :development, :test do
   gem 'connection_pool'
   gem 'launchy'
   gem 'orderly'
+  gem 'poro-rails'
   gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'rb-readline'
