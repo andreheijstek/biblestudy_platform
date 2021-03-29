@@ -67,12 +67,6 @@ class PericopeValidator < ActiveModel::Validator
     record.populate_bibleverses
   end
 
-  def multiple_full_chapters?
-    record.starting_verse_nr == 1 &&
-    record.ending_verse_nr == 1 &&
-    record.ending_chapter_nr > record.starting_chapter_nr
-  end
-
   def full_pericope_starting_with_full_chapter?
     record.starting_verse_nr == 1 &&
     record.ending_chapter_nr > record.starting_chapter_nr
@@ -84,15 +78,26 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def add_missing_data
-    if single_verse?
+    if whole_biblebook?
+      record.starting_chapter_nr = 1
+      record.starting_verse_nr = 1
+      record.ending_chapter_nr = last_chapter
+      record.ending_verse_nr = last_verse(record.ending_chapter_nr)
+    elsif single_verse?
       set_ending_to_starting
+    elsif single_chapter?
+      record.starting_verse_nr = 1
+      record.ending_chapter_nr = record.starting_chapter_nr
+      record.ending_verse_nr = last_verse(record.ending_chapter_nr)
     elsif multiple_verses_one_chapter?
       record.ending_chapter_nr = record.starting_chapter_nr
     elsif multiple_full_chapters?
       record.starting_verse_nr = 1
-      record.ending_verse_nr = 1
+      record.ending_verse_nr = last_verse(record.ending_chapter_nr)
     elsif full_pericope_starting_with_full_chapter?
       record.starting_verse_nr = 1
+    elsif full_pericope?
+      # do nothing
     else
       begin
         raise 'unknown pericope type'
@@ -103,19 +108,45 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
+  def last_verse(chapter)
+    get_biblebook(record.biblebook_name).chapters[chapter - 1].nrofverses
+  end
+
+  def last_chapter
+    get_biblebook(record.biblebook_name).nr_of_chapters
+  end
+
   def set_ending_to_starting
     record.ending_chapter_nr = record.starting_chapter_nr
     record.ending_verse_nr = record.starting_verse_nr
   end
 
   def single_verse?
-    record.ending_chapter_nr.zero? && record.ending_verse_nr.zero?
+    record.starting_verse_nr.positive? && record.ending_chapter_nr.zero? && record.ending_verse_nr.zero?
+  end
+
+  def whole_biblebook?
+    record.starting_chapter_nr.zero? && record.starting_verse_nr.zero? && record.ending_chapter_nr.zero? && record.ending_verse_nr.zero?
+  end
+
+  def single_chapter?
+    record.starting_chapter_nr.positive? && record.starting_verse_nr.zero? && record.ending_chapter_nr.zero? && record.ending_verse_nr.zero?
+  end
+
+  def multiple_full_chapters?
+    record.starting_verse_nr.zero? &&
+    record.ending_verse_nr.zero? &&
+    record.ending_chapter_nr > record.starting_chapter_nr
   end
 
   def multiple_verses_one_chapter?
     end_chap = record.ending_chapter_nr
     (record.ending_verse_nr > record.starting_verse_nr) &&
       ((end_chap == record.starting_chapter_nr) || end_chap.zero?)
+  end
+
+  def full_pericope?
+    record.starting_chapter_nr.positive? && record.starting_verse_nr.positive? && record.ending_chapter_nr.positive? && record.ending_verse_nr.positive?
   end
 
   def validate_pericope_order

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Formats a Pericope into a well formatted string
-# It abbreviates a Pericope as much as possible
+# It does not abbreviate, but shows all attributes in the right order.
 # TODO: maybe, later: add formatting options (short, full, whatever)
 class PericopeFormatter
   # include ActiveModel::Model
@@ -10,6 +10,14 @@ class PericopeFormatter
   def initialize(pericope)
     @pericope = pericope
   end
+
+  def format
+    "#{pericope.biblebook_name.dup} " \
+    "#{pericope.starting_chapter_nr}:#{pericope.starting_verse_nr} - " \
+    "#{pericope.ending_chapter_nr}:#{pericope.ending_verse_nr}"
+  end
+
+private
 
   def multiple_whole_chapters?
     (pericope.starting_chapter_nr < pericope.ending_chapter_nr) &&
@@ -26,23 +34,6 @@ class PericopeFormatter
   def full_pericope_starting_with_full_chapter?
     pericope.starting_verse_nr == 1 &&
     pericope.ending_chapter_nr > pericope.starting_chapter_nr
-  end
-
-  def format
-    name = pericope.biblebook_name.dup
-    unless whole_book?
-      name += starting_chapter
-      if multiple_whole_chapters?
-        name += ending_chapter
-      elsif multiple_full_chapters?
-        name += " - #{pericope.ending_chapter_nr}"
-      elsif full_pericope_starting_with_full_chapter?
-        name += " - #{pericope.ending_chapter_nr}: #{pericope.ending_verse_nr}"
-      else
-        name += add_verses unless whole_chapter?
-      end
-    end
-    pericope.name = name
   end
 
   # Detects if the Pericope is a whole chapter, like Genesis 1

@@ -19,7 +19,8 @@
 #
 #  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
 #
-
+# TODO: bible_verse_id en biblebook_category_id verwijderen
+#
 # Models one Biblebook
 # Has utitlity methods to help validate biblebooks
 class Biblebook < ActiveRecord::Base

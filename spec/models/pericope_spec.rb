@@ -100,7 +100,7 @@ describe Pericope, type: :model do
   it 'could just be a single verse' do
     pericope = described_class.create(name: 'Genesis 4:3')
     expect(pericope).to be_valid
-    expect(pericope.name).to eq('Genesis 4:3')
+    expect(pericope.name).to eq('Genesis 4:3 - 4:3')
     expect(pericope.biblebook_name).to eq('Genesis')
   end
 

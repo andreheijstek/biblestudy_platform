@@ -19,6 +19,9 @@ describe 'Users can view an overview of all studynotes' do
            booksequence: 53)
   end
 
+  let!(:chap1) { create(:chapter, chapter_number: 1, nrofverses: 3, biblebook_id: book_handelingen.id)}
+  let!(:chap2) { create(:chapter, chapter_number: 2, nrofverses: 10, biblebook_id: book_handelingen.id)}
+
   let!(:study_jona) do
     create(:studynote,
            title:  'Jona',
@@ -58,19 +61,6 @@ describe 'Users can view an overview of all studynotes' do
            studynote_id: study_hand2.id)
   end
 
-  let!(:study_hand3) do
-    create(:studynote,
-           title:  'Handelingen alles',
-           note:   'Handelingen ook.',
-           author: user)
-  end
-  let!(:pericope_hand3) do
-    create(:pericope,
-           name:         'Handelingen',
-           biblebook_id: book_handelingen.id,
-           studynote_id: study_hand3.id)
-  end
-
   before do
     visit pericopes_path
     sno.load
@@ -81,12 +71,11 @@ describe 'Users can view an overview of all studynotes' do
     should_see 'Jona (1)'
 
     page.click_on('Nieuwe Testament')
-    should_see 'Handelingen (3)'
+    should_see 'Handelingen (2)'
   end
 
   scenario 'sorted by chapter number' do
     expect('Handelingen eerst').to appear_before('Handelingen later')
-    expect('Handelingen alles').to appear_before('Handelingen eerst')
   end
 
   scenario 'grouped by biblebook' do
@@ -107,7 +96,6 @@ describe 'Users can view an overview of all studynotes' do
     within(jona) do
         should_not_see 'Handelingen eerst'
         should_not_see 'Handelingen later'
-        should_not_see 'Handelingen alles'
         should_see 'Jona'
     end
   end

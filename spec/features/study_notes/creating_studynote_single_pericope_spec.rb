@@ -13,21 +13,7 @@ describe 'Users can create new studynotes with a single pericope', js: true do
 
   it 'with valid attributes' do
     fill_and_submit('Jona 1:1 - 1:10')
-    should_see 'Jona 1:1 - 10'
-  end
-
-  it 'containing one complete chapter' do
-    fill_and_submit('Jona 1')
-
-    should_see 'Jona 1'
-    should_not_see 'Jona 1:0'
-  end
-
-  it 'containing one complete biblebook' do
-    fill_and_submit('Jona')
-
-    should_see 'Jona'
-    should_not_see 'Jona 0'
+    should_see 'Jona 1:1 - 1:10'
   end
 
   it 'containing just one single verse' do
