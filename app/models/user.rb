@@ -27,7 +27,7 @@
 #
 
 # Models a User, so Devise can use it
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-  validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
+  validates :email, uniqueness: { allow_blank: true, if: :email_changed? }
 
   # Creates a nice user string to be displayed
   def to_s

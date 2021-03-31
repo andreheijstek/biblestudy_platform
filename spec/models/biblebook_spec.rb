@@ -4,19 +4,13 @@
 #
 # Table name: biblebooks
 #
-#  id                    :integer          not null, primary key
-#  abbreviation          :string
-#  booksequence          :integer
-#  name                  :string
-#  testament             :string
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  bible_verse_id        :bigint
-#  biblebook_category_id :bigint
-#
-# Indexes
-#
-#  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
+#  id           :integer          not null, primary key
+#  abbreviation :string
+#  booksequence :integer
+#  name         :string
+#  testament    :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 describe Biblebook do
@@ -47,11 +41,11 @@ describe Biblebook do
     expect(described_class.possible_book_names('Gen')).to eq(['Genesis'])
   end
 
-  it 'can find a book  when a decent abbreviation is given' do
+  it 'can find a book when a decent abbreviation is given' do
     expect(described_class.possible_book_names('Genes')).to eq(['Genesis'])
   end
 
-  it 'can find  books when a wide abbreviation is given' do
+  it 'can find books when a wide abbreviation is given' do
     create(:biblebook, name: 'Job')
     create(:biblebook, name: 'Johannes')
     create(:biblebook, name: 'Jona')
@@ -83,5 +77,30 @@ describe Biblebook do
     create(:biblebook, name: 'Jona')
     books = described_class.find_names_by_like('Jo')
     expect(books.count).to eq(3)
+  end
+
+  it 'finds non-existing biblebooks' do
+    errors = ActiveModel::Errors.new(described_class)
+    result = described_class.validate_name('iets', errors)
+    expect(result[0]).to eq('')
+    expect(result[1].errors[0].type).to eq(:unknown_biblebook)
+  end
+
+  it 'finds existing biblebooks' do
+    errors = ActiveModel::Errors.new(described_class)
+    result = described_class.validate_name('Genesis', errors)
+    expect(result[0]).to eq('Genesis')
+    expect(result[1].errors.length).to be(0)
+  end
+
+  it 'recognises ambiguity' do
+    create(:biblebook, name: 'Job')
+    create(:biblebook, name: 'Johannes')
+    create(:biblebook, name: 'Jona')
+
+    errors = ActiveModel::Errors.new(described_class)
+    result = described_class.validate_name('Jo', errors)
+    expect(result[0]).to eq('')
+    expect(result[1].errors[0].type).to eq(:ambiguous_abbreviation)
   end
 end

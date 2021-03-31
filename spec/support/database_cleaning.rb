@@ -13,7 +13,7 @@ RSpec.configure do |config|
         uses a different database connection to the database connection used by
         the spec. The app's database connection would not be able to access
         uncommitted transaction data setup over the spec's database connection.
-      MSG
+    MSG
 
     DatabaseCleaner.clean_with(:truncation)
   end

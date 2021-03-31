@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Commented
 # TODO: move to page object model
 #
@@ -5,7 +6,6 @@
 #
 # require 'rails_helper'
 #
-# # rubocop:disable RSpec/DescribeClass
 # describe 'Users can only see the appropriate links' do
 #   let(:user)  { create(:user) }
 #   let(:admin) { create(:user, :admin) }

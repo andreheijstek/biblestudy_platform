@@ -19,8 +19,8 @@ describe 'Users can view an overview of all studynotes' do
            booksequence: 53)
   end
 
-  let!(:chap1) { create(:chapter, chapter_number: 1, nrofverses: 3, biblebook_id: book_handelingen.id)}
-  let!(:chap2) { create(:chapter, chapter_number: 2, nrofverses: 10, biblebook_id: book_handelingen.id)}
+  let!(:chap1) { create(:chapter, chapter_number: 1, nrofverses: 3, biblebook_id: book_handelingen.id) }
+  let!(:chap2) { create(:chapter, chapter_number: 2, nrofverses: 10, biblebook_id: book_handelingen.id) }
 
   let!(:study_jona) do
     create(:studynote,
@@ -79,7 +79,6 @@ describe 'Users can view an overview of all studynotes' do
   end
 
   scenario 'grouped by biblebook' do
-
     books = sno.biblebooks
     jona = books[0]
     handelingen = books[1]
@@ -89,14 +88,14 @@ describe 'Users can view an overview of all studynotes' do
     expect(sn[1].text).to include('Handelingen')
 
     within(handelingen) do
-        should_not_see 'Jona is bijzonder.'
-        should_see 'Handelingen'
+      should_not_see 'Jona is bijzonder.'
+      should_see 'Handelingen'
     end
 
     within(jona) do
-        should_not_see 'Handelingen eerst'
-        should_not_see 'Handelingen later'
-        should_see 'Jona'
+      should_not_see 'Handelingen eerst'
+      should_not_see 'Handelingen later'
+      should_see 'Jona'
     end
   end
 

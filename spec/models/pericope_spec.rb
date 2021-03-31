@@ -30,7 +30,6 @@
 
 describe Pericope, type: :model do
   let!(:genesis) { create(:biblebook_with_chapters, name: 'Genesis') }
-  let!(:chap) { create(:chapter, chapter_number: 1, nrofverses: 1, biblebook_id: genesis)}
 
   before { create(:biblebook, name: '1 Korintiërs') }
 

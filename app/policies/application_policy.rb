@@ -19,7 +19,7 @@ class ApplicationPolicy
 
   # You are allowed to view items if they exist
   def show?
-    scope.where(id: record.id).exists?
+    scope.exists?(id: record.id)
   end
 
   # By default you are not allowed to create items

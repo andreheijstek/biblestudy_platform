@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 # ruby File.read('.ruby-version').strip
-ruby "#{RUBY_VERSION}"
+ruby RUBY_VERSION.to_s
 
 gem 'annotate'
 gem 'bootstrap-sass'
@@ -61,11 +63,12 @@ group :development do
   gem 'i18n-tasks'
   gem 'overcommit'
   gem 'prettier'
-  gem 'rails-erd'
   gem 'rails_best_practices'
+  gem 'rails-erd'
   gem 'reek'
   gem 'rubocop'
   gem 'rubocop-performance'
+  gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'web-console'
   gem 'yard'
@@ -85,4 +88,3 @@ group :production do
   gem 'newrelic_rpm'
   gem 'puma'
 end
-

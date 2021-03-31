@@ -69,12 +69,12 @@ class PericopeValidator < ActiveModel::Validator
 
   def full_pericope_starting_with_full_chapter?
     record.starting_verse_nr == 1 &&
-    record.ending_chapter_nr > record.starting_chapter_nr
+      record.ending_chapter_nr > record.starting_chapter_nr
   end
 
   def full_pericope_ending_with_full_chapter?
     record.ending_verse_nr == 1 &&
-    record.ending_chapter_nr > record.starting_chapter_nr
+      record.ending_chapter_nr > record.starting_chapter_nr
   end
 
   def add_missing_data
@@ -101,7 +101,7 @@ class PericopeValidator < ActiveModel::Validator
     else
       begin
         raise 'unknown pericope type'
-      rescue => e
+      rescue StandardError => e
         puts e.message
         puts e.backtrace.inspect
       end
@@ -135,8 +135,8 @@ class PericopeValidator < ActiveModel::Validator
 
   def multiple_full_chapters?
     record.starting_verse_nr.zero? &&
-    record.ending_verse_nr.zero? &&
-    record.ending_chapter_nr > record.starting_chapter_nr
+      record.ending_verse_nr.zero? &&
+      record.ending_chapter_nr > record.starting_chapter_nr
   end
 
   def multiple_verses_one_chapter?

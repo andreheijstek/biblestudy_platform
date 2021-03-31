@@ -27,13 +27,7 @@
 #  fk_rails_...  (biblebook_id => biblebooks.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
-# TODO: Ik heb nu nog een name als attribuut die een mooi geformatteerde perikoop bevat
-# Volgens mij kan die weg. Er zullen vast meerdere manieren van formatteren zijn
-# en dit bevat altijd maar 1 manier van formatteren.
-# De responsibility van de Pericope is om het object zelf te zijn,
-# formatteren is aan de consumers van de class, views, e.d. en die
-# kunnen hulp krijgen van een PericopeFormatter.
-class Pericope < ActiveRecord::Base
+class Pericope < ApplicationRecord
   belongs_to :studynote
   belongs_to :biblebook
 
@@ -43,16 +37,6 @@ class Pericope < ActiveRecord::Base
 
   attr_accessor :starting_bibleverse,
                 :ending_bibleverse
-
-  # Updates the Pericope.name to a nicely formatted name
-  # TODO: dit is Presentatie logica, behoort dus niet tot de single responsibility
-  # van de Pericope class. Dit moet verhuizen naar een PericopeFormatter.
-  # Die maakt van elke complete Pericope (dus met Biblebook en starting/ending chapter/verse)
-  # een zo kort mogelijke string.
-  def reformat_name
-    return unless errors.empty?
-    self.name = PericopeFormatter.new(self).format
-  end
 
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
@@ -72,6 +56,12 @@ class Pericope < ActiveRecord::Base
     same_chapter? && same_verse?
   end
 
+  # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
+  # @return [Boolean]
+  def multiple_verses?
+    ending_verse_nr > starting_verse_nr
+  end
+
   alias single_verse? one_verse?
 
   def populate_bibleverses
@@ -83,6 +73,13 @@ class Pericope < ActiveRecord::Base
 
   private
 
+  # Updates the Pericope.name to a nicely formatted name
+  def reformat_name
+    return unless errors.empty?
+
+    self.name = PericopeFormatter.new(self).format
+  end
+
   def same_verse?
     ending_bibleverse == starting_bibleverse
   end
@@ -91,4 +88,3 @@ class Pericope < ActiveRecord::Base
     starting_chapter_nr == ending_chapter_nr
   end
 end
-

@@ -22,7 +22,7 @@
 #
 
 # Models a Chapter within a Biblebook
-class Chapter < ActiveRecord::Base
+class Chapter < ApplicationRecord
   include Comparable
 
   belongs_to :biblebook

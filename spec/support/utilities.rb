@@ -37,7 +37,7 @@ end
 #   # ...
 # end
 
-def within_table_row(position)
+def within_table_row(position, &block)
   row = find_all('table tr')[position]
-  within(row) { yield }
+  within(row, &block)
 end
