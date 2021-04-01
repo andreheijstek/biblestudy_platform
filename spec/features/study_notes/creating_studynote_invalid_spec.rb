@@ -36,7 +36,6 @@ feature 'Users can not create new studynotes', js: true do
 
       nsp.submit_button.click
 
-      save_and_open_page
       should_see 'moet opgegeven zijn'
     end
 
