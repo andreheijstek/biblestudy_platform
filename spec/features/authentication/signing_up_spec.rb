@@ -5,6 +5,7 @@ feature 'Users can sign up' do
     ensure_on '/'
 
     click_link t(:sign_up)
+    fill_in t('activerecord.attributes.user.username'), with: 'gebruikert'
     fill_in t('activerecord.attributes.user.email'), with: 'test@example.com'
     fill_in 'user_password', with: 'password'
     fill_in t('activerecord.attributes.user.password_confirmation'),

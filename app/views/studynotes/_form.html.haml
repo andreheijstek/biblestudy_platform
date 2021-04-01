@@ -1,4 +1,4 @@
-= simple_form_for studynote, wrapper: :vertical_input_group, validate_pericope_order: true do |f|
+= simple_form_for studynote, validate: true, wrapper: :vertical_input_group, validate_pericope_order: true do |f|
   #pericopes
     - pnum = 1
     = f.simple_fields_for :pericopes, wrapper: :vertical_input_group do |pericope|

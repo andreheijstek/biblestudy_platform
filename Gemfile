@@ -6,6 +6,7 @@ ruby RUBY_VERSION.to_s
 
 gem 'annotate'
 gem 'bootstrap-sass'
+gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'cocoon'
@@ -26,7 +27,6 @@ gem 'rails'
 gem 'reject_deeply_nested'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
-gem 'simple_form'
 gem 'sitemap_generator'
 gem 'sorted-activerecord'
 gem 'sprockets-rails', '2.3.3'

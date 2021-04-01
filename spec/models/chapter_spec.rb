@@ -22,9 +22,7 @@
 #
 RSpec.describe Chapter, type: :model do
   let(:early) { build(:chapter, chapter_number: 1) }
-  let(:chap) { build(:chapter, chapter_number: 1, nrofverses: 2) }
   let(:late) { build(:chapter, chapter_number: 2) }
-
   let(:chap) { build(:chapter, chapter_number: 1, nrofverses: 2) }
 
   it 'compares different chapters' do

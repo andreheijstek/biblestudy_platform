@@ -36,7 +36,8 @@ feature 'Users can not create new studynotes', js: true do
 
       nsp.submit_button.click
 
-      should_see t('.item_not_created', item: Studynote.model_name.human)
+      save_and_open_page
+      should_see 'moet opgegeven zijn'
     end
 
     scenario 'when providing an incorrect biblebook' do

@@ -37,6 +37,7 @@ class User < ApplicationRecord
          :trackable,
          :validatable
 
+  validates :username, :email, :password, presence: true
   validates :email, uniqueness: { allow_blank: true, if: :email_changed? }
 
   # Creates a nice user string to be displayed

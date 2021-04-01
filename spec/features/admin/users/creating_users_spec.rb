@@ -11,6 +11,7 @@ feature 'Admins can create new users' do
   end
 
   scenario 'with valid credentials' do
+    fill_in t('activerecord.attributes.user.username'), with: 'gebruikert'
     fill_in t('activerecord.attributes.user.email'), with: 'newbie@example.com'
     fill_in t('activerecord.attributes.user.password'), with: 'password'
 
@@ -20,6 +21,7 @@ feature 'Admins can create new users' do
   end
 
   scenario 'when the new user is an admin' do
+    fill_in t('activerecord.attributes.user.username'), with: 'gebruikert'
     fill_in t('activerecord.attributes.user.email'), with: 'admin@example.com'
     fill_in t('activerecord.attributes.user.password'), with: 'password'
     check t('activerecord.attributes.user.is_admin')
