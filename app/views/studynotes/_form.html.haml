@@ -1,11 +1,12 @@
-= simple_form_for studynote, validate: true, wrapper: :vertical_input_group, validate_pericope_order: true do |f|
+= simple_form_for studynote, wrapper: :vertical_input_group, validate_pericope_order: true do |f|
   #pericopes
     - pnum = 1
     = f.simple_fields_for :pericopes, wrapper: :vertical_input_group do |pericope|
       = render 'pericope_fields', f: pericope, pnum: pnum
-      - pnum += 1
+      -# - pnum += 1
+    - logger.info "pnum: #{local_assigns[:pnum]}\n"
     .links
-      = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs', id: 'add_pericope'
+      = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs', id: 'add_pericope', render_options: {locals: {pnum: pnum += 1}}
   = f.input :title
   = f.input :note, as: :trix_editor, id: 'editor', class: 'editor'
   = f.button :submit, class: 'btn-primary', id: 'submit_form'

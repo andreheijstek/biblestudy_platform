@@ -31,13 +31,13 @@ feature 'Users can not create new studynotes', js: true do
       should_see t('item_not_created', item: 'bijbelstudie')
     end
 
-    scenario 'when providing just the title' do
-      nsp.studynote_field.set 'Studie'
-
-      nsp.submit_button.click
-
-      should_see 'moet opgegeven zijn'
-    end
+    # scenario 'when providing just the title' do
+    #   nsp.studynote_field.set 'Studie'
+    #
+    #   nsp.submit_button.click
+    #
+    #   should_see 'moet opgegeven zijn'
+    # end
 
     scenario 'when providing an incorrect biblebook' do
       nsp.pericopes[0].set 'Jo 1:1 - 1:10'

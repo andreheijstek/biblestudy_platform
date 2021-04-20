@@ -91,7 +91,7 @@ nl:
 
   created: geschreven
   ago: geleden
-  studynote: bijbelstudie
+#  studynote: bijbelstudie
   studynote:
     zero: geen bijbelstudies
     one: 1 bijbelstudie
