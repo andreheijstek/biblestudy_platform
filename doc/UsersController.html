@@ -6,7 +6,7 @@
 <title>
   Class: UsersController
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -106,7 +106,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Controller for Users Handling the typical CRUD actions</p>
+<p>Controller for Users Handling the typical CRUD actions :reek:InstanceVariableAssumption - should be no problem here. Default Rails behaviour, and covered by :set_user before_action</p>
 
 
   </div>
@@ -146,7 +146,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Default index.</p>
+</div></span>
   
 </li>
 
@@ -168,7 +170,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Renders the User registriation form.</p>
+</div></span>
   
 </li>
 
@@ -204,16 +208,27 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Default index</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8</pre>
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -230,18 +245,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Renders the User registriation form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='id identifier rubyid_render'>render</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>devise/registrations/_form</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>user:</span> <span class='ivar'>@user</span>
@@ -256,9 +282,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Pericope
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -69,12 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">ActiveRecord::Base</span>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></li>
           
             <li class="next">Pericope</li>
           
@@ -104,7 +106,35 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Models a Pericope, e.g. Gen 1:2-3:4 Offers a method to reformat an abbreviated Pericope into a fully articulated one</p>
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: pericopes</p>
+
+<pre class="code ruby"><code class="ruby">id                  :integer          not null, primary key
+biblebook_name      :string
+ending_chapter_nr   :integer
+ending_verse_nr     :integer
+name                :string
+sequence            :integer
+starting_chapter_nr :integer
+starting_verse_nr   :integer
+created_at          :datetime         not null
+updated_at          :datetime         not null
+biblebook_id        :integer
+studynote_id        :integer
+</code></pre>
+
+<p>Indexes</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_index_pericopes_on_biblebook_id'>index_pericopes_on_biblebook_id</span>  <span class='lparen'>(</span><span class='id identifier rubyid_biblebook_id'>biblebook_id</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_index_pericopes_on_studynote_id'>index_pericopes_on_studynote_id</span>  <span class='lparen'>(</span><span class='id identifier rubyid_studynote_id'>studynote_id</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Foreign Keys</p>
+
+<pre class="code ruby"><code class="ruby">fk_rails_...  (biblebook_id =&gt; biblebooks.id)
+fk_rails_...  (studynote_id =&gt; studynotes.id)
+</code></pre>
 
 
   </div>
@@ -115,6 +145,65 @@
 </div>
 
 
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ending_bibleverse-instance_method" title="#ending_bibleverse (instance method)">#<strong>ending_bibleverse</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute ending_bibleverse.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#starting_bibleverse-instance_method" title="#starting_bibleverse (instance method)">#<strong>starting_bibleverse</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute starting_bibleverse.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -130,7 +219,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#reformat_name-instance_method" title="#reformat_name (instance method)">#<strong>reformat_name</strong>  &#x21d2; Object </a>
+      <a href="#multiple_verses%3F-instance_method" title="#multiple_verses? (instance method)">#<strong>multiple_verses?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -145,7 +234,103 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Updates the Pericope.name to a nicely formatted name.</p>
+<p>Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#one_verse%3F-instance_method" title="#one_verse? (instance method)">#<strong>one_verse?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+      (also: #single_verse?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Detects if a Pericope is a single verse, like Genesis 1:1 - 1:1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#populate_bibleverses-instance_method" title="#populate_bibleverses (instance method)">#<strong>populate_bibleverses</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#whole_book%3F-instance_method" title="#whole_book? (instance method)">#<strong>whole_book?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Detects if the Pericope is a whole book, like Genesis.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#whole_chapter%3F-instance_method" title="#whole_chapter? (instance method)">#<strong>whole_chapter?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Detects if the Pericope is a whole chapter, like Genesis 1.</p>
 </div></span>
   
 </li>
@@ -156,15 +341,21 @@
 
 
   
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="reformat_name-instance_method">
   
-    #<strong>reformat_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+  
+  
+  
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="ending_bibleverse=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="ending_bibleverse-instance_method">
+  
+    #<strong>ending_bibleverse</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -173,7 +364,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Updates the Pericope.name to a nicely formatted name</p>
+<p>Returns the value of attribute ending_bibleverse.</p>
 
 
   </div>
@@ -187,27 +378,321 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
 38
 39
 40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reformat_name'>reformat_name</span>
-  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-  <span class='id identifier rubyid_new_name'>new_name</span> <span class='op'>=</span> <span class='id identifier rubyid_biblebook_name'>biblebook_name</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='kw'>unless</span> <span class='id identifier rubyid_whole_book?'>whole_book?</span>
-    <span class='id identifier rubyid_new_name'>new_name</span> <span class='op'>+=</span> <span class='id identifier rubyid_starting_chapter'>starting_chapter</span>
-    <span class='id identifier rubyid_new_name'>new_name</span> <span class='op'>+=</span> <span class='id identifier rubyid_add_verses'>add_verses</span> <span class='kw'>unless</span> <span class='id identifier rubyid_whole_chapter?'>whole_chapter?</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_new_name'>new_name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_ending_bibleverse'>ending_bibleverse</span>
+  <span class='ivar'>@ending_bibleverse</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="starting_bibleverse=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="starting_bibleverse-instance_method">
+  
+    #<strong>starting_bibleverse</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute starting_bibleverse.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_starting_bibleverse'>starting_bibleverse</span>
+  <span class='ivar'>@starting_bibleverse</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="multiple_verses?-instance_method">
+  
+    #<strong>multiple_verses?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_multiple_verses?'>multiple_verses?</span>
+  <span class='id identifier rubyid_ending_verse_nr'>ending_verse_nr</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_starting_verse_nr'>starting_verse_nr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="one_verse?-instance_method">
+  
+    #<strong>one_verse?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='single_verse?-instance_method'>single_verse?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Detects if a Pericope is a single verse, like Genesis 1:1 - 1:1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_one_verse?'>one_verse?</span>
+  <span class='id identifier rubyid_same_chapter?'>same_chapter?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_same_verse?'>same_verse?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="populate_bibleverses-instance_method">
+  
+    #<strong>populate_bibleverses</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_populate_bibleverses'>populate_bibleverses</span>
+  <span class='ivar'>@starting_bibleverse</span> <span class='op'>=</span>
+    <span class='const'><span class='object_link'><a href="Bibleverse.html" title="Bibleverse (class)">Bibleverse</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Bibleverse.html#initialize-instance_method" title="Bibleverse#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='label'>chapter:</span> <span class='id identifier rubyid_starting_chapter_nr'>starting_chapter_nr</span><span class='comma'>,</span> <span class='label'>verse:</span> <span class='id identifier rubyid_starting_verse_nr'>starting_verse_nr</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@ending_bibleverse</span> <span class='op'>=</span>
+    <span class='const'><span class='object_link'><a href="Bibleverse.html" title="Bibleverse (class)">Bibleverse</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Bibleverse.html#initialize-instance_method" title="Bibleverse#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='label'>chapter:</span> <span class='id identifier rubyid_ending_chapter_nr'>ending_chapter_nr</span><span class='comma'>,</span> <span class='label'>verse:</span> <span class='id identifier rubyid_ending_verse_nr'>ending_verse_nr</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="whole_book?-instance_method">
+  
+    #<strong>whole_book?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Detects if the Pericope is a whole book, like Genesis</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_whole_book?'>whole_book?</span>
+  <span class='id identifier rubyid_starting_chapter_nr'>starting_chapter_nr</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="whole_chapter?-instance_method">
+  
+    #<strong>whole_chapter?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Detects if the Pericope is a whole chapter, like Genesis 1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pericope.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_whole_chapter?'>whole_chapter?</span>
+  <span class='id identifier rubyid_starting_verse_nr'>starting_verse_nr</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -219,9 +704,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Admin::BiblebooksController
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -182,7 +182,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates and saves a new Biblebook.</p>
+</div></span>
   
 </li>
 
@@ -204,7 +206,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes existing Biblebook.</p>
+</div></span>
   
 </li>
 
@@ -226,7 +230,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Default edit - no code needed.</p>
+</div></span>
   
 </li>
 
@@ -248,7 +254,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets all biblebooks to be used in views.</p>
+</div></span>
   
 </li>
 
@@ -270,7 +278,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new Biblebook.</p>
+</div></span>
   
 </li>
 
@@ -292,7 +302,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Default show - no code needed.</p>
+</div></span>
   
 </li>
 
@@ -314,7 +326,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates existing Biblebook.</p>
+</div></span>
   
 </li>
 
@@ -404,19 +418,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates and saves a new Biblebook</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-23
-24
-25
-26</pre>
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Biblebook.html" title="Biblebook (class)">Biblebook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook_params'>biblebook_params</span><span class='rparen'>)</span>
@@ -436,24 +461,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes existing Biblebook</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
-  <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='symbol'>:biblebook_deleted</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>errors.messages.biblebook_deleted</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_admin_biblebooks_path'>admin_biblebooks_path</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -470,16 +506,27 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Default edit - no code needed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-28</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -496,19 +543,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets all biblebooks to be used in views</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-11
 12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Biblebook.html" title="Biblebook (class)">Biblebook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
@@ -528,23 +586,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new Biblebook</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-18
-19
-20
-21</pre>
+21
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Biblebook.html" title="Biblebook (class)">Biblebook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='id identifier rubyid_locals'>locals</span> <span class='symbol'>:new</span><span class='comma'>,</span>  <span class='label'>biblebook:</span> <span class='id identifier rubyid_biblebook'>biblebook</span>
+  <span class='id identifier rubyid_locals'>locals</span> <span class='symbol'>:new</span><span class='comma'>,</span> <span class='label'>biblebook:</span> <span class='id identifier rubyid_biblebook'>biblebook</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -560,16 +629,27 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Default show - no code needed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-16</pre>
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -586,19 +666,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates existing Biblebook</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-30
-31
-32
-33</pre>
+36
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/admin/biblebooks_controller.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Biblebook.html" title="Biblebook (class)">Biblebook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_model_name'>model_name</span><span class='period'>.</span><span class='id identifier rubyid_human'>human</span>
@@ -614,9 +705,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

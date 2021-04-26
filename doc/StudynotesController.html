@@ -6,7 +6,7 @@
 <title>
   Class: StudynotesController
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -180,7 +180,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates and saves a new Studynote.</p>
+</div></span>
   
 </li>
 
@@ -202,7 +204,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Delets an existing Studynote.</p>
+</div></span>
   
 </li>
 
@@ -224,7 +228,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Edits an existing Studynote.</p>
+</div></span>
   
 </li>
 
@@ -246,7 +252,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets all Studynotes to be shown.</p>
+</div></span>
   
 </li>
 
@@ -268,7 +276,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new Studynote.</p>
+</div></span>
   
 </li>
 
@@ -290,7 +300,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets data to show one Studynote.</p>
+</div></span>
   
 </li>
 
@@ -312,7 +324,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates an existing Studynote.</p>
+</div></span>
   
 </li>
 
@@ -365,12 +379,12 @@
       <pre class="lines">
 
 
-9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_studynote'>studynote</span>
   <span class='ivar'>@studynote</span>
@@ -396,23 +410,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates and saves a new Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-28
-29
-30
-31
-32</pre>
+33
+34
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
-  <span class='id identifier rubyid_studynote'>studynote</span>        <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Studynote.html" title="Studynote (class)">Studynote</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_studynote_params'>studynote_params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_studynote'>studynote</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Studynote.html" title="Studynote (class)">Studynote</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_studynote_params'>studynote_params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_studynote'>studynote</span><span class='period'>.</span><span class='id identifier rubyid_author'>author</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
   <span class='id identifier rubyid_save_studynote'>save_studynote</span><span class='lparen'>(</span><span class='id identifier rubyid_studynote'>studynote</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -430,21 +455,32 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delets an existing Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-44
-45
-46
-47
-48
-49</pre>
+52
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='id identifier rubyid_studynote'>studynote</span><span class='comma'>,</span> <span class='symbol'>:destroy?</span>
@@ -466,19 +502,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Edits an existing Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-34
-35
-36
-37</pre>
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='id identifier rubyid_studynote'>studynote</span><span class='comma'>,</span> <span class='symbol'>:update?</span>
@@ -498,19 +545,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets all Studynotes to be shown</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-11
-12
 13
-14</pre>
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
   <span class='id identifier rubyid_studynote'>studynote</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Studynote.html" title="Studynote (class)">Studynote</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:title</span><span class='rparen'>)</span>
@@ -530,25 +588,36 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-20
-21
-22
-23
 24
 25
-26</pre>
+26
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
-  <span class='id identifier rubyid_index'>index</span>     <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
   <span class='id identifier rubyid_studynote'>studynote</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Studynote.html" title="Studynote (class)">Studynote</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='id identifier rubyid_studynote'>studynote</span><span class='comma'>,</span> <span class='symbol'>:create?</span>
   <span class='id identifier rubyid_studynote'>studynote</span><span class='period'>.</span><span class='id identifier rubyid_pericopes'>pericopes</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span>
@@ -568,18 +637,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets data to show one Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-16
-17
-18</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='id identifier rubyid_locals'>locals</span> <span class='label'>studynote:</span> <span class='id identifier rubyid_studynote'>studynote</span>
@@ -598,19 +678,30 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates an existing Studynote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-39
-40
-41
-42</pre>
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/studynotes_controller.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_authorize'>authorize</span> <span class='id identifier rubyid_studynote'>studynote</span><span class='comma'>,</span> <span class='symbol'>:update?</span>
@@ -626,9 +717,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

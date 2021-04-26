@@ -6,7 +6,7 @@
 <title>
   Class: Chapter
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -69,12 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">ActiveRecord::Base</span>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationRecord.html" title="ApplicationRecord (class)">ApplicationRecord</a></span></li>
           
             <li class="next">Chapter</li>
           
@@ -88,6 +90,11 @@
   
   
   
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>Comparable</dd>
+  </dl>
   
   
 
@@ -151,10 +158,39 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_verse%3F-instance_method" title="#valid_verse? (instance method)">#<strong>valid_verse?</strong>(verse)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
 
+  
+  
+  
+  
+  
+  
+  
   
 
   <div id="instance_method_details" class="method_details_list">
@@ -187,15 +223,67 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/chapter.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'app/models/chapter.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='op'>&lt;=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_chapter_number'>chapter_number</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_chapter_number'>chapter_number</span>
+<span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_chapter_number'>chapter_number</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_chapter_number'>chapter_number</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_verse?-instance_method">
+  
+    #<strong>valid_verse?</strong>(verse)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/chapter.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_valid_verse?'>valid_verse?</span><span class='lparen'>(</span><span class='id identifier rubyid_verse'>verse</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_verse'>verse</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_verse'>verse</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_nrofverses'>nrofverses</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -207,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

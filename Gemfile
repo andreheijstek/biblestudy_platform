@@ -72,6 +72,7 @@ group :development do
   gem 'rubocop-rspec'
   gem 'web-console'
   gem 'yard'
+  gem 'yard-junk'
 end
 
 group :test do

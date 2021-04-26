@@ -6,7 +6,7 @@
 <title>
   Class: Biblebook
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -104,6 +104,28 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: biblebooks</p>
+
+<pre class="code ruby"><code class="ruby">id                    :integer          not null, primary key
+abbreviation          :string
+booksequence          :integer
+name                  :string
+testament             :string
+created_at            :datetime         not null
+updated_at            :datetime         not null
+bible_verse_id        :bigint
+biblebook_category_id :bigint
+</code></pre>
+
+<p>Indexes</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_index_biblebooks_on_biblebook_category_id'>index_biblebooks_on_biblebook_category_id</span>  <span class='lparen'>(</span><span class='id identifier rubyid_biblebook_category_id'>biblebook_category_id</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>TODO: bible_verse_id en biblebook_category_id verwijderen</p>
+
 <p>Models one Biblebook Has utitlity methods to help validate biblebooks</p>
 
 
@@ -130,6 +152,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#exists%3F-class_method" title="exists? (class method)">.<strong>exists?</strong>(biblebook)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Tells if this biblebook exists.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#possible_book_names-class_method" title="possible_book_names (class method)">.<strong>possible_book_names</strong>(name)  &#x21d2; Array </a>
     
 
@@ -144,9 +190,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul><li>
-<p>empty if not found - one element if one found - multiple elements if multiple found :reek:DuplicateMethodCall - don&#39;t know how to solve that right now.</p>
-</li></ul>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of a Biblebook if it can be found by any kind of name - complete name, e.g.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate_name-class_method" title="validate_name (class method)">.<strong>validate_name</strong>(given_name, errors)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:reek:TooManyStatements - to be refactored rubocop:disable Metrics/MethodLength.</p>
 </div></span>
   
 </li>
@@ -222,7 +291,76 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="possible_book_names-class_method">
+  <h3 class="signature first" id="exists?-class_method">
+  
+    .<strong>exists?</strong>(biblebook)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Tells if this biblebook exists</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>biblebook</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Biblebook (class)">Biblebook</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='rparen'>)</span>
+  <span class='op'>!</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="possible_book_names-class_method">
   
     .<strong>possible_book_names</strong>(name)  &#x21d2; <tt>Array</tt> 
   
@@ -232,7 +370,15 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul><li>
+    
+<p>Returns the name of a Biblebook if it can be found by any kind of name</p>
+<ul><li>
+<p>complete name, e.g. Genesis</p>
+</li><li>
+<p>official abbreviation, e.g. gen</p>
+</li><li>
+<p>fitting abbreviation, e.g. Gene</p>
+</li><li>
 <p>empty if not found</p>
 </li><li>
 <p>one element if one found</p>
@@ -246,7 +392,22 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -267,31 +428,96 @@
       <pre class="lines">
 
 
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69</pre>
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_possible_book_names'>possible_book_names</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='id identifier rubyid_find_by_full_name'>find_by_full_name</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='id identifier rubyid_find_by_abbreviation'>find_by_abbreviation</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='id identifier rubyid_find_names_by_like'>find_names_by_like</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_biblebook'>biblebook</span> <span class='op'>=</span> <span class='id identifier rubyid_find_names_by_like'>find_names_by_like</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_biblebook'>biblebook</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_biblebook'>biblebook</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="validate_name-class_method">
+  
+    .<strong>validate_name</strong>(given_name, errors)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:reek:TooManyStatements - to be refactored rubocop:disable Metrics/MethodLength</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate_name'>validate_name</span><span class='lparen'>(</span><span class='id identifier rubyid_given_name'>given_name</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='id identifier rubyid_possible_book_names'>possible_book_names</span><span class='lparen'>(</span><span class='id identifier rubyid_given_name'>given_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_nr_of_biblebooks'>nr_of_biblebooks</span> <span class='op'>=</span> <span class='id identifier rubyid_names'>names</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_nr_of_biblebooks'>nr_of_biblebooks</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+    <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span> <span class='symbol'>:biblebook_name</span><span class='comma'>,</span> <span class='symbol'>:unknown_biblebook</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_nr_of_biblebooks'>nr_of_biblebooks</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_names'>names</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_nr_of_biblebooks'>nr_of_biblebooks</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span> <span class='symbol'>:biblebook_name</span><span class='comma'>,</span>
+               <span class='symbol'>:ambiguous_abbreviation</span><span class='comma'>,</span>
+               <span class='label'>given_name:</span> <span class='id identifier rubyid_given_name'>given_name</span><span class='comma'>,</span>
+               <span class='label'>biblebooks:</span> <span class='id identifier rubyid_names'>names</span><span class='period'>.</span><span class='id identifier rubyid_to_sentence'>to_sentence</span>
+  <span class='kw'>end</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -363,12 +589,12 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_chapter_valid?'>chapter_valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_chapter'>chapter</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_chapter'>chapter</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_chapter'>chapter</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_nr_of_chapters'>nr_of_chapters</span>
@@ -408,12 +634,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app/models/biblebook.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nr_of_chapters'>nr_of_chapters</span>
   <span class='const'><span class='object_link'><a href="Chapter.html" title="Chapter (class)">Chapter</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>biblebook_id:</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
@@ -428,9 +654,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  9 20:25:14 2020 by
+  Generated on Mon Apr 26 21:25:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.5).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>
