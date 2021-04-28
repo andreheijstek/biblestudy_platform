@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-describe 'Admins can view a list of all users' do
+describe "Admins can view a list of all users" do
   let(:admin) { create(:user, :admin) }
-  let(:user) { create(:user, username: 'Jansen', email: 'jan.jansen@tour.fr') }
+  let(:user) { create(:user, username: "Jansen", email: "jan.jansen@tour.fr") }
 
-  context 'when I am logged in as user' do
+  context "when I am logged in as user" do
     before do
-      create(:biblebook, name: 'Jona')
+      create(:biblebook, name: "Jona")
       login_as(user)
     end
 
-    it 'shows zero when there are no studies' do
+    it "shows zero when there are no studies" do
       expect_nr_of_studies(0)
     end
 
-    it 'shows one when there is one study' do
+    it "shows one when there is one study" do
       create(
         :studynote,
-        title: 'Jona',
-        note: 'Jona is bijzonder.',
+        title: "Jona",
+        note: "Jona is bijzonder.",
         author: user
       )
 
@@ -29,13 +29,13 @@ end
 
 def go_to_overview
   login_as(admin)
-  visit '/'
-  click_link 'Admin'
+  visit "/"
+  click_link "Admin"
 end
 
 def expect_nr_of_studies(count)
   go_to_overview
   expect(
-    find('tr', text: user).find('td', id: 'studynote count')
+    find("tr", text: user).find("td", id: "studynote count")
   ).to have_content(count.to_s)
 end

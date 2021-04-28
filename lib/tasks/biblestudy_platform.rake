@@ -1,6 +1,6 @@
 def replace_newlines(sn)
-  sn.note.gsub!(/\r\n/, '<br>')
-  sn.note.gsub!('<br><br>', '<br>')
+  sn.note.gsub!(/\r\n/, "<br>")
+  sn.note.gsub!("<br><br>", "<br>")
   # sn.note = '<p>' + sn.note + '</p>'
   sn.save!
 end
@@ -13,10 +13,10 @@ namespace :biblestudy_platform do
 
     Studynote.all.each do |sn|
       replace_newlines(sn)
-      print '.'
+      print "."
     end
 
-    log('done')
+    log("done")
   end
 
   def log(msg)

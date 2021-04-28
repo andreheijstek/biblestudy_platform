@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   # Default index
-  def index; end
+  def index
+  end
 
   # Renders the User registriation form
   def show
-    render 'devise/registrations/_form', user: @user
+    render "devise/registrations/_form", user: @user
   end
 
   private

@@ -36,7 +36,7 @@ class Pericope < ApplicationRecord
   after_validation :reformat_name
 
   attr_accessor :starting_bibleverse,
-                :ending_bibleverse
+    :ending_bibleverse
 
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
@@ -56,7 +56,7 @@ class Pericope < ApplicationRecord
     same_chapter? && same_verse?
   end
 
-  alias single_verse? one_verse?
+  alias_method :single_verse?, :one_verse?
 
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
   # @return [Boolean]
@@ -66,9 +66,9 @@ class Pericope < ApplicationRecord
 
   def populate_bibleverses
     @starting_bibleverse =
-      Bibleverse.new({ chapter: starting_chapter_nr, verse: starting_verse_nr })
+      Bibleverse.new({chapter: starting_chapter_nr, verse: starting_verse_nr})
     @ending_bibleverse =
-      Bibleverse.new({ chapter: ending_chapter_nr, verse: ending_verse_nr })
+      Bibleverse.new({chapter: ending_chapter_nr, verse: ending_verse_nr})
   end
 
   private

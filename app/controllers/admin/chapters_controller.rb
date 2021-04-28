@@ -39,7 +39,7 @@ module Admin
         redirect_to [:admin, biblebook, chapter]
       else
         flash.now[:alert] = t(:item_not_updated, item: name)
-        render 'edit'
+        render "edit"
       end
     end
 

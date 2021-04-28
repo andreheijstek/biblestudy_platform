@@ -7,12 +7,12 @@ Rails
   .application
   .routes
   .draw do
-    get 'users/index'
+    get "users/index"
 
-    root 'pericopes#index'
+    root "pericopes#index"
 
     namespace :admin do
-      root 'application#index'
+      root "application#index"
       resources :biblebooks do
         resources :chapters, except: [:index]
       end
@@ -26,5 +26,5 @@ Rails
     end
     resources :pericopes, except: %i[create update]
 
-    get 'profile', to: 'users#show'
+    get "profile", to: "users#show"
   end

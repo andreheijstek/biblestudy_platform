@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'parslet'
+require "parslet"
 
 # Class is used to parse a pericope-string like 'Genesis 1:2-3:4'
 # into a parse-tree, like
@@ -17,10 +17,10 @@ class PericopeParser < Parslet::Parser
   rule(:integer) { match(/[0-9]/).repeat(1) >> space? }
   rule(:integer?) { integer.maybe }
 
-  rule(:colon) { match(':') >> space? }
+  rule(:colon) { match(":") >> space? }
   rule(:colon?) { colon.maybe }
 
-  rule(:dash) { match('-') >> space? }
+  rule(:dash) { match("-") >> space? }
   rule(:dash?) { dash.maybe }
 
   rule(:biblebook) { integer? >> string }

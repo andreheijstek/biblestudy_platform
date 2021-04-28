@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 def check_results
-  should_see t('item_created', item: Studynote.model_name.human)
+  should_see t("item_created", item: Studynote.model_name.human)
   expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
 end
 
-feature 'Users can view studynotes', js: true do
+feature "Users can view studynotes", js: true do
   let(:user) { create(:user) }
   let(:nsp) { NewStudynotesPage.new }
 
   before do
-    create(:biblebook, name: 'Jona')
+    create(:biblebook, name: "Jona")
     login_as(user)
     nsp.load
-    nsp.title_field.set('Titel')
-    nsp.pericopes[0].set('Jona 1:1 - 1:10')
-    nsp.studynote_field.set('Jona is bijzonder.')
+    nsp.title_field.set("Titel")
+    nsp.pericopes[0].set("Jona 1:1 - 1:10")
+    nsp.studynote_field.set("Jona is bijzonder.")
   end
 
-  scenario 'with a single pericope with valid attributes' do
+  scenario "with a single pericope with valid attributes" do
     nsp.submit_button.click
 
     check_results

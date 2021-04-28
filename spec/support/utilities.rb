@@ -16,7 +16,7 @@ def ensure_on(path)
 end
 
 def submit_form
-  find(:name, 'commit').click
+  find(:name, "commit").click
 end
 
 def should_see(text)
@@ -38,6 +38,6 @@ end
 # end
 
 def within_table_row(position, &block)
-  row = find_all('table tr')[position]
+  row = find_all("table tr")[position]
   within(row, &block)
 end

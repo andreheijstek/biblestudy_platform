@@ -20,12 +20,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'simplecov'
-require 'simplecov-lcov'
-require 'capybara'
-require 'capybara/dsl'
-require 'capybara/rspec'
-require 'webdrivers'
+require "simplecov"
+require "simplecov-lcov"
+require "capybara"
+require "capybara/dsl"
+require "capybara/rspec"
+require "webdrivers"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatter =
@@ -103,15 +103,13 @@ RSpec.configure do |config|
   # set the persistence file path, which is needed to use
   # - only-failures or
   # - next-failure
-  config.example_status_persistence_file_path = 'spec/examples.txt'
+  config.example_status_persistence_file_path = "spec/examples.txt"
 
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-
-  Webdrivers::Chromedriver.required_version = '89.0.4389.23'
 
   Capybara.register_driver :chrome do |app|
     options =

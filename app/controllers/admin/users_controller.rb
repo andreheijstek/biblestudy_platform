@@ -51,10 +51,10 @@ module Admin
 
     def save_user(user)
       if user.save
-        flash[:notice] = t('activerecord.messages.created')
+        flash[:notice] = t("activerecord.messages.created")
         redirect_to admin_users_path
       else
-        flash.now[:alert] = t('activerecord.messages.notcreated')
+        flash.now[:alert] = t("activerecord.messages.notcreated")
         locals :new, user: user
       end
     end
@@ -62,11 +62,11 @@ module Admin
     def update_user
       if @user.update(user_params)
         set_admin
-        flash[:notice] = t('activerecord.attributes.user.messages.updated')
+        flash[:notice] = t("activerecord.attributes.user.messages.updated")
         redirect_to admin_users_path
       else
         flash.now[:alert] =
-          t('activerecord.attributes.user.messages.notupdated')
+          t("activerecord.attributes.user.messages.notupdated")
         locals :edit, user: user
       end
     end

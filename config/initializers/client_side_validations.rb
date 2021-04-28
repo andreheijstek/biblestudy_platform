@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # ClientSideValidations Initializer
 # Disabled validators
 # ClientSideValidations::Config.disabled_validators = []
@@ -11,7 +12,7 @@ ClientSideValidations::Config.number_format_with_locale = true
 # <label for="#{instance.send(:tag_id)}" class="message"></label>
 #
 ActionView::Base.field_error_proc = proc do |html_tag, instance|
-  if html_tag =~ /^<label/
+  if /^<label/.match?(html_tag)
     %(<div class="field_with_errors">#{html_tag}</div>).html_safe
   else
     %(<div class="field_with_errors">#{html_tag}<label

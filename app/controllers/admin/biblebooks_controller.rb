@@ -15,7 +15,8 @@ module Admin
     end
 
     # Default show - no code needed
-    def show; end
+    def show
+    end
 
     # Creates a new Biblebook
     def new
@@ -30,7 +31,8 @@ module Admin
     end
 
     # Default edit - no code needed
-    def edit; end
+    def edit
+    end
 
     # Updates existing Biblebook
     def update
@@ -41,7 +43,7 @@ module Admin
     # Deletes existing Biblebook
     def destroy
       biblebook.destroy
-      flash[:notice] = t('errors.messages.biblebook_deleted')
+      flash[:notice] = t("errors.messages.biblebook_deleted")
       redirect_to admin_biblebooks_path
     end
 
@@ -53,7 +55,7 @@ module Admin
         redirect_to [:admin, biblebook]
       else
         flash.now[:alert] = t(:item_not_updated, item: name)
-        render 'edit'
+        render "edit"
       end
     end
 
@@ -75,7 +77,7 @@ module Admin
     def set_biblebook
       @biblebook = Biblebook.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      flash[:alert] = t('errors.messages.biblebook_not_found')
+      flash[:alert] = t("errors.messages.biblebook_not_found")
       redirect_to admin_biblebooks_path
     end
   end

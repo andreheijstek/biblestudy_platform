@@ -31,16 +31,16 @@ class Biblebook < ActiveRecord::Base
   has_many :studynotes, through: :pericopes
   has_one :biblebook_category
 
-  default_scope { order('booksequence ASC') }
+  default_scope { order("booksequence ASC") }
   scope :find_by_full_name, lambda { |name| where(name: name) }
   scope :find_by_abbreviation,
-        lambda { |abbreviation|
-          where(Biblebook.arel_table[:abbreviation].matches(abbreviation))
-        }
+    lambda { |abbreviation|
+      where(Biblebook.arel_table[:abbreviation].matches(abbreviation))
+    }
   scope :find_names_by_like,
-        lambda { |name|
-          where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%"))
-        }
+    lambda { |name|
+      where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%"))
+    }
 
   # Returns the number of chapters in this biblebook
   # #return [Integer]
@@ -48,7 +48,7 @@ class Biblebook < ActiveRecord::Base
     Chapter.where(biblebook_id: id).count
   end
 
-  alias size nr_of_chapters
+  alias_method :size, :nr_of_chapters
 
   # A chapter is valid if it exists in the biblebook,
   # so it must be positive and less than the number of chapters
@@ -91,7 +91,7 @@ class Biblebook < ActiveRecord::Base
   # rubocop:disable Metrics/MethodLength
   def self.validate_name(given_name, errors)
     names = possible_book_names(given_name)
-    name = ''
+    name = ""
     nr_of_biblebooks = names.size
 
     if nr_of_biblebooks.zero?
@@ -100,9 +100,9 @@ class Biblebook < ActiveRecord::Base
       name = names[0]
     elsif nr_of_biblebooks > 1
       errors.add :biblebook_name,
-                 :ambiguous_abbreviation,
-                 given_name: given_name,
-                 biblebooks: names.to_sentence
+        :ambiguous_abbreviation,
+        given_name: given_name,
+        biblebooks: names.to_sentence
     end
     [name, errors]
   end

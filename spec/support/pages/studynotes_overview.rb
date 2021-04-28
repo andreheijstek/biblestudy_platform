@@ -2,8 +2,8 @@
 
 # Page object for the studynotes/show page
 class StudynotesOverviewPage < SitePrism::Page
-  set_url '/'
+  set_url "/"
 
-  elements :biblebooks, 'h4.panel-title'
-  elements :studynotes, 'tr.studynote'
+  elements :biblebooks, "h4.panel-title"
+  elements :studynotes, "tr.studynote"
 end

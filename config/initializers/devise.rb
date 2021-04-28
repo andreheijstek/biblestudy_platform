@@ -9,14 +9,14 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   config.secret_key =
-    '72ad4929a3aea569dca0ec223cd7afee9180d2b94d36d9f6bbcd44fd1a231c509930e24e097884ab6651b730a50b43ff2183dcb26f39dde6599f42109e16dae6'
+    "72ad4929a3aea569dca0ec223cd7afee9180d2b94d36d9f6bbcd44fd1a231c509930e24e097884ab6651b730a50b43ff2183dcb26f39dde6599f42109e16dae6"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender =
-    'bijbelstudie-platform <no-reply@bijbelstudie-platform.nl>'
+    "bijbelstudie-platform <no-reply@bijbelstudie-platform.nl>"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -28,7 +28,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

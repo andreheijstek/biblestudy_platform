@@ -4,10 +4,10 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be
 # available to Rake.
 
-require File.expand_path('config/application', __dir__)
+require File.expand_path("config/application", __dir__)
 
 Rails.application.load_tasks
 Annotate.load_tasks
 
-require 'yard-junk/rake'
-YardJunk::Rake.
+require "yard-junk/rake"
+YardJunk::Rake.define_task

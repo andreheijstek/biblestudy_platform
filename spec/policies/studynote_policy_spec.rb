@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 describe StudynotePolicy do
-  context 'with permissions' do
+  context "with permissions" do
     subject { described_class.new(user, studynote) }
 
-    context 'when a visitor' do
+    context "when a visitor" do
       let(:user) { nil }
       let(:author) { create(:user) }
       let(:studynote) { create(:studynote, author: author) }
@@ -19,7 +19,7 @@ describe StudynotePolicy do
       it { is_expected.not_to permit_action(:destroy) }
     end
 
-    context 'when an author' do
+    context "when an author" do
       let(:user) { create(:user) }
       let(:studynote) { create(:studynote, author: user) }
 
@@ -31,7 +31,7 @@ describe StudynotePolicy do
       it { is_expected.to permit_action(:destroy) }
     end
 
-    context 'when a user' do
+    context "when a user" do
       let(:user) { create(:user) }
       let(:author) { create(:user) }
       let(:studynote) { create(:studynote, author: author) }

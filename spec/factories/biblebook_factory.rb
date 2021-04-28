@@ -15,7 +15,7 @@
 
 FactoryBot.define do
   factory :biblebook do
-    name { 'Voorbeeld bijbelboek' }
+    name { "Voorbeeld bijbelboek" }
     booksequence { 0 }
 
     factory :biblebook_with_chapters do
