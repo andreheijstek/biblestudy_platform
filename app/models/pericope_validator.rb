@@ -12,8 +12,8 @@
 #
 # :reek:InstanceVariableAssumption, can't be fixed here,
 # as I can't have an initializer
-# :reek:NilCheck: maybe solve later with null object
-# :reek:TooManyStatements: as well
+# :reek:NilCheck maybe solve later with null object
+# :reek:TooManyStatements as well
 class PericopeValidator < ActiveModel::Validator
   # Validate method, as required by Rails, see class comment
   attr_accessor :record, :tree
@@ -169,7 +169,7 @@ class PericopeValidator < ActiveModel::Validator
     name
   end
 
-  #:reek:FeatureEnvy: don't know how to solve
+  #:reek:FeatureEnvy don't know how to solve
   def update_record(biblebook)
     record.tap do |record|
       record.biblebook_id = biblebook.id

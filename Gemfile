@@ -61,6 +61,11 @@ group :development do
   gem "bundler-audit"
   gem "erb2haml"
   gem "fasterer"
+  gem "guard"
+  gem 'guard-bundler', require: false
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-migrate'
+  gem "guard-rspec", require: false
   gem "i18n-tasks"
   gem "overcommit"
   gem "prettier"
