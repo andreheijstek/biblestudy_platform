@@ -56,6 +56,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   gem "better_errors"
   gem "binding_of_caller"
   gem "bundler-audit"
@@ -77,6 +78,7 @@ group :development do
   # gem 'rubocop-rails'
   # gem 'rubocop-rspec'
   gem "web-console"
+  gem 'xray-rails'
   gem "yard"
   gem "yard-junk"
 end

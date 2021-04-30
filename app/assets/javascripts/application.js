@@ -27,6 +27,7 @@
 //= require time_ago.js
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require rails.validations.simple_form.bootstrap4
 //= require bootstrap-sprockets
 //= require cocoon
 //= require trix
