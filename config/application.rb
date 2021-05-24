@@ -37,7 +37,6 @@ module BiblestudyPlatform
 
     config.encoding = "utf-8"
 
-    config.action_dispatch.default_headers["Permissions-Policy"]
-    = "interest-cohort=()"
+    config.action_dispatch.default_headers["Permissions-Policy"] = "interest-cohort=()"
   end
 end
