@@ -22,12 +22,10 @@ class StudynotesController < ApplicationController
 
   # Creates a new Studynote
   def new
-    # index = params[:index].to_i
-    index = 0
     studynote = Studynote.new
     authorize studynote, :create?
     studynote.pericopes.build
-    locals studynote: studynote, index: index
+    locals studynote: studynote, index: 0
   end
 
   # Creates and saves a new Studynote
@@ -97,6 +95,6 @@ class StudynotesController < ApplicationController
   end
 
   def set_comment
-    @comments = @studynote.comments
+    @comments = studynote.comments
   end
 end
