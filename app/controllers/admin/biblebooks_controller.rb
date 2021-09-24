@@ -26,8 +26,8 @@ module Admin
 
     # Creates and saves a new Biblebook
     def create
-      biblebook = Biblebook.new(biblebook_params)
-      save_biblebook(biblebook)
+      @biblebook = Biblebook.new(biblebook_params)
+      save_biblebook
     end
 
     # Default edit - no code needed
@@ -59,7 +59,7 @@ module Admin
       end
     end
 
-    def save_biblebook(biblebook)
+    def save_biblebook
       name = Biblebook.model_name.human
       if biblebook.save
         flash[:notice] = t(:item_created, item: name)
