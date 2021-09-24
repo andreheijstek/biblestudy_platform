@@ -30,9 +30,9 @@ class StudynotesController < ApplicationController
 
   # Creates and saves a new Studynote
   def create
-    studynote = Studynote.new(studynote_params)
+    @studynote = Studynote.new(studynote_params)
     studynote.author = current_user
-    save_studynote(studynote)
+    save_studynote
   end
 
   # Edits an existing Studynote
@@ -68,7 +68,7 @@ class StudynotesController < ApplicationController
     end
   end
 
-  def save_studynote(studynote)
+  def save_studynote
     name = Studynote.model_name.human
     if studynote.save && !studynote.pericopes.empty?
       # TODO, the second condition is a hack, needed because the
