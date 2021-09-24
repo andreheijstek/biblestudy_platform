@@ -22,8 +22,8 @@ module Admin
 
     # Creates and saves a new Chapter within a Biblebook
     def create
-      chapter = biblebook.chapters.build(chapter_params)
-      save_chapter(chapter)
+      @chapter = biblebook.chapters.build(chapter_params)
+      save_chapter
     end
 
     # Edits an existing Chapter
@@ -52,7 +52,7 @@ module Admin
 
     private
 
-    def save_chapter(chapter)
+    def save_chapter
       name = Chapter.model_name.human
       if chapter.save
         flash[:notice] = t(:item_created, item: name)

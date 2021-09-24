@@ -36,8 +36,7 @@ module Admin
 
     # Updates existing Biblebook
     def update
-      name = Biblebook.model_name.human
-      update_biblebook(name)
+      update_biblebook
     end
 
     # Deletes existing Biblebook
@@ -49,7 +48,8 @@ module Admin
 
     private
 
-    def update_biblebook(name)
+    def update_biblebook
+      name = Biblebook.model_name.human
       if biblebook.update(biblebook_params)
         flash[:notice] = t(:item_updated, item: name)
         redirect_to [:admin, biblebook]
