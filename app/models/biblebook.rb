@@ -71,21 +71,16 @@ class Biblebook < ActiveRecord::Base
   # - multiple elements if multiple found
   # :reek:DuplicateMethodCall - don't know how to solve that right now
   def self.possible_book_names(name)
-    biblebook = find_by_full_name(name)
-    unless exists?(biblebook)
-      biblebook = find_by_abbreviation(name)
-      biblebook = find_names_by_like(name) unless exists?(biblebook)
-    end
-
+    biblebook = find_by_full_name(name) and find_by_abbreviation(name) and find_names_by_like(name)
     biblebook.map(&:name).uniq
   end
 
   # Tells if this biblebook exists
   # @param biblebook [Biblebook]
   # @return [Boolean]
-  def self.exists?(biblebook)
-    !biblebook.empty?
-  end
+  # def self.exists?
+  #   !biblebook.empty?
+  # end
 
   # :reek:TooManyStatements - to be refactored
   # rubocop:disable Metrics/MethodLength
