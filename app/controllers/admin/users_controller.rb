@@ -30,9 +30,9 @@ module Admin
 
     # Creates and saves a new User
     def create
-      user = User.new(user_params)
+      @user = User.new(user_params)
       user.admin = params[:user][:admin] if current_user.admin?
-      save_user(user)
+      save_user
     end
 
     # Edits an existing User
@@ -49,7 +49,7 @@ module Admin
 
     private
 
-    def save_user(user)
+    def save_user
       if user.save
         flash[:notice] = t("activerecord.messages.created")
         redirect_to admin_users_path
