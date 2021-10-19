@@ -3,6 +3,8 @@
 # Controller for handlings Comments on Studynotes
 
 class CommentsController < ApplicationController
+  attr_reader :studynote, :comment
+
   before_action :set_studynote
   before_action :set_comment, only: [:show]
 
@@ -12,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @studynote.comments.build(comment_params)
-    if @comment.save
+    if comment.save
       flash[:notice] = "Comment has been created."
       redirect_to @studynote
     else
@@ -35,6 +37,6 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = @studynote.comments.find(params[:id])
+    @comment = studynote.comments.find(params[:id])
   end
 end
