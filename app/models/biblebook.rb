@@ -45,7 +45,7 @@ class Biblebook < ActiveRecord::Base
   # Returns the number of chapters in this biblebook
   # #return [Integer]
   def nr_of_chapters
-    Chapter.where(biblebook_id: id).count
+    all_chapters.count
   end
 
   alias_method :size, :nr_of_chapters
@@ -102,4 +102,9 @@ class Biblebook < ActiveRecord::Base
     [name, errors]
   end
   # rubocop:enable Metrics/MethodLength
+  private
+
+  def all_chapters
+    Chapter.where(biblebook_id: id)
+  end
 end

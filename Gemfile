@@ -68,6 +68,8 @@ group :development do
   gem 'guard-migrate'
   gem "guard-rspec", require: false
   gem "i18n-tasks"
+  # meta_request enables the Rails Panel in the Chrome browser - very helpful to debug
+  gem 'meta_request'
   gem "overcommit"
   gem "prettier"
   gem "rails_best_practices"

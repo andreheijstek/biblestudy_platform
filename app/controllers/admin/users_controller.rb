@@ -74,8 +74,8 @@ module Admin
     def set_admin
       return unless current_user.admin?
 
-      @user.admin = params[:user][:admin]
-      @user.save
+      user.admin = params[:user][:admin]
+      user.save
     end
 
     def user_params
