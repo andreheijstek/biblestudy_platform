@@ -26,7 +26,6 @@ class Chapter < ApplicationRecord
   include Comparable
 
   belongs_to :biblebook
-
   validates :chapter_number, presence: true
 
   # Spaceship to help Comparable methods

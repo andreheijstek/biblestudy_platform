@@ -20,12 +20,20 @@ class BiblebookName
 
   attr_reader :name
 
-  (name = "")
+  def self.create(name)
+    if @@booknames.include?(name)
+      self.new(name)
+    else
+      UnknownBiblebookName.new
+    end
+  end
 
   def initialize(name)
     if @@booknames.include?(name)
       @name = name
+      freeze
     else
+      @name = ""
       UnknownBiblebookName.new
     end
   end

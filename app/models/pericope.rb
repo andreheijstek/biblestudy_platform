@@ -35,8 +35,7 @@ class Pericope < ApplicationRecord
   validates_with PericopeValidator
   after_validation :reformat_name
 
-  attr_accessor :starting_bibleverse,
-    :ending_bibleverse
+  attr_accessor :starting_bibleverse, :ending_bibleverse
 
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
