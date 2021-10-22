@@ -93,3 +93,8 @@ pg_upgrade_utility.log
 
 # database dumps
 **.dump.*
+
+# Rspec-tracer files
+/rspec_tracer_cache/
+/rspec_tracer_coverage/
+/rspec_tracer_report/

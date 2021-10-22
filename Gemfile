@@ -92,7 +92,9 @@ group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
   gem "factory_bot_rails"
-  gem "selenium-webdriver"
+  # rspec-tracer skips tests that are not needed looking at dependencies
+  gem 'rspec-tracer', require: false
+  # gem "selenium-webdriver"
 end
 
 group :production do
