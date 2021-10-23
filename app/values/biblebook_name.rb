@@ -14,44 +14,44 @@ class BiblebookName
   { name: "Numeri", abbreviation: "num" },
   { name: "Deuteronomium", abbreviation: "deut" },
   { name: "Jozua", abbreviation: "joz" },
-  { name: "Richteren", abbreviation: "rich" },
-  { name: "Ruth", abbreviation: "rut" },
+  { name: "Richteren", abbreviation: "richt" },
+  { name: "Ruth", abbreviation: "ruth" },
   { name: "1 Samuël", abbreviation: "1 sam" },
   { name: "2 Samuël", abbreviation: "2 sam" },
   { name: "1 Koningen", abbreviation: "1 kon" },
   { name: "2 Koningen", abbreviation: "2 kon" },
   { name: "1 Kronieken", abbreviation: "1 kron" },
   { name: "2 Kronieken", abbreviation: "2 kron" },
-  { name: "Ezra", abbreviation: "ez" },
+  { name: "Ezra", abbreviation: "ezra" },
   { name: "Nehemia", abbreviation: "neh" },
-  { name: "Esther", abbreviation: "es" },
+  { name: "Esther", abbreviation: "est" },
   { name: "Job", abbreviation: "job" },
   { name: "Psalmen", abbreviation: "ps" },
   { name: "Spreuken", abbreviation: "spr" },
-  { name: "Prediker", abbreviation: "pre" },
-  { name: "Hooglied", abbreviation: "hoo" },
+  { name: "Prediker", abbreviation: "pred" },
+  { name: "Hooglied", abbreviation: "hoogl" },
   { name: "Jesaja", abbreviation: "jes" },
   { name: "Jeremia", abbreviation: "jer" },
-  { name: "Klaagliederen", abbreviation: "kla" },
-  { name: "Ezechiël", abbreviation: "ez" },
+  { name: "Klaagliederen", abbreviation: "klaagl" },
+  { name: "Ezechiël", abbreviation: "eze" },
   { name: "Daniël", abbreviation: "dan" },
   { name: "Hosea", abbreviation: "hos" },
-  { name: "Joël", abbreviation: "joe" },
+  { name: "Joël", abbreviation: "joël" },
   { name: "Amos", abbreviation: "am" },
   { name: "Obadja", abbreviation: "ob" },
-  { name: "Jona", abbreviation: "jon" },
+  { name: "Jona", abbreviation: "jona" },
   { name: "Micha", abbreviation: "mi" },
-  { name: "Nahum", abbreviation: "na" },
-  { name: "Habakuk", abbreviation: "ha" },
-  { name: "Sefanja", abbreviation: "saf" },
+  { name: "Nahum", abbreviation: "nah" },
+  { name: "Habakuk", abbreviation: "hab" },
+  { name: "Sefanja", abbreviation: "sef" },
   { name: "Haggai", abbreviation: "hag" },
-  { name: "Zacharia", abbreviation: "za" },
+  { name: "Zacharia", abbreviation: "zach" },
   { name: "Maleachi", abbreviation: "mal" },
   { name: "Mattheüs", abbreviation: "mat" },
   { name: "Markus", abbreviation: "mar" },
   { name: "Lukas", abbreviation: "luk" },
   { name: "Johannes", abbreviation: "joh" },
-  { name: "Handelingen", abbreviation: "han" },
+  { name: "Handelingen", abbreviation: "hand" },
   { name: "Romeinen", abbreviation: "rom" },
   { name: "1 Korintiërs", abbreviation: "1 kor" },
   { name: "2 Korintiërs", abbreviation: "2 kor" },
@@ -64,7 +64,7 @@ class BiblebookName
   { name: "1 Timotheüs", abbreviation: "1 tim" },
   { name: "2 Timotheüs", abbreviation: "2 tim" },
   { name: "Titus", abbreviation: "tit" },
-  { name: "Filemon", abbreviation: "fil" },
+  { name: "Filemon", abbreviation: "filem" },
   { name: "Hebreeën", abbreviation: "heb" },
   { name: "Jakobus", abbreviation: "jak" },
   { name: "1 Petrus", abbreviation: "1 pet" },
@@ -78,10 +78,10 @@ class BiblebookName
 
   attr_reader :name
 
-  def self.create(name)
-    if @@booknames.map { |book| book[:name] }.include?(name.titleize)
-      self.new(name)
-    elsif (b = @@booknames.find { |book| book[:abbreviation] == name })
+  def self.create(given_name)
+    if find_book_by_full_name(given_name)
+      self.new(given_name)
+    elsif (b = find_book_by_abbreviation(given_name))
       self.new(b[:name])
     else
       UnknownBiblebookName.new
@@ -91,6 +91,16 @@ class BiblebookName
   def initialize(name)
     @name = name.titleize
     freeze
+  end
+
+  private
+
+  def self.find_book_by_abbreviation(name)
+    @@booknames.find { |book| book[:abbreviation] == name.downcase }
+  end
+
+  def self.find_book_by_full_name(name)
+    @@booknames.map { |book| book[:name] }.include?(name.titleize)
   end
 end
 
