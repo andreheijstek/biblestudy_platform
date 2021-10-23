@@ -79,9 +79,10 @@ class BiblebookName
   attr_reader :name
 
   def self.create(name)
-    name
     if @@booknames.map { |book| book[:name] }.include?(name.titleize)
       self.new(name)
+    elsif (b = @@booknames.find { |book| book[:abbreviation] == name })
+      self.new(b[:name])
     else
       UnknownBiblebookName.new
     end

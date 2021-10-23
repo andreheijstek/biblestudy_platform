@@ -28,8 +28,8 @@ describe BiblebookName do
     expect(name.class).to eq(UnknownBiblebookName)
   end
 
-  # it 'creates Names from official abbreviations' do
-  #   name = BiblebookName.create("gen")
-  #   expect(name.class).to eq(BiblebookName)
-  # end
+  it 'creates Names from official abbreviations' do
+    name = BiblebookName.create("gen")
+    expect(name.class).to eq(BiblebookName)
+  end
 end
