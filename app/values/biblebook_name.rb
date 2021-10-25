@@ -80,12 +80,12 @@ class BiblebookName
 
   def self.create(given_name)
     if find_by_full_name(given_name)
-      self.new(given_name)
+      new(given_name)
     elsif (b = find_by_abbreviation(given_name))
-      self.new(b[:name])
+      new(b[:name])
     elsif (b = find_by_like(given_name))
       if b.length == 1
-        self.new(b[0])
+        new(b[0])
       else
         UnknownBiblebookName.new
       end
