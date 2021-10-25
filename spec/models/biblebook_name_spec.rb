@@ -46,4 +46,9 @@ describe BiblebookName do
     name = BiblebookName.create("genes")
     expect(name.class).to eq(BiblebookName)
   end
+
+  it 'rejects Names from ambiguous abbreviations' do
+    name = BiblebookName.create("jo")
+    expect(name.class).to eq(UnknownBiblebookName)
+  end
 end
