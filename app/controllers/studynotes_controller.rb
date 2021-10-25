@@ -5,7 +5,6 @@
 class StudynotesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_studynote, only: %i[show edit update destroy]
-  before_action :set_comment, only: %i[show]
 
   attr_reader :studynote
 
@@ -92,9 +91,5 @@ class StudynotesController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = t(:studynote_not_found)
     redirect_to studynotes_path
-  end
-
-  def set_comment
-    @comments = studynote.comments
   end
 end

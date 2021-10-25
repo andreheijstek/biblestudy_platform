@@ -79,10 +79,16 @@ class BiblebookName
   attr_reader :name
 
   def self.create(given_name)
-    if find_book_by_full_name(given_name)
+    if find_by_full_name(given_name)
       self.new(given_name)
-    elsif (b = find_book_by_abbreviation(given_name))
+    elsif (b = find_by_abbreviation(given_name))
       self.new(b[:name])
+    elsif (b = find_by_like(given_name))
+      if b.length == 1
+        self.new(b[0])
+      else
+        UnknownBiblebookName.new
+      end
     else
       UnknownBiblebookName.new
     end
@@ -95,12 +101,16 @@ class BiblebookName
 
   private
 
-  def self.find_book_by_abbreviation(name)
+  def self.find_by_abbreviation(name)
     @@booknames.find { |book| book[:abbreviation] == name.downcase }
   end
 
-  def self.find_book_by_full_name(name)
+  def self.find_by_full_name(name)
     @@booknames.map { |book| book[:name] }.include?(name.titleize)
+  end
+
+  def self.find_by_like(name)
+    @@booknames.collect { |book| book[:name] }.grep /#{name.titleize}/
   end
 end
 

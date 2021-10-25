@@ -43,7 +43,7 @@ describe BiblebookName do
   end
 
   it 'creates Names from inofficial abbreviations' do
-    name = BiblebookName.create("gen")
+    name = BiblebookName.create("genes")
     expect(name.class).to eq(BiblebookName)
   end
 end

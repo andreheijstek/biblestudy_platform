@@ -30,7 +30,6 @@ class Studynote < ApplicationRecord
 
   has_many :biblebooks, through: :pericopes
   has_many :roles, dependent: :delete_all
-  has_many :comments
 
   belongs_to :author, class_name: "User"
 

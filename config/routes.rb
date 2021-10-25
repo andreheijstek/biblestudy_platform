@@ -21,9 +21,7 @@ Rails
 
     devise_for :users
 
-    resources :studynotes do
-      resources :comments
-    end
+    resources :studynotes
     resources :pericopes, except: %i[create update]
 
     get "profile", to: "users#show"
