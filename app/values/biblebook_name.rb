@@ -99,6 +99,10 @@ class BiblebookName
     freeze
   end
 
+  def self.possible_booknames(name)
+    books = find_by_like(name)
+  end
+
   private
 
   def self.find_by_abbreviation(name)

@@ -59,4 +59,18 @@ describe BiblebookName do
     name = BiblebookName.create("jo")
     expect(name.class).to eq(UnknownBiblebookName)
   end
+
+  it 'tells which biblebooks are possible with an ambiguous name' do
+    names = BiblebookName.possible_booknames("jo")
+    expect(names.length).to eq(8)
+    expect(names).to include("Job")
+    expect(names).to include("Johannes")
+    expect(names).to include("Jona")
+  end
+
+  it 'tells which biblebook is possible with an unambiguous name' do
+    names = BiblebookName.possible_booknames("genesis")
+    expect(names.length).to eq(1)
+    expect(names).to include("Genesis")
+  end
 end
