@@ -83,6 +83,16 @@ class Biblebook < ActiveRecord::Base
     !biblebook.empty?
   end
 
+  # Validates if the given biblebook name is valid
+  # @param given_name [String], the biblebook name to be validated
+  # @param errors [Array], the current list of errors, where new errors should be added
+  # @return name [String], empty if no single matching name could be found, or the right name otherwise
+  # @return errors [Array], possibly extended list of errors
+  #
+  # TODO: This is clearly not Single Responsibility.
+  # I think that the error handling can be taken out. That is the responsibility of the caller.
+  # That means that this method has as a side effect that an error attribute gets filled if this validation fails.
+  #
   # :reek:TooManyStatements - to be refactored
   # rubocop:disable Metrics/MethodLength
   def self.validate_name(given_name, errors)

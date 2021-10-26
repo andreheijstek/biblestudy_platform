@@ -16,9 +16,9 @@
 # :reek:TooManyStatements as well
 class PericopeValidator < ActiveModel::Validator
   # Validate method, as required by Rails, see class comment
-  attr_accessor :record, :tree
+  attr_accessor :record
   attr_reader :parsed_pericope
-  private :record, :parsed_pericope, :tree
+  private :record, :parsed_pericope
 
   def validate(record)
     @record = record
@@ -38,22 +38,13 @@ class PericopeValidator < ActiveModel::Validator
     Biblebook.find_by_full_name(name)[0]
   end
 
-  def parse_and_set_attributes
-    parse_name
-    set_attributes
-  end
-
   # Parses the 'name' attribute (something like 'Gen 1:2-3') into the
   # constituent parts of a Pericope
-  def parse_name
+  def parse_and_set_attributes
     name = record.name
     return if name.empty?
 
-    @tree = PericopeParser.new.parse(name)
-  end
-
-  def set_attributes
-    return if record.name.empty?
+    tree = PericopeParser.new.parse(name)
 
     record.biblebook_name = tree[:biblebook].to_s.strip
     record.starting_chapter_nr = tree[:starting_chapter].to_i
