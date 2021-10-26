@@ -154,12 +154,7 @@ class PericopeValidator < ActiveModel::Validator
 
     record.errors.add :base, :verse_chapter_disorder
   end
-
-  def validate_biblebook_name(given_name)
-    name, @errors = Biblebook.validate_name(given_name, record.errors)
-    name
-  end
-
+  
   #:reek:FeatureEnvy don't know how to solve
   def update_record(biblebook)
     record.tap do |record|
