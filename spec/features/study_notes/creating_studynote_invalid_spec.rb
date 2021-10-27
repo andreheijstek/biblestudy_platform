@@ -18,7 +18,7 @@ feature "Users can not create new studynotes", js: true do
     should_see t("activerecord.models.messages.blank")
   end
 
-  context "with incorrect data" do
+  context "with incomplete data" do
     before { nsp.title_field.set "Titel" }
 
     scenario "when providing out of sequence chapters and verses" do

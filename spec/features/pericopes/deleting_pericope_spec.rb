@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: There's apparently quite a lot of work to do here still
 feature "Users can delete pericopes", js: true do
   let(:user) { create(:user) }
   let(:studynote) do
