@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Edit more than just the title?
 feature "Users can edit existing studynotes", js: true do
   let(:user) { create(:user) }
   let(:otheruser) { create(:user) }

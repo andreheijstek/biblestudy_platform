@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+#
+# TODO: To be completed, testing the messages is important!
 
 feature "Users can not create new studynotes", js: true do
   let(:user) { create(:user) }
@@ -18,7 +20,7 @@ feature "Users can not create new studynotes", js: true do
     should_see t("activerecord.models.messages.blank")
   end
 
-  context "with incomplete data" do
+  context "with incorrect data" do
     before { nsp.title_field.set "Titel" }
 
     scenario "when providing out of sequence chapters and verses" do

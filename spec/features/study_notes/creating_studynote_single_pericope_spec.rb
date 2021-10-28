@@ -22,6 +22,7 @@ describe "Users can create new studynotes with a single pericope", js: true do
     should_see "Jona 1:1"
   end
 
+  # TODO: Make this helper available to many more tests?
   def fill_and_submit(pericope)
     nsp.pericopes[0].set pericope
     nsp.title_field.set "Titel"

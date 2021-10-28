@@ -12,7 +12,7 @@ feature "Users can delete studynotes", js: true do
     visit studynotes_path
     click_link "Jona"
 
-    # I would like to use the pageobject here,
+    # TODO: I would like to use the pageobject here,
     # but can't get the URL expansion to work
     # ssp = StudynoteShowPage.new
     # ssp.load(studynote: @s1)
