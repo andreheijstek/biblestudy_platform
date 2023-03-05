@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_140658) do
+ActiveRecord::Schema.define(version: 2019_03_13_213302) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "bible_verses", force: :cascade do |t|
@@ -76,8 +75,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_140658) do
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
     t.integer "studynote_id"
-    t.integer "starting_verse_nr"
-    t.integer "ending_verse_nr"
+    t.integer "starting_verse"
+    t.integer "ending_verse"
     t.integer "biblebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
