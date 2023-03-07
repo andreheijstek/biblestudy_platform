@@ -60,7 +60,7 @@ class Pericope < ApplicationRecord
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
   # @return [Boolean]
   def multiple_verses?
-    ending_verse_nr > starting_verse_nr
+    ending_verse > starting_verse
   end
 
   def populate_bibleverses

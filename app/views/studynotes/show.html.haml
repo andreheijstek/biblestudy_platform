@@ -24,12 +24,14 @@
       %td
         #author
           = studynote.author_username
-    %tr
-      %th
-        = t('created')
-      %td
-        #created_at
-          = timeago(studynote.created_at)
-        -#= t('ago')
+    -#%tr
+    -#  %th
+    -#    = t('created')
+    -#  %td
+    -#    #created_at
+    -#      # TODO: commented because of a bug I don't understand
+    -#      #         wrong number of arguments (given 3, expected 1..2)
+    -#       = timeago(studynote.created_at)
+    -#    = t('ago')
 
   = link_to t(:new_studynote), new_studynote_path, class: "new"

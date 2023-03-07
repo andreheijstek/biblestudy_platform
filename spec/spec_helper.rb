@@ -118,19 +118,4 @@ RSpec.configure do |config|
   # TODO: This is a hack as the latest version of Chrome caused feature tests
   # to fail. I hope some day this can be removed again (or commented)
   Webdrivers::Chromedriver.required_version = "95.0.4638.17"
-
-  Capybara.register_driver :chrome do |app|
-    options =
-      Selenium::WebDriver::Chrome::Options.new(
-        args: %w[
-          headless
-          no-sandbox
-          disable-dev-shm-usage
-          enable-features=NetworkService,NetworkServiceInProcess
-        ]
-      )
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
-  end
-
-  Capybara.javascript_driver = :chrome
 end

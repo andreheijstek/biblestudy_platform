@@ -34,7 +34,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you"re not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path               = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
 
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -52,20 +52,10 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  Capybara.register_driver :headless_chrome do |app|
-    capabilities =
-      Selenium::WebDriver::Remote::Capabilities.chrome(
-        chromeOptions: {
-          args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]
-        }
-      )
-
-    Capybara::Selenium::Driver.new app,
-      browser: :chrome,
-      desired_capabilities: capabilities
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new app, browser: :chrome,
+                                   options:      Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
   end
-
-  Capybara.server = :puma, {Silent: true}
 
   config.include Warden::Test::Helpers, type: :feature
   config.after(type: :feature) { Warden.test_reset! }

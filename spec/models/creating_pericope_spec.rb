@@ -10,9 +10,9 @@ describe Pericope do
     expect(pericope).to be_valid
     expect(pericope.name).to eq("Genesis 3:4 - 5:6")
     expect(pericope.starting_chapter_nr).to be(3)
-    expect(pericope.starting_verse_nr).to be(4)
+    expect(pericope.starting_verse).to be(4)
     expect(pericope.ending_chapter_nr).to be(5)
-    expect(pericope.ending_verse_nr).to be(6)
+    expect(pericope.ending_verse).to be(6)
     expect(pericope.biblebook.name).to eq("Genesis")
   end
 

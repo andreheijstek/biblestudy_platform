@@ -20,6 +20,9 @@ gem "high_voltage"
 gem "i18n-js"
 gem "jbuilder"
 gem "jquery-rails"
+gem "mail"
+gem "matrix"
+gem 'net-smtp', require: false
 gem "parslet"
 gem "pg"
 gem "pundit"
@@ -30,7 +33,6 @@ gem "sdoc", group: :doc
 gem "sitemap_generator"
 gem "sorted-activerecord"
 gem "sprockets-rails", "2.3.3"
-gem "therubyracer"
 gem "titleize"
 gem "trix-rails", require: "trix" # Rich text editor
 gem "uglifier"

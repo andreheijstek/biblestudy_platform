@@ -269,7 +269,6 @@ GEM
     kwalify (0.7.2)
     launchy (2.5.0)
       addressable (~> 2.7)
-    libv8 (3.16.14.19)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -280,6 +279,7 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
+    matrix (0.4.2)
     meta_request (0.7.3)
       rack-contrib (>= 1.1, < 3)
       railties (>= 3.0.0, < 7)
@@ -293,6 +293,10 @@ GEM
     multi_json (1.15.0)
     multi_test (0.1.2)
     nenv (0.3.0)
+    net-protocol (0.2.1)
+      timeout
+    net-smtp (0.3.3)
+      net-protocol
     newrelic_rpm (8.0.0)
     nio4r (2.5.8)
     nokogiri (1.14.2)
@@ -391,7 +395,6 @@ GEM
       kwalify (~> 0.7.0)
       parser (~> 3.0.0)
       rainbow (>= 2.0, < 4.0)
-    ref (2.0.0)
     regexp_parser (2.1.1)
     regexp_property_values (1.0.0)
     reject_deeply_nested (0.4.0)
@@ -504,11 +507,9 @@ GEM
     temple (0.8.2)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.1.0)
     tilt (2.0.10)
+    timeout (0.3.2)
     titleize (1.4.1)
     trix-rails (2.3.0)
       rails (> 4.1, < 7.0)
@@ -585,7 +586,10 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
+  mail
+  matrix
   meta_request
+  net-smtp
   newrelic_rpm
   orderly
   overcommit
@@ -616,7 +620,6 @@ DEPENDENCIES
   sorted-activerecord
   sprockets-rails (= 2.3.3)
   standard
-  therubyracer
   titleize
   trix-rails
   uglifier
@@ -628,7 +631,7 @@ DEPENDENCIES
   yard-junk
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.2.16
+   2.4.7

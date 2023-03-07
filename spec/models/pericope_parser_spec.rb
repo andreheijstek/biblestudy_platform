@@ -57,16 +57,16 @@ describe PericopeParser do
 
   it "parses a single Verse" do
     tree = parser.pericope.parse("Genesis 1:1")
-    expect(tree[:starting_verse_nr].to_i).to eq(1)
+    expect(tree[:starting_verse].to_i).to eq(1)
   end
 
   it "parses a full Pericope" do
     tree = parser.pericope.parse("Genesis 1:2 - 3:4")
     expect(tree[:biblebook].to_s.strip).to eq("Genesis")
     expect(tree[:starting_chapter].to_i).to eq(1)
-    expect(tree[:starting_verse_nr].to_i).to eq(2)
+    expect(tree[:starting_verse].to_i).to eq(2)
     expect(tree[:ending_chapter].to_i).to eq(3)
-    expect(tree[:ending_verse_nr].to_i).to eq(4)
+    expect(tree[:ending_verse].to_i).to eq(4)
   end
 
   it "parses biblebook like 1 Koningen" do
@@ -78,10 +78,10 @@ describe PericopeParser do
     tree = parser.pericope.parse("Genesis 1:2 - 3")
     expect(tree[:biblebook].to_s.strip).to eq("Genesis")
     expect(tree[:starting_chapter].to_i).to eq(1)
-    expect(tree[:starting_verse_nr].to_i).to eq(2)
+    expect(tree[:starting_verse].to_i).to eq(2)
 
     # expect(tree[:ending_chapter].to_i).to eq(1)
-    expect(tree[:ending_verse_nr].to_i).to eq(3)
+    expect(tree[:ending_verse].to_i).to eq(3)
   end
 
   it "parses a Pericope with multiple full chapters" do
