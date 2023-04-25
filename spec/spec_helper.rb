@@ -114,8 +114,4 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-
-  # TODO: This is a hack as the latest version of Chrome caused feature tests
-  # to fail. I hope some day this can be removed again (or commented)
-  Webdrivers::Chromedriver.required_version = "95.0.4638.17"
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-# ruby File.read('.ruby-version').strip
 ruby RUBY_VERSION.to_s
 
 gem "annotate"
@@ -17,6 +16,7 @@ gem "execjs", require: true
 gem "font-awesome-rails"
 gem "haml"
 gem "high_voltage"
+gem "rails-i18n"
 gem "i18n-js"
 gem "jbuilder"
 gem "jquery-rails"
