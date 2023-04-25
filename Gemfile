@@ -82,7 +82,7 @@ group :development do
   # gem 'rubocop-rails'
   # gem 'rubocop-rspec'
   gem "web-console"
-  gem 'xray-rails'
+  # gem 'xray-rails'
   gem "yard"
   gem "yard-junk"
 end
