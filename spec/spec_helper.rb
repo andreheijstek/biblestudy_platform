@@ -25,7 +25,6 @@ require "simplecov-lcov"
 require "capybara"
 require "capybara/dsl"
 require "capybara/rspec"
-require "webdrivers"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatter =
@@ -100,7 +99,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  # config.order = :random
+  config.order = :random
 
   config.expose_dsl_globally = true
 
@@ -114,4 +113,6 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
+
+  Capybara.app_host = "http://www.example.com"
 end

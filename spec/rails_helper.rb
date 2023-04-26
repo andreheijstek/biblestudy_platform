@@ -8,8 +8,6 @@ require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "spec_helper"
 require "pundit/rspec"
-# require "selenium/wxebdriver"
-
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -53,11 +51,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  # Capybara.register_driver :chrome do |app|
-  #   Capybara::Selenium::Driver.new app, browser: :chrome,
-  #                                  options:      Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
-  # end
-
   Capybara.register_driver :headless_chrome do |app|
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument "headless"
@@ -72,30 +65,6 @@ RSpec.configure do |config|
   end
 
   Capybara.default_driver = :headless_chrome
-
-
-  ## Headless!
-=begin
-  Capybara.register_driver :headless_chrome do |app|
-    options = Selenium::WebDriver::Chrome::Options.new
-
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--test-type')
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--disable-popup-blocking')
-    options.add_argument('--disable-extensions')
-    options.add_argument('--enable-automation')
-    options.add_argument('--window-size=1920,1080')
-    options.add_argument("--start-maximized")
-
-    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    logging_prefs: { 'browser' => 'ALL' }
-    )
-
-    Capybara::Selenium::Driver.new app, browser: :headless_chrome, options: options, desired_capabilities: capabilities
-  end
-=end
 
   ## Capy Configuration Defaults
   Capybara.configure do |config|
