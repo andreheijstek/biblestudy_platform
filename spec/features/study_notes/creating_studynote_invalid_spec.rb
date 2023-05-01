@@ -29,6 +29,7 @@ feature "Users can not create new studynotes", js: true do
 
       nsp.submit_button.click
 
+      # TODO: Assert afmaken
       # should_see t('errors.messages.verse_chapter_disorder')
       should_see t("item_not_created", item: "bijbelstudie")
     end
@@ -38,6 +39,7 @@ feature "Users can not create new studynotes", js: true do
     #
     #   nsp.submit_button.click
     #
+    # TODO: Assert afmaken
     #   should_see 'moet opgegeven zijn'
     # end
 
@@ -47,6 +49,7 @@ feature "Users can not create new studynotes", js: true do
 
       nsp.submit_button.click
 
+      # TODO: Assert afmaken
       # should_see "#{t('errors.messages.ambiguous_abbreviation',
       #                 given_name: 'Jo',
       #                 biblebooks: %w[Jona Job Johannes].to_sentence)}"

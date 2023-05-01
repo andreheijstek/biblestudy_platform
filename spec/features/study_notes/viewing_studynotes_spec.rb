@@ -24,6 +24,7 @@ feature "Users can view studynotes", js: true do
     check_results
   end
 
+  # TODO: Afmaken
   # scenario 'with multiple pericopes with valid attributes' do
   #   @nsp.add_pericope_button.click
   #   @nsp.pericopes[1].set('Jona 2:1 - 2:10')

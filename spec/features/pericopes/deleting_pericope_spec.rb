@@ -27,6 +27,7 @@ feature "Users can delete pericopes", js: true do
     nsp.add_pericope_button.click
     nsp.pericopes[1].set("Jona 2:20 - 3:3")
 
+    # TODO: Assert afmaken
     # nsp.remove_pericope_button[1].click
     #
     # should_not_see "perikoop 2"

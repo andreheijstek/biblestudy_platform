@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# TODO: Why is this commented?
 #
 # feature 'Users can add multiple pericopes to a studynote', js: true do
 #   let(:user) { create(:user) }

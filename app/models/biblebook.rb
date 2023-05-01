@@ -95,23 +95,27 @@ class Biblebook < ActiveRecord::Base
   #
   # :reek:TooManyStatements - to be refactored
   # rubocop:disable Metrics/MethodLength
+
   def self.validate_name(given_name, errors)
     names = possible_book_names(given_name)
     name = ""
     nr_of_biblebooks = names.size
 
-    if nr_of_biblebooks.zero?
-      errors.add :biblebook_name, :unknown_biblebook
-    elsif nr_of_biblebooks == 1
-      name = names[0]
-    elsif nr_of_biblebooks > 1
-      errors.add :biblebook_name,
-        :ambiguous_abbreviation,
-        given_name: given_name,
-        biblebooks: names.to_sentence
+    case nr_of_biblebooks
+    when 0
+      errors.add(:biblebook_name, :unknown_biblebook)
+    when 1
+      name = names.first
+    else
+      errors.add(:biblebook_name,
+                 :ambiguous_abbreviation,
+                 given_name: given_name,
+                 biblebooks: names.to_sentence)
     end
+
     [name, errors]
   end
+
   # rubocop:enable Metrics/MethodLength
   private
 
