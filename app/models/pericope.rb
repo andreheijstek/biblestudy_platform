@@ -40,13 +40,13 @@ class Pericope < ApplicationRecord
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
   def whole_chapter?
-    starting_verse.zero?
+    starting_bibleverse.verse.zero?
   end
 
   # Detects if the Pericope is a whole book, like Genesis
   # @return [Boolean]
   def whole_book?
-    starting_chapter_nr.zero?
+    starting_bibleverse.chapter.zero?
   end
 
   # Detects if a Pericope is a single verse, like Genesis 1:1 - 1:1
@@ -60,7 +60,7 @@ class Pericope < ApplicationRecord
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
   # @return [Boolean]
   def multiple_verses?
-    ending_verse > starting_verse
+    ending_bibleverse.verse > starting_bibleverse.verse
   end
 
   def populate_bibleverses
@@ -73,6 +73,7 @@ class Pericope < ApplicationRecord
   private
 
   # Updates the Pericope.name to a nicely formatted name
+  # TODO: why not #to_s?
   def reformat_name
     return unless errors.empty?
 
@@ -84,6 +85,6 @@ class Pericope < ApplicationRecord
   end
 
   def same_chapter?
-    starting_chapter_nr == ending_chapter_nr
+    starting_bibleverse.chapter == ending_bibleverse.chapter
   end
 end

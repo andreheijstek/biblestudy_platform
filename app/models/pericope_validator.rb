@@ -53,7 +53,13 @@ class PericopeValidator < ActiveModel::Validator
     record.ending_verse = tree[:ending_verse].to_i
 
     add_missing_data
-    record.populate_bibleverses
+
+    record.populate_bibleverses # this can be replaced with the following lines. Then also the 4 lines above can be deleted
+
+    # record.starting_bibleverse.chapter = tree[:starting_chapter].to_i
+    # record.starting_bibleverse.verse = tree[:starting_verse].to_i
+    # record.ending_bibleverse.chapter = tree[:ending_chapter].to_i
+    # record.ending_bibleverse.verse = tree[:ending_verse].to_i
   end
 
   def full_pericope_starting_with_full_chapter?
