@@ -14,7 +14,7 @@
 #
 
 FactoryBot.define do
-  factory :bibleverse do
+  factory :bibleverse_old do
     chapter { 1 }
     verse { 1 }
 

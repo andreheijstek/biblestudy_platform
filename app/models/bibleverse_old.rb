@@ -10,7 +10,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Bibleverse
+class BibleverseOld
   include Comparable
 
   attr_reader :chapter, :verse
