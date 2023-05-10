@@ -98,3 +98,5 @@ pg_upgrade_utility.log
 /rspec_tracer_cache/
 /rspec_tracer_coverage/
 /rspec_tracer_report/
+
+/config/master.key

@@ -4,32 +4,36 @@
 #
 # Table name: pericopes
 #
-#  id                  :integer          not null, primary key
-#  biblebook_name      :string
-#  ending_chapter_nr   :integer
-#  ending_verse        :integer
-#  name                :string
-#  sequence            :integer
-#  starting_chapter_nr :integer
-#  starting_verse      :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  biblebook_id        :integer
-#  studynote_id        :integer
+#  id             :integer          not null, primary key
+#  biblebook_name :string
+#  name           :string
+#  sequence       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  biblebook_id   :integer
+#  end_verse_id   :bigint
+#  start_verse_id :bigint
+#  studynote_id   :integer
 #
 # Indexes
 #
-#  index_pericopes_on_biblebook_id  (biblebook_id)
-#  index_pericopes_on_studynote_id  (studynote_id)
+#  index_pericopes_on_biblebook_id    (biblebook_id)
+#  index_pericopes_on_end_verse_id    (end_verse_id)
+#  index_pericopes_on_start_verse_id  (start_verse_id)
+#  index_pericopes_on_studynote_id    (studynote_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (biblebook_id => biblebooks.id)
+#  fk_rails_...  (end_verse_id => bible_verses.id)
+#  fk_rails_...  (start_verse_id => bible_verses.id)
 #  fk_rails_...  (studynote_id => studynotes.id)
 #
 class Pericope < ApplicationRecord
   belongs_to :studynote
   belongs_to :biblebook
+  belongs_to :start_verse, class_name: 'BibleVerse'
+  belongs_to :end_verse, class_name: 'BibleVerse'
 
   validates :name, presence: true
   validates_with PericopeValidator
