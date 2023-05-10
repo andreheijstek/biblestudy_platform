@@ -69,9 +69,9 @@ class Pericope < ApplicationRecord
 
   def populate_bibleverses
     @starting_bibleverse =
-      BibleverseOld.new({ chapter: starting_chapter_nr, verse: starting_verse})
+      BibleverseOld.new({ chapter: start_verse.chapter, verse: start_verse.verse})
     @ending_bibleverse =
-      BibleverseOld.new({ chapter: ending_chapter_nr, verse: ending_verse})
+      BibleverseOld.new({ chapter: end_verse.chapter, verse: end_verse.verse})
   end
 
   private

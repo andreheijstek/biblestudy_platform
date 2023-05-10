@@ -47,50 +47,47 @@ class PericopeValidator < ActiveModel::Validator
     tree = PericopeParser.new.parse(name)
 
     record.biblebook_name = tree[:biblebook].to_s.strip
-    record.starting_chapter_nr = tree[:starting_chapter].to_i
-    record.starting_verse = tree[:starting_verse].to_i
-    record.ending_chapter_nr = tree[:ending_chapter].to_i
-    record.ending_verse = tree[:ending_verse].to_i
+    record.start_verse    = BibleVerse.new({
+                                           chapter: tree[:starting_chapter].to_i,
+                                           verse:   tree[:starting_verse].to_i })
+    record.end_verse      = BibleVerse.new({
+                                           chapter: tree[:ending_chapter].to_i,
+                                           verse:   tree[:ending_verse].to_i })
 
     add_missing_data
 
     record.populate_bibleverses # this can be replaced with the following lines. Then also the 4 lines above can be deleted
-
-    # record.starting_bibleverse.chapter = tree[:starting_chapter].to_i
-    # record.starting_bibleverse.verse = tree[:starting_verse].to_i
-    # record.ending_bibleverse.chapter = tree[:ending_chapter].to_i
-    # record.ending_bibleverse.verse = tree[:ending_verse].to_i
   end
 
   def full_pericope_starting_with_full_chapter?
-    record.starting_verse == 1 &&
-      record.ending_chapter_nr > record.starting_chapter_nr
+    record.start_verse.verse == 1 &&
+    record.end_verse.chapter > record.start_verse.chapter
   end
 
   def full_pericope_ending_with_full_chapter?
-    record.ending_verse_nr == 1 &&
-      record.ending_chapter_nr > record.starting_chapter_nr
+    record.end_verse.verse_nr == 1 &&
+    record.end_verse.chapter > record.start_verse.chapter
   end
 
   def add_missing_data
     if whole_biblebook?
-      record.starting_chapter_nr = 1
-      record.starting_verse = 1
-      record.ending_chapter_nr = last_chapter
-      record.ending_verse = last_verse(record.ending_chapter_nr)
+      record.start_verse.chapter = 1
+      record.start_verse.verse   = 1
+      record.end_verse.chapter   = last_chapter
+      record.end_verse.verse     = last_verse(record.end_verse.chapter)
     elsif single_verse?
       set_ending_to_starting
     elsif single_chapter?
-      record.starting_verse = 1
-      record.ending_chapter_nr = record.starting_chapter_nr
-      record.ending_verse = last_verse(record.ending_chapter_nr)
+      record.start_verse.verse = 1
+      record.end_verse.chapter = record.start_verse.chapter
+      record.end_verse.verse   = last_verse(record.end_verse.chapter)
     elsif multiple_verses_one_chapter?
-      record.ending_chapter_nr = record.starting_chapter_nr
+      record.end_verse.chapter = record.start_verse.chapter
     elsif multiple_full_chapters?
-      record.starting_verse = 1
-      record.ending_verse = last_verse(record.ending_chapter_nr)
+      record.start_verse.verse = 1
+      record.end_verse.verse   = last_verse(record.end_verse.chapter)
     elsif full_pericope_starting_with_full_chapter?
-      record.starting_verse = 1
+      record.start_verse.verse = 1
     elsif full_pericope?
       # do nothing
     else
@@ -112,62 +109,62 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def set_ending_to_starting
-    record.ending_chapter_nr = record.starting_chapter_nr
-    record.ending_verse = record.starting_verse
+    record.end_verse.chapter = record.start_verse.chapter
+    record.end_verse.verse   = record.start_verse.verse
   end
 
   def single_verse?
-    record.starting_verse.positive? &&
-      record.ending_chapter_nr.zero? &&
-      record.ending_verse.zero?
+    record.start_verse.verse.positive? &&
+    record.end_verse.chapter.zero? &&
+    record.end_verse.verse.zero?
   end
 
   def whole_biblebook?
-    record.starting_chapter_nr.zero? &&
-      record.starting_verse.zero? &&
-      record.ending_chapter_nr.zero? &&
-      record.ending_verse.zero?
+    record.start_verse.chapter.zero? &&
+    record.start_verse.verse.zero? &&
+    record.end_verse.chapter.zero? &&
+    record.end_verse.verse.zero?
   end
 
   def single_chapter?
-    record.starting_chapter_nr.positive? &&
-      record.starting_verse.zero? &&
-      record.ending_chapter_nr.zero? &&
-      record.ending_verse.zero?
+    record.start_verse.chapter.positive? &&
+    record.start_verse.verse.zero? &&
+    record.end_verse.chapter.zero? &&
+    record.end_verse.verse.zero?
   end
 
   def multiple_full_chapters?
-    record.starting_verse.zero? &&
-      record.ending_verse.zero? &&
-      record.ending_chapter_nr > record.starting_chapter_nr
+    record.start_verse.verse.zero? &&
+    record.end_verse.verse.zero? &&
+    record.end_verse.chapter > record.start_verse.chapter
   end
 
   def multiple_verses_one_chapter?
-    end_chap = record.ending_chapter_nr
-    (record.ending_verse > record.starting_verse) &&
-      ((end_chap == record.starting_chapter_nr) || end_chap.zero?)
+    end_chap = record.end_verse.chapter
+    (record.end_verse.verse > record.start_verse.verse) &&
+    ((end_chap == record.start_verse.chapter) || end_chap.zero?)
   end
 
   def full_pericope?
-    record.starting_chapter_nr.positive? && record.starting_verse.positive? && record.ending_chapter_nr.positive? && record.ending_verse.positive?
+    record.start_verse.chapter.positive? && record.start_verse.verse.positive? && record.end_verse.chapter.positive? && record.end_verse.verse.positive?
   end
 
   def validate_pericope_order
     short_pericope =
-      record.whole_book? || record.whole_chapter? || record.single_verse?
+    record.whole_book? || record.whole_chapter? || record.single_verse?
     return if short_pericope
     return if record.starting_bibleverse <= record.ending_bibleverse
 
     record.errors.add :base, :verse_chapter_disorder
   end
-  
+
   #:reek:FeatureEnvy don't know how to solve
   def update_record(biblebook)
     record.tap do |record|
-      record.biblebook_id = biblebook.id
+      record.biblebook_id   = biblebook.id
       record.biblebook_name = biblebook.name
-      record.sequence =
-        (record.starting_chapter_nr * 1000) + record.starting_verse
+      record.sequence       =
+      (record.start_verse.chapter * 1000) + record.start_verse.verse
     end
   end
 end
