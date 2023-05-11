@@ -94,7 +94,7 @@ class Biblebook < ActiveRecord::Base
   # That means that this method has as a side effect that an error attribute gets filled if this validation fails.
   #
 
-
+  # :reek:TooManyStatements - to be refactored
   def self.validate_name(given_name, errors)
     names = possible_book_names(given_name)
     name = ""
@@ -114,7 +114,6 @@ class Biblebook < ActiveRecord::Base
 
     [name, errors]
   end
-  # :reek:TooManyStatements - to be refactored
   # rubocop:disable Metrics/MethodLength
   # rubocop:enable Metrics/MethodLength
   private

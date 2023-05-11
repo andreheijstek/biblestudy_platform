@@ -29,6 +29,7 @@ RSpec.describe Chapter, type: :model do
     expect(late > early).to be(true)
   end
 
+  # :reek:FeatureEnvy
   it "validates if verses are in range" do
     expect(chap.valid_verse?(2)).to be(true)
     expect(chap.valid_verse?(0)).to be(false)

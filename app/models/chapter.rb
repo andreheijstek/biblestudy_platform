@@ -33,6 +33,7 @@ class Chapter < ApplicationRecord
     chapter_number <=> other.chapter_number
   end
 
+  # :reek:FeatureEnvy
   def valid_verse?(verse)
     verse.positive? && verse <= nrofverses
   end

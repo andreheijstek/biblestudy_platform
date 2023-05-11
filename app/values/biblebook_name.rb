@@ -7,7 +7,7 @@
 # It implements a Constructor method to create a BB_Name from a String
 # def initialize(name: name)
 class BiblebookName
-  @@booknames = [
+  @booknames = [
   { name: "Genesis", abbreviation: "gen" },
   { name: "Exodus", abbreviation: "ex" },
   { name: "Leviticus", abbreviation: "lev" },
@@ -106,18 +106,19 @@ class BiblebookName
   private
 
   def self.find_by_abbreviation(name)
-    @@booknames.find { |book| book[:abbreviation] == name.downcase }
+    @booknames.find { |book| book[:abbreviation] == name.downcase }
   end
 
   def self.find_by_full_name(name)
-    @@booknames.map { |book| book[:name] }.include?(name.titleize)
+    @booknames.map { |book| book[:name] }.include?(name.titleize)
   end
 
   def self.find_by_like(name)
-    @@booknames.collect { |book| book[:name] }.grep /#{name.titleize}/
+    @booknames.collect { |book| book[:name] }.grep /#{name.titleize}/
   end
 end
 
+# Class to show error message
 class UnknownBiblebookName
   def name
     "Unknown biblebook"

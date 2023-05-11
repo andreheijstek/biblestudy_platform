@@ -12,8 +12,11 @@ class PericopeFormatter
   end
 
   def format
+    start_verse = pericope.starting_bibleverse
+    end_verse = pericope.ending_bibleverse
+
     "#{pericope.biblebook_name} " \
-    "#{pericope.starting_bibleverse.chapter}:#{pericope.starting_bibleverse.verse} - " \
-    "#{pericope.ending_bibleverse.chapter}:#{pericope.ending_bibleverse.verse}"
+    "#{start_verse.chapter}:#{start_verse.verse} - " \
+    "#{end_verse.chapter}:#{end_verse.verse}"
   end
 end
