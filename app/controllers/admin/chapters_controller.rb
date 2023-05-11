@@ -11,13 +11,13 @@ module Admin
 
     # Gets the data to show one Chapter
     def show
-      locals biblebook: biblebook, chapter: chapter
+      locals biblebook:, chapter:
     end
 
     # Creates a new Chapter
     def new
       chapter = biblebook.chapters.build
-      locals chapter: chapter
+      locals chapter:
     end
 
     # Creates and saves a new Chapter within a Biblebook
@@ -28,7 +28,7 @@ module Admin
 
     # Edits an existing Chapter
     def edit
-      locals biblebook: biblebook, chapter: chapter
+      locals biblebook:, chapter:
     end
 
     # Updates an existing Chapter
@@ -39,7 +39,7 @@ module Admin
         redirect_to [:admin, biblebook, chapter]
       else
         flash.now[:alert] = t(:item_not_updated, item: name)
-        render "edit"
+        render 'edit'
       end
     end
 
@@ -59,7 +59,7 @@ module Admin
         redirect_to [:admin, biblebook, chapter]
       else
         flash.now[:alert] = t(:item_not_created, item: name)
-        locals :new, biblebook: biblebook, chapter: chapter
+        locals :new, biblebook:, chapter:
       end
     end
 

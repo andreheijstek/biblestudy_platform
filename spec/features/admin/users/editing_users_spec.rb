@@ -7,7 +7,7 @@ feature "Admins can change a user's details" do
   before do
     login_as(admin_user)
     visit admin_user_path(user)
-    click_link "Edit User"
+    click_link 'Edit User'
   end
 
   # TODO: Dat is toch rare functionaliteit, dat je als admin de gegevens van een user kan veranderen?

@@ -14,7 +14,7 @@ RSpec.describe BibleverseOld, type: :model do
   let(:starting) { build(:bibleverse_old, chapter: 1, verse: 1) }
   let(:ending) { build(:bibleverse_old, chapter: 2, verse: 2) }
 
-  it "compares verses" do
+  it 'compares verses' do
     expect(ending > starting).to be(true)
   end
 end

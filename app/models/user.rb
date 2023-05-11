@@ -31,17 +31,17 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-    :registerable,
-    :recoverable,
-    :rememberable,
-    :trackable,
-    :validatable
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
 
   validates :username, :email, :password, presence: true
-  validates :email, uniqueness: {allow_blank: true, if: :email_changed?}
+  validates :email, uniqueness: { allow_blank: true, if: :email_changed? }
 
   # Creates a nice user string to be displayed
   def to_s
-    "#{email} (#{admin? ? "Admin" : "User"})"
+    "#{email} (#{admin? ? 'Admin' : 'User'})"
   end
 end

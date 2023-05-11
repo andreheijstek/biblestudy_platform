@@ -11,12 +11,12 @@ class StudynotesController < ApplicationController
   # Gets all Studynotes to be shown
   def index
     studynote = Studynote.all.order(:title)
-    locals studynote: studynote
+    locals studynote:
   end
 
   # Gets data to show one Studynote
   def show
-    locals studynote: studynote
+    locals studynote:
   end
 
   # Creates a new Studynote
@@ -24,7 +24,7 @@ class StudynotesController < ApplicationController
     studynote = Studynote.new
     authorize studynote, :create?
     studynote.pericopes.build
-    locals studynote: studynote, index: 0
+    locals studynote:, index: 0
   end
 
   # Creates and saves a new Studynote
@@ -37,7 +37,7 @@ class StudynotesController < ApplicationController
   # Edits an existing Studynote
   def edit
     authorize studynote, :update?
-    locals studynote: studynote
+    locals studynote:
   end
 
   # Updates an existing Studynote
@@ -50,7 +50,7 @@ class StudynotesController < ApplicationController
   def destroy
     authorize studynote, :destroy?
     studynote.destroy
-    flash[:notice] = t("activerecord.messages.deleted", model: "bijbelstudie")
+    flash[:notice] = t('activerecord.messages.deleted', model: 'bijbelstudie')
     redirect_to pericopes_path
   end
 
@@ -63,7 +63,7 @@ class StudynotesController < ApplicationController
       redirect_to studynote
     else
       flash.now[:alert] = t(:item_not_updated, item: name)
-      locals :edit, studynote: studynote
+      locals :edit, studynote:
     end
   end
 
@@ -74,7 +74,7 @@ class StudynotesController < ApplicationController
       redirect_to studynote
     else
       flash.now[:alert] = t(:item_not_created, item: name)
-      locals :edit, studynote: studynote
+      locals :edit, studynote:
     end
   end
 

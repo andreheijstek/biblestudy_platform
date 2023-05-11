@@ -4,7 +4,7 @@ module Admin
   # Controller for Users
   # Handling the typical CRUD actions
   #
-  #:reek:InstanceVariableAssumption - should be no problem here. Default Rails
+  # :reek:InstanceVariableAssumption - should be no problem here. Default Rails
   # behaviour, and covered by :set_user before_action
   class UsersController < Admin::ApplicationController
     before_action :set_user, only: %i[show edit update destroy]
@@ -14,18 +14,18 @@ module Admin
     # Gets all users, sorted by email
     def index
       users = User.order(:email)
-      locals users: users
+      locals users:
     end
 
     # Gets the data to show an existing User
     def show
-      locals user: user
+      locals user:
     end
 
     # Creates a new User
     def new
       user = User.new
-      locals user: user
+      locals user:
     end
 
     # Creates and saves a new User
@@ -37,7 +37,7 @@ module Admin
 
     # Edits an existing User
     def edit
-      locals user: user
+      locals user:
     end
 
     # Updates an existing User
@@ -51,23 +51,23 @@ module Admin
 
     def save_user
       if user.save
-        flash[:notice] = t("activerecord.messages.created")
+        flash[:notice] = t('activerecord.messages.created')
         redirect_to admin_users_path
       else
-        flash.now[:alert] = t("activerecord.messages.notcreated")
-        locals :new, user: user
+        flash.now[:alert] = t('activerecord.messages.notcreated')
+        locals :new, user:
       end
     end
 
     def update_user
       if @user.update(user_params)
         set_admin
-        flash[:notice] = t("activerecord.attributes.user.messages.updated")
+        flash[:notice] = t('activerecord.attributes.user.messages.updated')
         redirect_to admin_users_path
       else
         flash.now[:alert] =
-          t("activerecord.attributes.user.messages.notupdated")
-        locals :edit, user: user
+          t('activerecord.attributes.user.messages.notupdated')
+        locals :edit, user:
       end
     end
 

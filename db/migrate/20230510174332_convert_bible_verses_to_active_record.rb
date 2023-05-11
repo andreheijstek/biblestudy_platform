@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConvertBibleVersesToActiveRecord < ActiveRecord::Migration[7.0]
   def up
     # Convert existing PORO objects to ActiveRecord objects
@@ -6,7 +8,7 @@ class ConvertBibleVersesToActiveRecord < ActiveRecord::Migration[7.0]
 
       end_verse = BibleVerse.find_or_create_by(chapter: pericope.ending_chapter_nr, verse: pericope.ending_verse)
 
-      pericope.update(start_verse: start_verse, end_verse: end_verse)
+      pericope.update(start_verse:, end_verse:)
     end
 
     # Remove old columns
@@ -20,5 +22,3 @@ class ConvertBibleVersesToActiveRecord < ActiveRecord::Migration[7.0]
     raise ActiveRecord::IrreversibleMigration
   end
 end
-
-

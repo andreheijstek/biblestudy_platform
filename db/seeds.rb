@@ -1,89 +1,89 @@
 # frozen_string_literal: true
 
-puts "Start"
+puts 'Start'
 biblebooks = [
-  "Genesis",
-  "Exodus",
-  "Leviticus",
-  "Numeri",
-  "Deuteronomium",
-  "Jozua",
-  "Richteren",
-  "Ruth",
-  "1 Samuël",
-  "2 Samuël",
-  "1 Koningen",
-  "2 Koningen",
-  "1 Kronieken",
-  "2 Kronieken",
-  "Ezra",
-  "Nehemia",
-  "Esther",
-  "Job",
-  "Psalmen",
-  "Spreuken",
-  "Prediker",
-  "Hooglied",
-  "Jesaja",
-  "Jeremia",
-  "Klaagliederen",
-  "Ezechiël",
-  "Daniël",
-  "Hosea",
-  "Joël",
-  "Amos",
-  "Obadja",
-  "Jona",
-  "Micha",
-  "Nahum",
-  "Habakuk",
-  "Sefanja",
-  "Haggai",
-  "Zacharia",
-  "Maleachi",
-  "Mattheüs",
-  "Markus",
-  "Lukas",
-  "Johannes",
-  "Handelingen",
-  "Romeinen",
-  "1 Korintiërs",
-  "2 Korintiërs",
-  "Galaten",
-  "Efeziërs",
-  "Filippenzen",
-  "Kolossenzen",
-  "1 Tessalonicenzen",
-  "2 Tessalonicenzen",
-  "1 Timotheüs",
-  "2 Timotheüs",
-  "Titus",
-  "Filemon",
-  "Hebreeën",
-  "Jakobus",
-  "1 Petrus",
-  "2 Petrus",
-  "1 Johannes",
-  "2 Johannes",
-  "3 Johannes",
-  "Judas",
-  "Openbaring"
+  'Genesis',
+  'Exodus',
+  'Leviticus',
+  'Numeri',
+  'Deuteronomium',
+  'Jozua',
+  'Richteren',
+  'Ruth',
+  '1 Samuël',
+  '2 Samuël',
+  '1 Koningen',
+  '2 Koningen',
+  '1 Kronieken',
+  '2 Kronieken',
+  'Ezra',
+  'Nehemia',
+  'Esther',
+  'Job',
+  'Psalmen',
+  'Spreuken',
+  'Prediker',
+  'Hooglied',
+  'Jesaja',
+  'Jeremia',
+  'Klaagliederen',
+  'Ezechiël',
+  'Daniël',
+  'Hosea',
+  'Joël',
+  'Amos',
+  'Obadja',
+  'Jona',
+  'Micha',
+  'Nahum',
+  'Habakuk',
+  'Sefanja',
+  'Haggai',
+  'Zacharia',
+  'Maleachi',
+  'Mattheüs',
+  'Markus',
+  'Lukas',
+  'Johannes',
+  'Handelingen',
+  'Romeinen',
+  '1 Korintiërs',
+  '2 Korintiërs',
+  'Galaten',
+  'Efeziërs',
+  'Filippenzen',
+  'Kolossenzen',
+  '1 Tessalonicenzen',
+  '2 Tessalonicenzen',
+  '1 Timotheüs',
+  '2 Timotheüs',
+  'Titus',
+  'Filemon',
+  'Hebreeën',
+  'Jakobus',
+  '1 Petrus',
+  '2 Petrus',
+  '1 Johannes',
+  '2 Johannes',
+  '3 Johannes',
+  'Judas',
+  'Openbaring'
 ]
 
 biblebooks.each_with_index do |name, index|
-  unless Biblebook.where(name: name).exists?
+  unless Biblebook.where(name:).exists?
     if index < 39
-      Biblebook.create!(name: name, booksequence: index, testament: "oud")
+      Biblebook.create!(name:, booksequence: index, testament: 'oud')
     else
-      Biblebook.create!(name: name, booksequence: index, testament: "nieuw")
+      Biblebook.create!(name:, booksequence: index, testament: 'nieuw')
     end
   end
 end
 
 books = [
   {
-    name: "Genesis",
-    abbreviation: "Gen",
+    name: 'Genesis',
+    abbreviation: 'Gen',
     chapters: 50,
     verses: [
       31,
@@ -139,8 +139,8 @@ books = [
     ]
   },
   {
-    name: "Exodus",
-    abbreviation: "Ex",
+    name: 'Exodus',
+    abbreviation: 'Ex',
     chapters: 40,
     verses: [
       22,
@@ -186,8 +186,8 @@ books = [
     ]
   },
   {
-    name: "Leviticus",
-    abbreviation: "Lev",
+    name: 'Leviticus',
+    abbreviation: 'Lev',
     chapters: 27,
     verses: [
       17,
@@ -220,8 +220,8 @@ books = [
     ]
   },
   {
-    name: "Numeri",
-    abbreviation: "Num",
+    name: 'Numeri',
+    abbreviation: 'Num',
     chapters: 36,
     verses: [
       54,
@@ -263,8 +263,8 @@ books = [
     ]
   },
   {
-    name: "Deuteronomium",
-    abbreviation: "Deut",
+    name: 'Deuteronomium',
+    abbreviation: 'Deut',
     chapters: 34,
     verses: [
       46,
@@ -304,8 +304,8 @@ books = [
     ]
   },
   {
-    name: "Jozua",
-    abbreviation: "Joz",
+    name: 'Jozua',
+    abbreviation: 'Joz',
     chapters: 24,
     verses: [
       18,
@@ -335,8 +335,8 @@ books = [
     ]
   },
   {
-    name: "Richteren",
-    abbreviation: "Rich",
+    name: 'Richteren',
+    abbreviation: 'Rich',
     chapters: 21,
     verses: [
       36,
@@ -362,10 +362,10 @@ books = [
       25
     ]
   },
-  {name: "Ruth", abbreviation: "Rut", chapters: 4, verses: [22, 23, 18, 22]},
+  { name: 'Ruth', abbreviation: 'Rut', chapters: 4, verses: [22, 23, 18, 22] },
   {
-    name: "1 Samuël",
-    abbreviation: "1 Sam",
+    name: '1 Samuël',
+    abbreviation: '1 Sam',
     chapters: 31,
     verses: [
       28,
@@ -402,8 +402,8 @@ books = [
     ]
   },
   {
-    name: "2 Samuël",
-    abbreviation: "2 Sam",
+    name: '2 Samuël',
+    abbreviation: '2 Sam',
     chapters: 24,
     verses: [
       27,
@@ -433,8 +433,8 @@ books = [
     ]
   },
   {
-    name: "1 Koningen",
-    abbreviation: "1 Kon",
+    name: '1 Koningen',
+    abbreviation: '1 Kon',
     chapters: 22,
     verses: [
       53,
@@ -462,8 +462,8 @@ books = [
     ]
   },
   {
-    name: "2 Koningen",
-    abbreviation: "2 Kon",
+    name: '2 Koningen',
+    abbreviation: '2 Kon',
     chapters: 25,
     verses: [
       18,
@@ -494,8 +494,8 @@ books = [
     ]
   },
   {
-    name: "1 Kronieken",
-    abbreviation: "1 Kron",
+    name: '1 Kronieken',
+    abbreviation: '1 Kron',
     chapters: 29,
     verses: [
       54,
@@ -530,8 +530,8 @@ books = [
     ]
   },
   {
-    name: "2 Kronieken",
-    abbreviation: "2 Kron",
+    name: '2 Kronieken',
+    abbreviation: '2 Kron',
     chapters: 36,
     verses: [
       17,
@@ -573,26 +573,26 @@ books = [
     ]
   },
   {
-    name: "Ezra",
-    abbreviation: "Ezr",
+    name: 'Ezra',
+    abbreviation: 'Ezr',
     chapters: 10,
     verses: [11, 70, 13, 24, 17, 22, 28, 36, 15, 44]
   },
   {
-    name: "Nehemia",
-    abbreviation: "Neh",
+    name: 'Nehemia',
+    abbreviation: 'Neh',
     chapters: 13,
     verses: [11, 20, 32, 23, 19, 19, 73, 19, 38, 39, 36, 47, 31]
   },
   {
-    name: "Esther",
-    abbreviation: "Es",
+    name: 'Esther',
+    abbreviation: 'Es',
     chapters: 10,
     verses: [22, 23, 15, 17, 14, 14, 10, 17, 32, 3]
   },
   {
-    name: "Job",
-    abbreviation: "Job",
+    name: 'Job',
+    abbreviation: 'Job',
     chapters: 42,
     verses: [
       22,
@@ -640,8 +640,8 @@ books = [
     ]
   },
   {
-    name: "Psalmen",
-    abbreviation: "Ps",
+    name: 'Psalmen',
+    abbreviation: 'Ps',
     chapters: 150,
     verses: [
       6,
@@ -797,8 +797,8 @@ books = [
     ]
   },
   {
-    name: "Spreuken",
-    abbreviation: "Spr",
+    name: 'Spreuken',
+    abbreviation: 'Spr',
     chapters: 31,
     verses: [
       33,
@@ -835,20 +835,20 @@ books = [
     ]
   },
   {
-    name: "Prediker",
-    abbreviation: "Pre",
+    name: 'Prediker',
+    abbreviation: 'Pre',
     chapters: 12,
     verses: [18, 26, 22, 17, 19, 12, 29, 17, 18, 20, 10, 14]
   },
   {
-    name: "Hooglied",
-    abbreviation: "Hoo",
+    name: 'Hooglied',
+    abbreviation: 'Hoo',
     chapters: 8,
     verses: [17, 17, 11, 16, 16, 13, 13, 14]
   },
   {
-    name: "Jesaja",
-    abbreviation: "Jes",
+    name: 'Jesaja',
+    abbreviation: 'Jes',
     chapters: 66,
     verses: [
       31,
@@ -920,8 +920,8 @@ books = [
     ]
   },
   {
-    name: "Jeremia",
-    abbreviation: "Jer",
+    name: 'Jeremia',
+    abbreviation: 'Jer',
     chapters: 52,
     verses: [
       19,
@@ -979,14 +979,14 @@ books = [
     ]
   },
   {
-    name: "Klaagliederen",
-    abbreviation: "Kla",
+    name: 'Klaagliederen',
+    abbreviation: 'Kla',
     chapters: 5,
     verses: [22, 22, 66, 22, 22]
   },
   {
-    name: "Ezechiël",
-    abbreviation: "Eze",
+    name: 'Ezechiël',
+    abbreviation: 'Eze',
     chapters: 48,
     verses: [
       28,
@@ -1040,51 +1040,51 @@ books = [
     ]
   },
   {
-    name: "Daniël",
-    abbreviation: "Dan",
+    name: 'Daniël',
+    abbreviation: 'Dan',
     chapters: 12,
     verses: [21, 49, 30, 37, 30, 29, 28, 27, 27, 21, 45, 13]
   },
   {
-    name: "Hosea",
-    abbreviation: "Hos",
+    name: 'Hosea',
+    abbreviation: 'Hos',
     chapters: 14,
     verses: [12, 22, 5, 19, 15, 11, 16, 14, 17, 15, 11, 15, 15, 10]
   },
-  {name: "Joël", abbreviation: "Joe", chapters: 3, verses: [20, 32, 21]},
+  { name: 'Joël', abbreviation: 'Joe', chapters: 3, verses: [20, 32, 21] },
   {
-    name: "Amos",
-    abbreviation: "Am",
+    name: 'Amos',
+    abbreviation: 'Am',
     chapters: 9,
     verses: [15, 16, 15, 13, 27, 14, 17]
   },
-  {name: "Obadja", abbreviation: "Ob", chapters: 1, verses: [21]},
-  {name: "Jona", abbreviation: "Jon", chapters: 4, verses: [17, 10, 10, 11]},
+  { name: 'Obadja', abbreviation: 'Ob', chapters: 1, verses: [21] },
+  { name: 'Jona', abbreviation: 'Jon', chapters: 4, verses: [17, 10, 10, 11] },
   {
-    name: "Micha",
-    abbreviation: "Mi",
+    name: 'Micha',
+    abbreviation: 'Mi',
     chapters: 7,
     verses: [16, 13, 12, 14, 14, 16, 20]
   },
-  {name: "Nahum", abbreviation: "Na", chapters: 3, verses: [15, 13, 19]},
-  {name: "Habakuk", abbreviation: "Ha", chapters: 3, verses: [17, 20, 19]},
-  {name: "Sefanja", abbreviation: "Sef", chapters: 3, verses: [18, 15, 20]},
-  {name: "Haggai", abbreviation: "Hag", chapters: 2, verses: [14, 24]},
+  { name: 'Nahum', abbreviation: 'Na', chapters: 3, verses: [15, 13, 19] },
+  { name: 'Habakuk', abbreviation: 'Ha', chapters: 3, verses: [17, 20, 19] },
+  { name: 'Sefanja', abbreviation: 'Sef', chapters: 3, verses: [18, 15, 20] },
+  { name: 'Haggai', abbreviation: 'Hag', chapters: 2, verses: [14, 24] },
   {
-    name: "Zacharia",
-    abbreviation: "Za",
+    name: 'Zacharia',
+    abbreviation: 'Za',
     chapters: 14,
     verses: [21, 13, 10, 14, 11, 15, 14, 23, 17, 12, 17, 14, 9, 21]
   },
   {
-    name: "Maleachi",
-    abbreviation: "Mal",
+    name: 'Maleachi',
+    abbreviation: 'Mal',
     chapters: 4,
     verses: [14, 17, 18, 6]
   },
   {
-    name: "Mattheüs",
-    abbreviation: "Mat",
+    name: 'Mattheüs',
+    abbreviation: 'Mat',
     chapters: 28,
     verses: [
       25,
@@ -1118,14 +1118,14 @@ books = [
     ]
   },
   {
-    name: "Markus",
-    abbreviation: "Mar",
+    name: 'Markus',
+    abbreviation: 'Mar',
     chapters: 16,
     verses: [45, 28, 35, 41, 43, 56, 37, 38, 50, 52, 33, 44, 37, 72, 47, 20]
   },
   {
-    name: "Lukas",
-    abbreviation: "Luk",
+    name: 'Lukas',
+    abbreviation: 'Luk',
     chapters: 24,
     verses: [
       80,
@@ -1155,8 +1155,8 @@ books = [
     ]
   },
   {
-    name: "Johannes",
-    abbreviation: "Joh",
+    name: 'Johannes',
+    abbreviation: 'Joh',
     chapters: 21,
     verses: [
       52,
@@ -1183,8 +1183,8 @@ books = [
     ]
   },
   {
-    name: "Handelingen",
-    abbreviation: "Han",
+    name: 'Handelingen',
+    abbreviation: 'Han',
     chapters: 28,
     verses: [
       26,
@@ -1218,109 +1218,109 @@ books = [
     ]
   },
   {
-    name: "Romeinen",
-    abbreviation: "Rom",
+    name: 'Romeinen',
+    abbreviation: 'Rom',
     chapters: 21,
     verses: [32, 29, 31, 25, 21, 23, 26, 39, 33, 21, 36, 21, 14, 23, 33, 27]
   },
   {
-    name: "1 Korintiërs",
-    abbreviation: "1 Kor",
+    name: '1 Korintiërs',
+    abbreviation: '1 Kor',
     chapters: 16,
     verses: [31, 16, 23, 21, 13, 20, 40, 13, 27, 33, 34, 31, 13, 40, 58, 24]
   },
   {
-    name: "2 Korintiërs",
-    abbreviation: "2 Kor",
+    name: '2 Korintiërs',
+    abbreviation: '2 Kor',
     chapters: 16,
     verses: [24, 17, 18, 18, 21, 18, 16, 24, 15, 18, 33, 21, 13]
   },
   {
-    name: "Galaten",
-    abbreviation: "Gal",
+    name: 'Galaten',
+    abbreviation: 'Gal',
     chapters: 6,
     verses: [24, 21, 29, 31, 26, 18]
   },
   {
-    name: "Efeziërs",
-    abbreviation: "Ef",
+    name: 'Efeziërs',
+    abbreviation: 'Ef',
     chapters: 6,
     verses: [23, 22, 21, 32, 33, 24]
   },
   {
-    name: "Filippenzen",
-    abbreviation: "Fili",
+    name: 'Filippenzen',
+    abbreviation: 'Fili',
     chapters: 4,
     verses: [30, 30, 21, 23]
   },
   {
-    name: "Kolossenzen",
-    abbreviation: "Kol",
+    name: 'Kolossenzen',
+    abbreviation: 'Kol',
     chapters: 4,
     verses: [29, 23, 25, 18]
   },
   {
-    name: "1 Tessalonicenzen",
-    abbreviation: "1 Tes",
+    name: '1 Tessalonicenzen',
+    abbreviation: '1 Tes',
     chapters: 5,
     verses: [10, 20, 13, 18, 28]
   },
   {
-    name: "2 Tessalonicenzen",
-    abbreviation: "2 Tes",
+    name: '2 Tessalonicenzen',
+    abbreviation: '2 Tes',
     chapters: 3,
     verses: [12, 17, 18]
   },
   {
-    name: "1 Timotheüs",
-    abbreviation: "1 Tim",
+    name: '1 Timotheüs',
+    abbreviation: '1 Tim',
     chapters: 6,
     verses: [20, 15, 16, 16, 25, 21]
   },
   {
-    name: "2 Timotheüs",
-    abbreviation: "2 Tim",
+    name: '2 Timotheüs',
+    abbreviation: '2 Tim',
     chapters: 4,
     verses: [18, 26, 17, 22]
   },
-  {name: "Titus", abbreviation: "Tit", chapters: 3, verses: [16, 15, 15]},
-  {name: "Filemon", abbreviation: "File", chapters: 1, verses: [25]},
+  { name: 'Titus', abbreviation: 'Tit', chapters: 3, verses: [16, 15, 15] },
+  { name: 'Filemon', abbreviation: 'File', chapters: 1, verses: [25] },
   {
-    name: "Hebreeën",
-    abbreviation: "Heb",
+    name: 'Hebreeën',
+    abbreviation: 'Heb',
     chapters: 13,
     verses: [14, 18, 19, 16, 14, 20, 28, 13, 28, 39, 40, 29, 25]
   },
   {
-    name: "Jakobus",
-    abbreviation: "Jak",
+    name: 'Jakobus',
+    abbreviation: 'Jak',
     chapters: 5,
     verses: [27, 26, 18, 17, 20]
   },
   {
-    name: "1 Petrus",
-    abbreviation: "1 Pet",
+    name: '1 Petrus',
+    abbreviation: '1 Pet',
     chapters: 5,
     verses: [25, 25, 22, 19, 14]
   },
   {
-    name: "2 Petrus",
-    abbreviation: "2 Pet",
+    name: '2 Petrus',
+    abbreviation: '2 Pet',
     chapters: 3,
     verses: [21, 22, 18]
   },
   {
-    name: "1 Johannes",
-    abbreviation: "1 Joh",
+    name: '1 Johannes',
+    abbreviation: '1 Joh',
     chapters: 5,
     verses: [10, 29, 24, 21, 21]
   },
-  {name: "2 Johannes", abbreviation: "2 Joh", chapters: 1, verses: [13]},
-  {name: "3 Johannes", abbreviation: "3 Joh", chapters: 1, verses: [15]},
-  {name: "Judas", abbreviation: "Jud", chapters: 1, verses: [25]},
+  { name: '2 Johannes', abbreviation: '2 Joh', chapters: 1, verses: [13] },
+  { name: '3 Johannes', abbreviation: '3 Joh', chapters: 1, verses: [15] },
+  { name: 'Judas', abbreviation: 'Jud', chapters: 1, verses: [25] },
   {
-    name: "Openbaring",
-    abbreviation: "Op",
+    name: 'Openbaring',
+    abbreviation: 'Op',
     chapters: 22,
     verses: [
       20,
@@ -1353,26 +1353,22 @@ books.each do |book|
   puts book[:name]
   id = Biblebook.find_by(name: book[:name]).id
   (1..book[:chapters]).each_with_index do |chapter, index|
-    unless Chapter.exists?(chapter_number: chapter, biblebook_id: id)
-      Chapter.create!(
-        chapter_number: chapter,
-        description: "",
-        nrofverses: book[:verses][index],
-        biblebook_id: id
-      )
-    end
+    next if Chapter.exists?(chapter_number: chapter, biblebook_id: id)
+
+    Chapter.create!(
+      chapter_number: chapter,
+      description: '',
+      nrofverses: book[:verses][index],
+      biblebook_id: id
+    )
   end
 
   bbook = Biblebook.find_by(name: book[:name])
-  if bbook.abbreviation.nil?
-    bbook.update_attribute(:abbreviation, book[:abbreviation])
-  end
+  bbook.update_attribute(:abbreviation, book[:abbreviation]) if bbook.abbreviation.nil?
 end
 
-unless User.exists?(email: "admin@biblestudy.com")
-  User.create!(email: "admin@biblestudy.com", password: "bsp4ever", admin: true)
+unless User.exists?(email: 'admin@biblestudy.com')
+  User.create!(email: 'admin@biblestudy.com', password: 'bsp4ever', admin: true)
 end
 
-unless User.exists?(email: "viewer@biblestudy.com")
-  User.create!(email: "viewer@biblestudy.com", password: "bsp4ever")
-end
+User.create!(email: 'viewer@biblestudy.com', password: 'bsp4ever') unless User.exists?(email: 'viewer@biblestudy.com')

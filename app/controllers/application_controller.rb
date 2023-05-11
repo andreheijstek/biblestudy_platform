@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   #
   # rubocop: disable Style/OptionalArguments
   def locals(action = nil, hash)
-    render action: action, locals: hash
+    render action:, locals: hash
   end
 
   # rubocop: enable Style/OptionalArguments
@@ -46,6 +46,6 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authorized
-    redirect_to root_path, alert: t("not_allowed")
+    redirect_to root_path, alert: t('not_allowed')
   end
 end

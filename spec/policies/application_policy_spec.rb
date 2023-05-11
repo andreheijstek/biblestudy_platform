@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 describe ApplicationPolicy do
-  context "with permissions" do
+  context 'with permissions' do
     subject { described_class.new(user, studynote) }
 
-    context "when a visitor" do
+    context 'when a visitor' do
       let(:user) { nil }
       let(:author) { create(:user) }
-      let(:studynote) { create(:studynote, author: author) }
+      let(:studynote) { create(:studynote, author:) }
 
       before { assign_role!(user, :viewer, studynote) }
 
@@ -19,7 +19,7 @@ describe ApplicationPolicy do
       it { is_expected.not_to permit_action(:destroy) }
     end
 
-    context "when an author" do
+    context 'when an author' do
       let(:user) { create(:user) }
       let(:studynote) { create(:studynote, author: user) }
 
@@ -31,10 +31,10 @@ describe ApplicationPolicy do
       it { is_expected.not_to permit_action(:destroy) }
     end
 
-    context "when a user" do
+    context 'when a user' do
       let(:user) { create(:user) }
       let(:author) { create(:user) }
-      let(:studynote) { create(:studynote, author: author) }
+      let(:studynote) { create(:studynote, author:) }
 
       it { is_expected.to permit_action(:show) }
       it { is_expected.not_to permit_action(:create) }

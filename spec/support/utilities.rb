@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-#:reek:UncommunicativeMethodName very deliberately short
-#:reek:UtilityFunction yes it is!
+# :reek:UncommunicativeMethodName very deliberately short
+# :reek:UtilityFunction yes it is!
 # noinspection RubyInstanceMethodNamingConvention
 def t(string, options = {})
   I18n.t(string, **options)
@@ -16,7 +16,7 @@ def ensure_on(path)
 end
 
 def submit_form
-  find(:name, "commit").click
+  find(:name, 'commit').click
 end
 
 def should_see(text)
@@ -38,6 +38,6 @@ end
 # end
 
 def within_table_row(position, &block)
-  row = find_all("table tr")[position]
+  row = find_all('table tr')[position]
   within(row, &block)
 end

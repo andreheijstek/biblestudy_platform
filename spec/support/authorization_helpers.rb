@@ -2,11 +2,11 @@
 
 # Helpers for authorization tests
 
-#:reek:UtilityFunction - don't know right now how to solve
+# :reek:UtilityFunction - don't know right now how to solve
 module AuthorizationHelpers
   def assign_role!(user, role, studynote)
-    Role.where(user: user, studynote: studynote).delete_all
-    Role.create!(user: user, role: role, studynote: studynote)
+    Role.where(user:, studynote:).delete_all
+    Role.create!(user:, role:, studynote:)
   end
 end
 

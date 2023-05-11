@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Policy class defining who is authorized to CRUD Studynotes
-#:reek:InstanceVariableAssumption - should be no problem here. Default Rails
+# :reek:InstanceVariableAssumption - should be no problem here. Default Rails
 # behaviour, and covered by :set_user before_action
 class StudynotePolicy < ApplicationPolicy
   # Policy class defining who is authorized to CRUD Studynotes

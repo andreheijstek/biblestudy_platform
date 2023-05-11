@@ -21,7 +21,7 @@
 
 FactoryBot.define do
   factory :biblebook do
-    name { "Voorbeeld bijbelboek" }
+    name { 'Voorbeeld bijbelboek' }
     booksequence { 0 }
 
     factory :biblebook_with_chapters do
@@ -30,7 +30,7 @@ FactoryBot.define do
       end
 
       after(:create) do |biblebook, evaluator|
-        create_list(:chapter, evaluator.chapters_count, biblebook: biblebook)
+        create_list(:chapter, evaluator.chapters_count, biblebook:)
       end
     end
   end

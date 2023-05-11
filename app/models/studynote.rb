@@ -25,13 +25,13 @@ class Studynote < ApplicationRecord
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
 
   accepts_nested_attributes_for :pericopes,
-    allow_destroy: true,
-    reject_if: RejectDeeplyNested.blank?
+                                allow_destroy: true,
+                                reject_if: RejectDeeplyNested.blank?
 
   has_many :biblebooks, through: :pericopes
   has_many :roles, dependent: :delete_all
 
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: 'User'
 
   delegate :username, to: :author, prefix: true
   delegate :email, to: :author, prefix: true

@@ -1,3 +1,5 @@
-every 1.day, at: "5:00 am" do
-  rake "-s sitemap:refresh"
+# frozen_string_literal: true
+
+every 1.day, at: '5:00 am' do
+  rake '-s sitemap:refresh'
 end

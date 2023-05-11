@@ -27,16 +27,16 @@ class Biblebook < ActiveRecord::Base
   has_many :studynotes, through: :pericopes
   has_one :biblebook_category
 
-  default_scope { order("booksequence ASC") }
-  scope :find_by_full_name, lambda { |name| where(name: name) }
+  default_scope { order('booksequence ASC') }
+  scope :find_by_full_name, ->(name) { where(name:) }
   scope :find_by_abbreviation,
-    lambda { |abbreviation|
-      where(Biblebook.arel_table[:abbreviation].matches(abbreviation))
-    }
+        lambda { |abbreviation|
+          where(Biblebook.arel_table[:abbreviation].matches(abbreviation))
+        }
   scope :find_names_by_like,
-    lambda { |name|
-      where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%"))
-    }
+        lambda { |name|
+          where(Biblebook.arel_table[:name].matches("%#{name.slice(0, 5)}%"))
+        }
 
   # Returns the number of chapters in this biblebook
   # @return [Integer]
@@ -44,7 +44,7 @@ class Biblebook < ActiveRecord::Base
     all_chapters.count
   end
 
-  alias_method :size, :nr_of_chapters
+  alias size nr_of_chapters
 
   # A chapter is valid if it exists in the biblebook,
   # so it must be positive and less than the number of chapters
@@ -94,13 +94,12 @@ class Biblebook < ActiveRecord::Base
   # That means that this method has as a side effect that an error attribute gets filled if this validation fails.
   #
 
-  # :reek:TooManyStatements - to be refactored
+  # :reek:TooManyStatements as well
+  # rubocop:disable Metrics/MethodLength
   def self.validate_name(given_name, errors)
     names = possible_book_names(given_name)
-    name = ""
-    nr_of_biblebooks = names.size
 
-    case nr_of_biblebooks
+    case names.size
     when 0
       errors.add(:biblebook_name, :unknown_biblebook)
     when 1
@@ -108,14 +107,14 @@ class Biblebook < ActiveRecord::Base
     else
       errors.add(:biblebook_name,
                  :ambiguous_abbreviation,
-                 given_name: given_name,
+                 given_name:,
                  biblebooks: names.to_sentence)
     end
 
-    [name, errors]
+    [name || '', errors]
   end
-  # rubocop:disable Metrics/MethodLength
   # rubocop:enable Metrics/MethodLength
+
   private
 
   def all_chapters

@@ -59,7 +59,7 @@ class Pericope < ApplicationRecord
     same_chapter? && same_verse?
   end
 
-  alias_method :single_verse?, :one_verse?
+  alias single_verse? one_verse?
 
   # Detects if a Pericope spans multiple verses, like Genesis 1:1 - 1:3
   # @return [Boolean]
@@ -69,9 +69,9 @@ class Pericope < ApplicationRecord
 
   def populate_bibleverses
     @starting_bibleverse =
-      BibleverseOld.new({ chapter: start_verse.chapter, verse: start_verse.verse})
+      BibleverseOld.new({ chapter: start_verse.chapter, verse: start_verse.verse })
     @ending_bibleverse =
-      BibleverseOld.new({ chapter: end_verse.chapter, verse: end_verse.verse})
+      BibleverseOld.new({ chapter: end_verse.chapter, verse: end_verse.verse })
   end
 
   private
