@@ -7,6 +7,8 @@ before_script:
 - psql -c 'create database biblestudy_platform_test;' -U postgres
 script:
 - bundle exec rspec
+- bundle exec rubocop
+- bundle exec rake
 - undercover --compare main
 before_install:
 - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu

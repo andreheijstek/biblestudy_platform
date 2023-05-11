@@ -77,10 +77,11 @@ group :development do
   gem "rails_best_practices"
   gem "rails-erd"
   gem "reek"
-  # gem 'rubocop'
-  # gem 'rubocop-performance'
-  # gem 'rubocop-rails'
-  # gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'undercover'
   gem "web-console"
   # gem 'xray-rails'
   gem "yard"

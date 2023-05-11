@@ -266,6 +266,8 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    imagen (0.1.8)
+      parser (>= 2.5, != 2.5.1.1)
     iniparse (1.5.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -472,15 +474,28 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
+    rubocop-capybara (2.18.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.22.0)
+      rubocop (~> 1.33)
     rubocop-performance (1.16.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.19.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.22.0)
+      rubocop (~> 1.33)
+      rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
     ruby-graphviz (1.2.5)
       rexml
     ruby-progressbar (1.13.0)
     ruby_parser (3.20.0)
       sexp_processor (~> 4.16)
     rubyzip (2.3.2)
+    rugged (1.5.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -570,6 +585,10 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    undercover (0.4.5)
+      imagen (>= 0.1.8)
+      rainbow (>= 2.1, < 4.0)
+      rugged (>= 0.27, < 1.6)
     unicode-display_width (2.4.2)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -662,6 +681,10 @@ DEPENDENCIES
   reject_deeply_nested
   rspec-rails
   rspec-tracer
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   sass-rails
   sdoc
   simple_form
@@ -676,6 +699,7 @@ DEPENDENCIES
   titleize
   trix-rails
   uglifier
+  undercover
   web-console
   webdrivers
   webpack
