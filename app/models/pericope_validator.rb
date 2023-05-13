@@ -105,9 +105,9 @@ class PericopeValidator < ActiveModel::Validator
     else
       begin
         raise 'unknown pericope type'
-      rescue StandardError => e
-        Rails.logger e.message
-        Rails.logger e.backtrace.inspect
+      rescue StandardError => error
+        Rails.logger error.message
+        Rails.logger error.backtrace.inspect
       end
     end
   end
