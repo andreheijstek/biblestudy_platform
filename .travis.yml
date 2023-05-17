@@ -3,9 +3,8 @@ cache: bundler
 sudo: false
 addons:
   chrome: stable
-pre_commit:
-  - bundle exec rspec
 before_script:
+- bundle exec rspec
 - psql -c 'create database biblestudy_platform_test;' -U postgres
 script:
 - bundle exec rspec
