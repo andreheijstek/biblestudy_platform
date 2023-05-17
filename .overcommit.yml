@@ -1,4 +1,4 @@
- CommitMsg:
+CommitMsg:
   CapitalizedSubject:
     enabled: false
 
@@ -55,10 +55,10 @@ PreCommit:
 
   Prettier:
     enabled: true
-    command: ['bundle', 'exec', 'rbprettier', '--write', '**/*.rb']
+    command: [ 'bundle', 'exec', 'rbprettier', '--write', '**/*.rb' ]
 
-  LolDba:
-    lol_dba db:find_indexes
+#  LolDba:
+#    lol_dba db:find_indexes
 
 PrePush:
   Brakeman:
@@ -66,4 +66,4 @@ PrePush:
   Undercover:
     enabled: true
     required: true
-    command: ['undercover', '--compare', 'main']
+    command: [ 'undercover', '--compare', 'main' ]
