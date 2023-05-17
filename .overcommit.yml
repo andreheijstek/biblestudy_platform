@@ -30,6 +30,10 @@ PreCommit:
   BundleCheck:
     enabled: true
 
+  Rspec:
+    enabled: true
+    command: [ 'bundle', 'exec', 'rspec' ] # Invoke within Bundler context
+
   RuboCop:
     enabled: true
     command: [ 'bundle', 'exec', 'rubocop' ] # Invoke within Bundler context

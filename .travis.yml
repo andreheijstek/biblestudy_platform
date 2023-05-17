@@ -31,4 +31,4 @@ deploy:
   skip_cleanup: true
 notifications:
   email:
-  - andre.heijstek@gmail.com
+  - andre.heijstek@hey.com
