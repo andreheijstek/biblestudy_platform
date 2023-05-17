@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #
 class BibleVerse < ApplicationRecord
+  include Comparable
   belongs_to :biblebook
 
   # Spaceship to compare Verses
