@@ -23,6 +23,8 @@
 # Models a Studynote, the main Object for this application
 class Studynote < ApplicationRecord
   has_many :pericopes, inverse_of: :studynote, dependent: :destroy
+  has_many :studynote_tags
+  has_many :st_tags, through: :studynote_tags
 
   accepts_nested_attributes_for :pericopes,
                                 allow_destroy: true,

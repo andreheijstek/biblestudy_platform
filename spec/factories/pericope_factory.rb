@@ -4,20 +4,16 @@
 #
 # Table name: pericopes
 #
-#  id                  :integer          not null, primary key
-#  biblebook_name      :string
-#  ending_bibleverse   :integer
-#  ending_chapter_nr   :integer
-#  name                :string
-#  sequence            :integer
-#  starting_bibleverse :integer
-#  starting_chapter_nr :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  biblebook_id        :integer
-#  end_verse_id        :bigint
-#  start_verse_id      :bigint
-#  studynote_id        :integer
+#  id             :integer          not null, primary key
+#  biblebook_name :string
+#  name           :string
+#  sequence       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  biblebook_id   :integer
+#  end_verse_id   :bigint
+#  start_verse_id :bigint
+#  studynote_id   :integer
 #
 # Indexes
 #
