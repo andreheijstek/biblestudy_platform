@@ -39,7 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_061320) do
     t.string "abbreviation"
     t.bigint "bible_verse_id"
     t.bigint "biblebook_category_id"
-    t.index ["biblebook_category_id"], name: "index_biblebooks_on_biblebook_category_id"
+    t.index ["biblebook_category_id"],
+            name: "index_biblebooks_on_biblebook_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -66,8 +67,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_061320) do
     t.bigint "ending_verse_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["ending_verse_id"], name: "index_pericope_as_ranges_on_ending_verse_id"
-    t.index ["starting_verse_id"], name: "index_pericope_as_ranges_on_starting_verse_id"
+    t.index ["ending_verse_id"],
+            name: "index_pericope_as_ranges_on_ending_verse_id"
+    t.index ["starting_verse_id"],
+            name: "index_pericope_as_ranges_on_starting_verse_id"
   end
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
@@ -136,7 +139,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_061320) do
     t.boolean "admin", default: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"],
+            name: "index_users_on_reset_password_token",
+            unique: true
   end
 
   create_table "verses", id: :serial, force: :cascade do |t|
