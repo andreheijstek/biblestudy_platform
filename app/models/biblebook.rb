@@ -5,19 +5,13 @@
 #
 # Table name: biblebooks
 #
-#  id                    :integer          not null, primary key
-#  abbreviation          :string
-#  booksequence          :integer
-#  name                  :string
-#  testament             :string
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  bible_verse_id        :bigint
-#  biblebook_category_id :bigint
-#
-# Indexes
-#
-#  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
+#  id           :integer          not null, primary key
+#  abbreviation :string
+#  booksequence :integer
+#  name         :string
+#  testament    :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 class Biblebook < ActiveRecord::Base
   validates :name, presence: true
@@ -27,7 +21,7 @@ class Biblebook < ActiveRecord::Base
   has_many :studynotes, through: :pericopes
   has_one :biblebook_category
 
-  default_scope { order('booksequence ASC') }
+  default_scope { order("booksequence ASC") }
   scope :find_by_full_name, ->(name) { where(name:) }
   scope :find_by_abbreviation,
         lambda { |abbreviation|
@@ -105,13 +99,15 @@ class Biblebook < ActiveRecord::Base
     when 1
       name = names.first
     else
-      errors.add(:biblebook_name,
-                 :ambiguous_abbreviation,
-                 given_name:,
-                 biblebooks: names.to_sentence)
+      errors.add(
+        :biblebook_name,
+        :ambiguous_abbreviation,
+        given_name:,
+        biblebooks: names.to_sentence
+      )
     end
 
-    [name || '', errors]
+    [name || "", errors]
   end
   # rubocop:enable Metrics/MethodLength
 

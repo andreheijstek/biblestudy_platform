@@ -22,7 +22,7 @@
 
 FactoryBot.define do
   factory :studynote do
-    title { 'titel' }
-    note { 'text' }
+    title { "titel" }
+    note { "text" }
   end
 end

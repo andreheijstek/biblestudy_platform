@@ -1,31 +1,31 @@
 # frozen_string_literal: true
 
 # TODO: There's apparently quite a lot of work to do here still
-feature 'Users can delete pericopes', js: true do
+feature "Users can delete pericopes", js: true do
   let(:user) { create(:user) }
   let(:studynote) do
     create(
       :studynote,
-      pericope: 'Jona 1:1-5',
-      title: 'Jona met 1 perikoop',
-      note: 'zomaar iets'
+      pericope: "Jona 1:1-5",
+      title: "Jona met 1 perikoop",
+      note: "zomaar iets"
     )
   end
   let(:nsp) { NewStudynotesPage.new }
 
   before do
-    create(:biblebook, name: 'Jona')
+    create(:biblebook, name: "Jona")
     login_as(user)
 
     nsp.load
-    nsp.title_field.set('Titel')
-    nsp.studynote_field.set('Jona is bijzonder.')
+    nsp.title_field.set("Titel")
+    nsp.studynote_field.set("Jona is bijzonder.")
   end
 
-  scenario 'a second pericope' do
-    nsp.pericopes[0].set('Jona 1:1 - 1:10')
+  scenario "a second pericope" do
+    nsp.pericopes[0].set("Jona 1:1 - 1:10")
     nsp.add_pericope_button.click
-    nsp.pericopes[1].set('Jona 2:20 - 3:3')
+    nsp.pericopes[1].set("Jona 2:20 - 3:3")
 
     # TODO: Assert afmaken
     # nsp.remove_pericope_button[1].click
@@ -33,8 +33,8 @@ feature 'Users can delete pericopes', js: true do
     # should_not_see "perikoop 2"
   end
 
-  scenario 'but not the first/only one' do
-    nsp.pericopes[0].set('Jona 1:1 - 1:10')
+  scenario "but not the first/only one" do
+    nsp.pericopes[0].set("Jona 1:1 - 1:10")
     nsp.remove_pericope_button[0].click
 
     # TODO: I don't know how to test the alert here.

@@ -7,7 +7,7 @@ module ApplicationHelper
     return if parts.empty?
 
     content_for :title do
-      (parts << t(:biblestudy_platform)).join(' - ')
+      (parts << t(:biblestudy_platform)).join(" - ")
     end
   end
 
@@ -15,7 +15,7 @@ module ApplicationHelper
   # :reek:FeatureEnvy - strange to get that message, here, this is especially a helper module for these kind
   # of methods
   def timeago(time, options = {})
-    options[:class] ||= 'timeago'
+    options[:class] ||= "timeago"
     return unless time
 
     tag.time(time.to_s, options.merge(datetime: time.getutc.iso8601))

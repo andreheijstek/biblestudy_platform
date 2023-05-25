@@ -35,7 +35,7 @@ PreCommit:
     command: [ 'bundle', 'exec', 'rspec' ] # Invoke within Bundler context
 
   RuboCop:
-    enabled: true
+    enabled: false
     command: [ 'bundle', 'exec', 'rubocop' ] # Invoke within Bundler context
 
   RuboCopPerformance:

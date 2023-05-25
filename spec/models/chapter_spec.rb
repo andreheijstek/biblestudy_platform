@@ -25,12 +25,12 @@ RSpec.describe Chapter, type: :model do
   let(:late) { build(:chapter, chapter_number: 2) }
   let(:chap) { build(:chapter, chapter_number: 1, nrofverses: 2) }
 
-  it 'compares different chapters' do
+  it "compares different chapters" do
     expect(late > early).to be(true)
   end
 
   # :reek:FeatureEnvy
-  it 'validates if verses are in range' do
+  it "validates if verses are in range" do
     expect(chap.valid_verse?(2)).to be(true)
     expect(chap.valid_verse?(0)).to be(false)
     expect(chap.valid_verse?(3)).to be(false)

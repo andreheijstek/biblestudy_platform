@@ -20,11 +20,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'simplecov'
-require 'simplecov-lcov'
-require 'capybara'
-require 'capybara/dsl'
-require 'capybara/rspec'
+require "simplecov"
+require "simplecov-lcov"
+require "capybara"
+require "capybara/dsl"
+require "capybara/rspec"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatter =
@@ -36,7 +36,7 @@ SimpleCov.start do
 end
 
 # Load RSpec Tracer
-require 'rspec_tracer'
+require "rspec_tracer"
 RSpecTracer.start
 
 RSpec.configure do |config|
@@ -106,7 +106,7 @@ RSpec.configure do |config|
   # set the persistence file path, which is needed to use
   # - only-failures or
   # - next-failure
-  config.example_status_persistence_file_path = 'spec/examples.txt'
+  config.example_status_persistence_file_path = "spec/examples.txt"
 
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run "rails generate rspec:install"
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
-require 'rspec/rails'
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
+require "rspec/rails"
 
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'spec_helper'
-require 'pundit/rspec'
+require "spec_helper"
+require "pundit/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -22,8 +22,8 @@ require 'pundit/rspec'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
-Dir[Rails.root.join('spec/page_objects/**/*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
+Dir[Rails.root.join("spec/page_objects/**/*.rb")].sort.each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -33,7 +33,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you"re not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path               = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
 
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -53,23 +53,19 @@ RSpec.configure do |config|
 
   Capybara.register_driver :headless_chrome do |app|
     options = Selenium::WebDriver::Chrome::Options.new
-    options.add_argument 'headless'
-    options.add_argument 'no-sandbox'
-    options.add_argument 'disable-gpu'
-    options.add_argument 'disable-dev-shm-usage'
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      options:
-    )
+    options.add_argument "headless"
+    options.add_argument "no-sandbox"
+    options.add_argument "disable-gpu"
+    options.add_argument "disable-dev-shm-usage"
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
   end
 
   Capybara.default_driver = :headless_chrome
 
   ## Capy Configuration Defaults
   Capybara.configure do |config|
-    config.server                = :puma
-    config.javascript_driver     = :headless_chrome
+    config.server = :puma
+    config.javascript_driver = :headless_chrome
     config.default_max_wait_time = 7
   end
 

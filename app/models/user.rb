@@ -42,6 +42,6 @@ class User < ApplicationRecord
 
   # Creates a nice user string to be displayed
   def to_s
-    "#{email} (#{admin? ? 'Admin' : 'User'})"
+    "#{email} (#{admin? ? "Admin" : "User"})"
   end
 end

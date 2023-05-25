@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = 'http://www.bijbelstudie-platform.nl'
+SitemapGenerator::Sitemap.default_host = "http://www.bijbelstudie-platform.nl"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -26,10 +26,10 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
-  add '/pages/about'
-  add '/users/sign_in'
-  add '/users/sign_up'
+  add "/pages/about"
+  add "/users/sign_in"
+  add "/users/sign_up"
   Studynote.find_each do |content|
-    add content_path(content), lastmod: content.updated_at, changefreq: 'daily'
+    add content_path(content), lastmod: content.updated_at, changefreq: "daily"
   end
 end

@@ -17,16 +17,16 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # host = "www.bijbelstudie-platform.nl"
-  host = 'localhost:3000'
+  host = "localhost:3000"
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     authentication: :plain,
-    address: 'smtp.mailgun.org',
+    address: "smtp.mailgun.org",
     port: 587,
-    domain: 'bijbelstudie-platform.mailgun.org',
-    user_name: 'postmaster@bijbelstudie-platform.mailgun.org',
-    password: 'MYPASSWORD'
+    domain: "bijbelstudie-platform.mailgun.org",
+    user_name: "postmaster@bijbelstudie-platform.mailgun.org",
+    password: "MYPASSWORD"
   }
   config.action_mailer.default_url_options = { host: }
 

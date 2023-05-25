@@ -31,7 +31,7 @@ class Studynote < ApplicationRecord
   has_many :biblebooks, through: :pericopes
   has_many :roles, dependent: :delete_all
 
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: "User"
 
   delegate :username, to: :author, prefix: true
   delegate :email, to: :author, prefix: true

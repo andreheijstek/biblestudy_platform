@@ -4,30 +4,22 @@
 #
 # Table name: biblebooks
 #
-#  id                    :integer          not null, primary key
-#  abbreviation          :string
-#  booksequence          :integer
-#  name                  :string
-#  testament             :string
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  bible_verse_id        :bigint
-#  biblebook_category_id :bigint
-#
-# Indexes
-#
-#  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
+#  id           :integer          not null, primary key
+#  abbreviation :string
+#  booksequence :integer
+#  name         :string
+#  testament    :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 FactoryBot.define do
   factory :biblebook do
-    name { 'Voorbeeld bijbelboek' }
+    name { "Voorbeeld bijbelboek" }
     booksequence { 0 }
 
     factory :biblebook_with_chapters do
-      transient do
-        chapters_count { 5 }
-      end
+      transient { chapters_count { 5 } }
 
       after(:create) do |biblebook, evaluator|
         create_list(:chapter, evaluator.chapters_count, biblebook:)
