@@ -10,5 +10,7 @@ class NewStudynotesPage < SitePrism::Page
 
   element :title_field, "#studynote_title"
   element :studynote_field, "trix-editor"
+  element :st_tag_field, "#studynote_tag_list"
+
   element :submit_button, "#submit_form"
 end

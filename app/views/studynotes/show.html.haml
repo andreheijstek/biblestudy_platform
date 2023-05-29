@@ -20,6 +20,14 @@
   %table#attributes
     %tr
       %th
+        = "tags"
+      %td
+        #tags
+          = studynote.tag_list
+    -#      TODO: .first is not enough, I need to iterate over the tags to show them all,
+    -# but did not get that syntax OK
+    %tr
+      %th
         = t('author')
       %td
         #author
@@ -31,6 +39,7 @@
     -#    #created_at
     -#      # TODO: commented because of a bug I don't understand
     -#      #         wrong number of arguments (given 3, expected 1..2)
+    -#      # probably to be fixed by adding braces {} around created_at
     -#       = timeago(studynote.created_at)
     -#    = t('ago')
 

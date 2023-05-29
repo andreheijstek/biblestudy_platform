@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 ruby RUBY_VERSION.to_s
 
+gem 'acts-as-taggable-on'
 gem 'annotate'
 gem 'bootstrap-sass'
 gem 'client_side_validations'

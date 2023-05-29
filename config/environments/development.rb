@@ -16,6 +16,10 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
   # host = "www.bijbelstudie-platform.nl"
   host = "localhost:3000"
 

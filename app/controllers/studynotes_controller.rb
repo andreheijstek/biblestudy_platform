@@ -30,6 +30,10 @@ class StudynotesController < ApplicationController
   # Creates and saves a new Studynote
   def create
     @studynote = Studynote.new(studynote_params)
+    @tag_list = params[:studynote][:tag_list].split(",") # Assuming tags are comma-separated
+    logger.info @tag_list
+    # TODO: making tag_list an instance variable is a quick trick. I think passing a variable is better,
+    # but that breaks existing callers of save_studynote
     studynote.author = current_user
     save_studynote
   end
@@ -43,6 +47,7 @@ class StudynotesController < ApplicationController
   # Updates an existing Studynote
   def update
     authorize studynote, :update?
+    @tag_list = params[:studynote][:tag_list].split(",") # Assuming tags are comma-separated
     update_studynote
   end
 
@@ -56,9 +61,11 @@ class StudynotesController < ApplicationController
 
   private
 
+  # :reek:TooManyStatements
   def update_studynote
     name = Studynote.model_name.human
     if studynote.update(studynote_params)
+      @studynote.tag_list = @tag_list
       flash[:notice] = t(:item_updated, item: name)
       redirect_to studynote
     else
@@ -67,9 +74,11 @@ class StudynotesController < ApplicationController
     end
   end
 
+  # :reek:TooManyStatements
   def save_studynote
     name = Studynote.model_name.human
     if studynote.save
+      @studynote.tag_list = @tag_list
       flash[:notice] = t(:item_created, item: name)
       redirect_to studynote
     else
@@ -83,7 +92,8 @@ class StudynotesController < ApplicationController
       :id,
       :title,
       :note,
-      pericopes_attributes: %i[id name _destroy]
+      :tag_list,
+      pericopes_attributes: %i[id name _destroy tag_list]
     )
   end
 
