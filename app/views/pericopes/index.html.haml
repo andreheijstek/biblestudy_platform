@@ -5,11 +5,6 @@
     %li
       = link_to t(:new_studynote), new_studynote_path, class: 'new', id: 'new_studynote'
 
-:javascript
-  document.addEventListener("DOMContentLoaded", function() {
-    new bootstrap.Tab(document.getElementById("myTabs")).show();
-  });
-
 %ul.nav.nav-pills#myTabs
   %li.active.nav-item
     %a{"data-toggle" => "pill", :href => "#studynotes"} Bijbelstudies
@@ -61,7 +56,6 @@
           / end nested accordion
   #tags.tab-pane.fade
     <!-- Content for Tab 2 -->
-    %h2 Tags
     %ul
       - @tags.each do |tag|
         %li
