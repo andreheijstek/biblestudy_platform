@@ -4,6 +4,7 @@
 # Handling the typical CRUD actions
 class PericopesController < ApplicationController
   # Gets data so all Biblebooks and Pericopes can be shown
+  # :reek:TooManyStatements
   def index
     ot = Biblebook.where(testament: "oud").select("name")
     nt = Biblebook.where(testament: "nieuw").select("name")
@@ -11,6 +12,9 @@ class PericopesController < ApplicationController
     biblebook_counts = Pericope.group(:biblebook_name).count
     testament_counts =
       Pericope.joins(:biblebook).group("biblebooks.testament").count
+
+    @tags = StTag.order(:name)
+
     locals ot:, nt:, biblebook_counts:, testament_counts:
   end
 

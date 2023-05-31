@@ -1,0 +1,6 @@
+%header
+  %h1 Tags Overview
+  %ul
+  - @st_tags.each do |tag|
+    %li
+      = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)

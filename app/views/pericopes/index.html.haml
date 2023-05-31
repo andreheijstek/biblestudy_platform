@@ -44,4 +44,8 @@
                   \#{"#{book.name} (#{study_count})"}
             = render :partial => 'book_table', locals: { book: book, bookname: bookname }
         / end nested accordion
-
+  %h2 Tags
+  %ul
+    - @tags.each do |tag|
+      %li
+        = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)
