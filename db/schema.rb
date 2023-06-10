@@ -39,7 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_061745) do
     t.string "abbreviation"
     t.bigint "bible_verse_id"
     t.bigint "biblebook_category_id"
-    t.index ["biblebook_category_id"], name: "index_biblebooks_on_biblebook_category_id"
+    t.index ["biblebook_category_id"],
+            name: "index_biblebooks_on_biblebook_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -66,8 +67,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_061745) do
     t.bigint "ending_verse_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["ending_verse_id"], name: "index_pericope_as_ranges_on_ending_verse_id"
-    t.index ["starting_verse_id"], name: "index_pericope_as_ranges_on_starting_verse_id"
+    t.index ["ending_verse_id"],
+            name: "index_pericope_as_ranges_on_ending_verse_id"
+    t.index ["starting_verse_id"],
+            name: "index_pericope_as_ranges_on_starting_verse_id"
   end
 
   create_table "pericopes", id: :serial, force: :cascade do |t|
@@ -115,16 +118,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_061745) do
     t.datetime "created_at", precision: nil
     t.string "tenant", limit: 128
     t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index %w[tag_id taggable_id taggable_type context tagger_id tagger_type],
+            name: "taggings_idx",
+            unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index %w[taggable_id taggable_type context],
+            name: "taggings_taggable_context_idx"
+    t.index %w[taggable_id taggable_type tagger_id context],
+            name: "taggings_idy"
     t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+    t.index %w[taggable_type taggable_id],
+            name: "index_taggings_on_taggable_type_and_taggable_id"
     t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index %w[tagger_id tagger_type],
+            name: "index_taggings_on_tagger_id_and_tagger_type"
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
+    t.index %w[tagger_type tagger_id],
+            name: "index_taggings_on_tagger_type_and_tagger_id"
     t.index ["tenant"], name: "index_taggings_on_tenant"
   end
 
@@ -152,7 +162,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_061745) do
     t.boolean "admin", default: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"],
+            name: "index_users_on_reset_password_token",
+            unique: true
   end
 
   create_table "verses", id: :serial, force: :cascade do |t|
