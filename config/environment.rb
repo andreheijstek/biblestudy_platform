@@ -11,5 +11,5 @@ Rails.logger = Logger.new($stderr)
 Rails.application.configure do
   config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
 end
-Rails.logger.level = Logger::INFO
+# Rails.logger.level = Logger::INFO
 Rails.logger.datetime_format = "%Y-%m-%d %H:%M:%S"

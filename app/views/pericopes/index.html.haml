@@ -56,7 +56,9 @@
           / end nested accordion
   #tags.tab-pane.fade
     <!-- Content for Tab 2 -->
+    - ActsAsTaggableOn::Tag.most_used
     %ul
-      - @tags.each do |tag|
+      - @tags.sort.each do |tag|
         %li
-          = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)
+          = tag.name
+          -# = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)

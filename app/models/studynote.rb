@@ -39,6 +39,8 @@ class Studynote < ApplicationRecord
   delegate :email, to: :author, prefix: true
 
   acts_as_taggable
+  acts_as_taggable_on :tags
+
   # ActsAsTaggableOn.remove_unused_tags = true
   # ActsAsTaggableOn.force_lowercase = true
 

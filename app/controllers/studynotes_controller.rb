@@ -31,7 +31,6 @@ class StudynotesController < ApplicationController
   def create
     @studynote = Studynote.new(studynote_params)
     @tag_list = params[:studynote][:tag_list].split(",") # Assuming tags are comma-separated
-    logger.info @tag_list
     # TODO: making tag_list an instance variable is a quick trick. I think passing a variable is better,
     # but that breaks existing callers of save_studynote
     studynote.author = current_user
@@ -78,7 +77,7 @@ class StudynotesController < ApplicationController
   def save_studynote
     name = Studynote.model_name.human
     if studynote.save
-      @studynote.tag_list = @tag_list
+      @studynote.tag_list.add @tag_list
       flash[:notice] = t(:item_created, item: name)
       redirect_to studynote
     else

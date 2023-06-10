@@ -4,7 +4,6 @@
 #
 
 Rails.application.routes.draw do
-  get "st_tags/index"
   get "users/index"
 
   root "pericopes#index"
@@ -21,7 +20,6 @@ Rails.application.routes.draw do
 
   resources :studynotes
   resources :pericopes, except: %i[create update]
-  resources :st_tags, only: [:index]
 
   get "profile", to: "users#show"
 end
