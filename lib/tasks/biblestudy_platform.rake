@@ -7,7 +7,7 @@ def replace_newlines(sn)
   sn.save!
 end
 
-namespace :biblestudy_platform do
+namespace :bp do
   desc 'Replace \r\n newlines in studynotes by <p> tags'
   task replace_newlines: :environment do
     count = Studynote.count
@@ -19,6 +19,17 @@ namespace :biblestudy_platform do
     end
 
     log('done')
+  end
+
+  desc 'run rails in Production environment'
+  task :run_prod do
+    system "RAILS_ENV=production rails server -p 3010"
+  end
+
+  desc 'backup the current database'
+  task backup: :environment do
+    date = Time.now.strftime("%Y%m%d")
+    system "sudo -u andreheijstek pg_dump biblestudy_platform_#{Rails.env} > backup_#{Rails.env}_#{date}.sql"
   end
 
   def log(msg)
