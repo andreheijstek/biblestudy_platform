@@ -64,7 +64,7 @@ RSpec.configure do |config|
 
   ## Capy Configuration Defaults
   Capybara.configure do |config|
-    config.server = :puma
+    config.server = :puma, { Silent: true }
     config.javascript_driver = :headless_chrome
     config.default_max_wait_time = 7
   end

@@ -58,7 +58,7 @@
     <!-- Content for Tab 2 -->
     - ActsAsTaggableOn::Tag.most_used
     %ul
-      - @tags.sort.each do |tag|
+      - @tags.order(:name).each do |tag|
         %li
           = tag.name
           -# = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)

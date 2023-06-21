@@ -13,7 +13,7 @@ class PericopesController < ApplicationController
     testament_counts =
       Pericope.joins(:biblebook).group("biblebooks.testament").count
 
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag
 
     locals ot:, nt:, biblebook_counts:, testament_counts:
   end

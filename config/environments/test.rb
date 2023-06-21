@@ -48,4 +48,12 @@ Rails.application.configure do
   config.assets.debug = true
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
+
+  # config.logger = ::ActiveSupport::Logger.new("/dev/null")
+  # config.logger.formatter = lambda { |*_| nil }
+  # config.logger.level = 10 # FATAL is 4
+  # config.log_level = :fatal
+  config.logger = Logger.new(nil)
+  config.log_level = :fatal
+
 end
