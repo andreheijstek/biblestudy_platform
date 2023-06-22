@@ -55,5 +55,4 @@ Rails.application.configure do
   # config.log_level = :fatal
   config.logger = Logger.new(nil)
   config.log_level = :fatal
-
 end

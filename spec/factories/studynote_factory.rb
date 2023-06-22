@@ -24,5 +24,9 @@ FactoryBot.define do
   factory :studynote do
     title { "titel" }
     note { "text" }
+    tag_list { "tag" }
+    trait :pericope do
+      FactoryBot.create :pericope
+    end
   end
 end

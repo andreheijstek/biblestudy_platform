@@ -4,5 +4,7 @@
 class TagsOverviewPage < SitePrism::Page
   set_url "/"
 
-  elements :tags_button, ".Tags"
+  element :tab_list, "#myTabs li"
+  element :tags_button, "#tags_tab"
+  element :studynotes_button, "#studynotes_tab"
 end

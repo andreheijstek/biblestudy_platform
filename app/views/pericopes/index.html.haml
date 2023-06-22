@@ -7,9 +7,9 @@
 
 %ul.nav.nav-pills#myTabs
   %li.active.nav-item
-    %a{"data-toggle" => "pill", :href => "#studynotes"} Bijbelstudies
+    %a{"data-toggle" => "pill", :href => "#studynotes", id: 'studynotes_tab'} Bijbelstudies
   %li.nav-item
-    %a{"data-toggle" => "pill", :href => "#tags"} Tags
+    %a{"data-toggle" => "pill", :href => "#tags", id: 'tags_tab'} Tags
 
 .tab-content#myTabsContent
   #studynotes.tab-pane.fade.in.active
