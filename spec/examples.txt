@@ -53,7 +53,8 @@ example_id                                                                      
 ./spec/features/study_notes/viewing_studynotes_overview_spec.rb[1:4]                      | passed | 0.91238 seconds |
 ./spec/features/study_notes/viewing_studynotes_overview_spec.rb[1:5]                      | passed | 0.57816 seconds |
 ./spec/features/study_notes/viewing_studynotes_spec.rb[1:1]                               | passed | 2.11 seconds    |
-./spec/features/tags/tag_overview_spec.rb[1:1]                                            | passed | 6.37 seconds    |
+./spec/features/tags/tag_overview_spec.rb[1:1]                                            | passed | 7 seconds       |
+./spec/features/tags/tag_overview_spec.rb[1:2]                                            | passed | 1.13 seconds    |
 ./spec/features/user_management/view_user_profile_spec.rb[1:1]                            | passed | 2.09 seconds    |
 ./spec/models/bible_verse_spec.rb[1:1]                                                    | passed | 0.03873 seconds |
 ./spec/models/bible_verse_spec.rb[1:2]                                                    | passed | 0.00191 seconds |
