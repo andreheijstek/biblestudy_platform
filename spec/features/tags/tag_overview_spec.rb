@@ -17,6 +17,6 @@ feature "tag overview" do
     my_studynote.save
     top.load
     top.tags_button.click
-    expect('a_tag').to appear_before('z_tag')
+    expect("a_tag").to appear_before("z_tag")
   end
 end

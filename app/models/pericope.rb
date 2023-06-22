@@ -37,7 +37,7 @@ class Pericope < ApplicationRecord
 
   validates :name, presence: true
   validates_with PericopeValidator
-  after_validation :reformat_name
+  after_validation :to_s
 
   attr_accessor :starting_bibleverse, :ending_bibleverse
 
@@ -77,8 +77,7 @@ class Pericope < ApplicationRecord
   private
 
   # Updates the Pericope.name to a nicely formatted name
-  # TODO: why not #to_s?
-  def reformat_name
+  def to_s
     return unless errors.empty?
 
     self.name = PericopeFormatter.new(self).format
