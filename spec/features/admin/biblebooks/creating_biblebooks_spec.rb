@@ -1,36 +1,32 @@
 # frozen_string_literal: true
 
-# TODO: Commented. Spec currently not working. It does not visit my
-# website but www.example.com.
-# Probably needs to be refactored using the page object model,
-# but for the admin pages I don't want to invest that time right now.
+feature "Admins can create new bible books" do
+  let(:abp) { AdminBiblebooksPage.new }
+  let(:abnp) { AdminBiblebooksNewPage.new }
 
-# feature "Admins can create new bible books" do
-#   before do
-#     login_as(create(:user, :admin))
-#     visit admin_biblebooks_path
-#     click_link t(:new_biblebook)
-#   end
-#
-#   scenario "for single bible books" do
-#     bookname = "Handelingen"
-#     fill_in t("simple_form.labels.biblebook.name"), with: bookname
-#     fill_in t("simple_form.labels.biblebook.booksequence"), with: 0
-#     fill_in t("simple_form.labels.biblebook.testament"), with: "nieuw"
-#
-#     submit_form
-#
-#     should_see t(:item_created, item: Biblebook.model_name.human)
-#     book = Biblebook.find_by(name: "Handelingen")
-#     puts page.current_url
-#     puts admin_biblebook_url(book)
-#     expect(page.current_url).to eq admin_biblebook_url(book)
-#   end
-#
-#   scenario "when providing invalid attributes" do
-#     submit_form
-#
-#     should_see t(:item_not_created, item: Biblebook.model_name.human)
-#     should_see t("activerecord.models.messages.blank")
-#   end
-# end
+  before do
+    login_as(create(:user, :admin))
+    abp.load
+    abp.new_biblebook_button.click
+  end
+
+  scenario "for single bible books" do
+    bookname = "Handelingen"
+    abnp.load
+    abnp.name_field.set bookname
+    abnp.order_field.set 0
+    abnp.testament_field.set "nieuw"
+    abnp.submit_button.click
+
+    expect(page).to have_content bookname
+    expect(page).to have_content t(:item_created, item: Biblebook.model_name.human)
+  end
+
+  scenario "except when providing invalid attributes" do
+    abnp.load
+    abnp.submit_button.click
+
+    expect(page).to have_content t(:item_not_created, item: Biblebook.model_name.human)
+    expect(page).to have_content t("activerecord.models.messages.blank")
+  end
+end
