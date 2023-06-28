@@ -6,5 +6,5 @@ class AdminBiblebooksNewPage < SitePrism::Page
   element :name_field, "#biblebook_name"
   element :order_field, "#biblebook_booksequence"
   element :testament_field, "#biblebook_testament"
-  element :submit_button, '#submit_biblebook'
+  element :submit_button, "#submit_biblebook"
 end

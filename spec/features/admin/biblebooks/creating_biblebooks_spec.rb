@@ -19,14 +19,20 @@ feature "Admins can create new bible books" do
     abnp.submit_button.click
 
     expect(page).to have_content bookname
-    expect(page).to have_content t(:item_created, item: Biblebook.model_name.human)
+    expect(page).to have_content t(
+                   :item_created,
+                   item: Biblebook.model_name.human
+                 )
   end
 
   scenario "except when providing invalid attributes" do
     abnp.load
     abnp.submit_button.click
 
-    expect(page).to have_content t(:item_not_created, item: Biblebook.model_name.human)
+    expect(page).to have_content t(
+                   :item_not_created,
+                   item: Biblebook.model_name.human
+                 )
     expect(page).to have_content t("activerecord.models.messages.blank")
   end
 end

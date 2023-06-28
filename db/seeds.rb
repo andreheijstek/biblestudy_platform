@@ -1,4 +1,3 @@
-
 puts "Start"
 biblebooks = [
   "Genesis",

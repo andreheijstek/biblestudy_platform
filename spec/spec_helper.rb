@@ -27,10 +27,10 @@ require "capybara/dsl"
 require "capybara/rspec"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
-SimpleCov.formatter                                                =
-SimpleCov::Formatter::MultiFormatter.new(
-[SimpleCov::Formatter::LcovFormatter, SimpleCov::Formatter::HTMLFormatter]
-)
+SimpleCov.formatter =
+  SimpleCov::Formatter::MultiFormatter.new(
+    [SimpleCov::Formatter::LcovFormatter, SimpleCov::Formatter::HTMLFormatter]
+  )
 SimpleCov.start do
   add_filter(%r{^/spec}) # For RSpec
 end
@@ -120,5 +120,8 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  Rails.application.routes.default_url_options = { port: "3000", host: "localhost" }
+  Rails.application.routes.default_url_options = {
+    port: "3000",
+    host: "localhost"
+  }
 end
