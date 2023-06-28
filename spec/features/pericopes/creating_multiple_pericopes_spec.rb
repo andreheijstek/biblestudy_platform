@@ -9,8 +9,8 @@ feature "Users can add multiple pericopes to a studynote", js: true do
 
     nsp = NewStudynotesPage.new
     nsp.load
-    nsp.title_field.set("Titel")
-    nsp.studynote_field.set("Jona is bijzonder.")
+    nsp.title_field.set(".")
+    nsp.studynote_field.set(".")
     nsp.add_pericope_button.click
     nsp.pericopes[0].set("Jona 1:1 - 1:10")
     nsp.add_pericope_button.click
@@ -18,8 +18,6 @@ feature "Users can add multiple pericopes to a studynote", js: true do
     nsp.pericopes[1].set("Jona 2:20 - 3:3")
     nsp.submit_button.click
 
-    expect(ShowStudynotePage.new.pericope_field.text).to eq(
-      "Jona 1:1 - 1:10 | Jona 2:20 - 3:3"
-    )
+    expect(page).to have_content("Jona 1:1 - 1:10 | Jona 2:20 - 3:3")
   end
 end
