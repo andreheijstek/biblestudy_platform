@@ -8,8 +8,6 @@ feature "Users can create new studynotes with pericopes", js: true do
     login_as(user)
   end
 
-  # TODO: Why is this test only with multiple pericopes? If single is tested already in
-  # other specs, then rename this file to *muliple*
   scenario "to multiple pericopes with valid attributes" do
     NewStudynotesPage.new.tap do |n|
       n.load

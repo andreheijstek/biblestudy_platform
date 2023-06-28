@@ -3,9 +3,7 @@
 feature "Users can delete pericopes", js: true do
   let(:user) { create(:user) }
   let!(:jona) { create(:biblebook, name: "Jona") }
-  let(:studynote) do
-    create :studynote
-  end
+  let(:studynote) { create :studynote }
   let(:nsp) { NewStudynotesPage.new }
 
   scenario "a second pericope" do
