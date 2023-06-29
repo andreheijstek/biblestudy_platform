@@ -8,5 +8,5 @@
       = link_to_add_association t('add_pericope'), f, :pericopes, class: 'new btn-xs', id: 'add_pericope', render_options: {locals: {pnum: pnum += 1}}
   = f.input :title
   = f.input :note, as: :trix_editor, id: 'editor', class: 'editor'
-  = f.input :tag_list, input_html: { value: studynote.tag_list.join(",") }, label: "Tags (comma-separated)"
+  = f.input :tag_list, input_html: { value: studynote.tag_list.join(", ") }, label: "Tags (comma-separated)"
   = f.button :submit, class: 'btn-primary', id: 'submit_form'

@@ -25,6 +25,3 @@ feature "Users can add tags to studynotes", js: true do
   end
 end
 
-# TODO: add edit and remove tags, probably as new .spec files
-# tags with spaces in it "onze vader"
-# or spaces followed by a new tag "onze vader, gebed"

@@ -43,17 +43,17 @@ feature "Users can not create new studynotes", js: true do
     #   should_see 'moet opgegeven zijn'
     # end
 
-  #   scenario "when providing an incorrect biblebook" do
-  #     nsp.pericopes[0].set "Jo 1:1 - 1:10"
-  #     nsp.studynote_field.set "Studie"
-  #
-  #     nsp.submit_button.click
-  #
-  #     # TODO: Assert afmaken
-  #     # should_see "#{t('errors.messages.ambiguous_abbreviation',
-  #     #                 given_name: 'Jo',
-  #     #                 biblebooks: %w[Jona Job Johannes].to_sentence)}"
-  #     should_see t("item_not_created", item: "bijbelstudie")
-  #   end
+    #   scenario "when providing an incorrect biblebook" do
+    #     nsp.pericopes[0].set "Jo 1:1 - 1:10"
+    #     nsp.studynote_field.set "Studie"
+    #
+    #     nsp.submit_button.click
+    #
+    #     # TODO: Assert afmaken
+    #     # should_see "#{t('errors.messages.ambiguous_abbreviation',
+    #     #                 given_name: 'Jo',
+    #     #                 biblebooks: %w[Jona Job Johannes].to_sentence)}"
+    #     should_see t("item_not_created", item: "bijbelstudie")
+    #   end
   end
 end
