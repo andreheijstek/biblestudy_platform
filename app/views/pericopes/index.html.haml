@@ -60,7 +60,13 @@
     %ul
       - @tags.order(:name).each do |tag|
         %li
-          = "#{tag.name} (#{tag.taggings_count})"
+          - if tag.taggings_count == 1
+            - studynotes = Studynote.tagged_with tag.name
+            - studynote = studynotes.first
+            -# = studynote.title
+            = link_to "#{tag.name} (#{studynotes.count})", studynote_path(studynote)
+          - else
+            = "#{tag.name} (#{tag.taggings_count})"
           -# = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)
 
           #tags.tab-pane.fade
