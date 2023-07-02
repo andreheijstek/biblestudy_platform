@@ -5,9 +5,7 @@ feature "creating tags" do
   let!(:studynote) { create(:studynote, :pericope, author: user) }
   let(:ssp) { ShowStudynotePage.new }
 
-  before do
-    login_as(user)
-  end
+  before { login_as(user) }
 
   after do
     studynote.tag_list = @tag
@@ -31,5 +29,4 @@ feature "creating tags" do
   scenario "multiple multiword tags" do
     @tag = "my tag, my_tag, yet another tag"
   end
-
 end

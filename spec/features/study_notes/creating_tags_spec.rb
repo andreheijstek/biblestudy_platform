@@ -24,4 +24,3 @@ feature "Users can add tags to studynotes", js: true do
     expect(page).to have_content("tag")
   end
 end
-

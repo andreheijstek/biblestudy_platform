@@ -19,4 +19,14 @@ feature "tag overview" do
     top.tags_button.click
     expect("a_tag").to appear_before("z_tag")
   end
+
+  scenario "tags show how often they occur" do
+    my_studynote.tag_list = "a_tag"
+    my_studynote.save
+    top.load
+    top.tags_button.click
+    within '#tags' do
+      expect(page).to have_content("a_tag (1)")
+    end
+  end
 end
