@@ -5,38 +5,41 @@
       %h1{title: studynote.title}= studynote.title
     %ul.actions
       - if policy(studynote).update?
-        %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(studynote), class: "edit"
+        %li= link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(studynote), class: "edit", id: "edit_studynote"
       - if policy(@studynote).destroy?
         %li= link_to t(:delete_item, item: Studynote.model_name.human), studynote_path(studynote),
           method: :delete,
           data: { confirm: t(:sure_to_delete_studynote) },
           class: "delete"
-  %header
+  %article
     %p
     #pericope
       = studynote.pericopes.collect(&:name).join(' | ')
     #studynote_note
       %p= simple_format studynote.note
-  %table#attributes
-    %tr
-      %th
-        = "tags"
-      %td
-        #tags
-          = studynote.tag_list
-    %tr
-      %th
-        = t('author')
-      %td
-        #author
-          = studynote.author_username
-    %tr
-      %th
-        = t('created')
-      %td
-        #created_at
-        -# = timeago(studynote.created_at)
-        = time_ago_in_words(studynote.created_at)
-        = t('ago')
-
-  = link_to t(:new_studynote), new_studynote_path, class: "new"
+  %footer
+    %table#attributes
+      %tr
+        %th
+          = "tags"
+        %td
+          #tags
+            = studynote.tag_list
+      %tr
+        %th
+          = t('author')
+        %td
+          #author
+            = studynote.author_username
+      %tr
+        %th
+          = t('created')
+        %td
+          #created_at
+          -# = timeago(studynote.created_at)
+          = time_ago_in_words(studynote.created_at)
+          = t('ago')
+    %div
+      = link_to t(:new_studynote), new_studynote_path, class: "new pull-left margin 2px"
+      - if policy(studynote).update?
+        = link_to t(:edit_item, item: Studynote.model_name.human), edit_studynote_path(studynote), class: "edit pull-left"

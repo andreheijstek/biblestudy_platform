@@ -34,10 +34,10 @@ feature "tag overview" do
   end
 
   scenario "if tags are only used once, they directly link to the studynote" do
-    title                 = "follow the title"
+    title = "follow the title"
     my_studynote.tag_list = "a_tag"
-    my_studynote.title    = title
-    my_studynote.author   = user
+    my_studynote.title = title
+    my_studynote.author = user
     my_studynote.save
     top.load
     top.tags_button.click

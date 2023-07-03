@@ -12,7 +12,7 @@ feature "Users can edit existing studynotes", js: true do
 
     visit studynotes_path
     click_link "Jona"
-    click_link t(:edit_item, item: Studynote.model_name.human)
+    click_link "edit_studynote"
   end
 
   scenario "with valid attributes" do

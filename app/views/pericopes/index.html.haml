@@ -67,12 +67,5 @@
             = link_to "#{tag.name} (#{studynotes.count})", studynote_path(studynote)
           - else
             = "#{tag.name} (#{tag.taggings_count})"
-          -# = link_to "#{tag.name} (#{tag.studynotes.count})", st_tags_path(tag)
 
           #tags.tab-pane.fade
-  -#%h2 Tags
-  -#%ul
-  -#  - @tags.order(:name).each do |tag|
-  -#    %li
-  -#      = link_to "#{tag.name} (#{tag.taggings_count})", tag_studynotes_path(tag)
-
