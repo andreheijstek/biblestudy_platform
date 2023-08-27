@@ -5,8 +5,8 @@
 # Table name: bible_verses
 #
 #  id         :bigint           not null, primary key
-#  chapter    :integer
-#  verse      :integer
+#  chapter_nr :integer
+#  verse_nr   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

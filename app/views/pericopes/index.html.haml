@@ -54,18 +54,18 @@
                     \#{"#{book.name} (#{study_count})"}
               = render :partial => 'book_table', locals: { book: book, bookname: bookname }
           / end nested accordion
-  #tags.tab-pane.fade
-    <!-- Content for Tab 2 -->
-    - ActsAsTaggableOn::Tag.most_used
-    %ul
-      - @tags.order(:name).each do |tag|
-        %li
-          - if tag.taggings_count == 1
-            - studynotes = Studynote.tagged_with tag.name
-            - studynote = studynotes.first
-            -# = studynote.title
-            = link_to "#{tag.name} (#{studynotes.count})", studynote_path(studynote)
-          - else
-            = "#{tag.name} (#{tag.taggings_count})"
-
-          #tags.tab-pane.fade
+  -# #tags.tab-pane.fade
+  -#   <!-- Content for Tab 2 -->
+  -#   - ActsAsTaggableOn::Tag.most_used
+  -#   %ul
+  -#     - @tags.order(:name).each do |tag|
+  -#       %li
+  -#         - if tag.taggings_count == 1
+  -#           - studynotes = Studynote.tagged_with tag.name
+  -#           - studynote = studynotes.first
+  -#           -# = studynote.title
+  -#           = link_to "#{tag.name} (#{studynotes.count})", studynote_path(studynote)
+  -#         - else
+  -#           = "#{tag.name} (#{tag.taggings_count})"
+  -#
+  -#         #tags.tab-pane.fade
