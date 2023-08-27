@@ -3,7 +3,7 @@ version: '3.4'
 x-app: &app
   build:
     context: .
-    dockerfile: ./.dockerdev/Dockerfile
+    dockerfile: ./.dockerdev/Dockerfile.old
     args:
       RUBY_VERSION: '2.6.2'
       PG_MAJOR: '11'
