@@ -16,6 +16,6 @@ class BibleVerse < ApplicationRecord
 
   # Spaceship to compare Verses
   def <=>(other)
-    [chapter, verse] <=> [other.chapter, other.verse]
+    [chapter_nr, verse_nr] <=> [other.chapter_nr, other.verse_nr]
   end
 end

@@ -16,7 +16,7 @@ class PericopeFormatter
     end_verse = pericope.ending_bibleverse
 
     "#{pericope.biblebook_name} " \
-      "#{start_verse.chapter}:#{start_verse.verse} - " \
-      "#{end_verse.chapter}:#{end_verse.verse}"
+      "#{start_verse.chapter_nr}:#{start_verse.verse_nr} - " \
+      "#{end_verse.chapter_nr}:#{end_verse.verse_nr}"
   end
 end

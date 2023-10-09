@@ -19,17 +19,17 @@
 #  index_biblebooks_on_biblebook_category_id  (biblebook_category_id)
 #
 
-FactoryBot.define do
-  factory :biblebook do
-    name { "Voorbeeld bijbelboek" }
-    booksequence { 0 }
-
-    factory :biblebook_with_chapters do
-      transient { chapters_count { 5 } }
-
-      after(:create) do |biblebook, evaluator|
-        create_list(:chapter, evaluator.chapters_count, biblebook:)
-      end
-    end
-  end
-end
+# FactoryBot.define do
+#   factory :biblebook do
+#     name { "Voorbeeld bijbelboek" }
+#     booksequence { 0 }
+#
+#     factory :biblebook_with_chapters do
+#       transient { chapters_count { 5 } }
+#
+#       after(:create) do |biblebook, evaluator|
+#         create_list(:chapter, evaluator.chapters_count, biblebook:)
+#       end
+#     end
+#   end
+# end

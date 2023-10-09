@@ -48,13 +48,13 @@ class Pericope < ApplicationRecord
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
   def whole_chapter?
-    starting_bibleverse.verse.zero?
+    starting_bibleverse.verse_nr.zero?
   end
 
   # Detects if the Pericope is a whole book, like Genesis
   # @return [Boolean]
   def whole_book?
-    starting_bibleverse.chapter.zero?
+    starting_bibleverse.chapter_nr.zero?
   end
 
   # Detects if a Pericope is a single verse, like Genesis 1:1 - 1:1
@@ -73,9 +73,9 @@ class Pericope < ApplicationRecord
 
   def populate_bibleverses
     @starting_bibleverse =
-      BibleVerse.new({ chapter: start_verse.chapter, verse: start_verse.verse })
+      BibleVerse.new({ chapter_nr: start_verse.chapter_nr, verse_nr: start_verse.verse_nr })
     @ending_bibleverse =
-      BibleVerse.new({ chapter: end_verse.chapter, verse: end_verse.verse })
+      BibleVerse.new({ chapter_nr: end_verse.chapter_nr, verse_nr: end_verse.verse_nr })
   end
 
   private
@@ -92,6 +92,6 @@ class Pericope < ApplicationRecord
   end
 
   def same_chapter?
-    starting_bibleverse.chapter == ending_bibleverse.chapter
+    starting_bibleverse.chapter_nr == ending_bibleverse.chapter_nr
   end
 end

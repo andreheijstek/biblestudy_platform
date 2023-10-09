@@ -37,11 +37,11 @@
 # The caller should create the correct biblebook before calling
 # Pericope_xxx_Factory
 
-FactoryBot.define do
-  factory :pericope, class: "Pericope" do
-    name { "Jona 1:1 - 1:10" }
-    trait :biblebook do
-      FactoryBot.create(:biblebook, name: "Jona")
-    end
-  end
-end
+# FactoryBot.define do
+#   factory :pericope, class: "Pericope" do
+#     name { "Jona 1:1 - 1:10" }
+#     trait :biblebook do
+#       FactoryBot.create(:biblebook, name: "Jona")
+#     end
+#   end
+# end

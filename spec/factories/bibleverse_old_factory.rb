@@ -13,11 +13,11 @@
 #  abbreviation :string
 #
 
-FactoryBot.define do
-  factory :bibleverse_old do
-    chapter { 1 }
-    verse { 1 }
-
-    initialize_with { new(attributes) }
-  end
-end
+# FactoryBot.define do
+#   factory :bibleverse_old do
+#     chapter { 1 }
+#     verse { 1 }
+#
+#     initialize_with { new(attributes) }
+#   end
+# end

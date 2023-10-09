@@ -26,14 +26,14 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-FactoryBot.define do
-  factory :user do
-    sequence(:email) { |n| "test#{n}@example.com" }
-    password { "password" }
-    username { "username" }
-
-    trait :admin do
-      admin { true }
-    end
-  end
-end
+# FactoryBot.define do
+#   factory :user do
+#     sequence(:email) { |n| "test#{n}@example.com" }
+#     password { "password" }
+#     username { "username" }
+#
+#     trait :admin do
+#       admin { true }
+#     end
+#   end
+# end

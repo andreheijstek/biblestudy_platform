@@ -20,12 +20,12 @@
 #  fk_rails_...  (author_id => users.id)
 #
 
-FactoryBot.define do
-  factory :studynote do
-    title { "titel" }
-    note { "text" }
-    trait :pericope do
-      FactoryBot.create :pericope
-    end
-  end
-end
+# FactoryBot.define do
+#   factory :studynote do
+#     title { "titel" }
+#     note { "text" }
+#     trait :pericope do
+#       FactoryBot.create :pericope
+#     end
+#   end
+# end
