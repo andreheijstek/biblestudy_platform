@@ -37,13 +37,14 @@ gem 'sprockets-rails', '2.3.3'
 gem 'titleize'
 gem 'trix-rails', require: 'trix' # Rich text editor
 gem 'uglifier'
-gem 'webdrivers'
+# gem 'webdrivers'
 gem 'webpack'
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
   gem 'connection_pool'
+  gem 'kamal'
   gem 'launchy'
   gem 'orderly'
   gem 'poro-rails'
