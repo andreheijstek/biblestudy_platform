@@ -53,13 +53,13 @@ class PericopeValidator < ActiveModel::Validator
     record.start_verse =
       BibleVerse.new(
         {
-          chapter_nr: tree[:starting_chapter].to_i,
-          verse_nr: tree[:starting_verse].to_i
+          chapter: tree[:starting_chapter].to_i,
+          verse: tree[:starting_verse].to_i
         }
       )
     record.end_verse =
       BibleVerse.new(
-        { chapter_nr: tree[:ending_chapter].to_i, verse_nr: tree[:ending_verse].to_i }
+        { chapter: tree[:ending_chapter].to_i, verse: tree[:ending_verse].to_i }
       )
 
     add_missing_data
