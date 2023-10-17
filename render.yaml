@@ -1,7 +1,7 @@
 databases:
-  - name: bijbelstudie-platform
-    databaseName: bijbelstudie-platform
-    user: bijbelstudie-platform
+  - name: biblestudy_platform_production
+    databaseName: biblestudy_platform_production
+    user: biblestudy_platform_production
 
 services:
   - type: web
