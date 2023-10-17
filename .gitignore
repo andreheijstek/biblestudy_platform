@@ -100,3 +100,5 @@ pg_upgrade_utility.log
 /rspec_tracer_report/
 
 /config/master.key
+
+/config/credentials/production.key
