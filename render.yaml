@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: bijbelstudie-platform
+    databaseName: bijbelstudie-platform
+    user: bijbelstudie-platform
 
 services:
   - type: web
-    name: mysite
+    name: bijbelstudie-platform
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: bijbelstudie-platform
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false

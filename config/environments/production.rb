@@ -105,5 +105,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
 
+
   GOOGLE_ANALYTICS_TRACKING_ID = "UA-132209861-1"
 end
