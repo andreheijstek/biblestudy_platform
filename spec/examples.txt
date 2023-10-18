@@ -24,7 +24,7 @@ example_id                                                                      
 ./spec/features/admin/users/editing_users_spec.rb[1:2]                                    | passed | 1.22 seconds    |
 ./spec/features/admin/users/viewing_user_info_spec.rb[1:1]                                | passed | 0.43568 seconds |
 ./spec/features/admin/users/viewing_user_info_spec.rb[1:2]                                | passed | 0.48998 seconds |
-./spec/features/admin/users/viewing_user_study_info_spec.rb[1:1:1]                        | passed | 5.59 seconds    |
+./spec/features/admin/users/viewing_user_study_info_spec.rb[1:1:1]                        | passed | 9.7 seconds     |
 ./spec/features/authentication/signing_in_spec.rb[1:1]                                    | passed | 1.19 seconds    |
 ./spec/features/authentication/signing_out_spec.rb[1:1]                                   | passed | 0.50221 seconds |
 ./spec/features/authentication/signing_up_spec.rb[1:1]                                    | passed | 1.07 seconds    |
