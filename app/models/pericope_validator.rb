@@ -118,7 +118,7 @@ class PericopeValidator < ActiveModel::Validator
     end_verse.chapter_nr = start_verse.chapter_nr
   end
 
-  def last_verse(chapter)
+  def last_verse(chapter) # TODO: Kan dit niet beter naar het Chapter model?
     get_biblebook(record.biblebook_name).chapters[chapter - 1].nrofverses
   end
 
@@ -127,7 +127,8 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def set_ending_to_starting
-    start_verse = record.start_verse
+    start_verse = record.start_verse # TODO: Refactor, in alle volgende methods
+    # start ik met dezelfde code, start_verse = xxx en end_verse = xxx
     end_verse = record.end_verse
 
     end_verse.chapter_nr = start_verse.chapter_nr
