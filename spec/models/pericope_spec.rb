@@ -57,30 +57,30 @@ describe Pericope, type: :model do
 
   it "name contains a valid pericope string, and can include spaces" do
     pericope = described_class.create(name: "Genesis 1:2 - 3:4")
-    expect(pericope.start_verse.chapter).to eq(1)
-    expect(pericope.start_verse.verse).to eq(2)
-    expect(pericope.end_verse.chapter).to eq(3)
-    expect(pericope.end_verse.verse).to eq(4)
+    expect(pericope.start_verse.chapter_nr).to eq(1)
+    expect(pericope.start_verse.verse_nr).to eq(2)
+    expect(pericope.end_verse.chapter_nr).to eq(3)
+    expect(pericope.end_verse.verse_nr).to eq(4)
     expect(pericope.biblebook_id).to eq(genesis.id)
     expect(pericope.biblebook_name).to eq("Genesis")
   end
 
   it "name  contains a valid pericope string, ending chapter is not required" do
     pericope = described_class.create(name: "Genesis 1:2 - 3")
-    expect(pericope.start_verse.chapter).to eq(1)
-    expect(pericope.start_verse.verse).to eq(2)
-    expect(pericope.end_verse.chapter).to eq(1)
-    expect(pericope.end_verse.verse).to eq(3)
+    expect(pericope.start_verse.chapter_nr).to eq(1)
+    expect(pericope.start_verse.verse_nr).to eq(2)
+    expect(pericope.end_verse.chapter_nr).to eq(1)
+    expect(pericope.end_verse.verse_nr).to eq(3)
     expect(pericope.biblebook_id).to eq(genesis.id)
     expect(pericope.biblebook_name).to eq("Genesis")
   end
 
   it "verse may contain a biblebook abbreviation" do
     pericope = described_class.create(name: "Gen 1:2 - 3")
-    expect(pericope.start_verse.chapter).to eq(1)
-    expect(pericope.start_verse.verse).to eq(2)
-    expect(pericope.end_verse.chapter).to eq(1)
-    expect(pericope.end_verse.verse).to eq(3)
+    expect(pericope.start_verse.chapter_nr).to eq(1)
+    expect(pericope.start_verse.verse_nr).to eq(2)
+    expect(pericope.end_verse.chapter_nr).to eq(1)
+    expect(pericope.end_verse.verse_nr).to eq(3)
     expect(pericope.biblebook_name).to eq("Genesis")
   end
 

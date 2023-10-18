@@ -9,10 +9,10 @@ describe Pericope do
     pericope = described_class.create(name: "Genesis 3:4-5:6")
     expect(pericope).to be_valid
     expect(pericope.name).to eq("Genesis 3:4 - 5:6")
-    expect(pericope.start_verse.chapter).to be(3)
-    expect(pericope.start_verse.verse).to be(4)
-    expect(pericope.end_verse.chapter).to be(5)
-    expect(pericope.end_verse.verse).to be(6)
+    expect(pericope.start_verse.chapter_nr).to be(3)
+    expect(pericope.start_verse.verse_nr).to be(4)
+    expect(pericope.end_verse.chapter_nr).to be(5)
+    expect(pericope.end_verse.verse_nr).to be(6)
     expect(pericope.biblebook.name).to eq("Genesis")
   end
 

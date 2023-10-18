@@ -37,7 +37,7 @@ gem 'sprockets-rails', '2.3.3'
 gem 'titleize'
 gem 'trix-rails', require: 'trix' # Rich text editor
 gem 'uglifier'
-# gem 'webdrivers'
+gem 'webdrivers'
 gem 'webpack'
 
 group :development, :test do
