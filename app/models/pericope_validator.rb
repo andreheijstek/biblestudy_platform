@@ -19,8 +19,6 @@
 class PericopeValidator < ActiveModel::Validator
   # Validate method, as required by Rails, see class comment
   attr_accessor :record
-  attr_reader :parsed_pericope
-  private :record, :parsed_pericope
 
   def validate(record)
     @record = record
@@ -121,6 +119,13 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
+  # TODO: Volgens mij kan ik de volgende functies hier uit halen en in een
+  # PericopeHelper class stoppen. Daarmee wordt dit dan een stuk kleiner en cleaner.
+  # class PericopeHelper
+  # initialize (start_chapter, start_verse, end_chapter, end_verse)
+  # Gebruik:
+  # ph = PericopeHelper.new(1,1, 1, 1)
+  # end_verse = ph.set_end_chap_to_start_chap
   # :reek:UtilityFunction
   def set_end_chap_to_start_chap(end_verse, start_verse)
     end_verse.chapter_nr = start_verse.chapter_nr
@@ -135,12 +140,12 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def set_ending_to_starting
-    end_verse.chapter_nr = @start_verse.chapter_nr
-    end_verse.verse_nr = @start_verse.verse_nr
+    end_verse.chapter_nr = start_verse.chapter_nr
+    end_verse.verse_nr = start_verse.verse_nr
   end
 
   def single_verse?
-    record.start_verse.verse_nr.positive? && end_verse.chapter_nr.zero? &&
+    start_verse.verse_nr.positive? && end_verse.chapter_nr.zero? &&
       end_verse.verse_nr.zero?
   end
 
@@ -185,7 +190,6 @@ class PericopeValidator < ActiveModel::Validator
     record.tap do |record|
       record.biblebook_id = biblebook.id
       record.biblebook_name = biblebook.name
-      start_verse = record.start_verse
       record.sequence = (start_verse.chapter_nr * 1000) + start_verse.verse_nr
     end
   end
