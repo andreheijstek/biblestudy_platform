@@ -33,7 +33,6 @@ class PericopeValidator < ActiveModel::Validator
     update_record(biblebook) unless biblebook.nil?
   end
 
-
   private
 
   attr_reader :start_verse, :end_verse
@@ -110,15 +109,13 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
-  def last_verse(chapter) # TODO: Kan dit niet beter naar het Chapter model?
+  def last_verse(chapter)
     get_biblebook(record.biblebook_name).chapters[chapter - 1].nrofverses
   end
 
   def validate_pericope_order
-    short_pericope =
-      record.whole_book? || record.whole_chapter? || record.single_verse?
-    return if short_pericope
-    return if record.starting_bibleverse <= record.ending_bibleverse
+    return if short_pericope?
+    return if order_ok?
 
     record.errors.add :base, :verse_chapter_disorder
   end
