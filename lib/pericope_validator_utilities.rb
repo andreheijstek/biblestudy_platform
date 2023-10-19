@@ -46,34 +46,33 @@ module PericopeValidatorUtilities
 
   def single_verse?
     start_verse.verse_nr.positive? && end_verse.chapter_nr.zero? &&
-    end_verse.verse_nr.zero?
+      end_verse.verse_nr.zero?
   end
 
   def whole_biblebook?
     start_verse.chapter_nr.zero? && start_verse.verse_nr.zero? &&
-    end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
+      end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
   end
 
   def single_chapter?
     start_verse.chapter_nr.positive? && start_verse.verse_nr.zero? &&
-    end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
+      end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
   end
 
   def multiple_full_chapters?
     start_verse.verse_nr.zero? && end_verse.verse_nr.zero? &&
-    end_verse.chapter_nr > start_verse.chapter_nr
+      end_verse.chapter_nr > start_verse.chapter_nr
   end
 
   def multiple_verses_one_chapter?
     end_chap = end_verse.chapter_nr
 
     (end_verse.verse_nr > start_verse.verse_nr) &&
-    ((end_chap == start_verse.chapter_nr) || end_chap.zero?)
+      ((end_chap == start_verse.chapter_nr) || end_chap.zero?)
   end
 
   def full_pericope?
     start_verse.chapter_nr.positive? && start_verse.verse_nr.positive? &&
-    end_verse.chapter_nr.positive? && end_verse.verse_nr.positive?
+      end_verse.chapter_nr.positive? && end_verse.verse_nr.positive?
   end
-
 end

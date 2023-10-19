@@ -16,7 +16,6 @@ include PericopeValidatorUtilities
 # as I can't have an initializer
 # :reek:NilCheck maybe solve later with null object
 # :reek:TooManyStatements as well
-# :reek:TooManyMethods
 # rubocop:disable Metrics/ClassLength:
 
 class PericopeValidator < ActiveModel::Validator
@@ -34,7 +33,6 @@ class PericopeValidator < ActiveModel::Validator
     update_record(biblebook) unless biblebook.nil?
   end
 
-  # :nocov: Skit undercover checks
 
   private
 
@@ -135,4 +133,3 @@ class PericopeValidator < ActiveModel::Validator
   end
 end
 # rubocop:enable Metrics/ClassLength:
-# :nocov:
