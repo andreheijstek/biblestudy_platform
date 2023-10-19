@@ -33,6 +33,8 @@ class PericopeValidator < ActiveModel::Validator
     update_record(biblebook) unless biblebook.nil?
   end
 
+  # :nocov: Skit undercover checks
+
   private
 
   def get_biblebook(biblebook_name)
@@ -202,3 +204,4 @@ class PericopeValidator < ActiveModel::Validator
   end
 end
 # rubocop:enable Metrics/ClassLength:
+# :nocov:
