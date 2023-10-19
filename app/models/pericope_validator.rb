@@ -37,6 +37,8 @@ class PericopeValidator < ActiveModel::Validator
 
   private
 
+  attr_reader :start_verse, :end_verse
+
   def get_biblebook(biblebook_name)
     name, @errors = Biblebook.validate_name(biblebook_name, record.errors)
     Biblebook.find_by_full_name(name)[0]
@@ -61,8 +63,14 @@ class PericopeValidator < ActiveModel::Validator
       )
     record.end_verse =
       BibleVerse.new(
-        { chapter_nr: tree[:ending_chapter].to_i, verse_nr: tree[:ending_verse].to_i }
+        {
+          chapter_nr: tree[:ending_chapter].to_i,
+          verse_nr: tree[:ending_verse].to_i
+        }
       )
+
+    @start_verse = record.start_verse
+    @end_verse = record.end_verse
 
     add_missing_data
 
@@ -71,20 +79,18 @@ class PericopeValidator < ActiveModel::Validator
   # rubocop:enable Metrics/MethodLength
 
   def full_pericope_starting_with_full_chapter?
-    start_verse = record.start_verse
-    start_verse.verse_nr == 1 && record.end_verse.chapter_nr > start_verse.chapter_nr
+    start_verse.verse_nr == 1 &&
+      record.end_verse.chapter_nr > start_verse.chapter_nr
   end
 
   def full_pericope_ending_with_full_chapter?
-    end_verse = record.end_verse
-    end_verse.verse_nr == 1 && end_verse.chapter_nr > record.start_verse.chapter_nr
+    end_verse.verse_nr == 1 &&
+      end_verse.chapter_nr > record.start_verse.chapter_nr
   end
 
   # :reek:DuplicateMethodCall - removing more duplicates makes it less readable
   # rubocop:disable Metrics/MethodLength Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
   def add_missing_data
-    start_verse = record.start_verse
-    end_verse = record.end_verse
     if whole_biblebook?
       start_verse.chapter_nr = 1
       start_verse.verse_nr = 1
@@ -129,48 +135,31 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def set_ending_to_starting
-    start_verse = record.start_verse # TODO: Refactor, in alle volgende methods
-    # start ik met dezelfde code, start_verse = xxx en end_verse = xxx
-    end_verse = record.end_verse
-
-    end_verse.chapter_nr = start_verse.chapter_nr
-    end_verse.verse_nr = start_verse.verse_nr
+    end_verse.chapter_nr = @start_verse.chapter_nr
+    end_verse.verse_nr = @start_verse.verse_nr
   end
 
   def single_verse?
-    end_verse = record.end_verse
-
     record.start_verse.verse_nr.positive? && end_verse.chapter_nr.zero? &&
       end_verse.verse_nr.zero?
   end
 
   def whole_biblebook?
-    start_verse = record.start_verse
-    end_verse = record.end_verse
-
     start_verse.chapter_nr.zero? && start_verse.verse_nr.zero? &&
       end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
   end
 
   def single_chapter?
-    start_verse = record.start_verse
-    end_verse = record.end_verse
-
     start_verse.chapter_nr.positive? && start_verse.verse_nr.zero? &&
       end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
   end
 
   def multiple_full_chapters?
-    start_verse = record.start_verse
-    end_verse = record.end_verse
-
     start_verse.verse_nr.zero? && end_verse.verse_nr.zero? &&
       end_verse.chapter_nr > start_verse.chapter_nr
   end
 
   def multiple_verses_one_chapter?
-    start_verse = record.start_verse
-    end_verse = record.end_verse
     end_chap = end_verse.chapter_nr
 
     (end_verse.verse_nr > start_verse.verse_nr) &&
@@ -178,8 +167,6 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   def full_pericope?
-    start_verse = record.start_verse
-    end_verse = record.end_verse
     start_verse.chapter_nr.positive? && start_verse.verse_nr.positive? &&
       end_verse.chapter_nr.positive? && end_verse.verse_nr.positive?
   end

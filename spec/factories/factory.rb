@@ -24,7 +24,7 @@ FactoryBot.define do
     biblebook
     name { "bijbelboek 1:1-1:1" }
     starting_chapter_nr { 1 }
-    starting_verse { 1 }  # TODO: ik wil toch weer verse hernoemen naar verse_nr, ivm verwarring verse class
+    starting_verse { 1 } # TODO: ik wil toch weer verse hernoemen naar verse_nr, ivm verwarring verse class
     ending_chapter_nr { 1 }
     ending_verse { 1 }
   end
@@ -44,4 +44,3 @@ FactoryBot.define do
     end
   end
 end
-
