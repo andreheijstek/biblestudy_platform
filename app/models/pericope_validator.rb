@@ -79,9 +79,6 @@ class PericopeValidator < ActiveModel::Validator
   end
 
   # rubocop:enable Metrics/MethodLength
-
-
-
   # :reek:DuplicateMethodCall - removing more duplicates makes it less readable
   # rubocop:disable Metrics/MethodLength Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
   def add_missing_data
@@ -115,61 +112,8 @@ class PericopeValidator < ActiveModel::Validator
     end
   end
 
-  # TODO: Volgens mij kan ik de volgende functies hier uit halen en in een
-  # PericopeHelper class stoppen. Daarmee wordt dit dan een stuk kleiner en cleaner.
-  # class PericopeHelper
-  # initialize (start_chapter, start_verse, end_chapter, end_verse)
-  # Gebruik:
-  # ph = PericopeHelper.new(1,1, 1, 1)
-  # end_verse = ph.set_end_chap_to_start_chap
-  # :reek:UtilityFunction
-  def set_end_chap_to_start_chap(end_verse, start_verse)
-    end_verse.chapter_nr = start_verse.chapter_nr
-  end
-
   def last_verse(chapter) # TODO: Kan dit niet beter naar het Chapter model?
     get_biblebook(record.biblebook_name).chapters[chapter - 1].nrofverses
-  end
-
-  def last_chapter
-    get_biblebook(record.biblebook_name).nr_of_chapters
-  end
-
-  def set_ending_to_starting
-    end_verse.chapter_nr = start_verse.chapter_nr
-    end_verse.verse_nr = start_verse.verse_nr
-  end
-
-  def single_verse?
-    start_verse.verse_nr.positive? && end_verse.chapter_nr.zero? &&
-      end_verse.verse_nr.zero?
-  end
-
-  def whole_biblebook?
-    start_verse.chapter_nr.zero? && start_verse.verse_nr.zero? &&
-      end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
-  end
-
-  def single_chapter?
-    start_verse.chapter_nr.positive? && start_verse.verse_nr.zero? &&
-      end_verse.chapter_nr.zero? && end_verse.verse_nr.zero?
-  end
-
-  def multiple_full_chapters?
-    start_verse.verse_nr.zero? && end_verse.verse_nr.zero? &&
-      end_verse.chapter_nr > start_verse.chapter_nr
-  end
-
-  def multiple_verses_one_chapter?
-    end_chap = end_verse.chapter_nr
-
-    (end_verse.verse_nr > start_verse.verse_nr) &&
-      ((end_chap == start_verse.chapter_nr) || end_chap.zero?)
-  end
-
-  def full_pericope?
-    start_verse.chapter_nr.positive? && start_verse.verse_nr.positive? &&
-      end_verse.chapter_nr.positive? && end_verse.verse_nr.positive?
   end
 
   def validate_pericope_order
