@@ -26,7 +26,7 @@ module BiblestudyPlatform
     # The default locale is :en and all translations from
     # config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path +=
-      Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+      Dir[Rails.root.join("config", "locales", "lib", "**", "*.{rb,yml}")]
     config.i18n.default_locale = :nl
 
     # Add i18n also for Javascript

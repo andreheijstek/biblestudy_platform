@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../../lib/pericope_validator_utilities"
+include PericopeValidatorUtilities
 # Validates a Pericope
 #
 # Checks on the order of the components
@@ -16,6 +18,7 @@
 # :reek:TooManyStatements as well
 # :reek:TooManyMethods
 # rubocop:disable Metrics/ClassLength:
+
 class PericopeValidator < ActiveModel::Validator
   # Validate method, as required by Rails, see class comment
   attr_accessor :record
@@ -51,19 +54,19 @@ class PericopeValidator < ActiveModel::Validator
 
     tree = PericopeParser.new.parse(name)
 
-    record.biblebook_name = tree[:biblebook].to_s.strip
+    record.biblebook_name = get_biblebook_from_tree(tree)
     record.start_verse =
       BibleVerse.new(
         {
-          chapter_nr: tree[:starting_chapter].to_i,
-          verse_nr: tree[:starting_verse].to_i
+          chapter_nr: get_starting_chapter_from_tree(tree),
+          verse_nr: get_starting_verse_from_tree(tree)
         }
       )
     record.end_verse =
       BibleVerse.new(
         {
-          chapter_nr: tree[:ending_chapter].to_i,
-          verse_nr: tree[:ending_verse].to_i
+          chapter_nr: get_ending_chapter_from_tree(tree),
+          verse_nr: get_ending_verse_from_tree(tree)
         }
       )
 
@@ -74,17 +77,10 @@ class PericopeValidator < ActiveModel::Validator
 
     record.populate_bibleverses
   end
+
   # rubocop:enable Metrics/MethodLength
 
-  def full_pericope_starting_with_full_chapter?
-    start_verse.verse_nr == 1 &&
-      record.end_verse.chapter_nr > start_verse.chapter_nr
-  end
 
-  def full_pericope_ending_with_full_chapter?
-    end_verse.verse_nr == 1 &&
-      end_verse.chapter_nr > record.start_verse.chapter_nr
-  end
 
   # :reek:DuplicateMethodCall - removing more duplicates makes it less readable
   # rubocop:disable Metrics/MethodLength Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
