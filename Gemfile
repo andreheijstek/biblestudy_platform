@@ -83,6 +83,7 @@ group :development do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'spring-commands-rspec'
   gem 'undercover'
   gem 'web-console'
   # gem 'xray-rails'

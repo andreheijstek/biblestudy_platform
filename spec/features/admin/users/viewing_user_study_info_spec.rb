@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+include FactoryHelpers
+
 describe "Admins can view a list of all users" do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: "Jansen", email: "jan.jansen@tour.fr") }
@@ -14,22 +16,11 @@ describe "Admins can view a list of all users" do
       expect_nr_of_studies(0)
     end
 
-    # TODO: Dit hoort eigenlijk in de factory, maar als 'ie daar staat wordt 'ie
-    # niet gevonden. En met een require erbij vindt 'ie alle gewone factories 2x
-    # Voorlopig even laten staan. Eerst de specs weer groen'
-    # :reek:UtilityFunction
-    def studynote_with_pericopes(pericope_count: 1)
-      FactoryBot.create(:studynote) do |studynote|
-        FactoryBot.create_list(:pericope, pericope_count, studynote: studynote)
-      end
+    it "shows one when there is one study" do
+      create(:studynote, author: user)
+      studynote_with_pericopes(pericope_count: 1)
+      expect_nr_of_studies(1)
     end
-
-    # TODO: Even uitgecommentarieerd om de specs te laten slagen (oeh)
-    # it "shows one when there is one study" do
-    #   create(:studynote, author: user)
-    # studynote_with_pericopes(pericope_count: 1)
-    # expect_nr_of_studies(1)
-    # end
   end
 end
 
