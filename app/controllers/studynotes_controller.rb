@@ -81,7 +81,8 @@ class StudynotesController < ApplicationController
       flash[:notice] = t(:item_created, item: name)
       redirect_to studynote
     else
-      flash.now[:alert] = t(:item_not_created, item: name) + "reden" + studynote.pericopes[0].errors.full_messages[0]
+      flash.now[:alert] = t(:item_not_created, item: name) + "reden" +
+        studynote.pericopes[0].errors.full_messages[0]
       locals :edit, studynote:
     end
   end
