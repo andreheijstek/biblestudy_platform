@@ -44,6 +44,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
   gem 'connection_pool'
+  gem 'dotenv-rails'
   gem 'kamal'
   gem 'launchy'
   gem 'orderly'

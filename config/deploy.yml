@@ -18,7 +18,7 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-# Inject ENV variables into containers (secrets come from .env).
+# Inject ENV variables into containers (secrets come from .env.production).
 # Remember to run `kamal env push` after making changes!
 # env:
 #   clear:
@@ -40,7 +40,7 @@ registry:
 #     arch: amd64
 #     host: ssh://app@192.168.0.1
 
-# Use accessory services (secrets come from .env).
+# Use accessory services (secrets come from .env.production).
 # accessories:
 #   db:
 #     image: mysql:8.0

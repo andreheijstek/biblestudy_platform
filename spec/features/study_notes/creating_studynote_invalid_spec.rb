@@ -17,7 +17,7 @@ feature "Users can not create new studynotes", js: true do
 
   scenario "when providing no attributes" do
     nsp.submit_button.click
-    should_see t("activerecord.models.messages.blank")
+    expect(page).to have_content(t("activerecord.models.messages.blank"))
   end
 
   context "with incorrect data" do
@@ -31,7 +31,7 @@ feature "Users can not create new studynotes", js: true do
 
       # TODO: Assert afmaken, dat betekent: de error message weer opnieuw gaan tonen
       # should_see t('errors.messages.verse_chapter_disorder')
-      should_see t("item_not_created", item: "bijbelstudie")
+      expect(page).to have_content(t("item_not_created", item: "bijbelstudie"))
     end
 
     # scenario 'when providing just the title' do
