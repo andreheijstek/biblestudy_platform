@@ -10,12 +10,11 @@ FactoryBot.define do
     name { "bijbelboek" }
     booksequence { 0 }
 
-    # TODO: Volgens mij kan ik hiervan een trait maken, dan 'with_chapters'
     factory :biblebook_with_chapters do
-      transient { chapters_count { 5 } } # TODO: magical number, beter 1 kiezen
+      transient { chapters_count { 1 } }
 
       after(:create) do |biblebook, evaluator|
-        create_list(:chapter, evaluator.chapters_count, biblebook:)
+        create_list(:chapter, evaluator.chapters_count, biblebook: biblebook)
       end
     end
   end
@@ -32,6 +31,14 @@ FactoryBot.define do
   factory :studynote do
     title { "titel" }
     note { "text" }
+
+    factory :studynote_with_pericopes do
+      transient { pericope_count { 1 } }
+
+      after(:create) do |studynote, evaluator|
+        create_list(:pericope, evaluator.pericope_count, studynote: studynote)
+      end
+    end
   end
 
   factory :user do
@@ -42,5 +49,10 @@ FactoryBot.define do
     trait :admin do
       admin { true }
     end
+  end
+
+  factory :bibleverse, class: BibleVerse do
+    chapter_nr { 1 }
+    verse_nr { 1 }
   end
 end

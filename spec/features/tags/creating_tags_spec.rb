@@ -2,7 +2,7 @@
 
 feature "creating tags" do
   let!(:user) { create(:user) }
-  let!(:studynote) { create(:studynote, :pericope, author: user) }
+  let!(:studynote) { create(:studynote, author: user) }
   let(:ssp) { ShowStudynotePage.new }
 
   before { login_as(user) }

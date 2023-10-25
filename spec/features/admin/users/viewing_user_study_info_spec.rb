@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-include FactoryHelpers
-
 describe "Admins can view a list of all users" do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: "Jansen", email: "jan.jansen@tour.fr") }
@@ -17,8 +15,7 @@ describe "Admins can view a list of all users" do
     end
 
     it "shows one when there is one study" do
-      create(:studynote, author: user)
-      studynote_with_pericopes(pericope_count: 1)
+      create(:studynote_with_pericopes, pericope_count: 1, author: user)
       expect_nr_of_studies(1)
     end
   end
