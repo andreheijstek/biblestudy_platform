@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-def check_results
-  should_see t("item_created", item: Studynote.model_name.human)
-  expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
-end
-
 feature "Users can view studynotes", js: true do
   let(:user) { create(:user) }
   let(:nsp) { NewStudynotesPage.new }
@@ -33,4 +28,9 @@ feature "Users can view studynotes", js: true do
   #
   #   check_results
   # end
+end
+
+def check_results
+  expect(page).to have_content(t("item_created", item: Studynote.model_name.human))
+  expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
 end

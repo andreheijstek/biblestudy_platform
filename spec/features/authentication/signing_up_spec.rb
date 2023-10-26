@@ -12,6 +12,6 @@ feature "Users can sign up" do
             with: "password"
     click_button t(:sign_up)
 
-    should_see(t("devise.registrations.signed_up"))
+    expect(page).to have_content ( (t("devise.registrations.signed_up")))
   end
 end

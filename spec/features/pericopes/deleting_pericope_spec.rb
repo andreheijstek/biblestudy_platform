@@ -6,6 +6,7 @@ feature "Users can delete pericopes", js: true do
   let(:studynote) { create :studynote }
   let(:nsp) { NewStudynotesPage.new }
 
+  # TODO: Fix
   # scenario "a second pericope" do
   #   login_as(user)
   #   nsp.load

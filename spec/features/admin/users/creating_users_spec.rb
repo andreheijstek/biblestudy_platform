@@ -17,7 +17,7 @@ feature "Admins can create new users" do
 
     submit_form
 
-    should_see t("activerecord.messages.created")
+    expect(page).to have_content( t("activerecord.messages.created"))
   end
 
   scenario "when the new user is an admin" do
@@ -28,7 +28,7 @@ feature "Admins can create new users" do
 
     submit_form
 
-    should_see t("activerecord.messages.created")
-    should_see "admin@example.com (Admin)"
+    expect(page).to have_content( t("activerecord.messages.created"))
+    expect(page).to have_content( "admin@example.com (Admin)")
   end
 end

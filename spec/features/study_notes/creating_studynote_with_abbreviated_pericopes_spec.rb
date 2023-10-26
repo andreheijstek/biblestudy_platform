@@ -57,7 +57,7 @@ feature "Users can create new studynotes with pericopes", js: true do
 
         submit_form
 
-        should_see t(:item_created, item: Studynote.model_name.human)
+        expect(page).to have_content (  t(:item_created, item: Studynote.model_name.human))
         within("#studynote") { should_see(example[:expected]).to_s }
       end
     end

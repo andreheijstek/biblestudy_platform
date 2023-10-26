@@ -94,6 +94,7 @@ describe Pericope, type: :model do
     expect(pericope).not_to be_valid
   end
 
+  # TODO: Fix
   # it 'validates verses in scope of the chapter' do
   #   pericope = described_class.create(name: 'Genesis 1:1')
   #   expect(pericope).to be_valid

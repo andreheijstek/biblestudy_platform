@@ -21,15 +21,15 @@ describe "Admins can view a list of all users" do
   end
 end
 
-def go_to_overview
-  login_as(admin)
-  visit "/"
-  click_link "Admin"
-end
-
 def expect_nr_of_studies(count)
   go_to_overview
   expect(
     find("tr", text: user).find("td", id: "studynote count")
   ).to have_content(count.to_s)
+end
+
+def go_to_overview
+  login_as(admin)
+  visit "/"
+  click_link "Admin"
 end

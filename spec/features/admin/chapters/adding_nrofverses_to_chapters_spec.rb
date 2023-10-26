@@ -7,7 +7,7 @@ feature "Admins can add the number of verses to a chapter" do
     book = create(:biblebook_with_chapters, name: booktitle)
     chapter = create(:chapter, biblebook: book, chapter_number: "1")
 
-    visit admin_biblebooks_path
+    # visit admin_biblebooks_path
     visit admin_biblebook_chapter_path(book, chapter)
   end
 
@@ -17,6 +17,6 @@ feature "Admins can add the number of verses to a chapter" do
 
     submit_form
 
-    should_see t(:item_updated, item: Chapter.model_name.human)
+    expect(page).to have_content( t(:item_updated, item: Chapter.model_name.human) )
   end
 end

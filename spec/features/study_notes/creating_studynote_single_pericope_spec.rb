@@ -13,13 +13,13 @@ describe "Users can create new studynotes with a single pericope", js: true do
 
   it "with valid attributes" do
     fill_and_submit("Jona 1:1 - 1:10")
-    should_see "Jona 1:1 - 1:10"
+    expect(page).to have_content (  "Jona 1:1 - 1:10")
   end
 
   it "containing just one single verse" do
     fill_and_submit("Jona 1:1")
 
-    should_see "Jona 1:1"
+    expect(page).to have_content (  "Jona 1:1")
   end
 
   # TODO: Make this helper available to many more tests?

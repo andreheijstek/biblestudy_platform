@@ -20,7 +20,14 @@
 #
 
 describe Biblebook do
-  let!(:genesis) { create(:biblebook_with_chapters, chapters_count: 2, name: "Genesis", abbreviation: "Gen") }
+  let!(:genesis) do
+    create(
+      :biblebook_with_chapters,
+      chapters_count: 2,
+      name: "Genesis",
+      abbreviation: "Gen"
+    )
+  end
 
   it "knows how many chapters it has" do
     expect(genesis.nr_of_chapters).to eq 2

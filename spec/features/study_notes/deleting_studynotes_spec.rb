@@ -21,7 +21,7 @@ feature "Users can delete studynotes", js: true do
       click_link t(:delete_item, item: Studynote.model_name.human)
     end
 
-    should_see t("activerecord.messages.deleted", model: "bijbelstudie")
+    expect(page).to have_content (  t("activerecord.messages.deleted", model: "bijbelstudie"))
     expect(page).to have_current_path pericopes_path
     expect(page).to have_no_content "Jona"
   end

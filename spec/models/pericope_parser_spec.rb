@@ -100,10 +100,4 @@ describe PericopeParser do
     tree = parser.pericope.parse("1 Korinthiërs 22")
     expect(tree[:starting_chapter].to_i).to eq(22)
   end
-
-  # it 'parses a Pericope with multiple digit verses' do
-  #   tree = parser.pericope.parse('1 Korinthiërs 22:12_345')
-  #   expect(tree[:starting_verse].to_i).to eq(12_345)
-  # end
-  # rubocop:enable Style/AsciiComments
 end

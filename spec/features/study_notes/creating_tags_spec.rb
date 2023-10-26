@@ -4,7 +4,7 @@ feature "Users can add tags to studynotes", js: true do
   let(:user) { create(:user) }
 
   before do
-    create(:biblebook, name: "Jona", testament: "oud")
+    create(:biblebook, name: "Jona")
     login_as(user)
   end
 
