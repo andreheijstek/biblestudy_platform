@@ -14,7 +14,7 @@ feature "Users can delete biblebooks" do
       click_link t(:delete_item, item: Biblebook.model_name.human)
     end
 
-    should_see t("errors.messages.biblebook_deleted")
+    expect(page).to have_content(t("errors.messages.biblebook_deleted"))
     expect(page).to have_no_content "Handelingen"
   end
 end

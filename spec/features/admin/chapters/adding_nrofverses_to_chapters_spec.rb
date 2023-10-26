@@ -17,6 +17,8 @@ feature "Admins can add the number of verses to a chapter" do
 
     submit_form
 
-    expect(page).to have_content( t(:item_updated, item: Chapter.model_name.human) )
+    expect(page).to have_content(
+      t(:item_updated, item: Chapter.model_name.human)
+    )
   end
 end

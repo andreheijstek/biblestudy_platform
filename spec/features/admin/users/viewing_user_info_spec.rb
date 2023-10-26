@@ -13,7 +13,7 @@ describe "Admins can view a list of all users" do
   end
 
   it "all users are in the list" do
-    expect(page).to have_content( "jan.jansen")
+    expect(page).to have_content("jan.jansen")
   end
 
   it "#logins as user are shown correctly" do

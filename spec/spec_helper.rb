@@ -39,7 +39,7 @@ end
 
 # Load RSpec Tracer
 require "rspec_tracer"
-# RSpecTracer.start
+RSpecTracer.start
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

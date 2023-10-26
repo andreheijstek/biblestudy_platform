@@ -11,27 +11,27 @@ describe "Users can view an overview of all studynotes" do
 
   let!(:book_handelingen) do
     create(
-    :biblebook,
-    name:         "Handelingen",
-    testament:    "nieuw",
-    booksequence: 53
+      :biblebook,
+      name: "Handelingen",
+      testament: "nieuw",
+      booksequence: 53
     )
   end
 
   let!(:chap1) do
     create(
-    :chapter,
-    chapter_number: 1,
-    nrofverses:     3,
-    biblebook_id:   book_handelingen.id
+      :chapter,
+      chapter_number: 1,
+      nrofverses: 3,
+      biblebook_id: book_handelingen.id
     )
   end
   let!(:chap2) do
     create(
-    :chapter,
-    chapter_number: 2,
-    nrofverses:     10,
-    biblebook_id:   book_handelingen.id
+      :chapter,
+      chapter_number: 2,
+      nrofverses: 10,
+      biblebook_id: book_handelingen.id
     )
   end
 
@@ -40,44 +40,44 @@ describe "Users can view an overview of all studynotes" do
   end
   let!(:pericope_jona) do
     create(
-    :pericope,
-    name:         "Jona 1:1 - 1:10",
-    biblebook_id: book_jona.id,
-    studynote_id: study_jona.id
+      :pericope,
+      name: "Jona 1:1 - 1:10",
+      biblebook_id: book_jona.id,
+      studynote_id: study_jona.id
     )
   end
 
   let!(:study_hand1) do
     create(
-    :studynote,
-    title:  "Handelingen later",
-    note:   "Handelingen ook.",
-    author: user
+      :studynote,
+      title: "Handelingen later",
+      note: "Handelingen ook.",
+      author: user
     )
   end
   let!(:pericope_hand1) do
     create(
-    :pericope,
-    name:         "Handelingen 1:2 - 1:10",
-    biblebook_id: book_handelingen.id,
-    studynote_id: study_hand1.id
+      :pericope,
+      name: "Handelingen 1:2 - 1:10",
+      biblebook_id: book_handelingen.id,
+      studynote_id: study_hand1.id
     )
   end
 
   let!(:study_hand2) do
     create(
-    :studynote,
-    title:  "Handelingen eerst",
-    note:   "Handelingen ook.",
-    author: user
+      :studynote,
+      title: "Handelingen eerst",
+      note: "Handelingen ook.",
+      author: user
     )
   end
   let!(:pericope_hand2) do
     create(
-    :pericope,
-    name:         "Handelingen 1:1 - 1:10",
-    biblebook_id: book_handelingen.id,
-    studynote_id: study_hand2.id
+      :pericope,
+      name: "Handelingen 1:1 - 1:10",
+      biblebook_id: book_handelingen.id,
+      studynote_id: study_hand2.id
     )
   end
 
@@ -99,10 +99,10 @@ describe "Users can view an overview of all studynotes" do
   end
 
   scenario "grouped by biblebook" do
-    books       = sno.biblebooks
-    jona        = books[0]
+    books = sno.biblebooks
+    jona = books[0]
     handelingen = books[1]
-    sn          = sno.studynotes
+    sn = sno.studynotes
 
     expect(handelingen.text).to start_with("Handelingen")
     expect(sn[1].text).to include("Handelingen")

@@ -31,6 +31,8 @@ feature "Users can view studynotes", js: true do
 end
 
 def check_results
-  expect(page).to have_content(t("item_created", item: Studynote.model_name.human))
+  expect(page).to have_content(
+    t("item_created", item: Studynote.model_name.human)
+  )
   expect(ShowStudynotePage.new.author_field.text).to eq(user.username)
 end

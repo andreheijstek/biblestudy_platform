@@ -17,13 +17,17 @@ feature "Admins can create new chapters within biblebooks" do
 
     submit_form
 
-    expect(page).to have_content( t(:item_created, item: Chapter.model_name.human) )
+    expect(page).to have_content(
+      t(:item_created, item: Chapter.model_name.human)
+    )
   end
 
   scenario "when providing invalid attributes" do
     click_link t(:add_chapter)
     submit_form
-    expect(page).to have_content( t(:item_not_created, item: Chapter.model_name.human) )
-    expect(page).to have_content( t("activerecord.models.messages.blank") )
+    expect(page).to have_content(
+      t(:item_not_created, item: Chapter.model_name.human)
+    )
+    expect(page).to have_content(t("activerecord.models.messages.blank"))
   end
 end

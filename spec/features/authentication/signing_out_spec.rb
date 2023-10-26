@@ -9,6 +9,6 @@ feature "Signed-in users can sign out" do
 
     click_link t(:sign_out)
 
-    expect(page).to have_content (  t("devise.sessions.signed_out"))
+    expect(page).to have_content (t("devise.sessions.signed_out"))
   end
 end

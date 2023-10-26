@@ -14,6 +14,6 @@ feature "Admins can view all chapters within biblebooks" do
     )
     visit admin_biblebook_path(book)
 
-    expect(page).to have_content( "1 - Inleiding" )
+    expect(page).to have_content("1 - Inleiding")
   end
 end

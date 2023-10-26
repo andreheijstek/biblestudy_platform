@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Pericope do
-  let(:user) { create(:user) }
+  let(:user) { build_stubbed(:user) }
 
   before { create(:biblebook, name: "Genesis") }
 

@@ -11,7 +11,7 @@ feature "Users can sign in" do
     fill_in t("activerecord.attributes.user.password"), with: "password"
     click_button t(:sign_in)
 
-    expect(page).to have_content ( t("devise.sessions.signed_in"))
-    expect(page).to have_content (  "#{t("signed_in_as")} #{user.email}")
+    expect(page).to have_content (t("devise.sessions.signed_in"))
+    expect(page).to have_content ("#{t("signed_in_as")} #{user.email}")
   end
 end

@@ -16,9 +16,11 @@ feature "Admins can change a user's details" do
     fill_in t("activerecord.attributes.user.password"), with: "123456"
     submit_form
 
-    expect(page).to have_content( t("activerecord.attributes.user.messages.updated"))
-    expect(page).to have_content( email)
-    expect(page).to_not have_content( user.email)
+    expect(page).to have_content(
+      t("activerecord.attributes.user.messages.updated")
+    )
+    expect(page).to have_content(email)
+    expect(page).to_not have_content(user.email)
   end
 
   scenario "when toggling a user's admin ability" do
@@ -27,7 +29,9 @@ feature "Admins can change a user's details" do
 
     submit_form
 
-    expect(page).to have_content( t("activerecord.attributes.user.messages.updated"))
-    expect(page).to have_content( "#{user.email} (Admin)")
+    expect(page).to have_content(
+      t("activerecord.attributes.user.messages.updated")
+    )
+    expect(page).to have_content("#{user.email} (Admin)")
   end
 end

@@ -20,15 +20,19 @@ feature "Users can edit existing studynotes", js: true do
     nsp.studynote_field.set(new_text)
     nsp.submit_button.click
 
-    expect(page).to have_content (  t(:item_updated, item: Studynote.model_name.human))
-    expect(page).to have_content (  new_text)
+    expect(page).to have_content (
+                   t(:item_updated, item: Studynote.model_name.human)
+                 )
+    expect(page).to have_content (new_text)
   end
 
   scenario "except when providing invalid attributes" do
     nsp.studynote_field.native.clear # enter an empty string into the field
     nsp.submit_button.click
 
-    expect(page).to have_content (  t(:item_not_updated, item: Studynote.model_name.human))
+    expect(page).to have_content (
+                   t(:item_not_updated, item: Studynote.model_name.human)
+                 )
   end
 
   scenario "unless they do not have permission" do
