@@ -1,0 +1,19 @@
+.card
+  .card-header
+    .mb-0.testaments
+      - collapse_label = "#collapse_#{testament_name}"
+      %button.btn.btn-link{'type': 'button', 'data-toggle': 'collapse', 'data-target': collapse_label, 'aria-expanded': 'true', 'aria-controls': "collapse_#{testament_name}"}
+        - counts = testament_counts[testament_name] || 0
+        = "#{t("#{testament_name}_testament")}  (#{t("studynote", count: counts)})"
+      .collapse.show{id: collapse_label, 'aria-labelledby': "heading_#{testament_name}", 'data-parent': '#mainAccordion'}
+        .card-body
+        / nested accordion
+      - testament.each_with_index do |book, index|
+        - study_count = biblebook_counts[book.name] || 0
+        .panel.panel-default
+          - bookname = book.name.parameterize
+          %div.panel-heading{id: "##{testament_name}-#{bookname}"}
+            %h4.panel-title
+              %a.collapsed{"data-parent": "##{testament_name}", "data-toggle": 'collapse', href: "#{bookname}"}
+                \#{"#{book.name} (#{study_count})"}
+          = render :partial => 'book_table', locals: { book: book, bookname: bookname }
