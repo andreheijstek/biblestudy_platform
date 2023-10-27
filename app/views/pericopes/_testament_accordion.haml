@@ -3,7 +3,7 @@
     .mb-0.testaments
       - collapse_label = "#collapse_#{testament_name}"
       %button.btn.btn-link{'type': 'button', 'data-toggle': 'collapse', 'data-target': collapse_label, 'aria-expanded': 'true', 'aria-controls': "collapse_#{testament_name}"}
-        - counts = testament_counts[testament_name] || 0
+        - counts = testament_counts || 0
         = "#{t("#{testament_name}_testament")}  (#{t("studynote", count: counts)})"
       .collapse.show{id: collapse_label, 'aria-labelledby': "heading_#{testament_name}", 'data-parent': '#mainAccordion'}
         .card-body
