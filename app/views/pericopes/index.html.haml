@@ -11,5 +11,7 @@
   %li.nav-item
     %a{"data-toggle" => "pill", :href => "#tags", id: 'tags_tab'} Tags
 
+%p
+
 = render :partial => 'accordion',
   locals: { testament_counts: testament_counts, ot: ot, nt: nt, biblebook_counts: biblebook_counts }
