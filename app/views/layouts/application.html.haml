@@ -14,10 +14,9 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
     / Google Analytics
-    = javascript_tag do
+    -# = javascript_tag do
       I18n.defaultLocale = "#{I18n.default_locale}"
       I18n.locale = "#{I18n.locale}"
-    = render :partial => 'shared/google_analytics'
   %body
     .container
       %header
