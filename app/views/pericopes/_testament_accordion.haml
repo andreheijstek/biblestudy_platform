@@ -18,20 +18,18 @@
       = "#{t("#{testament_name}_testament")}  (#{t("studynote", count: counts)})"
   .accordion-collapse.collapse.show{id: "collapse_#{testament_name}", 'aria-labelledby': "#{testament_name}_header", 'data-bs-parent': '#mainAccordion'}
     .accordion-body
-      Card body
       / nested accordion
-    -# - testament.each_with_index do |book, index|
-    -#   - study_count = biblebook_counts[book.name] || 0
-    -#   .accordion{id:"biblebook_accordion#{index}"}
-    -#     .accordion-item
-    -#       - bookname = book.name.parameterize
-    -#       %h2.accordion-header{id: "##{testament_name}-#{bookname}"}
-    -#         %button.accordion-button{"aria-controls" => "collapse_#{testament_name}_#{bookname}", "aria-expanded" => "true", "data-bs-target" => "#collapse_#{testament_name}_#{bookname}", "data-bs-toggle" => "collapse", type: "button"}
-    -#           %a.collapsed{"data-parent": "#collapse_#{testament_name}", "data-toggle": 'collapse', href: "#{bookname}"}
-    -#             #{book.name} (#{study_count})
-    -#       .accordion-collapse.collapse.show{id: "##{bookname}", "aria-labelledby" => "#{testament_name}-#{bookname}", "data-bs-parent" => "#biblebook_accordion"}
-    -#         .accordion-body
-    -#           = render :partial => 'book_table', locals: { book: book, bookname: bookname }
+      - testament.each_with_index do |book, index|
+        - study_count = biblebook_counts[book.name] || 0
+        .accordion{id:"#{testament_name}_accordion"}
+          .accordion-item
+            - bookname = book.name.parameterize
+            %h2.accordion-header{id: "#{testament_name}-#{bookname}_header"}
+              %button.accordion-button{"aria-controls" => "collapse_#{testament_name}_#{bookname}", "aria-expanded" => "true", "data-bs-target" => "#collapse_#{testament_name}_#{bookname}", "data-bs-toggle" => "collapse", type: "button"}
+                #{book.name} (#{study_count})
+            .accordion-collapse.collapse.show{id: "collapse_#{testament_name}_#{bookname}", "aria-labelledby" => "#{testament_name}-#{bookname}_header", "data-bs-parent" => "##{testament_name}_accordion"}
+              .accordion-body
+                = render :partial => 'book_table', locals: { book: book, bookname: bookname }
 
 -# .card
 -#   .card-header
