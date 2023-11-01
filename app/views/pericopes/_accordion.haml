@@ -1,17 +1,14 @@
-.tab-content#myTabsContent
-  #studynotes.tab-pane.fade.in.active
-    <!-- Content for Tab 1 -->
-    #mainAccordion.accordion
-    = render :partial => 'testament_accordion',
-      locals: { testament_name: 'old',
-                testament_counts: testament_counts["oud"],
-                testament: ot,
-                biblebook_counts: biblebook_counts }
-    -# = render :partial => 'testament_accordion',
-      locals: { testament_name: 'new',
-                testament_counts: testament_counts["nieuw"],
-                testament: nt,
-                biblebook_counts: biblebook_counts }
+#mainAccordion.accordion
+  = render :partial => 'testament_accordion',
+    locals: { testament_name: 'old',
+              testament_counts: testament_counts["oud"],
+              testament: ot,
+              biblebook_counts: biblebook_counts }
+  = render :partial => 'testament_accordion',
+    locals: { testament_name: 'new',
+              testament_counts: testament_counts["nieuw"],
+              testament: nt,
+              biblebook_counts: biblebook_counts }
 
   -# #tags.tab-pane.fade
   -#   <!-- Content for Tab 2 -->

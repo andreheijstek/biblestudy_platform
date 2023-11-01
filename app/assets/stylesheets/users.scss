@@ -10,8 +10,8 @@
   margin: 0 auto;
 }
 .authform form {
-  @extend .well;
-  @extend .well-lg;
+  @extend .well !optional;
+  @extend .well-lg !optional;
   padding-bottom: 40px;
 }
 .authform .right {

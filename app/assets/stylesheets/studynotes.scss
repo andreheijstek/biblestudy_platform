@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #attributes {
   @extend .table;
-  @extend .table-condensed;
+  @extend .table-condensed !optional;
   width: 65%;
   th {
     width: 35%;

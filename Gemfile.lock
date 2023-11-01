@@ -95,9 +95,9 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
+    bootstrap (5.3.2)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.8, < 3)
     brakeman (6.0.1)
     builder (3.2.4)
     bundler-audit (0.9.1)
@@ -365,6 +365,7 @@ GEM
       racc
     parslet (2.0.0)
     pg (1.5.4)
+    popper_js (2.11.8)
     poro-rails (0.2.1)
     prettier (4.0.2)
       syntax_tree (>= 4.0.1)
@@ -653,7 +654,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bootstrap
   brakeman
   bundler-audit
   byebug

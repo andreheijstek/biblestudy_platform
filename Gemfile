@@ -5,7 +5,7 @@ ruby RUBY_VERSION.to_s
 
 gem 'acts-as-taggable-on'
 gem 'annotate'
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'cocoon'
