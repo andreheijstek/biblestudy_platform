@@ -1,16 +1,3 @@
--# #accordionExample.accordion
--#   .accordion-item
--#     %h2#headingOne.accordion-header
--#       %button.accordion-button{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-bs-target" => "#collapseOne", "data-bs-toggle" => "collapse", type: "button"}
--#         Accordion Item #1
--#     #collapseOne.accordion-collapse.collapse.show{"aria-labelledby" => "headingOne", "data-bs-parent" => "#accordionExample"}
--#       .accordion-body
--#         %strong This is the first item's accordion body.
--#         It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
--#         = succeed "," do
--#           %code .accordion-body
-
-
 .accordion-item
   %h2.accordion-header{id: "#{testament_name}_header"}
     %button.accordion-button{"aria-controls" => "collapse_#{testament_name}", "aria-expanded" => "true", "data-bs-target" => "#collapse_#{testament_name}", "data-bs-toggle" => "collapse", type: "button"}
@@ -30,58 +17,3 @@
             .accordion-collapse.collapse.show{id: "collapse_#{testament_name}_#{bookname}", "aria-labelledby" => "#{testament_name}-#{bookname}_header", "data-bs-parent" => "##{testament_name}_accordion"}
               .accordion-body
                 = render :partial => 'book_table', locals: { book: book, bookname: bookname }
-
--# .card
--#   .card-header
--#     .mb-0.testaments
--#       - collapse_label = "#collapse_#{testament_name}"
--#       %button.btn.btn-primary{'type': 'button', 'data-toggle': 'collapse', 'data-target': collapse_label, 'aria-expanded': 'true', 'aria-controls': "collapse_#{testament_name}"}
--#         - counts = testament_counts || 0
--#         = "#{t("#{testament_name}_testament")}  (#{t("studynote", count: counts)})"
--#       .collapse.show{id: collapse_label, 'aria-labelledby': "heading_#{testament_name}", 'data-parent': '#mainAccordion'}
--#         .card-body
--#         / nested accordion
--#       - testament.each_with_index do |book, index|
--#         - study_count = biblebook_counts[book.name] || 0
--#         .accordion{id:"biblebook_accordion#{index}"}
--#           .accordion-item
--#             - bookname = book.name.parameterize
--#             %h2.accordion-header{id: "##{testament_name}-#{bookname}"}
--#               %button.accordion-button{"aria-controls" => "collapse_#{testament_name}_#{bookname}", "aria-expanded" => "true", "data-bs-target" => "#collapse_#{testament_name}_#{bookname}", "data-bs-toggle" => "collapse", type: "button"}
--#                 %a.collapsed{"data-parent": "#collapse_#{testament_name}", "data-toggle": 'collapse', href: "#{bookname}"}
--#                   #{book.name} (#{study_count})
--#             .accordion-collapse.collapse.show{id: "##{bookname}", "aria-labelledby" => "#{testament_name}-#{bookname}", "data-bs-parent" => "#biblebook_accordion"}
--#               .accordion-body
--#                 = render :partial => 'book_table', locals: { book: book, bookname: bookname }
-
--# #accordionExample.accordion
--#   .accordion-item
--#     %h2#headingOne.accordion-header
--#       %button.accordion-button{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-bs-target" => "#collapseOne", "data-bs-toggle" => "collapse", type: "button"}
--#         Accordion Item #1
--#     #collapseOne.accordion-collapse.collapse.show{"aria-labelledby" => "headingOne", "data-bs-parent" => "#accordionExample"}
--#       .accordion-body
--#         %strong This is the first item's accordion body.
--#         It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
--#         = succeed "," do
--#           %code .accordion-body
--#   .accordion-item
--#     %h2#headingTwo.accordion-header
--#       %button.accordion-button.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-bs-target" => "#collapseTwo", "data-bs-toggle" => "collapse", type: "button"}
--#         Accordion Item #2
--#     #collapseTwo.accordion-collapse.collapse{"aria-labelledby" => "headingTwo", "data-bs-parent" => "#accordionExample"}
--#       .accordion-body
--#         %strong This is the second item's accordion body.
--#         It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
--#         = succeed "," do
--#           %code .accordion-body
--#   .accordion-item
--#     %h2#headingThree.accordion-header
--#       %button.accordion-button.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-bs-target" => "#collapseThree", "data-bs-toggle" => "collapse", type: "button"}
--#         Accordion Item #3
--#     #collapseThree.accordion-collapse.collapse{"aria-labelledby" => "headingThree", "data-bs-parent" => "#accordionExample"}
--#       .accordion-body
--#         %strong This is the third item's accordion body.
--#         It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
--#         = succeed "," do
--#           %code .accordion-body
