@@ -17,9 +17,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  devise_scope :user do
-    delete 'users/sign_out', to: 'devise/sessions#destroy'
-  end
 
   resources :studynotes
   resources :pericopes, except: %i[create update]
