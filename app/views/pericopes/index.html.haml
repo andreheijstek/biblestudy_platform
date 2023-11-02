@@ -13,5 +13,11 @@
 
 %p
 
-= render :partial => 'accordion',
+.container
+  .row
+    .col-md-8
+      = render :partial => 'accordion',
   locals: { testament_counts: testament_counts, ot: ot, nt: nt, biblebook_counts: biblebook_counts }
+    .col-md-4
+      Tags
+
