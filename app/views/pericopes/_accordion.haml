@@ -1,27 +1,40 @@
 #mainAccordion.accordion
-  = render :partial => 'testament_accordion',
-    locals: { testament_name: 'old',
-              testament_counts: testament_counts["oud"],
-              testament: ot,
-              biblebook_counts: biblebook_counts }
-  = render :partial => 'testament_accordion',
-    locals: { testament_name: 'new',
-              testament_counts: testament_counts["nieuw"],
-              testament: nt,
-              biblebook_counts: biblebook_counts }
+  .accordion-item
+  - testament_name = t("old_testament")
+  - study_count = testament_counts["oud"] || 0
+  %h2.accordion-header{id: "#{testament_name.parameterize}_header"}
+    %button.accordion-button{"aria-controls" => "collapse_old", "aria-expanded" => "true", "data-bs-target" => "#collapse_old", "data-bs-toggle" => "collapse", type: "button"}
+      #{testament_name} (#{study_count})
+  .accordion-collapse.collapse.show{id: "collapse_old", "aria-labelledby" => "#{testament_name.parameterize}_header", "data-bs-parent" => "#mainAccordion"}
+    .accordion-body
+      .accordion{id:"old_accordion"}
+        - ot.each_with_index do |book, index|
+          - study_count = biblebook_counts[book.name] || 0
+          - book_name = book.name.parameterize
+          .accordion-item
+            %h2.accordion-header{id: "old_#{book_name}_header"}
+              %button.accordion-button{"aria-controls" => "collapse_old", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_old_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
+                #{book_name} (#{study_count})
+            .accordion-collapse.collapse{class: [index.zero? && 'show'] , id: "collapse_old_#{book_name}", "aria-labelledby" => "old_#{book_name}_header", "data-bs-parent" => "#old_accordion"}
+              .accordion-body
+                = render :partial => 'book_table', locals: { book: book, book_name: book_name }
 
-  -# #tags.tab-pane.fade
-  -#   <!-- Content for Tab 2 -->
-  -#   - ActsAsTaggableOn::Tag.most_used
-  -#   %ul
-  -#     - @tags.order(:name).each do |tag|
-  -#       %li
-  -#         - if tag.taggings_count == 1
-  -#           - studynotes = Studynote.tagged_with tag.name
-  -#           - studynote = studynotes.first
-  -#           -# = studynote.title
-  -#           = link_to "#{tag.name} (#{studynotes.count})", studynote_path(studynote)
-  -#         - else
-  -#           = "#{tag.name} (#{tag.taggings_count})"
-  -#
-  -#         #tags.tab-pane.fade
+  .accordion-item
+  - testament_name = t("new_testament")
+  - study_count = testament_counts["nieuw"] || 0
+  %h2.accordion-header{id: "#{testament_name.parameterize}_header"}
+    %button.accordion-button{"aria-controls" => "collapse_new", "aria-expanded" => "true", "data-bs-target" => "#collapse_new", "data-bs-toggle" => "collapse", type: "button"}
+      #{testament_name} (#{study_count})
+  .accordion-collapse.collapse.show{id: "collapse_new", "aria-labelledby" => "#{testament_name.parameterize}_header", "data-bs-parent" => "#mainAccordion"}
+    .accordion-body
+      .accordion{id:"new_accordion"}
+        - nt.each_with_index do |book, index|
+          - study_count = biblebook_counts[book.name] || 0
+          - book_name = book.name.parameterize
+          .accordion-item
+            %h2.accordion-header{id: "new_#{book_name}_header"}
+              %button.accordion-button{"aria-controls" => "collapse_new", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_new_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
+                #{book_name} (#{study_count})
+            .accordion-collapse.collapse{class: [index.zero? && 'show'] , id: "collapse_new_#{book_name}", "aria-labelledby" => "new_#{book_name}_header", "data-bs-parent" => "#new_accordion"}
+              .accordion-body
+                = render :partial => 'book_table', locals: { book: book, book_name: book_name }

@@ -20,4 +20,9 @@ module ApplicationHelper
 
     tag.time(time.to_s, options.merge(datetime: time.getutc.iso8601))
   end
+
+  # :reek:UtilityFunction
+  def aria_condition(index)
+    index.zero? ? "true" : "false"
+  end
 end
