@@ -13,7 +13,7 @@
           - book_name = book.name.parameterize
           .accordion-item
             %h2.accordion-header{id: "old_#{book_name}_header"}
-              %button.accordion-button{"aria-controls" => "collapse_old", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_old_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
+              %button.accordion-button{"aria-controls" => "collapse_old_#{book_name}", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_old_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
                 #{book_name} (#{study_count})
             .accordion-collapse.collapse{class: [index.zero? && 'show'] , id: "collapse_old_#{book_name}", "aria-labelledby" => "old_#{book_name}_header", "data-bs-parent" => "#old_accordion"}
               .accordion-body
@@ -33,7 +33,7 @@
           - book_name = book.name.parameterize
           .accordion-item
             %h2.accordion-header{id: "new_#{book_name}_header"}
-              %button.accordion-button{"aria-controls" => "collapse_new", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_new_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
+              %button.accordion-button{"aria-controls" => "collapse_new_#{book_name}", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_new_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
                 #{book_name} (#{study_count})
             .accordion-collapse.collapse{class: [index.zero? && 'show'] , id: "collapse_new_#{book_name}", "aria-labelledby" => "new_#{book_name}_header", "data-bs-parent" => "#new_accordion"}
               .accordion-body
