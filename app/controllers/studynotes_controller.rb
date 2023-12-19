@@ -50,7 +50,7 @@ class StudynotesController < ApplicationController
     update_studynote
   end
 
-  # Delets an existing Studynote
+  # Deletes an existing Studynote
   def destroy
     authorize studynote, :destroy?
     studynote.destroy
@@ -83,6 +83,7 @@ class StudynotesController < ApplicationController
     else
       flash.now[:alert] = t(:item_not_created, item: name) + "reden" +
         studynote.pericopes[0].errors.full_messages[0]
+      # TODO: Deze 'reden' hoort hier niet, die zal ik bij een debug er wel ingezet hebben. Fixen
       locals :edit, studynote:
     end
   end

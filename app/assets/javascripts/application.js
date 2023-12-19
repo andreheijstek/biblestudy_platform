@@ -11,15 +11,14 @@
 // about supported directives.
 //
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.timeago.js
-//= require time_ago.js
-//= require rails.validations
-//= require rails.validations.simple_form
-//= require rails.validations.simple_form.bootstrap4
-//= require bootstrap
-//= require cocoon
-//= require trix
-//= require_tree .
+// = require jquery
+// = require jquery_ujs
+// = require jquery.timeago.js
+// = require time_ago.js
+// = require rails.validations
+// = require rails.validations.simple_form.bootstrap4
+// = require bootstrap
+// = require cocoon
+// = require trix
+// = require_tree .
 

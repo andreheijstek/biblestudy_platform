@@ -3,6 +3,7 @@
 feature "Users can sign up" do
   scenario "when providing valid details" do
     ensure_on "/"
+    page.find("button.navbar-toggler").click
 
     click_link t(:sign_up)
     fill_in t("activerecord.attributes.user.username"), with: "gebruikert"
@@ -12,6 +13,6 @@ feature "Users can sign up" do
             with: "password"
     click_button t(:sign_up)
 
-    expect(page).to have_content ((t("devise.registrations.signed_up")))
+    expect(page).to have_content(t("devise.registrations.signed_up"))
   end
 end

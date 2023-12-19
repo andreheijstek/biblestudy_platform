@@ -6,6 +6,7 @@ feature "Signed-in users can sign out" do
   scenario do
     login_as(user)
     visit "/"
+    page.find("button.navbar-toggler").click
 
     click_link t(:sign_out)
 

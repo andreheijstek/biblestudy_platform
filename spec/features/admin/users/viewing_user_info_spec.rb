@@ -8,6 +8,7 @@ describe "Admins can view a list of all users" do
     login_as(user)
     login_as(admin)
     visit "/"
+    page.find("button.navbar-toggler").click
 
     click_link "Admin"
   end

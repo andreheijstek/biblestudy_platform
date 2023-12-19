@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-feature "Users can sign in" do
+feature "Users can sign in", js: true do
   let!(:user) { create(:user) }
 
   scenario "with valid credentials" do
     ensure_on "/"
+    page.find("button.navbar-toggler").click
+
     click_link t(:sign_in)
 
     fill_in t("activerecord.attributes.user.email"), with: user.email

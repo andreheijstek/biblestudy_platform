@@ -42,5 +42,7 @@ module BiblestudyPlatform
     ] = "interest-cohort=()"
 
     config.active_record.legacy_connection_handling = false
+
+    config.generators { |gen| gen.template_engine :haml }
   end
 end

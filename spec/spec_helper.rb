@@ -25,6 +25,8 @@ require "simplecov-lcov"
 require "capybara"
 require "capybara/dsl"
 require "capybara/rspec"
+require "view_component/test_helpers"
+require "view_component/system_test_helpers"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatter =
@@ -38,8 +40,8 @@ end
 # Capybara.app_host = "http://www.example.com"
 
 # Load RSpec Tracer
-require "rspec_tracer"
-RSpecTracer.start
+# require "rspec_tracer"
+# RSpecTracer.start
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -124,4 +126,14 @@ RSpec.configure do |config|
     port: "3000",
     host: "localhost"
   }
+
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
+
+  config.include Devise::Test::ControllerHelpers, type: :component
+
+  config.before(:each, type: :component) do
+    @request = vc_test_controller.request
+  end
 end

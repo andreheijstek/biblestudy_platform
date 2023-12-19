@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe "Admins can view a list of all users" do
+describe "Admins can view a list of all users", js: true do
   let(:admin) { create(:user, :admin) }
   let(:user) { create(:user, username: "Jansen", email: "jan.jansen@tour.fr") }
 
@@ -31,5 +31,7 @@ end
 def go_to_overview
   login_as(admin)
   visit "/"
+  page.find("button.navbar-toggler").click
+
   click_link "Admin"
 end

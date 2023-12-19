@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-feature "Users can view an overview of all biblebooks" do
+feature "Users can view an overview of all biblebooks", js: true do
   before { login_as(create(:user, :admin)) }
 
   scenario "sorted by the given order" do

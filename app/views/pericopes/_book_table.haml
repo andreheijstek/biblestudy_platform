@@ -7,6 +7,6 @@
       %th= Studynote.human_attribute_name(:title)
     - Pericope.where(biblebook_name: book.name).order(sequence: :asc).each do |study|
       %tr.studynote
-        %td.pericope= study.name
-        %td.author= study.studynote.author.username
-        %td.title= link_to study.studynote.title, study.studynote
+        %td= study.name
+        %td= study.studynote.author.username
+        %td= link_to study.studynote.title, study.studynote

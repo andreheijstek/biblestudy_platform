@@ -614,6 +614,10 @@ GEM
       rainbow (>= 2.1, < 4.0)
       rugged (>= 0.27, < 1.7)
     unicode-display_width (2.5.0)
+    view_component (3.7.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -727,6 +731,7 @@ DEPENDENCIES
   trix-rails
   uglifier
   undercover
+  view_component
   web-console
   webdrivers
   webpack

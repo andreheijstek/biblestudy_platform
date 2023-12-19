@@ -6,6 +6,7 @@ feature "Admins can create new users" do
   before do
     login_as(admin)
     visit "/"
+    page.find("button.navbar-toggler").click
     click_link "Admin"
     click_link "New User"
   end

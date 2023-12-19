@@ -4,6 +4,6 @@
 class StudynotesOverviewPage < SitePrism::Page
   set_url "/"
 
-  elements :biblebooks, "h4.panel-title"
+  elements :biblebooks, "button.biblebook"
   elements :studynotes, "tr.studynote"
 end

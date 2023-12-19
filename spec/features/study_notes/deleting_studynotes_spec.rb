@@ -6,24 +6,19 @@ feature "Users can delete studynotes", js: true do
 
   before { create(:studynote, title: "Jona", author: user) }
 
-  scenario "successfully" do
+  scenario "successfully", js: true do
     login_as(user)
 
     visit studynotes_path
     click_link "Jona"
 
-    # TODO: I would like to use the pageobject here,
-    # but can't get the URL expansion to work
-    # ssp = StudynoteShowPage.new
-    # ssp.load(studynote: @s1)
-
     accept_confirm do
       click_link t(:delete_item, item: Studynote.model_name.human)
     end
 
-    expect(page).to have_content (
-                   t("activerecord.messages.deleted", model: "bijbelstudie")
-                 )
+    expect(page).to have_content(
+      t("activerecord.messages.deleted", model: "bijbelstudie")
+    )
     expect(page).to have_current_path pericopes_path
     expect(page).to have_no_content "Jona"
   end

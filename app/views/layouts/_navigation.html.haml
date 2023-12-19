@@ -1,29 +1,22 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{href: "/"}
-    %img{alt: "BSP logo", src: "#{image_path('bsp_logo.png')}"}
-  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
-    %span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        %a.nav-link{href: "#"}
-          Home
-          %span.sr-only (current)
-      %li.nav-item
-        %a.nav-link{href: page_path('about')} About
-      - if user_signed_in?
-        %li.nav-item
-          %a.nav-link{href: edit_user_registration_path}= t('edit_account')
-        %li.nav-item
-          = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
-      - else
-        %li.nav-item
-          %a.nav-link{href: new_user_session_path}= t('sign_in')
-        %li.nav-item
-          %a.nav-link{href: new_user_registration_path}= t('sign_up')
+  .container-fluid
+    %a.navbar-brand{href: "/"}
+      %img{alt: "BSP logo", src: "#{image_path('bsp-logo.png')}"}
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item.active
+          = render NavItemComponent.new(text: 'Home', link: '/', id: '')
+        = render NavItemComponent.new(text: 'About', link: page_path('about'), id: '')
+        - if user_signed_in?
+          = render NavItemComponent.new(text:  t('edit_account'), link: edit_user_registration_path, id: '')
+          = render NavItemComponentToDelete.new(text: t('sign_out'), link: destroy_user_session_path)
+        - if user_signed_in? && current_user.admin?
+          = render NavItemComponent.new(text: t('admin'), link: admin_users_path, id: 'admin')
+        - if !user_signed_in?
+          = render NavItemComponent.new(text: t('sign_in'), link: new_user_session_path, id: '')
+          = render NavItemComponent.new(text:  t('sign_up'), link: new_user_registration_path, id: '')
 
-  - if user_signed_in?
-    %div.ml-auto.navbar-text
-      = t("signed_in_as")
-      = current_user.email
-
+    - if user_signed_in?
+      = render CurrentUserComponent.new(current_user: "#{t("signed_in_as")} #{current_user.email}")

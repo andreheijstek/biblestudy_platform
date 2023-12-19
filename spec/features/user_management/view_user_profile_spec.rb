@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-feature "Users can view their data" do
+feature "Users can view their data", js: true do
   let!(:user) { create(:user) }
 
   before do
     login_as(user)
     visit root_path
+    page.find("button.navbar-toggler").click
   end
 
   scenario "with valid credentials" do
