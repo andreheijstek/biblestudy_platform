@@ -373,7 +373,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    psych (5.1.1.1)
+    psych (5.1.2)
       stringio
     public_suffix (5.0.3)
     puma (6.4.0)
@@ -442,7 +442,7 @@ GEM
     rb-readline (0.5.5)
     rbs (3.3.0)
       abbrev
-    rdoc (6.6.0)
+    rdoc (6.6.3.1)
       psych (>= 4.0.0)
     reek (6.1.4)
       kwalify (~> 0.7.0)
@@ -583,7 +583,7 @@ GEM
     standard-performance (1.2.1)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.19.1)
-    stringio (3.0.9)
+    stringio (3.1.0)
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
     syntax_tree-haml (4.0.3)
