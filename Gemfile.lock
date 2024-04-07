@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    abbrev (0.1.2)
     actioncable (7.0.8.1)
       actionpack (= 7.0.8.1)
       activesupport (= 7.0.8.1)
@@ -409,11 +408,6 @@ GEM
     pg (1.5.6)
     popper_js (2.11.8)
     poro-rails (0.2.1)
-    prettier (4.0.4)
-      syntax_tree (>= 4.0.1)
-      syntax_tree-haml (>= 2.0.0)
-      syntax_tree-rbs (>= 0.2.0)
-    prettier_print (1.2.1)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -487,8 +481,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
-    rbs (3.4.4)
-      abbrev
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
@@ -641,16 +633,6 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.20.2)
     stringio (3.1.0)
-    syntax_tree (6.2.0)
-      prettier_print (>= 1.2.0)
-    syntax_tree-haml (4.0.3)
-      haml (>= 5.2)
-      prettier_print (>= 1.2.1)
-      syntax_tree (>= 6.0.0)
-    syntax_tree-rbs (1.0.0)
-      prettier_print
-      rbs
-      syntax_tree (>= 2.0.1)
     sys-uname (1.2.3)
       ffi (~> 1.1)
     temple (0.10.3)
@@ -758,7 +740,6 @@ DEPENDENCIES
   parslet
   pg
   poro-rails
-  prettier
   pry-byebug
   puma
   pundit
