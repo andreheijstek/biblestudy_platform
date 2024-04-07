@@ -53,9 +53,9 @@ PreCommit:
   RailsSchemaUpToDate:
     enabled: false
 
-  Prettier:
-    enabled: true
-    command: [ 'bundle', 'exec', 'rbprettier', '--write', '**/*.rb' ]
+#  Prettier:
+#    enabled: true
+#    command: [ 'bundle', 'exec', 'rbprettier', '--write', '**/*.rb' ]
 
 #  LolDba:
 #    lol_dba db:find_indexes

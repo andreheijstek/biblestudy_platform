@@ -38,6 +38,10 @@ class Studynote < ApplicationRecord
   delegate :username, to: :author, prefix: true
   delegate :email, to: :author, prefix: true
 
+  # def pericope=(raw_pericope)
+  #   Pericope.parse(raw_pericope)
+  # end
+
   acts_as_taggable
   acts_as_taggable_on :tags
 

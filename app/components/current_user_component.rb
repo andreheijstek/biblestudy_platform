@@ -3,7 +3,7 @@
 # Component to render the current user in the nav-bar
 class CurrentUserComponent < ViewComponent::Base
   def initialize(current_user:)
-    super
+    # super
     @current_user = current_user
   end
 

@@ -38,6 +38,8 @@ gem 'titleize'
 gem 'trix-rails', require: 'trix' # Rich text editor
 gem 'uglifier'
 gem 'view_component'
+# shows my viewcomponents at the /lookbook page
+gem 'lookbook'
 gem 'webdrivers'
 gem 'webpack'
 
@@ -62,6 +64,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "actioncable"
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -74,10 +77,12 @@ group :development do
   gem 'guard-migrate'
   gem 'guard-rspec', require: false
   gem 'i18n-tasks'
+  gem "listen"
+
   # meta_request enables the Rails Panel in the Chrome browser - very helpful to debug
   gem 'meta_request'
   gem 'overcommit'
-  gem 'prettier'
+  # gem 'prettier'
   gem 'rails_best_practices'
   gem 'rails-erd'
   gem 'reek'

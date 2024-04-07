@@ -45,6 +45,11 @@ class Pericope < ApplicationRecord
 
   attr_accessor :starting_bibleverse, :ending_bibleverse
 
+  # def self.parse(raw_pericope)
+  #    doorgeven aan de parser
+  #    validate_associated(pericope) toevoegen aan studynote
+  # end
+
   # Detects if the Pericope is a whole chapter, like Genesis 1
   # @return [Boolean]
   def whole_chapter?

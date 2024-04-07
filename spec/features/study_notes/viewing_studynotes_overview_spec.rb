@@ -73,7 +73,7 @@ describe "Users can view an overview of all studynotes", js: true do
     expect(page).to have_content("Jona (1)")
 
     open_accordion("Nieuwe Testament")
-    expect(page).to have_content("Handelingen")
+    expect(page).to have_content("Handelingen (2)")
   end
 
   scenario "sorted by chapter number" do
@@ -84,6 +84,8 @@ describe "Users can view an overview of all studynotes", js: true do
     books = sno.biblebooks
     jona = books[0]
 
+    # save_and_open_screenshot
+
     within(jona) do
       expect(page).not_to have_content("Handelingen eerst")
       expect(page).not_to have_content("Handelingen later")
@@ -91,12 +93,14 @@ describe "Users can view an overview of all studynotes", js: true do
     end
 
     open_accordion "Nieuwe Testament"
+    save_and_open_screenshot
     open_accordion "Handelingen"
 
     books = sno.biblebooks
     handelingen = books[0]
     sn = sno.studynotes
 
+    # save_and_open_screenshot
     expect(handelingen.text).to start_with("Handelingen")
 
     within(handelingen) do

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 # == Route Map
-#
-
 Rails.application.routes.draw do
   get "users/index"
 
@@ -22,4 +20,6 @@ Rails.application.routes.draw do
   resources :pericopes, except: %i[create update]
 
   get "profile", to: "users#show"
+
+  mount Lookbook::Engine, at: "/lookbook"
 end

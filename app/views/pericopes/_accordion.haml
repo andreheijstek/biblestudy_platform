@@ -55,9 +55,9 @@
             - book_name_variable = book_name.parameterize
             .accordion-item
               %h2.accordion-header{id: "old_#{book_name_variable}_header"}
-                %button.accordion-button.biblebook{"aria-controls" => "collapse_old_#{book_name_variable}", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_old_#{book_name}", "data-bs-toggle" => "collapse", :type => "button"}
+                %button.accordion-button.biblebook{"aria-controls" => "collapse_old_#{book_name_variable}", "aria-expanded" => aria_condition(index), "data-bs-target" => "#collapse_old_#{book_name_variable}", "data-bs-toggle" => "collapse", :type => "button"}
                   #{book_name} (#{study_count})
-              .accordion-collapse.collapse{id: "collapse_old_#{book_name_variable}", "aria-labelledby" => "old_#{book_name}_header", "data-bs-parent" => "#old_accordion", class: (index.zero? ? 'show' : nil)}
+              .accordion-collapse.collapse{id: "collapse_old_#{book_name_variable}", "aria-labelledby" => "old_#{book_name_variable}_header", "data-bs-parent" => "#old_accordion", class: (index.zero? ? 'show' : nil)}
                 .accordion-body
                   = render :partial => 'book_table', locals: { book: book, book_name: book_name }
 
